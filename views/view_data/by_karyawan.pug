@@ -1,0 +1,16 @@
+extends infographic
+block button
+    .btn_group
+        button#byKaryawan.button(value="/by_karyawan" disabled) By Karyawan
+        button#Chart.button(value="/chart") Chart
+        button#byDate.button(value="/by_date") By Date
+block info
+    .infoGraph
+    for entry in data
+        ul.container2
+            li NIK: #{entry.nik}
+            li Berapa kali telat: #{entry.jumlah_telat}
+            li Berapa lama telat per minggu: #{entry.menit_telat}
+            li Berapa kali lembur: #{entry.jumlah_lembur}
+            li Berapa lama lembur per minggu: #{entry.menit_lembur}
+            li Jam Kerja untuk minggu ini: #{entry.jam_kerja}

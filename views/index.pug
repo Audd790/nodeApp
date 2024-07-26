@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    h2 Form
+    form#form(action="/" method="post" enctype="application/x-www-form-urlencoded")
+      .form-group
+        label(for='email') Email
+        input#email(type='text' name='email')
+      .form-group
+        label(for='password') Password
+        input#password(type='password' name='password')
+      button(type='submit') Submit
+  script(src='/javascripts/indexScript.js')
