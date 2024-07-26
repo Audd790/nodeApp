@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded'
                 if(xhr.readyState === XMLHttpRequest.DONE){
                     if (xhr.status === 200) {
                             document.location.href = url
+                            unhide(xhr.response,list)
                     } else{
                         console.error('Error:', xhr.status)
                     }
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded'
             xhr.send();
         }
 
-        function unhide(res, list, absen){
+        function unhide(res, list){
             list = document.getElementsByName(res[0].tgl_absensi);
             for (let i = 0; i < list.length; i++) {
                 list[i].style.display = 'block';

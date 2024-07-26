@@ -4,10 +4,10 @@ var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 //membuat instansi database
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'auddly',
+  host: 'localhost',
+  user: 'auddii',
   password: 'auddii98', 
   database: 'absenrajawali'
 })
@@ -71,7 +71,7 @@ router.post('/by_Date', function(req, res, next){
 
 
 router.post('/by_Date/dates', upload.none(), function(req, res, next){
-    var sql = "select tgl_absensi, nik from kehadiran where tgl_absensi = ? order by tgl_absensi;"
+    var sql = "select tgl_absen, nik from kehadiran where tgl_absen = ? order by tgl_absen;"
     connection.query(sql, req.body.tanggal, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -79,7 +79,7 @@ router.post('/by_Date/dates', upload.none(), function(req, res, next){
         else{
         que_result = rows;
         }
-        
+        console.log(que_result)
        res.status(200).send(que_result)
     })
 });
@@ -116,7 +116,7 @@ router.post('/perDay', function(req, res, next){
     // sum(jam_kerja) as jam_kerja, 
     // sum(telat) as menit_telat, 
     // sum(lembur) as menit_lembur, 
-    // tgl_absensi 
+    // tgl_absen 
     // from kehadiran 
     // where telat > 0 
     // or lembur > 0 
