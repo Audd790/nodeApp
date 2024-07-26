@@ -83,7 +83,8 @@ router.post('/by_Date/dates', upload.none(), function(req, res, next){
        res.status(200).send(que_result)
     })
 });
-
+// 
+// select avg(sum(case when telat > 0 then 1 else 0 end)) as AVG from kehadiran where telat> 1;
 router.post('/perDay', function(req, res, next){
     var sql = "select nik,"+
     "sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,"+
