@@ -8,13 +8,13 @@ const upload = multer({ dest: 'uploads/' })
 const date = new Date();
 
 //membuat instansi database
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'auddly',
-  password: 'auddii98', 
-  database: 'absenrajawali'
-})
+// const mysql = require('mysql2')
+// const connection = mysql.createConnection({
+//   host: '127.0.0.1',
+//   user: 'auddly',
+//   password: 'auddii98', 
+//   database: 'absenrajawali'
+// })
 
 //terima data yang di-submit dari form
 router.post('/submit', upload.none(), function(req,res,next)  {

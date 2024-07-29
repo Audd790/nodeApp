@@ -4,13 +4,13 @@ var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 //membuat instansi database
-const mysql = require('mysql')
-const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'auddly',
-  password: 'auddii98', 
-  database: 'absenrajawali'
-})
+// const mysql = require('mysql2')
+// const connection = mysql.createConnection({
+//   host: '127.0.0.1',
+//   user: 'auddly',
+//   password: 'auddii98', 
+//   database: 'absenrajawali'
+// })
 
 var date = "";
 var que_result;

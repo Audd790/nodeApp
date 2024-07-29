@@ -4,13 +4,13 @@ var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 //membuat instansi database
-const mysql = require('mysql2')
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'auddii',
-  password: 'auddii98', 
-  database: 'absenrajawali'
-})
+// const mysql = require('mysql2')
+// const connection = mysql.createConnection({
+//   host: 'localhost',
+//   user: 'auddii',
+//   password: 'auddii98', 
+//   database: 'absenrajawali'
+// })
 
 var date = "";
 var que_result;
@@ -110,6 +110,10 @@ router.post('/perDay', function(req, res, next){
     //     res.render('absenKaryawan', {absenkaryawan: [], tanggal: date})
     // }
 });
+
+router.get('/chart', function(req, res, next) {
+    res.render('view_data/chart')
+})
 
     // select nik,
     // sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,
