@@ -16,6 +16,59 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Temporary view structure for view `jumlahharitelat`
+--
+
+DROP TABLE IF EXISTS `jumlahharitelat`;
+/*!50001 DROP VIEW IF EXISTS `jumlahharitelat`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `jumlahharitelat` AS SELECT 
+ 1 AS `jumlah_hari_telat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `jumlahmenittelat`
+--
+
+DROP TABLE IF EXISTS `jumlahmenittelat`;
+/*!50001 DROP VIEW IF EXISTS `jumlahmenittelat`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `jumlahmenittelat` AS SELECT 
+ 1 AS `nik`,
+ 1 AS `total_menit_telat`,
+ 1 AS `dalam_jam`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `jumlahtelat`
+--
+
+DROP TABLE IF EXISTS `jumlahtelat`;
+/*!50001 DROP VIEW IF EXISTS `jumlahtelat`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `jumlahtelat` AS SELECT 
+ 1 AS `nik`,
+ 1 AS `total_menit_telat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `jumlahtelatjuli`
+--
+
+DROP TABLE IF EXISTS `jumlahtelatjuli`;
+/*!50001 DROP VIEW IF EXISTS `jumlahtelatjuli`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `jumlahtelatjuli` AS SELECT 
+ 1 AS `nik`,
+ 1 AS `total_menit_telat`,
+ 1 AS `jumlah_hari_telat`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `karyawan`
 --
 
@@ -91,6 +144,78 @@ LOCK TABLES `role` WRITE;
 /*!40000 ALTER TABLE `role` DISABLE KEYS */;
 /*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `jumlahharitelat`
+--
+
+/*!50001 DROP VIEW IF EXISTS `jumlahharitelat`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `jumlahharitelat` AS select sum((case when (`kehadiran`.`telat` > 0) then 1 else 0 end)) AS `jumlah_hari_telat` from `kehadiran` where (year(`kehadiran`.`tgl_absen`) = 2024) group by `kehadiran`.`nik` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `jumlahmenittelat`
+--
+
+/*!50001 DROP VIEW IF EXISTS `jumlahmenittelat`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `jumlahmenittelat` AS select `kehadiran`.`nik` AS `nik`,sum(`kehadiran`.`telat`) AS `total_menit_telat`,(sum(`kehadiran`.`telat`) / 60) AS `dalam_jam` from `kehadiran` where (year(`kehadiran`.`tgl_absen`) = 2024) group by `kehadiran`.`nik` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `jumlahtelat`
+--
+
+/*!50001 DROP VIEW IF EXISTS `jumlahtelat`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `jumlahtelat` AS select `kehadiran`.`nik` AS `nik`,sum(`kehadiran`.`telat`) AS `total_menit_telat` from `kehadiran` where (year(`kehadiran`.`tgl_absen`) = 2024) group by `kehadiran`.`nik`,`kehadiran`.`tgl_absen` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `jumlahtelatjuli`
+--
+
+/*!50001 DROP VIEW IF EXISTS `jumlahtelatjuli`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`auddii`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `jumlahtelatjuli` AS select `kehadiran`.`nik` AS `nik`,sum(`kehadiran`.`telat`) AS `total_menit_telat`,sum((case when (`kehadiran`.`telat` > 0) then 1 else 0 end)) AS `jumlah_hari_telat` from `kehadiran` where (year(`kehadiran`.`tgl_absen`) = 2024) group by `kehadiran`.`nik` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -101,4 +226,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-26 16:33:47
+-- Dump completed on 2024-07-29 17:31:10

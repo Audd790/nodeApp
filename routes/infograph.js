@@ -112,16 +112,24 @@ router.post('/perDay', function(req, res, next){
 });
 
 router.get('/chart', function(req, res, next) {
-    var sql = 'create or replace view jumlahTelatJuli as '+
-    'select nik, sum(telat) as total_menit_telat, sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat '+
+    var sql = 'create or replace view jumlahTelat as '+
+    'select nik, tgl_absen, sum(telat) as total_menit_telat, sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat '+
     'from kehadiran '+
     'where year(tgl_absen) = 2024 '+
-    'group by nik; '
+    'group by nik, tgl_absen; '
+    connection.query(sql, (err,rows,fields)=>{
+        if (err) {
+            throw err;
+        }
+        else{
+        que_result = rows;
+        }
+    })
     res.render('view_data/chart')
 })
 
-router.post('/chart', function(req, res, next) {
-    var sql = 'select * from jumlahTelatJuli ;';
+router.post('/chart',upload.none(), function(req, res, next) {
+    var sql = 'select * from jumlahTelat; ';
     var que_result;
     connection.query(sql, (err,rows,fields)=>{
         if (err) {
@@ -130,9 +138,63 @@ router.post('/chart', function(req, res, next) {
         else{
         que_result = rows;
         }
-        res.send(que_result)
+        res.redirect('kehadiran/info/chart/7')
     })
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // select nik,
     // sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,
