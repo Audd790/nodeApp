@@ -16,6 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `divisi`
+--
+
+DROP TABLE IF EXISTS `divisi`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `divisi` (
+  `id` varchar(30) NOT NULL,
+  `namaDivisi` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `divisi`
+--
+
+LOCK TABLES `divisi` WRITE;
+/*!40000 ALTER TABLE `divisi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `divisi` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Temporary view structure for view `jumlahharitelat`
 --
 
@@ -226,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-29 17:31:10
+-- Dump completed on 2024-07-29 17:47:34
