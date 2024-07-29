@@ -22,7 +22,8 @@ const myChart = new Chart(ctx, {
                 7.8,
                 0.5
                 ],
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         },
         {
             label: 'Februari',
@@ -45,7 +46,8 @@ const myChart = new Chart(ctx, {
                 0
 
             ],
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         },
         {
             label: 'Maret',
@@ -69,7 +71,8 @@ const myChart = new Chart(ctx, {
 
             ],
 
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         },
         {
             label: 'April',
@@ -93,7 +96,8 @@ const myChart = new Chart(ctx, {
 
             ],
 
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         },
         {
             label: 'Mei',
@@ -119,7 +123,8 @@ const myChart = new Chart(ctx, {
             ],
             
             
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         },
         {
             label: 'Juni',
@@ -146,7 +151,8 @@ const myChart = new Chart(ctx, {
             ],
             
             
-            borderWidth: 1
+            borderWidth: 1,
+            fill: true
         }]
     },
     options: {
@@ -194,3 +200,9 @@ const myChart = new Chart(ctx, {
     //     }
     //   }]
 });
+window.addEventListener('beforeprint', () => {
+    myChart.resize(600, 600);
+  });
+  window.addEventListener('afterprint', () => {
+    myChart.resize();
+  });

@@ -34,8 +34,7 @@ document.addEventListener('DOMContentLoaded'
 
 
         document.getElementById('byDate').addEventListener('click', buttonOnclickEvent)
-        // document.getElementById('Chart').addEventListener('click', buttonOnclickEvent(e))
-        // document.getElementById('byDate').addEventListener('click', buttonOnclickEvent(e))
+        document.getElementById('Chart').addEventListener('click', buttonOnclickEvent)
         function buttonOnclickEvent(e){
             const list = document.querySelectorAll('.button')
             
@@ -46,8 +45,9 @@ document.addEventListener('DOMContentLoaded'
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === XMLHttpRequest.DONE){
                     if (xhr.status === 200) {
+                        console.log(url)
                             document.location.href = url
-                            unhide(xhr.response,list)
+                            // unhide(xhr.response,list)
                     } else{
                         console.error('Error:', xhr.status)
                     }
