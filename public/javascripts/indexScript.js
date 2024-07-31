@@ -7,13 +7,14 @@ document.addEventListener('DOMContentLoaded'
                 event.preventDefault();
                 const formData = new FormData(form)
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', 'http://localhost:3000/submit', true);
+                xhr.open('POST', 'http://localhost:5000/submit', true);
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE){
                         if (xhr.status === 200) {
                             const obj = JSON.parse(xhr.response);
-                            // let boolValue = (obj.result.toLowerCase() === "true");
-                            displayConfirmation(obj);
+                            // let boolValue = (obj.empty.toLowerCase() === "true");
+                            console.log(obj);
+                            displayConfirmation(obj.sql, obj.empty);
                         } else{
                             console.error('Error:', xhr.status)
                         }
@@ -22,18 +23,15 @@ document.addEventListener('DOMContentLoaded'
                 // window.location.href = 'http://localhost:3000';
                 xhr.send(formData);
         });
-        function displayConfirmation(res) {
-            console.log(res)
+        function displayConfirmation(sql, empty) {
             // var boolValue = (res.result === 'true');
-            if(!res.empty && res.sql !== undefined){
-                window.location.href = 'http://localhost:3000/kehadiran'
+            if(!empty && sql !== undefined){
+                window.location.href = 'http://localhost:5000/kehadiran/info'
             }
+            if(sql !== undefined){
+                console.log(sql)
+            }
+            alert('Form must be submitted correctly');
             
-            // if (boolValue) {
-            //     alert('Forms must not be empty!');
-            // } else {
-            //     alert('Form submitted successfully!');
-            //     form.reset();
-            // }
         }
     });

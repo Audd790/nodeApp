@@ -60,7 +60,8 @@ document.addEventListener('DOMContentLoaded'
         }
 
         function unhide(res, list){
-            list = document.getElementsByName(res[0].tgl_absensi);
+            list = document.getElementsByName(res[0].tgl_absen);
+            console.log(list)
             for (let i = 0; i < list.length; i++) {
                 list[i].style.display = 'block';
                 list[i].classList = 'show container2';

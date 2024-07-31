@@ -53,9 +53,8 @@ router.post('/submit', upload.none(), function(req,res,next)  {
       que_result = rows[0];
     }
 
-    console.log(que_result)
-
-    var data = {Empty: validationResult, sql: que_result}
+    console.log(rows)
+    var data = {empty: validationResult, sql: que_result}
 
     if(que_result !== undefined) {
       req.session.user = que_result.nik
@@ -68,7 +67,7 @@ router.post('/submit', upload.none(), function(req,res,next)  {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(!req.session.user) res.render('index');
-  else res.redirect('http://localhost:3000/kehadiran')
+  else res.redirect('http://localhost:5000/kehadiran/info')
 });
 
 router.get('/message', function(req, res, next) {

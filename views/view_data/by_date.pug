@@ -6,9 +6,9 @@ block button
         button#byDate.button(value="/by_date" disabled) By Date
 block info
   .form-group#byDate
-    input#tanggal(type='date' name='tanggal' value= tanggal max= tanggal)
+    input#tanggal(type='date' name='tanggal' value=tanggal max= tanggal)
   for entry in absenkaryawan
-    ul(id= entry.nik name=entry.tgl_absensi style='display: none' class="hide container2")
+    ul(id= entry.nik name=entry.tgl_absen style='display: none' class="hide container2")
       for detail in entry 
         if(detail !== '') 
           li= detail
