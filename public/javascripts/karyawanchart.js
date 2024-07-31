@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function(){
 const ctx = document.getElementById('myChart').getContext('2d');
 var myChart
+var count = 0
 var tanggal = document.getElementById('tanggal2')
 var divisi = document.getElementById('mySelect');
 if(tanggal!==null){
@@ -16,7 +17,7 @@ function createBarChart(){
     var tanggal_absen = tanggal.value
     const xhr = new XMLHttpRequest
     var data = new FormData()
-    var kayrawan ;
+    var karyawan ;
     // console.log(divisi.value)
     data.append("tanggal", tanggal_absen)
     data.append('divisi', divisi.value)
@@ -25,22 +26,23 @@ function createBarChart(){
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if (xhr.status === 200) {
-                kayrawan = JSON.parse(xhr.response)
-                
+                karyawan = JSON.parse(xhr.response)
+                // console.log(karyawan)
                 myChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: kayrawan.map(labels=>{
+                        labels: karyawan.map(labels=>{
                             return labels.nama
                         }),
-                        datasets: [
-                            {
-                                label: kayrawan[0].idDivisi,
-                                data: kayrawan.map(labels=>{
-                                    return labels.menitTelat
+                        datasets: karyawan.slice(16).map(labels=>{
+                                    let entry={
+                                        "label": labels.nama,
+                                        "data": labels.menitTelat
+                                    }
+                                    console.log(labels.menitTelat)
+                                    return entry
                                 })
-                            }]
-                        // kayrawan.map(entry => {
+                        // karyawan.map(entry => {
                         //     let properties = {
                         //       "capacity": car.capacity,
                         //       "size": "large"
@@ -92,7 +94,7 @@ function createBarChart(){
     };
     xhr.send(data);
     // window.location.href = 'http://localhost:3000';
-    // console.log(kayrawan)
+    // console.log(karyawan)
     
     window.addEventListener('beforeprint', () => {
         myChart.resize(600, 600);

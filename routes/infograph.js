@@ -136,10 +136,16 @@ router.get('/chart', function(req, res, next) {
 
 router.post('/chart',upload.none(), function(req, res, next) {
     // var date = new Date(req.body.tanggal)
-    var sql = 'select nama, idDivisi, sum(jumlahMenitTerlambat) as menitTelat, sum(JumlahHariTerlambat) as jamTelat '+
+    // var sql = 'select nama, sum(jumlahMenitTerlambat) as menitTelat, sum(JumlahHariTerlambat) as jamTelat '+
+    // 'from kehadiranTotal '+
+    // 'where idDivisi = "'+ req.body.divisi +'" && month(month) = '+ req.body.tanggal + ' '+
+    // 'group by nama ';
+    var sql = 'select namaDivisi as nama,0 as menitTelat,0 as jamTelat '+
+    'from divisi '+
+    'union '+
+    'select monthname(month), jumlahMenitTerlambat, JumlahHariTerlambat '+
     'from kehadiranTotal '+
-    'where idDivisi = "'+ req.body.divisi +'" && month(month) = '+ req.body.tanggal + ' '+
-    'group by nama ';
+    "where idDivisi = '"+ req.body.divisi +"' "
     var que_result;
     connection.query(sql, (err,rows,fields)=>{
         if (err) {
@@ -148,7 +154,7 @@ router.post('/chart',upload.none(), function(req, res, next) {
         else{
         que_result = rows
         }
-        // console.log(fields)
+        // console.log(que_result)
         res.send(que_result)
     })
     // console.log('THIS')
