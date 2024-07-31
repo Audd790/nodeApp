@@ -135,17 +135,23 @@ router.get('/chart', function(req, res, next) {
 })
 
 router.post('/chart',upload.none(), function(req, res, next) {
-    var sql = 'select * from jumlahTelat; ';
+    // var date = new Date(req.body.tanggal)
+    var sql = 'select nama, idDivisi, sum(jumlahMenitTerlambat) as menitTelat, sum(JumlahHariTerlambat) as jamTelat '+
+    'from kehadiranTotal '+
+    'where idDivisi = "'+ req.body.divisi +'" && month(month) = '+ req.body.tanggal + ' '+
+    'group by nama ';
     var que_result;
     connection.query(sql, (err,rows,fields)=>{
         if (err) {
             throw err;
         }
         else{
-        que_result = rows;
+        que_result = rows
         }
-        res.redirect('kehadiran/info/chart/7')
+        // console.log(fields)
+        res.send(que_result)
     })
+    // console.log('THIS')
 })
 
 
