@@ -43,7 +43,8 @@ router.get('/by_karyawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            res.render('view_data/by_karyawan', {data: que_result})
+            // res.render('view_data/by_karyawan', {data: que_result})
+            res.render('view_data/Karyawanchart')
     })
 });
 
@@ -130,7 +131,7 @@ router.get('/chart', function(req, res, next) {
         que_result = rows;
         }
     })
-    res.render('view_data/chart')
+    res.render('view_data/Divisichart')
 })
 
 router.post('/chart',upload.none(), function(req, res, next) {

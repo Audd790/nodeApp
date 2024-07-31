@@ -1,0 +1,17 @@
+extends infographic
+block button
+    .btn_group
+        button#byKaryawan.button(value="/by_karyawan") By Karyawan
+        button#Chart.button(value="/chart" disabled) Chart
+        button#byDate.button(value="/by_date" ) By Date
+block info
+    div(style="padding: 0.5em")
+        h2  Average jumlah telat per divisi per bulan
+        //- select#mySelect
+        //-     option(value="1") All
+        //-     option(value="7.428571429,7.285714286,7.714285714,7.571428571,7.142857143,7.875") ERP
+        //-     option(value="3") Estimator
+    div(style="height:85vh; width:190vw")
+        canvas#myChart
+block append script
+    script(src="/javascripts/divisichartjs.js") 
