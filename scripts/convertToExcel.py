@@ -25,7 +25,7 @@ for row_index, row_data in enumerate(data, start=1):
         ws.cell(row=row_index, column=col_index, value=cell_data)
 
 try:
-    wb.save('output.xlsx')
+    wb.save('C:/Users/Operation/Desktop/Auddly/nodeApp/files/output.xlsx')
 except:
     print('######################################################')
     print('The file is open, please close it before trying again!')
