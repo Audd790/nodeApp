@@ -75,7 +75,7 @@ router.get('/', function(req, res, next) {
 router.get('/test_python', (req,res,next)=>{
   let options = {
     mode: 'text',
-    scriptPath: 'C:/Users/Operation/Desktop/Auddly/nodeApp/scripts/'
+    scriptPath: path.join(__dirname, '..', 'scripts')
   };
   
   PythonShell.run('convertToExcel.py', options, function (err, results) {
@@ -85,9 +85,13 @@ router.get('/test_python', (req,res,next)=>{
     console.log('results: %j', results);
   });
 
+  res.send('yes')
+})
+
+router.get('/downloadExcel', function(req, res){
   const file = path.join(__dirname, '..', 'files', 'output.xlsx');
   res.download(file); // Set disposition and send it.
-})
+});
 
 router.get('/favicon.ico', (req, res) => res.status(204));
 
