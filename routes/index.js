@@ -77,7 +77,7 @@ router.get('/test_python', (req,res,next)=>{
     scriptPath: 'C:/Users/Operation/Desktop/Auddly/nodeApp/scripts/'
   };
   
-  PythonShell.run('convertToExcel.py3', options, function (err, results) {
+  PythonShell.run('convertToExcel.py', options, function (err, results) {
     if (err) 
       throw err;
     // Results is an array consisting of messages collected during execution
