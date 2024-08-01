@@ -85,13 +85,9 @@ router.get('/test_python', (req,res,next)=>{
     console.log('results: %j', results);
   });
 
-  res.send('yes')
-})
-
-router.get('/downloadExel', function(req, res){
   const file = path.join(__dirname, '..', 'files', 'output.xlsx');
   res.download(file); // Set disposition and send it.
-});
+})
 
 router.get('/favicon.ico', (req, res) => res.status(204));
 
