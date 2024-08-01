@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const multer  = require('multer')
+const PythonShell = require('python-shell').PythonShell;
 
 const upload = multer({ dest: 'uploads/' })
 
@@ -70,9 +71,21 @@ router.get('/', function(req, res, next) {
   else res.redirect('http://localhost:5000/kehadiran/info')
 });
 
-router.get('/message', function(req, res, next) {
-  res.send('Hello from Express!');
-});
+router.get('/test_python', (req,res,next)=>{
+  let options = {
+    mode: 'text',
+    scriptPath: 'C:/Users/Operation/Desktop/Auddly/nodeApp/scripts/'
+  };
+  
+  PythonShell.run('convertToExcel.py3', options, function (err, results) {
+    if (err) 
+      throw err;
+    // Results is an array consisting of messages collected during execution
+    console.log('results: %j', results);
+  });
+
+  res.send('yes')
+})
 
 router.get('/favicon.ico', (req, res) => res.status(204));
 

@@ -8,7 +8,6 @@ var session = require('express-session')
 const nocache = require("nocache");
 
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var listRouter = require('./routes/list')
@@ -34,6 +33,7 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kehadiran/list', listRouter);
@@ -43,6 +43,7 @@ app.use('/kehadiran/info', iGraphRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
 
 // error handler
 app.use(function(err, req, res, next) {
