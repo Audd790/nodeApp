@@ -26,16 +26,22 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/by_karyawan', function(req, res, next){
-    var sql = "select nik,"+
-    "sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,"+
-    "sum(telat) as menit_telat, "+
-    "sum(case when lembur > 0 then 1 else 0 end) as jumlah_lembur,"+
-    "sum(lembur) as menit_lembur, "+
-    "sum(jam_kerja) as jam_kerja "+
-    "from kehadiran "+
-    "where telat > 0 "+
-    "or lembur > 0 "+
-    "group by nik;"
+    // var sql = "select nama from karyawan order by nama"
+    // connection.query(sql, (err, rows, fields)=>{
+    //     if (err) {
+    //         throw err
+    //     }
+    //     else{
+    //         que_result = rows;
+    //     }
+    //         // console.log(que_result)
+    //         res.render('view_data/Karyawanchart')
+    // })
+    res.render('view_data/Karyawanchart')
+});
+
+router.post('/by_karyawan', function(req, res, next){
+    var sql = "select nama from karyawan order by nama"
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -43,8 +49,8 @@ router.get('/by_karyawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            // res.render('view_data/by_karyawan', {data: que_result})
-            res.render('view_data/Karyawanchart')
+            // console.log(que_result)
+            res.send({sql: que_result})
     })
 });
 
@@ -118,19 +124,19 @@ router.post('/perDay', function(req, res, next){
 });
 
 router.get('/chart', function(req, res, next) {
-    var sql = 'create or replace view jumlahTelat as '+
-    'select nik, tgl_absen, sum(telat) as total_menit_telat, sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat '+
-    'from kehadiran '+
-    'where year(tgl_absen) = 2024 '+
-    'group by nik, tgl_absen; '
-    connection.query(sql, (err,rows,fields)=>{
-        if (err) {
-            throw err;
-        }
-        else{
-        que_result = rows;
-        }
-    })
+    // var sql = 'create or replace view jumlahTelat as '+
+    // 'select nik, tgl_absen, sum(telat) as total_menit_telat, sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat '+
+    // 'from kehadiran '+
+    // 'where year(tgl_absen) = 2024 '+
+    // 'group by nik, tgl_absen; '
+    // connection.query(sql, (err,rows,fields)=>{
+    //     if (err) {
+    //         throw err;
+    //     }
+    //     else{
+    //     que_result = rows;
+    //     }
+    // })
     res.render('view_data/Divisichart')
 })
 
@@ -140,12 +146,9 @@ router.post('/chart',upload.none(), function(req, res, next) {
     // 'from kehadiranTotal '+
     // 'where idDivisi = "'+ req.body.divisi +'" && month(month) = '+ req.body.tanggal + ' '+
     // 'group by nama ';
-    var sql = 'select namaDivisi as nama,0 as menitTelat,0 as jamTelat '+
-    'from divisi '+
-    'union '+
-    'select monthname(month), jumlahMenitTerlambat, JumlahHariTerlambat '+
+    var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
     'from kehadiranTotal '+
-    "where idDivisi = '"+ req.body.divisi +"' "
+    'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
     var que_result;
     connection.query(sql, (err,rows,fields)=>{
         if (err) {
@@ -154,10 +157,8 @@ router.post('/chart',upload.none(), function(req, res, next) {
         else{
         que_result = rows
         }
-        // console.log(que_result)
         res.send(que_result)
     })
-    // console.log('THIS')
 })
 
 
