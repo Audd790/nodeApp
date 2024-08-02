@@ -164,7 +164,7 @@ router.post('/chart',upload.none(), function(req, res, next) {
 })
 
 router.get('/formAbsen', (req,res)=>{
-    res.render('formAbsen')
+    res.render('view_data/formAbsen')
 })
 
 router.post('/submitformAbsen', upload.none(),(req,res)=>{
