@@ -38,6 +38,7 @@ function submitFormAbsen(event){
             if (xhr.status === 200) {
                 var result = JSON.parse(xhr.response)
                 onSuccess(result)
+                form.reset()
             } else{
                 console.error('Error:', xhr.status)
             }
