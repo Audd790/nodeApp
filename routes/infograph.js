@@ -5,6 +5,8 @@ const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 //membuat instansi database
 const mysql = require('mysql2')
+const PythonShell = require('python-shell').PythonShell;
+var path = require('path');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'auddii',
@@ -161,69 +163,37 @@ router.post('/chart',upload.none(), function(req, res, next) {
     })
 })
 
+router.get('/formAbsen', (req,res)=>{
+    res.render('formAbsen')
+})
 
+router.post('/submitformAbsen', upload.none(),(req,res)=>{
+    var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi) values(?,?,?,?)'
+    const izin = req.body
+    var values = Object.values(req.body)
+    connection.query(sql,values,(err,rows)=>{
+        if (err) {
+            throw err;
+        }
+        else{
+            que_result = rows
+        }
+        console.log(que_result)
+        res.send({result: 'Success'})
+    })
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // select nik,
-    // sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,
-    // sum(case when lembur > 0 then 1 else 0 end) as jumlah_lembur,
-    // sum(jam_kerja) as jam_kerja, 
-    // sum(telat) as menit_telat, 
-    // sum(lembur) as menit_lembur, 
-    // tgl_absen 
-    // from kehadiran 
-    // where telat > 0 
-    // or lembur > 0 
-    // group by nik;
+router.get('/nikKaryawan', function(req, res, next){
+    var sql = "select nik from karyawan order by nik"
+    connection.query(sql, (err, rows, fields)=>{
+        if (err) {
+            throw err
+        }
+        else{
+            que_result = rows;
+        }
+            // console.log(que_result)
+            res.send({sql: que_result})
+    })
+});
 module.exports = router;

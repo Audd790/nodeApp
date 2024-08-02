@@ -6,7 +6,7 @@ from openpyxl import load_workbook
 connection = pymysql.connect(host='localhost',
                              user='root',
                              password='auddii98',
-                             database='python_test')
+                             database='absenrajawali')
 
 # Create a new Excel workbook
 wb = Workbook()
@@ -14,7 +14,7 @@ wb = Workbook()
 ws = wb.active
 
 # Execute SQL query and fetch data
-query = "SELECT * FROM python_connector_tb"
+query = "SELECT * FROM izinKaryawan"
 cursor = connection.cursor()
 cursor.execute(query)
 data = cursor.fetchall()
