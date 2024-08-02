@@ -1,0 +1,179 @@
+create table karyawan(
+ nik varchar(30),
+ nama varchar(30),
+ pass varchar(30),
+ departemen varchar(30),
+ primary key (nik));
+
+(1, 'admin', 'pass', 'admin'),
+(1111001, 'sujilan', 'pass', 'security')
+
+insert into karyawan(nik, nama, departemen)
+values (1112002, 'nartin rasboenga', 'staff'),
+(1113003, 'WINA DAMAYANI', 'STAFF'),
+(1113004, 'SULAIN', 'STAFF'),
+(1113006, 'RONALD YANSEN KOMANSILAN','STAFF'),
+(1114007, 'INDAH LESTARI','STAFF'),
+(1114008,'PARTO','SECURITY'),
+(1114009, 'FEBRIANSYAH','STAFF'),
+(1114061, 'PUTRI RISTI INDRIYANI','STAFF'),
+(1115010, 'YESSE PUTRI DEBITHA','STAFF'),
+(1116013, 'DEDE JUBAEDAH','STAFF');
+
+create table role(
+ id int,
+ role varchar(30),
+ primary key (id));
+
+create table kehadiran(
+ nik varchar(30),
+ tgl_absen date,
+ hadir int,
+ telat int,
+ lembur int,
+ jam_kerja int,
+ primary key (nik,tgl_absen));
+
+create table divisi(
+ id varchar(30),
+ namaDivisi varchar(30),
+ primary key (id));
+
+create view jumlah_telat as
+select nik, 
+count(telat) as jumlah_telat
+from kehadiran
+where telat>0
+group by nik;
+
+
+UPDATE kehadiran
+   SET telat= CASE config_name 
+                      WHEN 'name1' THEN 'value' 
+                      WHEN 'name2' THEN 'value2' 
+                      ELSE config_value
+                      END
+ WHERE config_name IN('name1', 'name2');
+
+//make view
+create or replace view jumlahMenitTelat as
+select nik, sum(telat) as total_menit_telat, sum(telat)/60 as dalam_jam
+from kehadiran
+where year(tgl_absen) = 2024
+group by nik;
+
+create or replace view jumlahHariTelat as
+select sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat
+from kehadiran
+where year(tgl_absen) = 2024
+group by nik;
+
+select distinct jumlahHariTelat.nik, jumlahHariTelat.jumlah_hari_telat
+from jumlahHariTelat
+INNER JOIN kehadiran ON jumlahHariTelat.nik=kehadiran.nik;
+
+insert into divisi(id, namaDivisi)
+values
+('D01', 'Admin Sales & Engineer'),
+('D02', 'ERP'),
+('D03','Estimator'),
+('D04','Finance & Accounting'),
+('D05','GTI'),
+('D06', 'Logistik'),
+('D07','MEP'),
+('D08','Operation'),
+('D09', 'PCS'),
+('D10', 'PPJM'),
+('D11', 'Purchasing'),
+('D12', 'RPE'),
+('D13','Sales'),
+('D14','Service'),
+('D15','Team Bali'),
+('D16', 'Teknisi TC');
+
+
+create table kehadiranTotal(
+   nama varchar(30),
+   idDivisi varchar(30),
+   jumlahMenitTerlambat int,
+   jumlahJamTerlambat int,
+   JumlahHariTerlambat int,
+   month date
+);
+
+LOAD DATA LOCAL INFILE 'C:/Users/Operation/Desktop/Auddly/database/data telat/Telat.csv' 
+INTO TABLE kehadiranTotal
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS 
+
+(nama, idDivisi, jumlahMenitTerlambat, jumlahJamTerlambat, JumlahHariTerlambat, month)
+
+UPDATE kehadiran a
+JOIN tmp b ON trim(lower(a.nama)) = trim(lower(b.nama) )
+SET a.telat = b.jumlahMenitTerlambat;
+
+update karyawan set nama = 'DON SEBASTIAN IGNATIUS SIAGIAN' where nik ='1123164';
+
+INSERT INTO kehadiran (telat)
+SELECT jumlahMenitTerlambat FROM tmp WHERE nama IN (SELECT nama FROM table);
+
+UPDATE kehadiran a
+JOIN karyawan b ON b.nik = a.nik
+JOIN tmp c on trim(lower(c.nama)) = trim(lower(b.nama))
+set a.telat= c.jumlahMenitTerlambat
+where month(tgl_absen) = 6;
+
+
+select a.nama, b.idDivisi
+from kehadirantotaljan as a
+left outer JOIN kehadirantotalfeb as b on b.nama = a.nama
+union
+select a.nama, b.idDivisi
+from kehadirantotaljan as a
+right outer JOIN kehadirantotalfeb as b on b.nama = a.nama
+
+set global local_infile = 0
+
+mysql --local-infile = 0 -u root -p
+
+mysqldump -u root -p absenrajawali> absenrajawaliDB.sql
+
+
+select count(id),0,0
+from divisi
+union
+
+select namaDivisi as nama,0 as menitTelat,0 as jamTelat
+from divisi
+union
+select monthname(month),jumlahMenitTerlambat , JumlahHariTerlambat 
+from kehadiranTotal
+where idDivisi = 'D02'
+order by month
+
+select monthname(month), sum(jumlahMenitTerlambat) as menitTelat, sum(JumlahHariTerlambat) as jamTelat
+from kehadiranTotal
+where idDivisi = 'D01'
+group by month;
+
+select *
+from kehadiranTotal
+where idDivisi = 'D01'
+group by month
+
+create or replace view telat_per_bulan_per_karyawan as
+select nik, monthname(tgl_absen) as bulan, count(telat) as telat_per_bulan 
+from kehadiran 
+where telat>0 
+group by nik,bulan;
+
+create or replace view telat_per_bulan_per_divisi as
+select b.divisi, monthname(a.tgl_absen) as bulan, count(a.telat) as telat_per_bulan 
+from kehadiran a
+join karyawan b 
+on b.nik = a.nik
+where a.telat>0 
+group by b.divisi, bulan
+order by b.divisi;
