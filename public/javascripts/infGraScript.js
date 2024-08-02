@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded'
 
 
         document.getElementById('byDate').addEventListener('click', buttonOnclickEvent)
-        document.getElementById('Chart').addEventListener('click', buttonOnclickEvent)
+        // document.getElementById('Chart').addEventListener('click', buttonOnclickEvent)
         document.getElementById('formAbsen').addEventListener('click', buttonOnclickEvent)
         function buttonOnclickEvent(e){
             const list = document.querySelectorAll('.button')
