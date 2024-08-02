@@ -1,23 +1,32 @@
 document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('form')
     form.addEventListener('submit', submitFormAbsen)
-    const xhr = new XMLHttpRequest
-    const data = new FormData(form);
-    xhr.open('GET', 'nikKaryawan',true)
-    xhr.onreadystatechange = function () {
-        if(xhr.readyState === XMLHttpRequest.DONE){
-            if (xhr.status === 200) {
-                var listNama = JSON.parse(xhr.response)
-                autocomplete(document.getElementById('nik'),listNama.sql.map(labels=>{
-                    return labels.nik
-                }))
-            } else{
-                console.error('Error:', xhr.status)
-            }
-        }
-    };
-    xhr.send()
+    getListNik()
+
+    const downloadBtn = document.getElementById('buttonDownload')
+    downloadBtn.addEventListener('click',(e)=>{
+      window.location.href = '/downloadExcel'
+    })
 })
+
+function getListNik(){
+  const xhr = new XMLHttpRequest
+  const data = new FormData(form);
+  xhr.open('GET', 'nikKaryawan',true)
+  xhr.onreadystatechange = function () {
+      if(xhr.readyState === XMLHttpRequest.DONE){
+          if (xhr.status === 200) {
+              var listNama = JSON.parse(xhr.response)
+              autocomplete(document.getElementById('nik'),listNama.sql.map(labels=>{
+                  return labels.nik
+              }))
+          } else{
+              console.error('Error:', xhr.status)
+          }
+      }
+  };
+  xhr.send()
+}
 
 function submitFormAbsen(event){
     event.preventDefault();

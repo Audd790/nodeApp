@@ -1,4 +1,10 @@
 extends infographic
+block button
+    .btn_group
+        button#byKaryawan.button(value="/by_karyawan") By Karyawan
+        button#Chart.button(value="/chart" ) Chart
+        button#formAbsen.button(value="/formAbsen" disabled) Form Izin
+        button#byDate.button(value="/by_date" ) By Date
 block info
     .block
         .container1
@@ -17,6 +23,7 @@ block info
                     label(for="durasi") Berapa lama izin 
                     input#durasi(type="number" name="durasi")
                 button#button(type='submit') Submit
+    button#buttonDownload Download
 block append script 
     script(src="/javascripts/formAbsen.js") 
 

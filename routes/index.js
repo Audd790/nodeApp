@@ -91,6 +91,7 @@ router.get('/test_python', (req,res,next)=>{
 router.get('/downloadExcel', function(req, res){
   const file = path.join(__dirname, '..', 'files', 'output.xlsx');
   res.download(file); // Set disposition and send it.
+  // res.redirect('/kehadiran/info/formAbsen')
 });
 
 router.get('/favicon.ico', (req, res) => res.status(204));

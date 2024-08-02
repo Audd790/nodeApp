@@ -167,7 +167,7 @@ router.get('/formAbsen', (req,res)=>{
     res.render('view_data/formAbsen')
 })
 
-router.post('/submitformAbsen', upload.none(),(req,res)=>{
+router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
     var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi) values(?,?,?,?)'
     const izin = req.body
     var values = Object.values(req.body)
@@ -178,9 +178,18 @@ router.post('/submitformAbsen', upload.none(),(req,res)=>{
         else{
             que_result = rows
         }
-        console.log(que_result)
-        res.send({result: 'Success'})
+        // console.log(que_result)
     })
+    next()
+}, (req,res)=>{
+    let options = {
+        mode: 'text',
+        scriptPath: path.join(__dirname, '..', 'scripts')
+      };
+    PythonShell.run('convertToExcel.py', options).then(result=>{
+        // Results is an array consisting of messages collected during execution
+        res.send({result: 'Success'})
+    });
 })
 
 router.get('/nikKaryawan', function(req, res, next){
