@@ -164,16 +164,21 @@ where idDivisi = 'D01'
 group by month
 
 create or replace view telat_per_bulan_per_karyawan as
-select nik, monthname(tgl_absen) as bulan, count(telat) as telat_per_bulan 
+select nik, monthname(tgl_absen) as bulan, year(tgl_absen) as tahun, 
+count(telat) as telat_per_bulan, sum(telat) total_menit_per_bulan, 
+sum(telat)/60 as total_jam_per_bulan
 from kehadiran 
 where telat>0 
-group by nik,bulan;
+group by nik,bulan,tahun
+order by nik;
 
 create or replace view telat_per_bulan_per_divisi as
-select b.divisi, monthname(a.tgl_absen) as bulan, count(a.telat) as telat_per_bulan 
+select b.divisi, monthname(a.tgl_absen) as bulan, year(a.tgl_absen) as tahun, 
+count(a.telat) as telat_per_bulan, sum(a.telat)/count(b.divisi) total_menit_per_bulan, 
+(sum(a.telat)/count(b.divisi))/60 as total_jam_per_bulan
 from kehadiran a
 join karyawan b 
 on b.nik = a.nik
 where a.telat>0 
-group by b.divisi, bulan
+group by b.divisi, bulan, tahun
 order by b.divisi;
