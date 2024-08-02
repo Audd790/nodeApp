@@ -168,9 +168,11 @@ router.get('/formAbsen', (req,res)=>{
 })
 
 router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
-    var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi) values(?,?,?,?)'
+    var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi,durasi_dalam_bulan) values(?,?,?,?,?)'
     const izin = req.body
+    var dalamBulan = req.body.durasi/30;
     var values = Object.values(req.body)
+    values.push(dalamBulan.toString())
     connection.query(sql,values,(err,rows)=>{
         if (err) {
             throw err;
