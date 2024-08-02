@@ -174,8 +174,8 @@ order by nik;
 
 create or replace view telat_per_bulan_per_divisi as
 select b.divisi, monthname(a.tgl_absen) as bulan, year(a.tgl_absen) as tahun, 
-count(a.telat) as telat_per_bulan, sum(a.telat)/count(b.divisi) total_menit_per_bulan, 
-(sum(a.telat)/count(b.divisi))/60 as total_jam_per_bulan
+count(a.telat) as telat_per_bulan, round(sum(a.telat)/count(b.divisi),2) total_menit_per_bulan, 
+round((sum(a.telat)/count(b.divisi))/60,2) as total_jam_per_bulan
 from kehadiran a
 join karyawan b 
 on b.nik = a.nik
