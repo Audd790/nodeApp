@@ -3,6 +3,9 @@ var router = express.Router();
 var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
+const fs = require('node:fs')
+// const script_path = path.join(__dirname, '..', 'scripts')
+// const filePath = path.join(__dirname, '..', 'files')
 //membuat instansi database
 const mysql = require('mysql2')
 const PythonShell = require('python-shell').PythonShell;
@@ -23,7 +26,6 @@ var arr = [];
 // })
 
 router.get('/', function(req, res, next){
-    
     res.render('view_data/infographic')
 });
 
@@ -164,6 +166,19 @@ router.post('/chart',upload.none(), function(req, res, next) {
 })
 
 router.get('/formAbsen', (req,res)=>{
+    fs.open(path.join(__dirname, '..', 'files','output.xlsx'),'r', (err,fd)=>{
+        if(err){
+            let options = {
+                mode: 'text',
+                scriptPath: path.join(__dirname, '..', 'scripts')
+              };
+            PythonShell.run('convertToExcel.py', options).then(result=>{
+                // Results is an array consisting of messages collected during execution
+            });
+        } else{
+            console.log("Exists")
+        }
+    })
     res.render('view_data/formAbsen')
 })
 

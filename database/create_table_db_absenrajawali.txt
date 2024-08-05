@@ -182,3 +182,6 @@ on b.nik = a.nik
 where a.telat>0 
 group by b.divisi, bulan, tahun
 order by b.divisi;
+
+alter table izinkaryawan
+add column myTimestamp timestamp default current_timestamp
