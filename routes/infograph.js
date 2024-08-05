@@ -21,9 +21,10 @@ var date = "";
 var que_result;
 var arr = [];
 
-// router.all('/', function(req, res, next){
-//     if(!req.session.user) res.redirect;
-// })
+router.all('/', function(req, res, next){
+    if(!req.session.user) res.redirect('/')
+    else next();
+})
 
 router.get('/', function(req, res, next){
     res.render('view_data/infographic')

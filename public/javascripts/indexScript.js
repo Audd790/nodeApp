@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded'
                             const obj = JSON.parse(xhr.response);
                             // let boolValue = (obj.empty.toLowerCase() === "true");
                             console.log(obj);
-                            displayConfirmation(obj.sql, obj.empty);
+                            displayConfirmation(obj.sql, obj.empty, obj.resultMessage);
                         } else{
                             console.error('Error:', xhr.status)
                         }
@@ -23,15 +23,11 @@ document.addEventListener('DOMContentLoaded'
                 // window.location.href = 'http://localhost:3000';
                 xhr.send(formData);
         });
-        function displayConfirmation(sql, empty) {
+        function displayConfirmation(sql, empty, message) {
             // var boolValue = (res.result === 'true');
+            alert(message);
             if(!empty && sql !== undefined){
-                window.location.href = 'http://localhost:5000/kehadiran/info'
+                window.location.replace('/kehadiran/info')
             }
-            if(sql !== undefined){
-                console.log(sql)
-            }
-            alert('Form must be submitted correctly');
-            
         }
     });

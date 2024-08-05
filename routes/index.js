@@ -18,12 +18,18 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  if(!req.session.user) res.render('index');
+  else res.redirect('http://localhost:5000/kehadiran/info')
+});
+
 //terima data yang di-submit dari form
 router.post('/submit', upload.none(), function(req,res,next)  {
 
   //menaruh req.body kedalam satu variabel untuk memudahkan pembacaan
   var karyawan = req.body;
-  console.log(karyawan)
+  // console.log(karyawan)
   //Memastikan setiap field sudah diisi
   const isObjectEmpty = (objectName) => {
     for (let prop in objectName) {
@@ -34,20 +40,17 @@ router.post('/submit', upload.none(), function(req,res,next)  {
     return false;
   };
 
-  var validationResult = isObjectEmpty(karyawan);
-
   //queri SQL yang akan digunakan
-  var sql = 'SELECT * FROM karyawan WHERE nik = ? AND pass = ?;'
+  var sql = 'SELECT nik FROM karyawan WHERE nik = ? AND pass = ?;'
   // var sql = 'SELECT 1+1 AS Solution'
 
   //value yang akan dimasukkan
   var values = [karyawan.email, karyawan.password];
-
-  var que_result;
-  
   
   //Melakukan queri di atas
   connection.query(sql, values, (err, rows, fields) => {
+    var que_result;
+    var message = 'Submit Form Correctly!';
     if (err) {
       que_result = err
     }
@@ -55,37 +58,31 @@ router.post('/submit', upload.none(), function(req,res,next)  {
       que_result = rows[0];
     }
 
-    console.log(rows)
-    var data = {empty: validationResult, sql: que_result}
-
-    if(que_result !== undefined) {
+    if(err) console.log(err)
+    if(que_result !== undefined && !isObjectEmpty(que_result)) {
       req.session.user = que_result.nik
-      // console.log(req.session.user)
+      message = 'Success!';
+      // console.log(message)
     }
+    var data = {empty: isObjectEmpty(karyawan), sql: que_result, resultMessage: message}
     res.send(data)
   })
 })
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  if(!req.session.user) res.render('index');
-  else res.redirect('http://localhost:5000/kehadiran/info')
-});
 
-router.get('/test_python', (req,res,next)=>{
-  let options = {
-    mode: 'text',
-    scriptPath: path.join(__dirname, '..', 'scripts')
-  };
-  
-  PythonShell.run('convertToExcel.py', options, function (err, results) {
-    if (err) 
-      throw err;
-    // Results is an array consisting of messages collected during execution
-    console.log('results: %j', results);
-  });
 
-  res.send('yes')
+router.get('/logout', (req,res,next)=>{
+  req.session.user = null
+  req.session.regenerate((err)=>{
+    req.session.destroy((err)=>{
+      if(err){
+        console.log(err)
+      }else{
+        console.log('logout success')
+        res.redirect('/')
+      }
+    })
+  })
 })
 
 router.get('/downloadExcel', function(req, res){
