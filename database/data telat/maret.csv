@@ -1,4 +1,27 @@
-Nama Lengkap;Divisi;Jumlah Terlambat (dalam Menit);Jumlah Terlambat (dalam Jam);Jumlah Hari Terlambat;month
+Nama Lengkap;Divisi;Jumlah Terlambat (dalam Menit);Jumlah Terlambat (dalam Jam);Jumlah Hari Terlambat;
+Adeline Genie Natan;0;74;1,233333333;8;2024-03-01
+Arief Alamsyah;0;0;0;0;2024-03-01
+Arya Bagus;0;0;0;0;2024-03-01
+Damario Mikail Yusuf;0;0;0;0;2024-03-01
+David Christian Tampubolon;0;111;1,85;11;2024-03-01
+Dian Wahyu Eko;0;0;0;0;2024-03-01
+Eki Rikmawan Susilo;0;0;0;0;2024-03-01
+Erwin Saputra;0;0;0;0;2024-03-01
+Faradilla Sisena;0;0;0;0;2024-03-01
+Florencia Devi;0;0;0;0;2024-03-01
+Geru Razwis Alfarug;0;0;0;0;2024-03-01
+Hastaryo;0;0;0;0;2024-03-01
+Irwan Samudra;0;161;2,683333333;9;2024-03-01
+Irwansyah;0;0;0;0;2024-03-01
+Nadilla Rahmanul Hakim ;0;0;0;0;2024-03-01
+Natalia Isabela Tupamahu;0;44;0,733333333;4;2024-03-01
+Nilam Khaerunisa Trisurti;0;0;0;0;2024-03-01
+Raudatul Hassanah;0;0;0;0;2024-03-01
+Sukur Muklasin;0;0;0;0;2024-03-01
+Yana Oktafiana;0;0;0;0;2024-03-01
+Yonatan Setiawan;0;91;1,516666667;3;2024-03-01
+Yosua Nahemia Warokka;0;0;0;0;2024-03-01
+Yovie Irawan;0;202;3,366666667;11;2024-03-01
 Amin Nur Rohman;Admin Sales & Engineer;0;0;0;2024-03-01
 Crystal Novel Ligar Lestari;Admin Sales & Engineer;45;0,75;1;2024-03-01
 Hana Nuraini Sofyan;Admin Sales & Engineer;7;0,116666667;3;2024-03-01
@@ -9,42 +32,42 @@ Slamet Widodo;Admin Sales & Engineer;0;0;0;2024-03-01
 Syavira Suci Ramadhita;Admin Sales & Engineer;0;0;0;2024-03-01
 Tias Stevani;Admin Sales & Engineer;0;0;0;2024-03-01
 Anthony Salim;ERP;0;0;0;2024-03-01
-Lim Rah Salim ;ERP;83;1,383333333;8;2024-03-01
-Wendi Johan ;ERP;124;2,066666667;10;2024-03-01
-Andika Suyitno ;Estimator;384;6,4;18;2024-03-01
-Andreas Thio Michael ;Estimator;114;1,9;7;2024-03-01
+Lim Rah Salim;ERP;83;1,383333333;8;2024-03-01
+Wendi Johan;ERP;124;2,066666667;10;2024-03-01
+Andika Suyitno;Estimator;384;6,4;18;2024-03-01
+Andreas Thio Michael;Estimator;114;1,9;7;2024-03-01
 Dewi Marienta Siahaan;Estimator;0;0;0;2024-03-01
 Michael Surya Wijaya;Estimator;447;7,45;9;2024-03-01
 Anisa Nanda Rezeqi;Finance & Accounting;0;0;0;2024-03-01
 Marcelina Indarwati;Finance & Accounting;20;0,333333333;6;2024-03-01
 Monica Sinaga;Finance & Accounting;11;0,183333333;3;2024-03-01
-Nartin Rasboenga ;Finance & Accounting;431;7,183333333;10;2024-03-01
-Nur Afifah Asiatul ;Finance & Accounting;0;0;0;2024-03-01
-Nurcholis Masjid ;Finance & Accounting;19;0,316666667;7;2024-03-01
+Nartin Rasboenga;Finance & Accounting;431;7,183333333;10;2024-03-01
+Nur Afifah Asiatul;Finance & Accounting;0;0;0;2024-03-01
+Nurcholis Masjid;Finance & Accounting;19;0,316666667;7;2024-03-01
 Sanah Sedubun;Finance & Accounting;80;1,333333333;9;2024-03-01
-Sri Ulina Saragih ;Finance & Accounting;0;0;0;2024-03-01
-Stephen Dermawan ;Finance & Accounting;0;0;0;2024-03-01
-Vera Hartaty Nainggolan ;Finance & Accounting;0;0;0;2024-03-01
+Sri Ulina Saragih;Finance & Accounting;0;0;0;2024-03-01
+Stephen Dermawan;Finance & Accounting;0;0;0;2024-03-01
+Vera Hartaty Nainggolan;Finance & Accounting;0;0;0;2024-03-01
 Wina Damayani;Finance & Accounting;0;0;0;2024-03-01
-Yosefin Meylista Christianti Bria  ;Finance & Accounting;0;0;0;2024-03-01
+Yosefin Meylista Christianti Bria;Finance & Accounting;0;0;0;2024-03-01
 Ananda Yoga Prasetyo;GTI;19;0,316666667;1;2024-03-01
 YEN YEN ( B. Wansarsi);GTI;48;0,8;1;2024-03-01
 Heri;GTI;0;0;0;2024-03-01
-Ikhsan Fazar Hendiansyah ;GTI;74;1,233333333;7;2024-03-01
-Adi Kurniawan ;Logistik;7;0,116666667;3;2024-03-01
-Arif Nurachman ;Logistik;61;1,016666667;6;2024-03-01
+Ikhsan Fazar Hendiansyah;GTI;74;1,233333333;7;2024-03-01
+Adi Kurniawan;Logistik;7;0,116666667;3;2024-03-01
+Arif Nurachman;Logistik;61;1,016666667;6;2024-03-01
 Dwi Iryanti;Logistik;0;0;0;2024-03-01
-Febriansyah ;Logistik;340;5,666666667;14;2024-03-01
-Muhammad Ruslan Nasrullah ;Logistik;194;3,233333333;14;2024-03-01
-Restu Chairil Fahmi ;Logistik;13;0,216666667;1;2024-03-01
+Febriansyah;Logistik;340;5,666666667;14;2024-03-01
+Muhammad Ruslan Nasrullah;Logistik;194;3,233333333;14;2024-03-01
+Restu Chairil Fahmi;Logistik;13;0,216666667;1;2024-03-01
 Supriyanto;Logistik;129;2,15;4;2024-03-01
 Apriyanto;MEP;263;4,383333333;12;2024-03-01
 Catur Cahyono;MEP;9;0,15;1;2024-03-01
-Dian Aryani ;MEP;0;0;0;2024-03-01
+Dian Aryani;MEP;0;0;0;2024-03-01
 Donny Dwiyanto;MEP;321;5,35;11;2024-03-01
-Gazali ;MEP;70;1,166666667;7;2024-03-01
+Gazali;MEP;70;1,166666667;7;2024-03-01
 Hendri;MEP;78;1,3;2;2024-03-01
-Liang Munandar ;MEP;0;0;0;2024-03-01
+Liang Munandar;MEP;0;0;0;2024-03-01
 Lidya Jefri;MEP;81;1,35;4;2024-03-01
 Marsidi;MEP;0;0;0;2024-03-01
 Mochammad Saleh;MEP;23;0,383333333;2;2024-03-01
@@ -72,7 +95,7 @@ Ika Restiana;Operation;43;0,716666667;6;2024-03-01
 Joni;Operation;8;0,133333333;3;2024-03-01
 Kaltika Fitri;Operation;0;0;0;2024-03-01
 Lulu Awaliyah;Operation;32;0,533333333;4;2024-03-01
-M. Eko Al Badrun ;Operation;0;0;0;2024-03-01
+M. Eko Al Badrun;Operation;0;0;0;2024-03-01
 Marta Muljadi;Operation;0;0;0;2024-03-01
 Noverly Sandro Gomes;Operation;48;0,8;5;2024-03-01
 Parto ;Operation;0;0;0;2024-03-01
@@ -127,26 +150,3 @@ Sulain;Teknisi TC;78;1,3;5;2024-03-01
 Suyitno;Teknisi TC;42;0,7;7;2024-03-01
 Heru Dwi Jatmiko ;Tim Bali;0;0;0;2024-03-01
 Lisda Nurcahyani;Tim Bali;0;0;0;2024-03-01
-Adeline Genie Natan ;;74;1,233333333;8;2024-03-01
-Arief Alamsyah;;0;0;0;2024-03-01
-Arya Bagus;;0;0;0;2024-03-01
-Damario Mikail Yusuf ;;0;0;0;2024-03-01
-David Christian Tampubolon;;111;1,85;11;2024-03-01
-Dian Wahyu Eko;;0;0;0;2024-03-01
-Eki Rikmawan Susilo;;0;0;0;2024-03-01
-Erwin Saputra;;0;0;0;2024-03-01
-Faradilla Sisena;;0;0;0;2024-03-01
-Florencia Devi;;0;0;0;2024-03-01
-Geru Razwis Alfarug ;;0;0;0;2024-03-01
-Hastaryo ;;0;0;0;2024-03-01
-Irwan Samudra;;161;2,683333333;9;2024-03-01
-Irwansyah;;0;0;0;2024-03-01
-Nadilla Rahmanul Hakim ;;0;0;0;2024-03-01
-Natalia Isabela Tupamahu;;44;0,733333333;4;2024-03-01
-Nilam Khaerunisa Trisurti ;;0;0;0;2024-03-01
-Raudatul Hassanah ;;0;0;0;2024-03-01
-Sukur Muklasin ;;0;0;0;2024-03-01
-Yana Oktafiana ;;0;0;0;2024-03-01
-Yonatan Setiawan ;;91;1,516666667;3;2024-03-01
-Yosua Nahemia Warokka ;;0;0;0;2024-03-01
-Yovie Irawan ;;202;3,366666667;11;2024-03-01

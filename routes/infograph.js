@@ -152,8 +152,9 @@ router.get('/chart', function(req, res, next) {
 router.get('/chart/getChartData', function (req, res) {
     // var sql = 'select * from telat_per_divisi'
     var sql = 'select monthname(month) as bulan, idDivisi, '+
-    'sum(jumlahMenitTerlambat) as menitTelat, sum(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) hariTelat '+
-    'from kehadirantotal group by idDivisi, month; '
+    'sum(jumlahMenitTerlambat)/count(idDivisi) as menitTelat, sum(jumlahJamTerlambat)/count(idDivisi) as jamTelat, sum(JumlahHariTerlambat)/count(idDivisi) hariTelat '+
+    'from kehadirantotal group by idDivisi, month '+
+    'order by month, idDivisi;'
     connection.query(sql, (err,rows,fields)=>{
         if (err) {
             throw err;

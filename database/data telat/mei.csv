@@ -1,4 +1,28 @@
-nama;divisi;Jumlah Terlambat (dalam Menit);Jumlah Terlambat (dalam Jam);Jumlah Hari Terlambat;month
+Nama Lengkap;Divisi;Jumlah Terlambat (dalam Menit);Jumlah Terlambat (dalam Jam);Jumlah Hari Terlambat;month
+Adeline Genie Natan;0;109;1,82;14;2024-05-01
+Arief Alamsyah;0;0;0;0;2024-05-01
+Arya Bagus;0;0;0;0;2024-05-01
+Damario Mikail Yusuf;0;0;0;0;2024-05-01
+David Christian Tampubolon;0;129;2,15;10;2024-05-01
+Dian Wahyu Eko;0;0;0;0;2024-05-01
+Eki Rikmawan Susilo;0;0;0;0;2024-05-01
+Erwin Saputra;0;0;0;0;2024-05-01
+Faradilla Sisena;0;0;0;0;2024-05-01
+Florencia Devi;0;0;0;0;2024-05-01
+Geru Razwis Alfarug;0;0;0;0;2024-05-01
+Hastaryo;0;0;0;0;2024-05-01
+Iman Pujitrianto;0;0;0;0;2024-05-01
+Irwan Samudra;0;0;0;0;2024-05-01
+Irwansyah;0;0;0;0;2024-05-01
+Nadilla Rahmanul Hakim ;0;0;0;0;2024-05-01
+Natalia Isabela Tupamahu;0;0;0;0;2024-05-01
+Nilam Khaerunisa Trisurti;0;0;0;0;2024-05-01
+Raudatul Hassanah;0;20;0,33;2;2024-05-01
+Sukur Muklasin;0;0;0;0;2024-05-01
+Yana Oktafiana;0;0;0;0;2024-05-01
+Yonatan Setiawan;0;0;0;0;2024-05-01
+Yosua Nahemia Warokka;0;0;0;0;2024-05-01
+Yovie Irawan;0;7;0,12;1;2024-05-01
 Amin Nur Rohman;Admin Sales & Engineer;8;0,13;1;2024-05-01
 Crystal Novel Ligar Lestari;Admin Sales & Engineer;0;0;0;2024-05-01
 Hana Nuraini Sofyan;Admin Sales & Engineer;5;0,08;2;2024-05-01
@@ -9,49 +33,49 @@ Slamet Widodo;Admin Sales & Engineer;0;0;0;2024-05-01
 Syavira Suci Ramadhita;Admin Sales & Engineer;0;0;0;2024-05-01
 Tias Stevani;Admin Sales & Engineer;0;0;0;2024-05-01
 Anthony Salim;ERP;0;0;0;2024-05-01
-Lim Rah Salim ;ERP;22;0,37;4;2024-05-01
-Wendi Johan ;ERP;10;0,17;3;2024-05-01
-Andika Suyitno ;Estimator;124;2,07;13;2024-05-01
-Andreas Thio Michael ;Estimator;34;0,57;6;2024-05-01
+Lim Rah Salim;ERP;22;0,37;4;2024-05-01
+Wendi Johan;ERP;10;0,17;3;2024-05-01
+Andika Suyitno;Estimator;124;2,07;13;2024-05-01
+Andreas Thio Michael;Estimator;34;0,57;6;2024-05-01
 Dewi Marienta Siahaan;Estimator;1;0,02;1;2024-05-01
 Michael Surya Wijaya;Estimator;245;4,08;2;2024-05-01
-Anisa Nanda Rezeqi;Finance & Accounting;0;0;0;2024-05-01
-Haryo Perdana Seno Aji;Finance & Accounting;0;0;0;2024-05-01
+Anisa Nanda Razeqi;Finance & Accounting;0;0;0;2024-05-01
+Haryo ;Finance & Accounting;0;0;0;2024-05-01
 Marcelina Indarwati;Finance & Accounting;17;0,28;5;2024-05-01
-Monica Sinaga ;Finance & Accounting;0;0;0;2024-05-01
-Nartin Rasboenga ;Finance & Accounting;116;1,93;3;2024-05-01
-Nur Afifah Asiatul ;Finance & Accounting;0;0;0;2024-05-01
-Nurcholis Masjid ;Finance & Accounting;8;0,13;4;2024-05-01
-Sanah Sedubun ;Finance & Accounting;0;0;0;2024-05-01
-Sri Ulina Saragih ;Finance & Accounting;0;0;0;2024-05-01
-Stephen Dermawan ;Finance & Accounting;0;0;0;2024-05-01
-Vera Hartaty Nainggolan ;Finance & Accounting;3;0,05;3;2024-05-01
+Monica Sinaga;Finance & Accounting;0;0;0;2024-05-01
+Nartin Rasboenga;Finance & Accounting;116;1,93;3;2024-05-01
+Nur Afifah Asiatul;Finance & Accounting;0;0;0;2024-05-01
+Nurcholis Masjid;Finance & Accounting;8;0,13;4;2024-05-01
+Sanah Sedubun;Finance & Accounting;0;0;0;2024-05-01
+Sri Ulina Saragih;Finance & Accounting;0;0;0;2024-05-01
+Stephen Dermawan;Finance & Accounting;0;0;0;2024-05-01
+Vera Hartaty Nainggolan;Finance & Accounting;3;0,05;3;2024-05-01
 Wina Damayani;Finance & Accounting;1;0,02;1;2024-05-01
-Yosefin Meylista Christianti Bria  ;Finance & Accounting;1;0,02;1;2024-05-01
+Yosefin Meylista Christianti Bria;Finance & Accounting;1;0,02;1;2024-05-01
 Ananda Yoga Prasetyo;GTI;0;0;0;2024-05-01
 YEN YEN ( B. Wansarsi);GTI;0;0;0;2024-05-01
 Heri;GTI;0;0;0;2024-05-01
-Ikhsan Fazar Hendiansyah ;GTI;91;1,52;7;2024-05-01
-Adi Kurniawan ;Logistik;0;0;0;2024-05-01
-Arif Nurachman ;Logistik;0;0;0;2024-05-01
+Ikhsan Fazar Hendiansyah;GTI;91;1,52;7;2024-05-01
+Adi Kurniawan;Logistik;0;0;0;2024-05-01
+Arif Nurachman;Logistik;0;0;0;2024-05-01
 Dwi Iryanti;Logistik;0;0;0;2024-05-01
-Febriansyah ;Logistik;71;1,18;8;2024-05-01
-Muhammad Ruslan Nasrullah ;Logistik;0;0;0;2024-05-01
-Restu Chairil Fahmi ;Logistik;4;0,07;1;2024-05-01
+Febriansyah;Logistik;71;1,18;8;2024-05-01
+Muhammad Ruslan Nasrullah;Logistik;0;0;0;2024-05-01
+Restu Chairil Fahmi;Logistik;4;0,07;1;2024-05-01
 Supriyanto;Logistik;0;0;0;2024-05-01
-Abdul Khair Jabar;MEP;0;0;0;2024-05-01
-Agus Djulianto Rahaju;MEP;0;0;0;2024-05-01
+Abdul Khoir;MEP;0;0;0;2024-05-01
+Agus Djulianto;MEP;0;0;0;2024-05-01
 Apriyanto;MEP;0;0;0;2024-05-01
 Catur Cahyono;MEP;0;0;0;2024-05-01
-Dian Aryani ;MEP;0;0;0;2024-05-01
+Dian Aryani;MEP;0;0;0;2024-05-01
 Donny Dwiyanto;MEP;298;4,97;7;2024-05-01
-Gazali ;MEP;396;6,6;11;2024-05-01
+Gazali;MEP;396;6,6;11;2024-05-01
 Hendri;MEP;0;0;0;2024-05-01
-Liang Munandar ;MEP;0;0;0;2024-05-01
+Liang Munandar;MEP;0;0;0;2024-05-01
 Lidya Jefri;MEP;0;0;0;2024-05-01
 Marsidi;MEP;0;0;0;2024-05-01
-Mochammad Saleh ;MEP;0;0;0;2024-05-01
-Mohhamad Syahrul Kurnia ;MEP;0;0;0;2024-05-01
+Mochammad Saleh;MEP;0;0;0;2024-05-01
+Mohhamad Syahrul Kurnia;MEP;0;0;0;2024-05-01
 Mutya Silvia ;MEP;2;0,03;1;2024-05-01
 Nuril Ayu Aniwindira;MEP;0;0;0;2024-05-01
 Oktavianus Ambulengo;MEP;10;0,17;1;2024-05-01
@@ -77,7 +101,7 @@ Ika Restiana;Operation;2;0,03;1;2024-05-01
 Joni;Operation;0;0;0;2024-05-01
 Kaltika Fitri;Operation;0;0;0;2024-05-01
 Lulu Awaliyah;Operation;12;0,2;3;2024-05-01
-M. Eko Al Badrun ;Operation;2;0,03;1;2024-05-01
+M. Eko Al Badrun;Operation;2;0,03;1;2024-05-01
 Marta Muljadi;Operation;0;0;0;2024-05-01
 Noverly Sandro Gomes;Operation;0;0;0;2024-05-01
 Parto ;Operation;0;0;0;2024-05-01
@@ -86,17 +110,17 @@ Rendi Mardiansah ;Operation;0;0;0;2024-05-01
 Sujilan   ;Operation;0;0;0;2024-05-01
 Teddy Setiawan Zunaedi;Operation;0;0;0;2024-05-01
 Wantono;Operation;0;0;0;2024-05-01
-Yunandi Yasmin ;Operation;0;0;0;2024-05-01
-Mu'min;PCS;0;0;0;2024-05-01
-Putri Aisyati Inrum ;PCS;0;0;0;2024-05-01
-Agus Setiawan ;PPJM;23;0,38;1;2024-05-01
+Yunandi Yasmin;Operation;0;0;0;2024-05-01
+Mumin ;PCS;0;0;0;2024-05-01
+Putri Aisyati Inrum;PCS;0;0;0;2024-05-01
+Agus Setiawan;PPJM;23;0,38;1;2024-05-01
 Anisa Chelsea Islami;PPJM;0;0;0;2024-05-01
 Asep Maulana;PPJM;5;0,08;1;2024-05-01
 Haryadi;PPJM;0;0;0;2024-05-01
 Madi ;PPJM;0;0;0;2024-05-01
 Noni Komariah Sari;PPJM;2;0,03;2;2024-05-01
 Nur Wiwid Adhi Laxmana ;PPJM;0;0;0;2024-05-01
-Ribka Noviana Angeline ;PPJM;404;6,73;12;2024-05-01
+Ribka Noviana Angeline;PPJM;404;6,73;12;2024-05-01
 Robi Ajid ;PPJM;532;8,87;7;2024-05-01
 Sigit ;PPJM;6;0,1;1;2024-05-01
 Urip Budiyanto;PPJM;0;0;0;2024-05-01
@@ -135,27 +159,3 @@ Sulain;Teknisi TC;0;0;0;2024-05-01
 Suyitno;Teknisi TC;0;0;0;2024-05-01
 Heru Dwi Jatmiko ;Tim Bali;0;0;0;2024-05-01
 Lisda Nurcahyani;Tim Bali;0;0;0;2024-05-01
-Adeline Genie Natan ;;109;1,82;14;2024-05-01
-Arief Alamsyah;;0;0;0;2024-05-01
-Arya Bagus;;0;0;0;2024-05-01
-Damario Mikail Yusuf ;;0;0;0;2024-05-01
-David Christian Tampubolon;;129;2,15;10;2024-05-01
-Dian Wahyu Eko;;0;0;0;2024-05-01
-Eki Rikmawan Susilo;;0;0;0;2024-05-01
-Erwin Saputra;;0;0;0;2024-05-01
-Faradilla Sisena;;0;0;0;2024-05-01
-Florencia Devi;;0;0;0;2024-05-01
-Geru Razwis Alfarug ;;0;0;0;2024-05-01
-Hastaryo ;;0;0;0;2024-05-01
-Iman Pujitrianto;;0;0;0;2024-05-01
-Irwan Samudra;;0;0;0;2024-05-01
-Irwansyah;;0;0;0;2024-05-01
-Nadilla Rahmanul Hakim ;;0;0;0;2024-05-01
-Natalia Isabela Tupamahu;;0;0;0;2024-05-01
-Nilam Khaerunisa Trisurti ;;0;0;0;2024-05-01
-Raudatul Hassanah ;;20;0,33;2;2024-05-01
-Sukur Muklasin ;;0;0;0;2024-05-01
-Yana Oktafiana ;;0;0;0;2024-05-01
-Yonatan Setiawan ;;0;0;0;2024-05-01
-Yosua Nahemia Warokka ;;0;0;0;2024-05-01
-Yovie Irawan ;;7;0,12;1;2024-05-01

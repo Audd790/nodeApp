@@ -136,7 +136,7 @@ right outer JOIN kehadirantotalfeb as b on b.nama = a.nama
 
 set global local_infile = 0
 
-mysql --local-infile = 0 -u root -p
+mysql --local-infile=0 -u root -p
 
 mysqldump -u root -p absenrajawali> absenrajawaliDB.sql
 
@@ -187,5 +187,6 @@ alter table izinkaryawan
 add column myTimestamp timestamp default current_timestamp
 
 select monthname(month) as bulan, idDivisi, 
-sum(jumlahMenitTerlambat), sum(jumlahJamTerlambat), sum(JumlahHariTerlambat) 
-from kehadirantotal group by idDivisi, month; 
+sum(jumlahMenitTerlambat) as menitTelat, sum(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) 
+from kehadirantotal group by idDivisi, month
+order by  idDivisi, month; 
