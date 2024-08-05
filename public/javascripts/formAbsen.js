@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('form')
     form.addEventListener('submit', submitFormAbsen)
     getListNik()
-
     const downloadBtn = document.getElementById('buttonDownload')
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
@@ -36,8 +35,8 @@ function submitFormAbsen(event){
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if (xhr.status === 200) {
-                var result = JSON.parse(xhr.response)
-                onSuccess(result)
+                var response = JSON.parse(xhr.response)
+                onSuccess(response.result)
                 form.reset()
             } else{
                 console.error('Error:', xhr.status)
@@ -49,7 +48,8 @@ function submitFormAbsen(event){
 }
 
 function onSuccess(result){
-    console.log(result)
+  alert("Result: "+ result)
+  form.reset()
 }
 
 function autocomplete(inp, arr) {

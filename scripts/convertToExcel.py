@@ -18,11 +18,12 @@ query = "SELECT * FROM izinKaryawan"
 cursor = connection.cursor()
 cursor.execute(query)
 data = cursor.fetchall()
-
+ws.append(['id', 'alasan', 'nik', 'tgl_izin', 'durasi', 'durasi_dalam_bulan', 'myTimestamp'])
 # Write data to Excel
 for row_index, row_data in enumerate(data, start=1):
     for col_index, cell_data in enumerate(row_data, start=1):
-        ws.cell(row=row_index, column=col_index, value=cell_data)
+        new_row_Index = row_index+1
+        ws.cell(row=new_row_Index, column=col_index, value=cell_data)
 
 try:
     wb.save('C:/Users/Operation/Desktop/Auddly/nodeApp/files/output.xlsx')

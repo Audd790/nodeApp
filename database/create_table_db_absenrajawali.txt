@@ -163,7 +163,7 @@ from kehadiranTotal
 where idDivisi = 'D01'
 group by month
 
-create or replace view telat_per_bulan_per_karyawan as
+create or replace view telat_per_karyawan as
 select nik, monthname(tgl_absen) as bulan, year(tgl_absen) as tahun, 
 count(telat) as telat_per_bulan, sum(telat) total_menit_per_bulan, 
 sum(telat)/60 as total_jam_per_bulan
@@ -172,7 +172,7 @@ where telat>0
 group by nik,bulan,tahun
 order by nik;
 
-create or replace view telat_per_bulan_per_divisi as
+create or replace view telat_per_divisi as
 select b.divisi, monthname(a.tgl_absen) as bulan, year(a.tgl_absen) as tahun, 
 count(a.telat) as telat_per_bulan, round(sum(a.telat)/count(b.divisi),2) total_menit_per_bulan, 
 round((sum(a.telat)/count(b.divisi))/60,2) as total_jam_per_bulan
@@ -185,3 +185,5 @@ order by b.divisi;
 
 alter table izinkaryawan
 add column myTimestamp timestamp default current_timestamp
+
+['id', 'alasan', 'nik', 'tgl_izin', 'durasi', 'durasi_dalam_bulan', 'myTimestamp']
