@@ -179,11 +179,13 @@ round((sum(a.telat)/count(b.divisi))/60,2) as total_jam_per_bulan
 from kehadiran a
 join karyawan b 
 on b.nik = a.nik
-where a.telat>0 
+where a.telat>0 and year(a.tgl_absen) = "2024"
 group by b.divisi, bulan, tahun
 order by b.divisi;
 
 alter table izinkaryawan
 add column myTimestamp timestamp default current_timestamp
 
-['id', 'alasan', 'nik', 'tgl_izin', 'durasi', 'durasi_dalam_bulan', 'myTimestamp']
+select monthname(month) as bulan, idDivisi, 
+sum(jumlahMenitTerlambat), sum(jumlahJamTerlambat), sum(JumlahHariTerlambat) 
+from kehadirantotal group by idDivisi, month; 

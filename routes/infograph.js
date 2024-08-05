@@ -129,20 +129,40 @@ router.post('/perDay', function(req, res, next){
 });
 
 router.get('/chart', function(req, res, next) {
-    // var sql = 'create or replace view jumlahTelat as '+
-    // 'select nik, tgl_absen, sum(telat) as total_menit_telat, sum(case when telat > 0 then 1 else 0 end) as jumlah_hari_telat '+
-    // 'from kehadiran '+
-    // 'where year(tgl_absen) = 2024 '+
-    // 'group by nik, tgl_absen; '
-    // connection.query(sql, (err,rows,fields)=>{
-    //     if (err) {
-    //         throw err;
-    //     }
-    //     else{
-    //     que_result = rows;
-    //     }
-    // })
-    res.render('view_data/Divisichart')
+    var sql = 'create or replace view telat_per_divisi as '+
+    'select b.divisi, monthname(a.tgl_absen) as bulan, year(a.tgl_absen) as tahun, '+
+    'count(a.telat) as telat_per_bulan, round(sum(a.telat)/count(b.divisi),2) total_menit_per_bulan, '+
+    'round((sum(a.telat)/count(b.divisi))/60,2) as total_jam_per_bulan '+
+    'from kehadiran a '+
+    'join karyawan b '+
+    'on b.nik = a.nik '+
+    'where a.telat>0 and year(a.tgl_absen) = "'+ dateObj.getFullYear() +'" '+
+    'group by b.divisi, bulan, tahun '+
+    'order by b.divisi; '
+    connection.query(sql, (err,rows,fields)=>{
+        if (err) {
+            throw err;
+        }
+        else{
+            res.render('view_data/Divisichart')
+        }
+    })
+})
+
+router.get('/chart/getChartData', function (req, res) {
+    // var sql = 'select * from telat_per_divisi'
+    var sql = 'select monthname(month) as bulan, idDivisi, '+
+    'sum(jumlahMenitTerlambat) as menitTelat, sum(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) hariTelat '+
+    'from kehadirantotal group by idDivisi, month; '
+    connection.query(sql, (err,rows,fields)=>{
+        if (err) {
+            throw err;
+        }
+        else{
+        que_result = rows;
+        }
+        res.send({sql: que_result})
+    })
 })
 
 router.post('/chart',upload.none(), function(req, res, next) {
