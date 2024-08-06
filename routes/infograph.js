@@ -9,7 +9,6 @@ var XLSX = require("xlsx");
 // const filePath = path.join(__dirname, '..', 'files')
 //membuat instansi database
 const mysql = require('mysql2')
-const PythonShell = require('python-shell').PythonShell;
 var path = require('path');
 const connection = mysql.createConnection({
   host: 'localhost',
