@@ -2,9 +2,9 @@ extends infographic
 block button
     .btn_group
         button#byKaryawan.button(value="/by_karyawan" disabled) By Karyawan
-        //- button#Chart.button(value="/chart") Chart
-        button#formAbsen.button(value="/formAbsen") Form Izin
+        button#Chart.button(value="/chart") Chart
         button#byDate.button(value="/by_date" ) By Date
+        button#formAbsen.button(value="/formAbsen") Form Izin
 block info
     div(style="padding: 0.5em")
         h1 Jumlah telat per karyawan
@@ -24,7 +24,7 @@ block info
     //-         option(value='12') December
     div.autocomplete(style="display: flex; align-items: center; justify-content: center;")
         input#karyawan(type="text", name="karyawan" )
-    div(style="height:85vh; width:190vw")
+    div(style="height: 15em;")
         canvas#myChart
 block append script
     script(src="/javascripts/karyawanchart.js")
