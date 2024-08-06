@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const multer  = require('multer')
-const PythonShell = require('python-shell').PythonShell;
 var path = require('path');
 
 const upload = multer({ dest: 'uploads/' })
@@ -21,7 +20,7 @@ const connection = mysql.createConnection({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(!req.session.user) res.render('index');
-  else res.redirect('http://localhost:5000/kehadiran/info')
+  else res.redirect('/kehadiran/info')
 });
 
 //terima data yang di-submit dari form

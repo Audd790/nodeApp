@@ -22,7 +22,10 @@ var que_result;
 var arr = [];
 
 router.all('/', function(req, res, next){
-    if(!req.session.user) res.redirect('/')
+    if(!req.session.user) {
+        console.log('yes')
+        res.redirect('/')
+    }
     else next();
 })
 

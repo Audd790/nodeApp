@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded'
             // var boolValue = (res.result === 'true');
             alert(message);
             if(!empty && sql !== undefined){
-                window.location.replace('/kehadiran/info')
+                window.location.replace('/kehadiran/info/')
             }
         }
     });

@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded'
             const list = document.querySelectorAll('.button')
             
             const xhr = new XMLHttpRequest();
-            const url = e.target.value
+            const url = '/kehadiran/info/'+e.target.value
             xhr.open('GET', url, true);
             // xhr.setRequestHeader("Content-Type", "multipar/form-data")
             xhr.onreadystatechange = function () {
