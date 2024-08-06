@@ -24,6 +24,7 @@ const myChart = new Chart(ctx, {
         }]
     },
     options: {
+        maintainAspectRatio: false,
         layout: {
             padding: 30
         },
@@ -54,6 +55,12 @@ const myChart = new Chart(ctx, {
     }
 
 });
+window.addEventListener('beforeprint', () => {
+    myChart.resize(600, 600);
+  });
+  window.addEventListener('afterprint', () => {
+    myChart.resize();
+  });
 const xhr = new XMLHttpRequest
 var data = new FormData()
 data.append("tanggal", 7)
@@ -197,14 +204,6 @@ function autocomplete(inp, arr) {
   /*execute a function when someone clicks in the document:*/
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
-  });
-  }
-
+  })}
 })
 
-window.addEventListener('beforeprint', () => {
-    myChart.resize(600, 600);
-  });
-  window.addEventListener('afterprint', () => {
-    myChart.resize();
-  });

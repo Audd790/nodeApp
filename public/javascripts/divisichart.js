@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', function(){
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',
@@ -6,6 +7,7 @@ const myChart = new Chart(ctx, {
         datasets: []
     },
     options: {
+        maintainAspectRatio: false,
         layout: {
             padding: 30
         },
@@ -53,7 +55,12 @@ const month = ['January',
     'October',
     'November',
     'December']
-document.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('beforeprint', () => {
+    myChart.resize(600, 600);
+});
+window.addEventListener('afterprint', () => {
+    myChart.resize();
+});
 const xhr = new XMLHttpRequest
 xhr.open('GET', window.location.href+'/getChartData', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
@@ -85,11 +92,3 @@ xhr.onreadystatechange = function () {
 // window.location.href = 'http://localhost:3000';
 xhr.send();
 })
-
-
-window.addEventListener('beforeprint', () => {
-    myChart.resize(600, 600);
-  });
-  window.addEventListener('afterprint', () => {
-    myChart.resize();
-  });
