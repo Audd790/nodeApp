@@ -5,8 +5,7 @@ const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const fs = require('node:fs')
 var XLSX = require("xlsx");
-// const script_path = path.join(__dirname, '..', 'scripts')
-// const filePath = path.join(__dirname, '..', 'files')
+
 //membuat instansi database
 const mysql = require('mysql2')
 var path = require('path');
@@ -31,17 +30,6 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/by_karyawan', function(req, res, next){
-    // var sql = "select nama from karyawan order by nama"
-    // connection.query(sql, (err, rows, fields)=>{
-    //     if (err) {
-    //         throw err
-    //     }
-    //     else{
-    //         que_result = rows;
-    //     }
-    //         // console.log(que_result)
-    //         res.render('view_data/Karyawanchart')
-    // })
     res.render('view_data/Karyawanchart')
 });
 
@@ -54,7 +42,6 @@ router.post('/by_karyawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            // console.log(que_result)
             res.send({sql: que_result})
     })
 });
@@ -74,11 +61,6 @@ router.get('/by_Date', function(req, res, next){
         // console.log(que_result)  
         res.render('view_data/by_date',{absenkaryawan: que_result, tanggal: date})
     })
-    
-    // if(!req.session.user) res.redirect('http://localhost:3000')
-    // else{
-    //     res.render('absenKaryawan', {absenkaryawan: [], tanggal: date})
-    // }
 });
 
 router.post('/by_Date', function(req, res, next){
@@ -99,33 +81,6 @@ router.post('/by_Date/dates', upload.none(), function(req, res, next){
         console.log(que_result)
        res.status(200).send(que_result)
     })
-});
-// 
-// select avg(sum(case when telat > 0 then 1 else 0 end)) as AVG from kehadiran where telat> 1;
-router.post('/perDay', function(req, res, next){
-    var sql = "select nik,"+
-    "sum(case when telat > 0 then 1 else 0 end) as jumlah_telat,"+
-    "sum(case when lembur > 0 then 1 else 0 end) as jumlah_lembur,"+
-    "sum(jam_kerja) as jam_kerja, "+
-    "sum(telat) as menit_telat, "+
-    "sum(lembur) as menit_lembur "+
-    "from kehadiran "+
-    "where telat > 0 "+
-    "or lembur > 0 "+
-    "group by nik;"
-    connection.query(sql, (err, rows, fields)=>{
-        if (err) {
-            throw err
-        }
-        else{
-        que_result = rows;
-        }
-        res.render('infographic', {info: que_result})
-    })
-    // if(!req.session.user) res.redirect('http://localhost:3000')
-    // else{
-    //     res.render('absenKaryawan', {absenkaryawan: [], tanggal: date})
-    // }
 });
 
 router.get('/chart', function(req, res, next) {
@@ -150,7 +105,6 @@ router.get('/chart', function(req, res, next) {
 })
 
 router.get('/chart/getChartData', function (req, res) {
-    // var sql = 'select * from telat_per_divisi'
     var sql = 'select monthname(month) as bulan, idDivisi, '+
     'sum(jumlahMenitTerlambat)/count(idDivisi) as menitTelat, sum(jumlahJamTerlambat)/count(idDivisi) as jamTelat, sum(JumlahHariTerlambat)/count(idDivisi) hariTelat '+
     'from kehadirantotal group by idDivisi, month '+
@@ -167,11 +121,6 @@ router.get('/chart/getChartData', function (req, res) {
 })
 
 router.post('/chart',upload.none(), function(req, res, next) {
-    // var date = new Date(req.body.tanggal)
-    // var sql = 'select nama, sum(jumlahMenitTerlambat) as menitTelat, sum(JumlahHariTerlambat) as jamTelat '+
-    // 'from kehadiranTotal '+
-    // 'where idDivisi = "'+ req.body.divisi +'" && month(month) = '+ req.body.tanggal + ' '+
-    // 'group by nama ';
     var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
     'from kehadiranTotal '+
     'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
@@ -217,7 +166,6 @@ router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
         else{
             que_result = rows
         }
-        // console.log(que_result)
     })
     next()
 }, (req,res)=>{
@@ -240,7 +188,6 @@ router.get('/nikKaryawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            // console.log(que_result)
             res.send({sql: que_result})
     })
 });
