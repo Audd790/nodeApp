@@ -3,6 +3,7 @@ var router = express.Router();
 var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
+const filePath = "files/izin_karyawan.xlsx";
 const fs = require('node:fs')
 var XLSX = require("xlsx");
 
@@ -144,7 +145,7 @@ router.get('/formAbsen', (req,res)=>{
                 const worksheet = XLSX.utils.json_to_sheet(rows);
                 const workbook = XLSX.utils.book_new();
                 XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
-                XLSX.writeFile(workbook, "files/output.xlsx", { compression: true });
+                XLSX.writeFile(workbook, filePath, { compression: true });
             })
         } else{
             console.log("Exists")
@@ -174,7 +175,7 @@ router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
         const worksheet = XLSX.utils.json_to_sheet(rows);
         const workbook = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
-        XLSX.writeFile(workbook, "files/output.xlsx", { compression: true });
+        XLSX.writeFile(workbook, filePath, { compression: true });
     })
     res.send({result:'success'})
 })
