@@ -173,6 +173,7 @@ router.get('/formAbsen', (req,res)=>{
                 if(!worksheet["!cols"][COL_INDEX]) worksheet["!cols"][COL_INDEX] = {wch: 8};
                 
                 /* set column width */
+                // Cant work for some reason
                 worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
                 console.log(worksheet["!cols"][COL_INDEX].wpx)
                 XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
