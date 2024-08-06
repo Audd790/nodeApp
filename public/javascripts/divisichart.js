@@ -12,10 +12,10 @@ const myChart = new Chart(ctx, {
             padding: 30
         },
         plugins: {
-            // title: {
-            //     display: true,
-            //     text: 'Custom Chart Title'
-            // },
+            title: {
+                display: true,
+                text: 'Custom Chart Title'
+            },
             colors: {
                 forceOverride: true
             },

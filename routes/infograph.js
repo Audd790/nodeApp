@@ -141,7 +141,7 @@ router.post('/chart',upload.none(), function(req, res, next) {
 })
 
 router.get('/formAbsen', (req,res)=>{
-    fs.open(path.join(__dirname, '..', 'files','output.xlsx'),'r', (err,fd)=>{
+    fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
         if(err){
             var sql = 'SELECT * FROM izinKaryawan'
             connection.query(sql,(err,rows)=>{
