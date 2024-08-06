@@ -6,12 +6,9 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
-    "express-validator": "^7.1.0",
     "http-errors": "~1.6.3",
     "jquery": "^3.7.1",
     "morgan": "~1.9.1",
@@ -19,10 +16,8 @@
     "mysql2": "^3.10.3",
     "nocache": "^4.0.0",
     "nodeapp": "file:",
+    "pm2": "^5.4.2",
     "pug": "^3.0.3",
-    "python-shell": "^5.0.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
     "xlsx": "file:vendor/xlsx-0.20.3.tgz"
   },
   "devDependencies": {
