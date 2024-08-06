@@ -4,6 +4,7 @@ var dateObj = new Date();
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
 const fs = require('node:fs')
+var XLSX = require("xlsx");
 // const script_path = path.join(__dirname, '..', 'scripts')
 // const filePath = path.join(__dirname, '..', 'files')
 //membuat instansi database
@@ -190,13 +191,13 @@ router.post('/chart',upload.none(), function(req, res, next) {
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','output.xlsx'),'r', (err,fd)=>{
         if(err){
-            let options = {
-                mode: 'text',
-                scriptPath: path.join(__dirname, '..', 'scripts')
-              };
-            PythonShell.run('convertToExcel.py', options).then(result=>{
-                // Results is an array consisting of messages collected during execution
-            });
+            var sql = 'SELECT * FROM izinKaryawan'
+            connection.query(sql,(err,rows)=>{
+                const worksheet = XLSX.utils.json_to_sheet(rows);
+                const workbook = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
+                XLSX.writeFile(workbook, "files/output.xlsx", { compression: true });
+            })
         } else{
             console.log("Exists")
         }
@@ -221,14 +222,14 @@ router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
     })
     next()
 }, (req,res)=>{
-    let options = {
-        mode: 'text',
-        scriptPath: path.join(__dirname, '..', 'scripts')
-      };
-    PythonShell.run('convertToExcel.py', options).then(result=>{
-        // Results is an array consisting of messages collected during execution
-        res.send({result: 'Success'})
-    });
+    var sql = 'SELECT * FROM izinKaryawan'
+    connection.query(sql,(err,rows)=>{
+        const worksheet = XLSX.utils.json_to_sheet(rows);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
+        XLSX.writeFile(workbook, "files/output.xlsx", { compression: true });
+    })
+    res.send({result:'success'})
 })
 
 router.get('/nikKaryawan', function(req, res, next){
