@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded'
             const xhr = new XMLHttpRequest();
             var data = new FormData()
             data.append("tanggal", tanggal_absen)
-            xhr.open('POST', 'http://localhost:5000/kehadiran/info/by_date/dates', true);
+            xhr.open('POST', 'by_date/dates', true);
             // xhr.setRequestHeader("Content-Type", "multipar/form-data")
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === XMLHttpRequest.DONE){
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded'
                     }
                 }
             };
-            // window.location.href = 'http://localhost:3000';
             xhr.send(data);
             });
         }
@@ -44,13 +43,12 @@ document.addEventListener('DOMContentLoaded'
             const list = document.querySelectorAll('.button')
             
             const xhr = new XMLHttpRequest();
-            const url = 'http://localhost:5000/kehadiran/info'+e.target.value
+            const url = e.target.value
             xhr.open('GET', url, true);
             // xhr.setRequestHeader("Content-Type", "multipar/form-data")
             xhr.onreadystatechange = function () {
                 if(xhr.readyState === XMLHttpRequest.DONE){
                     if (xhr.status === 200) {
-                        console.log(url)
                             document.location.href = url
                             // unhide(xhr.response,list)
                     } else{
@@ -58,9 +56,6 @@ document.addEventListener('DOMContentLoaded'
                     }
                 }
             };
-            // window.location.href = 'http://localhost:3000';
-            // var data = new FormData()
-            // data.append("disable", true)
             xhr.send();
         }
 
@@ -70,7 +65,6 @@ document.addEventListener('DOMContentLoaded'
             for (let i = 0; i < list.length; i++) {
                 list[i].style.display = 'block';
                 list[i].classList = 'show container2';
-                // list[i].classList = 'container2';
             }
         }
 
@@ -85,7 +79,6 @@ document.addEventListener('DOMContentLoaded'
             for (let i = 0; i < list.length; i++) {
                 list[i].style.display = 'block';
                 list[i].classList = 'show container2';
-                // list[i].classList = 'container2';
             }
         }
     })

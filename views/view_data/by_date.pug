@@ -1,10 +1,10 @@
 extends infographic
 block button
     .btn_group
-        button#Chart.button(value="/chart") Chart
-        button#byKaryawan.button(value="/by_karyawan") By Karyawan
-        button#byDate.button(value="/by_date" disabled) By Date
-        button#formAbsen.button(value="/formAbsen") Form Izin
+        button#Chart.button(value="chart") Chart
+        button#byKaryawan.button(value="by_karyawan") By Karyawan
+        button#byDate.button(value="by_date" disabled) By Date
+        button#formAbsen.button(value="formAbsen") Form Izin
 block info
   .form-group#byDate
     input#tanggal(type='date' name='tanggal' value=tanggal max= tanggal)
