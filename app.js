@@ -24,7 +24,6 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(nocache());
-app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use(session({
   secret: 'secret-key',
   resave: false,
