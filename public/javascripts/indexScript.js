@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded'
                 const xhr = new XMLHttpRequest();
                 const input = form.elements;
                 // const data = [input['email'].value, input['password'].value]
-                xhr.open('POST', 'http://localhost:5000/submit', true);
+                xhr.open('POST', '/submit', true);
                 // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE){

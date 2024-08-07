@@ -64,7 +64,7 @@ window.addEventListener('beforeprint', () => {
 const xhr = new XMLHttpRequest
 var data = new FormData()
 data.append("tanggal", 7)
-xhr.open('POST', 'http://localhost:5000/kehadiran/info/by_karyawan', true);
+xhr.open('POST', '/kehadiran/info/by_karyawan', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){
@@ -123,7 +123,7 @@ function autocomplete(inp, arr) {
                 data.append("nama", inp.value)
                 console.log(inp.value)
                 // data.append('divisi', divisi.value)
-                xhr.open('POST', 'http://localhost:5000/kehadiran/info/chart', true);
+                xhr.open('POST', '/kehadiran/info/chart', true);
                 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE){
@@ -206,4 +206,3 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   })}
 })
-

@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded'
         document.getElementById('byKaryawan').addEventListener('click', buttonOnclickEvent)
 
 
-        document.getElementById('byDate').addEventListener('click', buttonOnclickEvent)
+        // document.getElementById('byDate').addEventListener('click', buttonOnclickEvent)
         document.getElementById('Chart').addEventListener('click', buttonOnclickEvent)
         document.getElementById('formAbsen').addEventListener('click', buttonOnclickEvent)
         function buttonOnclickEvent(e){
@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded'
             
             const xhr = new XMLHttpRequest();
             const url = '/kehadiran/info/'+e.target.value
+            console.log(url)
             xhr.open('GET', url, true);
             // xhr.setRequestHeader("Content-Type", "multipar/form-data")
             xhr.onreadystatechange = function () {

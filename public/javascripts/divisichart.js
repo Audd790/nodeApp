@@ -93,6 +93,5 @@ xhr.onreadystatechange = function () {
         }
     }
 };
-// window.location.href = 'http://localhost:3000';
 xhr.send();
 })
