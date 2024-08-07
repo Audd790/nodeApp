@@ -125,21 +125,25 @@ router.get('/chart/getChartData', function (req, res) {
     })
 })
 
-// router.post('/chart',upload.none(), function(req, res, next) {
-//     var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
-//     'from kehadiranTotal '+
-//     'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
-//     var que_result;
-//     connection.query(sql, (err,rows,fields)=>{
-//         if (err) {
-//             throw err;
-//         }
-//         else{
-//         que_result = rows
-//         }
-//         res.send(que_result)
-//     })
-// })
+router.post('/chart',upload.none(),
+check('nama').trim().escape(), function(req, res, next) {
+    const result = validationResult(req)
+    if(result.errors.length == 0){
+        var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
+        'from kehadiranTotal '+
+        'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
+        var que_result;
+        connection.query(sql, (err,rows,fields)=>{
+            if (err) {
+                throw err;
+            }
+            else{
+            que_result = rows
+            }
+            res.send(que_result)
+        })
+    }
+})
 
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
