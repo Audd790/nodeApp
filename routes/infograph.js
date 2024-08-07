@@ -6,6 +6,7 @@ const upload = multer({ dest: 'uploads/' })
 const filePath = "files/izin_karyawan.xlsx";
 const fs = require('node:fs')
 var XLSX = require("xlsx");
+const { check, matchedData, validationResult } = require('express-validator');
 
 //membuat instansi database
 const mysql = require('mysql2')
@@ -124,21 +125,21 @@ router.get('/chart/getChartData', function (req, res) {
     })
 })
 
-router.post('/chart',upload.none(), function(req, res, next) {
-    var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
-    'from kehadiranTotal '+
-    'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
-    var que_result;
-    connection.query(sql, (err,rows,fields)=>{
-        if (err) {
-            throw err;
-        }
-        else{
-        que_result = rows
-        }
-        res.send(que_result)
-    })
-})
+// router.post('/chart',upload.none(), function(req, res, next) {
+//     var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
+//     'from kehadiranTotal '+
+//     'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
+//     var que_result;
+//     connection.query(sql, (err,rows,fields)=>{
+//         if (err) {
+//             throw err;
+//         }
+//         else{
+//         que_result = rows
+//         }
+//         res.send(que_result)
+//     })
+// })
 
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
@@ -186,22 +187,28 @@ router.get('/formAbsen', (req,res)=>{
     res.render('view_data/formAbsen')
 })
 
-router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
+router.post('/submitformAbsen', upload.none(),
+check('nik').trim().notEmpty().escape(),
+check('alasan').trim().notEmpty().escape(),
+check('tgl_izin').trim().notEmpty().escape(),
+check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
     var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi,durasi_dalam_bulan) values(?,?,?,?,round(?,2))'
-    const izin = req.body
+    const result = validationResult(req);
     var dalamBulan = req.body.durasi/30;
     var values = Object.values(req.body)
     values.push(dalamBulan.toString())
-    connection.query(sql,values,(err,rows)=>{
-        if (err) {
-            throw err;
-        }
-        else{
-            que_result = rows
-        }
-    })
-    next()
-}, (req,res)=>{
+    const emptyInputs = result.errors > 0
+    if(!emptyInputs){
+        connection.query(sql,values,(err,rows)=>{
+            if (err) {
+                throw err;
+            }
+            else{
+                que_result = rows
+            }
+            if(que_result.affectedRows < 1) next()
+        })
+    }
     var sql = 'SELECT * FROM izinKaryawan'
     connection.query(sql,(err,rows)=>{
         const worksheet = XLSX.utils.json_to_sheet(rows);
@@ -209,7 +216,9 @@ router.post('/submitformAbsen', upload.none(),(req,res,next)=>{
         XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
         XLSX.writeFile(workbook, filePath, { compression: true });
     })
-    res.send({result:'success'})
+    res.send({result: 'Success'})
+}, (req, res)=>{
+    res.send({result: 'Failure'})
 })
 
 router.get('/nikKaryawan', function(req, res, next){

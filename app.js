@@ -5,6 +5,7 @@ var path = require('path');
 var logger = require('morgan');
 var session = require('express-session')
 const nocache = require("nocache");
+// const { check, matchedData,  validationResult } = require('express-validator');
 
 
 var indexRouter = require('./routes/index');
@@ -34,6 +35,10 @@ app.use(session({
     maxAge: 1000  *     60     *   30 
   }
 }));
+
+// app.use(validationResult)
+// app.use(check)
+// app.use(matchedData)
 
 
 app.use('/', indexRouter);
