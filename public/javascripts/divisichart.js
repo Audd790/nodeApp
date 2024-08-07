@@ -8,9 +8,9 @@ const myChart = new Chart(ctx, {
     },
     options: {
         maintainAspectRatio: false,
-        layout: {
-            padding: 30
-        },
+        // layout: {
+        //     padding: 30
+        // },
         plugins: {
             title: {
                 display: true,
