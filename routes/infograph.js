@@ -181,7 +181,7 @@ router.get('/formAbsen', (req,res)=>{
                 // Cant work for some reason
                 worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
                 XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
-                XLSX.writeFile(workbook, filePath, { cellStyles: true});
+                XLSX.writeFile(workbook, path.join(__dirname, '..', 'files','izin_karyawan.xlsx'), { cellStyles: true});
             })
         } else{
             console.log("Exists")
@@ -209,9 +209,10 @@ check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
             else{
                 que_result = rows
             }
-            if(que_result.affectedRows < 1) next()
         })
     }
+    next()
+}, (req, res)=>{
     var sql = 'SELECT * FROM izinKaryawan'
     connection.query(sql,(err,rows)=>{
         const worksheet = XLSX.utils.json_to_sheet(rows);
@@ -246,13 +247,9 @@ check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
         worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
         console.log(worksheet["!cols"][COL_INDEX].wpx)
         XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
-        XLSX.writeFile(workbook, filePath, { cellStyles: true});
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Dates");
-        XLSX.writeFile(workbook, filePath, { compression: true });
+        XLSX.writeFile(workbook, path.join(__dirname, '..', 'files','izin_karyawan.xlsx'), { cellStyles: true});
     })
     res.send({result: 'Success'})
-}, (req, res)=>{
-    res.send({result: 'Failure'})
 })
 
 router.get('/nikKaryawan', function(req, res, next){

@@ -48,7 +48,7 @@ function submitFormAbsen(event){
 
 function onSuccess(result){
   alert("Result: "+ result)
-  // form.reset()
+  form.reset()
 }
 
 function autocomplete(inp, arr) {
@@ -88,7 +88,7 @@ function autocomplete(inp, arr) {
                 var karyawan ;
                 // console.log(divisi.value)
                 data.append("nama", inp.value)
-                console.log(inp.value)
+                // console.log(inp.value)
                 // data.append('divisi', divisi.value)
                 window.addEventListener('beforeprint', () => {
                     myChart.resize(600, 600);
