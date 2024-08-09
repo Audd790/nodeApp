@@ -21,7 +21,15 @@ block info
                     input#tgl_izin(type="date" name="tgl_izin")
                 .form-group 
                     label(for="durasi") Berapa lama izin 
+                    select#durasi(name="durasi")
+                        option(value="1") Setengah Hari 
+                        option(value="2") Full Day
+                .form-group 
+                    label(for="durasi") Berapa lama izin 
                     input#durasi(type="number" name="durasi")
+                .form-group 
+                    label(for="suratDktr") Upload Surat dari Dokter
+                    input#suratDktr(type="file" name="suratDktr" multiple)
                 button#button(type='submit') Submit
     button#buttonDownload Download
 block append script 

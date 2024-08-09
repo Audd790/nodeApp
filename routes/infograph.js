@@ -23,6 +23,7 @@ var que_result;
 var arr = [];
 
 router.all('/', function(req, res, next){
+    console.log(req.session.user)
     if(!req.session.user) {
         console.log('yes')
         res.redirect('/')

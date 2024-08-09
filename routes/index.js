@@ -60,6 +60,7 @@ function(req,res,next)  {
     }
     const sqlEmpty = rows > 0 || que_result == undefined;
     if(!sqlEmpty) req.session.user = que_result.nik
+    console.log(req.session.user)
     var data = {empty: result.errors.length>0, sql: sqlEmpty}
     res.send(data)
   })
