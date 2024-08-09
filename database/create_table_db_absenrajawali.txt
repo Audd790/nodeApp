@@ -46,6 +46,20 @@ from kehadiran
 where telat>0
 group by nik;
 
+create table sakit(
+id int primary key,
+nik varchar(255),
+surat_dokter varchar(255),
+tgl_sakit date,
+constraint fk_nik_sakit foreign key (nik)
+references karyawan(nik))
+; 
+
+create table cuti(
+   id int primary key,
+   nik varchar(255),
+   jumlah cuti int,
+);
 
 UPDATE kehadiran
    SET telat= CASE config_name 
@@ -190,3 +204,9 @@ select monthname(month) as bulan, idDivisi,
 sum(jumlahMenitTerlambat) as menitTelat, sum(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) 
 from kehadirantotal group by idDivisi, month
 order by  idDivisi, month; 
+
+create or alter trigger insertIzinKaryawan
+on izinkaryawan
+for insert 
+as 
+   insert into sakit()

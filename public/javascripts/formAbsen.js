@@ -6,6 +6,14 @@ document.addEventListener('DOMContentLoaded', function(){
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
+    const getSuratDktr = document.getElementById('getSuratDktr')
+    if(getSuratDktr !== null){
+      getSuratDktr.addEventListener('click',(e)=>{
+        var karyawansakit = document.getElementById('nik')
+        var pathSuratDokter = '/downloadSuratDokter/' + karyawansakit.value
+        window.location.href = pathSuratDokter
+      })
+    }
 })
 
 function getListNik(){

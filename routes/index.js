@@ -43,7 +43,7 @@ function(req,res,next)  {
   };
 
   //queri SQL yang akan digunakan
-  var sql = 'SELECT nik FROM karyawan WHERE nik = ? AND pass = ?;'
+  var sql = 'SELECT nik,role_id FROM karyawan WHERE nik = ? AND pass = ?;'
   // var sql = 'SELECT 1+1 AS Solution'
   const match = matchedData(req)
   const result = validationResult(req)
@@ -59,8 +59,11 @@ function(req,res,next)  {
       que_result = rows[0];
     }
     const sqlEmpty = rows > 0 || que_result == undefined;
-    if(!sqlEmpty) req.session.user = que_result.nik
-    console.log(req.session.user)
+    if(!sqlEmpty) {
+      req.session.user = que_result.nik
+      req.session.role_id = que_result.role_id
+    }
+    // console.log(que_result)
     var data = {empty: result.errors.length>0, sql: sqlEmpty}
     res.send(data)
   })
@@ -86,6 +89,23 @@ router.get('/downloadExcel', function(req, res){
   const file = path.join(__dirname, '..', 'files', 'izin_karyawan.xlsx');
   res.download(file); // Set disposition and send it.
   // res.redirect('/kehadiran/info/formAbsen')
+});
+
+router.get('/downloadSuratDokter/:nik', function(req, res){
+  var que_result;
+  var sql = 'select surat_dokter from sakit where nik = ?'
+  connection.query(sql, req.params.nik, (err,rows)=>{
+    if(err){
+      que_result = err
+    }else{
+      que_result = rows[0]
+    }
+    const file = path.join(__dirname, '..', que_result.surat_dokter.replace(`"\"`,'/'));
+    // res.send(file)
+    res.download(file); // Set disposition and send it.
+  })
+
+  // // res.redirect('/kehadiran/info/formAbsen')
 });
 
 router.get('/favicon.ico', (req, res) => res.status(204));

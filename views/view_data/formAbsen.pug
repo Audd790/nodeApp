@@ -6,28 +6,43 @@ block info
         .container1
             h2 Form input absen karyawan
             form#form
-                div(class="form-group autocomplete" autocomplete="off")
-                    label(for="nik") NIK Karyawan
-                    input#nik(type="text" name="nik" autocomplete="off")
-                .form-group 
-                    label(for="alasan") Alasan absen 
-                    input#alasan(type="text" name="alasan")
-                .form-group 
-                    label(for="tgl_izin") Tanggal akan absen 
-                    input#tgl_izin(type="date" name="tgl_izin")
-                .form-group 
-                    label(for="durasi") Berapa lama izin 
-                    select#durasi(name="durasi")
-                        option(value="1") Setengah Hari 
-                        option(value="2") Full Day
-                .form-group 
-                    label(for="durasi") Berapa lama izin 
-                    input#durasi(type="number" name="durasi")
-                .form-group 
-                    label(for="suratDktr") Upload Surat dari Dokter
-                    input#suratDktr(type="file" name="suratDktr" multiple)
-                button#button(type='submit') Submit
-    button#buttonDownload Download
+                case role
+                    when 2: div 
+                                div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: column;")
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#toggle(type="radio" name="toggle" value="Izin")
+                                        label(for="" style="margin-bottom: 0px") Izin
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#toggle(type="radio" name="toggle" value="cuti")
+                                        label(for="toggle" style="margin-bottom: 0px") Cuti
+                                div(class="form-group autocomplete" autocomplete="off")
+                                    label(for="nik") NIK Karyawan
+                                    input#nik(type="text" name="nik" autocomplete="off")
+                                .form-group 
+                                    label(for="alasan") Alasan absen 
+                                    input#alasan(type="text" name="alasan")
+                                .form-group 
+                                    label(for="tgl_izin") Tanggal akan absen 
+                                    input#tgl_izin(type="date" name="tgl_izin")
+                                .form-group 
+                                    label(for="durasi") Berapa lama izin 
+                                    select#durasi(name="durasi")
+                                        option(value="1") Setengah Hari 
+                                        option(value="2") Full Day
+                                .form-group 
+                                    label(for="durasi") Berapa lama izin dalam Jam
+                                    input#durasi(type="number" name="durasi" min="0" max="23")
+                                .form-group 
+                                    label(for="suratDktr") Upload Surat dari Dokter
+                                    input#suratDktr(type="file" name="suratDktr")
+                                button#button(type='submit') Submit
+                    when 1: .form-group 
+                                label(for="getSuratDktr") Ambil Surat Dokter
+                                div(class="form-group autocomplete" autocomplete="off")
+                                    label(for="nik") NIK Karyawan
+                                    input#nik(type="text" name="nik" autocomplete="off")
+                                button#getSuratDktr(type="button" name="getSuratDktr") Ambil Surat
+    button#buttonDownload(type="button") Download
 block append script 
     script(src="/javascripts/formAbsen.js") 
 

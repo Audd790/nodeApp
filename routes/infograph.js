@@ -1,12 +1,22 @@
 var express = require('express');
 var router = express.Router();
 var dateObj = new Date();
+var path = require('path');
 const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' })
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'public/uploads/')
+      },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + path.extname(file.originalname))
+    }
+  })
+const upload = multer({storage: storage })
 const filePath = "files/izin_karyawan.xlsx";
 const fs = require('node:fs')
 var XLSX = require("xlsx");
 const { check, matchedData, validationResult } = require('express-validator');
+
 
 //membuat instansi database
 const mysql = require('mysql2')
@@ -22,8 +32,7 @@ var date = "";
 var que_result;
 var arr = [];
 
-router.all('/', function(req, res, next){
-    console.log(req.session.user)
+router.all('/*', function(req, res, next){
     if(!req.session.user) {
         console.log('yes')
         res.redirect('/')
@@ -64,7 +73,6 @@ router.get('/by_Date', function(req, res, next){
         date = dateObj.getFullYear() + '-'
         + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
         +  ('0' + dateObj.getDate()).slice(-2);
-        // console.log(que_result)  
         res.render('view_data/by_date',{absenkaryawan: que_result, tanggal: date})
     })
 });
@@ -188,19 +196,22 @@ router.get('/formAbsen', (req,res)=>{
             console.log("Exists")
         }
     })
-    res.render('view_data/formAbsen')
+    console.log(req.session.role_id)
+    res.render('view_data/formAbsen',{role: req.session.role_id})
 })
 
-router.post('/submitformAbsen', upload.none(),
+router.post('/submitformAbsen', upload.single("suratDktr"),
 check('nik').trim().notEmpty().escape(),
 check('alasan').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
 check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
-    var sql = 'insert into izinKaryawan(nik,alasan,tgl_izin,durasi,durasi_dalam_bulan) values(?,?,?,?,round(?,2))'
+    var sql = 'insert into izinKaryawan(izinAtauSakit, nik, alasan, tgl_izin, durasi, durasi_dalam_jam) values(?,?,?,?,?)'
     const result = validationResult(req);
-    var dalamBulan = req.body.durasi/30;
     var values = Object.values(req.body)
-    values.push(dalamBulan.toString())
+    if(req.file !== undefined) {
+        sql = 'insert into sakit(nik, surat_dokter, tgl_sakit) values(?,?,?)'
+        values = [req.body.nik, req.file.path, req.body.tgl_izin]
+    }
     const emptyInputs = result.errors > 0
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
@@ -246,7 +257,6 @@ check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
         /* set column width */
         // Cant work for some reason
         worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
-        console.log(worksheet["!cols"][COL_INDEX].wpx)
         XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
         XLSX.writeFile(workbook, path.join(__dirname, '..', 'files','izin_karyawan.xlsx'), { cellStyles: true});
     })
@@ -265,4 +275,8 @@ router.get('/nikKaryawan', function(req, res, next){
             res.send({sql: que_result})
     })
 });
+
+router.get('/karyawansakit:nik', (req,res)=>{
+    res.render('')
+})
 module.exports = router;
