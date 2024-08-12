@@ -205,24 +205,25 @@ check('nik').trim().notEmpty().escape(),
 check('alasan').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
 check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
-    var sql = 'insert into izinKaryawan(izinAtauSakit, nik, alasan, tgl_izin, durasi, durasi_dalam_jam) values(?,?,?,?,?)'
-    const result = validationResult(req);
-    var values = Object.values(req.body)
-    if(req.file !== undefined) {
-        sql = 'insert into sakit(nik, surat_dokter, tgl_sakit) values(?,?,?)'
-        values = [req.body.nik, req.file.path, req.body.tgl_izin]
-    }
-    const emptyInputs = result.errors > 0
-    if(!emptyInputs){
-        connection.query(sql,values,(err,rows)=>{
-            if (err) {
-                throw err;
-            }
-            else{
-                que_result = rows
-            }
-        })
-    }
+    console.log(req.body)
+    // var sql = 'insert into izinKaryawan(izinAtauSakit, nik, alasan, tgl_izin, durasi, durasi_dalam_jam) values(?,?,?,?,?)'
+    // const result = validationResult(req);
+    // var values = Object.values(req.body)
+    // if(req.file !== undefined) {
+    //     sql = 'insert into sakit(nik, surat_dokter, tgl_sakit) values(?,?,?)'
+    //     values = [req.body.nik, req.file.path, req.body.tgl_izin]
+    // }
+    // const emptyInputs = result.errors > 0
+    // if(!emptyInputs){
+    //     connection.query(sql,values,(err,rows)=>{
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         else{
+    //             que_result = rows
+    //         }
+    //     })
+    // }
     next()
 }, (req, res)=>{
     var sql = 'SELECT * FROM izinKaryawan'

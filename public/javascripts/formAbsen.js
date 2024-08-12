@@ -56,7 +56,7 @@ function submitFormAbsen(event){
 
 function onSuccess(result){
   alert("Result: "+ result)
-  form.reset()
+  // form.reset()
 }
 
 function autocomplete(inp, arr) {

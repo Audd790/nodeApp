@@ -201,12 +201,38 @@ alter table izinkaryawan
 add column myTimestamp timestamp default current_timestamp
 
 select monthname(month) as bulan, idDivisi, 
-sum(jumlahMenitTerlambat) as menitTelat, sum(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) 
+avg(jumlahMenitTerlambat) as menitTelat, avg(jumlahJamTerlambat) as jamTelat, sum(JumlahHariTerlambat) 
 from kehadirantotal group by idDivisi, month
 order by  idDivisi, month; 
 
-create or alter trigger insertIzinKaryawan
+delimiter //
+create trigger cuti
+before insert 
 on izinkaryawan
-for insert 
-as 
-   insert into sakit()
+for each row 
+begin 
+   if new.isCuti = true then
+   update cuti 
+   set jumlah_cuti = jumlah_cuti - 1
+   where new.nik = nik && jumlah_cuti > 0;
+   end if;
+end;//
+delimiter ;
+
+
+values('1122120','projek','2024-05-01',5,false)
+insert into izinkaryawan(nik,alasan,tgl_izin,durasi_dalam_jam,isCuti)
+select nik,alasan,tgl_izin,durasi_dalam_jam,isCuti from izinkaryawan limit 1;
+
+create table cuti(
+   nik varchar(255),
+   jumlah_cuti int,
+   constraint fk_cuti_nik foreign key (nik)
+   references karyawan(nik)
+);
+
+insert into cuti(nik)
+SELECT nik FROM karyawan;
+
+update cuti
+set jumlah_cuti = 6;
