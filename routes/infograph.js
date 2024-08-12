@@ -201,19 +201,20 @@ router.get('/formAbsen', (req,res)=>{
 })
 
 router.post('/submitformAbsen', upload.single("suratDktr"),
-check('nik').trim().notEmpty().escape(),
 check('alasan').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
-check('durasi').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
-    console.log(req.body)
-    // var sql = 'insert into izinKaryawan(izinAtauSakit, nik, alasan, tgl_izin, durasi, durasi_dalam_jam) values(?,?,?,?,?)'
-    // const result = validationResult(req);
-    // var values = Object.values(req.body)
-    // if(req.file !== undefined) {
-    //     sql = 'insert into sakit(nik, surat_dokter, tgl_sakit) values(?,?,?)'
-    //     values = [req.body.nik, req.file.path, req.body.tgl_izin]
-    // }
-    // const emptyInputs = result.errors > 0
+check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
+    console.log(req.session.cookie.maxAge / 1000)
+    // console.log(req.body)
+    var sql = 'insert into izinKaryawan(alasan, tgl_izin, durasi_dalam_jam, nik, surat_dokter) values(?,?,?,?,?)'
+    const result = validationResult(req);
+    var values = Object.values(req.body)
+    values.push(req.session.user)
+    if(req.file !== undefined) {
+        values.push(true)
+    } else values.push(false)
+    const emptyInputs = result.errors > 0
+    console.log(values)
     // if(!emptyInputs){
     //     connection.query(sql,values,(err,rows)=>{
     //         if (err) {

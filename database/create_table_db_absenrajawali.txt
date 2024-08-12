@@ -154,7 +154,6 @@ mysql --local-infile=0 -u root -p
 
 mysqldump -u root -p absenrajawali> absenrajawaliDB.sql
 
-
 select count(id),0,0
 from divisi
 union

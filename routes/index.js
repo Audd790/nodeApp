@@ -60,12 +60,20 @@ function(req,res,next)  {
     }
     const sqlEmpty = rows > 0 || que_result == undefined;
     if(!sqlEmpty) {
-      req.session.user = que_result.nik
-      req.session.role_id = que_result.role_id
+      req.session.regenerate((err) => {
+        if (err) next(err)
+        req.session.user = que_result.nik
+        req.session.role_id = que_result.role_id
+        req.session.save()
+        var data = {empty: result.errors.length>0, sql: sqlEmpty}
+        res.send(data)
+            // console.log(que_result)
+      })
     }
-    // console.log(que_result)
-    var data = {empty: result.errors.length>0, sql: sqlEmpty}
-    res.send(data)
+    else{
+        var data = {empty: result.errors.length>0, sql: sqlEmpty}
+        res.send(data)
+    }
   })
 })
 

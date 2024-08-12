@@ -1,6 +1,12 @@
 document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('form')
     form.addEventListener('submit', submitFormAbsen)
+    form.addEventListener('keypress',(e)=>{
+      if(e.key === 'Enter'){e.preventDefault()}
+    })
+    form.addEventListener('keyup',(e)=>{
+      if(e.key === 'Enter'){e.preventDefault()}
+    })
     getListNik()
     const downloadBtn = document.getElementById('buttonDownload')
     downloadBtn.addEventListener('click',(e)=>{
@@ -24,9 +30,11 @@ function getListNik(){
       if(xhr.readyState === XMLHttpRequest.DONE){
           if (xhr.status === 200) {
               var listNama = JSON.parse(xhr.response)
-              autocomplete(document.getElementById('nik'),listNama.sql.map(labels=>{
+              var inp = document.getElementById('nik')
+              if(inp !== null){
+                autocomplete(inp,listNama.sql.map(labels=>{
                   return labels.nik
-              }))
+                }))}
           } else{
               console.error('Error:', xhr.status)
           }
