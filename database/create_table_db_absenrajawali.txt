@@ -152,8 +152,6 @@ set global local_infile = 0
 
 mysql --local-infile=0 -u root -p
 
-mysqldump -u root -p absenrajawali> absenrajawaliDB.sql
-
 select count(id),0,0
 from divisi
 union
@@ -246,3 +244,5 @@ SELECT nik FROM karyawan;
 
 update cuti
 set jumlah_cuti = 6;
+
+mysqldump -u root -p absenrajawali > C:\Users\Operation\Desktop\Auddly\nodeApp\database\absenrajawaliDB.sql
