@@ -206,25 +206,28 @@ check('tgl_izin').trim().notEmpty().escape(),
 check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
     console.log(req.session.cookie.maxAge / 1000)
     // console.log(req.body)
-    var sql = 'insert into izinKaryawan(alasan, tgl_izin, durasi_dalam_jam, nik, surat_dokter) values(?,?,?,?,?)'
     const result = validationResult(req);
-    var values = Object.values(req.body)
-    values.push(req.session.user)
+    const match = matchedData(req)
+    var values = Object.values(match)
     if(req.file !== undefined) {
-        values.push(true)
-    } else values.push(false)
+        sql = 'insert into sakit( tgl_sakit, surat_dokter ,nik ) values( ?, ?, ? )'
+        values.push(req.file.path)
+    } else{
+        var sql = 'insert into izinKaryawan(alasan, tgl_izin, durasi_dalam_jam, nik) values(?,?,?,?)'
+    }
+    values.push(req.session.user)
     const emptyInputs = result.errors > 0
     console.log(values)
-    // if(!emptyInputs){
-    //     connection.query(sql,values,(err,rows)=>{
-    //         if (err) {
-    //             throw err;
-    //         }
-    //         else{
-    //             que_result = rows
-    //         }
-    //     })
-    // }
+    if(!emptyInputs){
+        connection.query(sql,values,(err,rows)=>{
+            if (err) {
+                throw err;
+            }
+            else{
+                que_result = rows
+            }
+        })
+    }
     next()
 }, (req, res)=>{
     var sql = 'SELECT * FROM izinKaryawan'
@@ -277,8 +280,4 @@ router.get('/nikKaryawan', function(req, res, next){
             res.send({sql: que_result})
     })
 });
-
-router.get('/karyawansakit:nik', (req,res)=>{
-    res.render('')
-})
 module.exports = router;

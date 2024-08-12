@@ -218,6 +218,17 @@ begin
 end;//
 delimiter ;
 
+delimiter //
+create trigger insertSakit
+after insert 
+on sakit
+for each row 
+begin 
+   insert into izinkaryawan(nik,alasan,tgl_izin,durasi_dalam_jam,isSakit)
+   values(new.nik, 'sakit', new.tgl_sakit, 24, true);
+end;//
+delimiter ;
+
 
 values('1122120','projek','2024-05-01',5,false)
 insert into izinkaryawan(nik,alasan,tgl_izin,durasi_dalam_jam,isCuti)

@@ -108,9 +108,14 @@ router.get('/downloadSuratDokter/:nik', function(req, res){
     }else{
       que_result = rows[0]
     }
-    const file = path.join(__dirname, '..', que_result.surat_dokter.replace(`"\"`,'/'));
+    if(que_result !== undefined){
+      const file = path.join(__dirname, '..', que_result.surat_dokter.replace(`"\"`,'/'));
+      res.download(file); // Set disposition and send it.
+    } else{
+      res.render('file_not_found')
+    }
     // res.send(file)
-    res.download(file); // Set disposition and send it.
+    
   })
 
   // // res.redirect('/kehadiran/info/formAbsen')

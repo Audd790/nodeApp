@@ -4,25 +4,25 @@ block formAbsenBtn
 block info
     .block
         .container1
-            h2 Form input absen karyawan
+            h2 Form input izin karyawan
             form#form
                 case role
                     when 2: div 
                                 .form-group 
-                                    label(for="alasan") Alasan absen 
-                                    input#alasan(type="text" name="alasan")
-                                .form-group 
-                                    label(for="tgl_izin") Tanggal akan absen 
-                                    input#tgl_izin(type="date" name="tgl_izin")
-                                .form-group 
-                                    label(for="durasiDalamJam") Berapa lama izin dalam Jam
-                                    input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="23")
-                                .form-group 
                                     label(for="suratDktr") Upload Surat dari Dokter
                                     input#suratDktr(type="file" name="suratDktr")
+                                .form-group 
+                                    label(for="alasan") Alasan izin
+                                    input#alasan(type="text" name="alasan")
+                                .form-group 
+                                    label(for="durasiDalamJam") Berapa lama izin dalam Jam
+                                    input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
                                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                     input#izin(type="checkbox" name="toggle" value="cuti")
                                     label(for="toggle" style="margin-bottom: 0px") Cuti
+                                .form-group 
+                                    label(for="tgl_izin") Tanggal akan izin
+                                    input#tgl_izin(type="date" name="tgl_izin")
                                 button#button(type='submit') Submit
                     when 1: .form-group 
                                 label(for="getSuratDktr") Ambil Surat Dokter

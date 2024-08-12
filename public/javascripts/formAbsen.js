@@ -1,12 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
     const form = document.getElementById('form')
     form.addEventListener('submit', submitFormAbsen)
-    form.addEventListener('keypress',(e)=>{
-      if(e.key === 'Enter'){e.preventDefault()}
-    })
-    form.addEventListener('keyup',(e)=>{
-      if(e.key === 'Enter'){e.preventDefault()}
-    })
+    form.addEventListener('keypress',stopEnterSubmit)
+    form.addEventListener('keyup',stopEnterSubmit)
     getListNik()
     const downloadBtn = document.getElementById('buttonDownload')
     downloadBtn.addEventListener('click',(e)=>{
@@ -20,7 +16,27 @@ document.addEventListener('DOMContentLoaded', function(){
         window.location.href = pathSuratDokter
       })
     }
+    const file = document.getElementById('suratDktr')
+    if(file !== null){
+      file.addEventListener('change',(e)=>{
+        const durasi = document.getElementById('durasiDalamJam')
+        const alasan = document.getElementById('alasan')
+        const cuti = document.getElementById('izin')
+        console.log(e.target.value)
+        alasan.value = 'sakit'
+        durasi.value = 24
+        alasan.disabled = true
+        durasi.disabled = true
+        cuti.disabled = true
+      })
+    }
 })
+
+function stopEnterSubmit(event){
+  if(event.key === 'Enter'){
+    event.preventDefault()
+  }
+}
 
 function getListNik(){
   const xhr = new XMLHttpRequest
@@ -47,6 +63,7 @@ function submitFormAbsen(event){
     event.preventDefault();
     const xhr = new XMLHttpRequest
     const data = new FormData(form);
+    var file = document.getElementById('suratDktr')
     xhr.open('POST', 'submitFormAbsen',true)
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
@@ -64,7 +81,7 @@ function submitFormAbsen(event){
 
 function onSuccess(result){
   alert("Result: "+ result)
-  // form.reset()
+  form.reset()
 }
 
 function autocomplete(inp, arr) {
