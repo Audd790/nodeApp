@@ -73,13 +73,13 @@ function submitFormAbsen(event){
     event.preventDefault();
     const xhr = new XMLHttpRequest
     const data = new FormData(form);
-    var file = document.getElementById('suratDktr')
     xhr.open('POST', 'submitFormAbsen',true)
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if (xhr.status === 200) {
                 var response = JSON.parse(xhr.response)
                 onSuccess(response.result)
+                console.log(durasi)
             } else{
                 console.error('Error:', xhr.status)
             }
@@ -91,6 +91,9 @@ function submitFormAbsen(event){
 
 function onSuccess(result){
   alert("Result: "+ result)
+  document.getElementById('durasiDalamJam').disabled = false
+  document.getElementById('alasan').disabled = false
+  document.getElementById('izin').disabled = false
   form.reset()
 }
 
