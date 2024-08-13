@@ -9,18 +9,26 @@ block info
                     when 2: div 
                                 h2 Form input izin karyawan
                                 form#form
-                                    .form-group 
-                                        label(for="suratDktr") Upload Surat dari Dokter
-                                        input#suratDktr(type="file" name="suratDktr")
-                                    .form-group 
-                                        label(for="alasan") Alasan izin
-                                        input#alasan(type="text" name="alasan")
-                                    .form-group 
-                                        label(for="durasiDalamJam") Berapa lama izin dalam Jam
-                                        input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
                                     div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                        input#izin(type="checkbox" name="toggle" value="cuti")
+                                        input#izin(type="radio" name="toggle" value="izin")
+                                        label(for="toggle" style="margin-bottom: 0px") Izin
+                                        input#izin(type="radio" name="toggle" value="cuti")
                                         label(for="toggle" style="margin-bottom: 0px") Cuti
+                                        input#izin(type="radio" name="toggle" value="sakit")
+                                        label(for="toggle" style="margin-bottom: 0px") Sakit 
+                                    .form-group 
+                                        label(for="surat") Upload Surat
+                                        input#surat(type="file" name="surat")
+                                    div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: column;")
+                                            label(for="durasiDalamJam") Menit 
+                                            input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
+                                        div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: column;")
+                                            label(for="durasiDalamJam") Jam 
+                                            input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
+                                        div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: column;")
+                                            label(for="durasiDalamJam") Hari
+                                            input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
                                     .form-group 
                                         label(for="tgl_izin") Tanggal akan izin
                                         input#tgl_izin2(type="date" name="tgl_izin")
@@ -35,8 +43,8 @@ block info
                                         label(for="nik") NIK Karyawan
                                         input#nik(type="text" name="nik" autocomplete="off" disabled)                        
                                     .form-group 
-                                        label(for="getSuratDktr") Ambil Surat Dokter
-                                        button#getSuratDktr(type="button" name="getSuratDktr" disabled) Ambil Surat
+                                        label(for="getsurat") Ambil Surat Dokter
+                                        button#getsurat(type="button" name="getsurat" disabled) Ambil Surat
     button#buttonDownload(type="button") Download
 block append script 
     script(src="/javascripts/formAbsen.js") 

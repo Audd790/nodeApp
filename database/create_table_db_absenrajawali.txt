@@ -246,3 +246,8 @@ update cuti
 set jumlah_cuti = 6;
 
 mysqldump -u root -p absenrajawali > C:\Users\Operation\Desktop\Auddly\nodeApp\database\absenrajawaliDB.sql
+
+create table statusIzin(
+   id int primary key auto_increment,
+   
+)
