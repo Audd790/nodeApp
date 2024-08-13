@@ -125,9 +125,11 @@ function autocomplete(inp, arr) {
             /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
                   if(getSuratDktr !== null){
+                    if(getSuratDktr.disabled) getSuratDktr.disabled = false
                     getSuratDktr.addEventListener('click',(e)=>{
                       var pathSuratDokter = '/downloadSuratDokter/' + this.getElementsByTagName("input")[0].id
                       window.location.href = pathSuratDokter
+                      if(!getSuratDktr.disabled) e.target.disabled = true;
                     })
                   }
                   // const xhr = new XMLHttpRequest
