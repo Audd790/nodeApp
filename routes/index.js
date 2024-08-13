@@ -32,16 +32,6 @@ function(req,res,next)  {
   //menaruh req.body kedalam satu variabel untuk memudahkan pembacaan
   var karyawan = req.body;
 
-  //Memastikan setiap field sudah diisi
-  const isObjectEmpty = (objectName) => {
-    for (let prop in objectName) {
-      if (objectName[prop] === '') {
-        return true;
-      }
-    }
-    return false;
-  };
-
   //queri SQL yang akan digunakan
   var sql = 'SELECT nik,role_id FROM karyawan WHERE nik = ? AND pass = ?;'
   // var sql = 'SELECT 1+1 AS Solution'
@@ -99,10 +89,10 @@ router.get('/downloadExcel', function(req, res){
   // res.redirect('/kehadiran/info/formAbsen')
 });
 
-router.get('/downloadSuratDokter/:nik', function(req, res){
+router.get('/downloadSuratDokter/:id', check('id').trim().notEmpty().escape(),function(req, res){
   var que_result;
-  var sql = 'select surat_dokter from sakit where nik = ?'
-  connection.query(sql, req.params.nik, (err,rows)=>{
+  var sql = 'select surat_dokter from sakit where id = ?'
+  connection.query(sql, req.params.id, (err,rows)=>{
     if(err){
       que_result = err
     }else{

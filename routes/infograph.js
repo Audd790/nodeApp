@@ -15,7 +15,7 @@ const upload = multer({storage: storage })
 const filePath = "files/izin_karyawan.xlsx";
 const fs = require('node:fs')
 var XLSX = require("xlsx");
-const { check, matchedData, validationResult } = require('express-validator');
+const { check, matchedData, validationResult, body } = require('express-validator');
 
 
 //membuat instansi database
@@ -92,7 +92,6 @@ router.post('/by_Date/dates', upload.none(), function(req, res, next){
         else{
         que_result = rows;
         }
-        console.log(que_result)
        res.status(200).send(que_result)
     })
 });
@@ -196,7 +195,6 @@ router.get('/formAbsen', (req,res)=>{
             console.log("Exists")
         }
     })
-    console.log(req.session.role_id)
     res.render('view_data/formAbsen',{role: req.session.role_id})
 })
 
@@ -204,8 +202,6 @@ router.post('/submitformAbsen', upload.single("suratDktr"),
 check('alasan').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
 check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
-    console.log(req.session.cookie.maxAge / 1000)
-    // console.log(req.body)
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
@@ -217,7 +213,6 @@ check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next
     }
     values.push(req.session.user)
     const emptyInputs = result.errors > 0
-    console.log(values)
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
             if (err) {
@@ -268,8 +263,8 @@ check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next
     res.send({result: 'Success'})
 })
 
-router.get('/nikKaryawan', function(req, res, next){
-    var sql = "select nik from karyawan order by nik"
+router.post('/nikKaryawan', upload.none(), function(req, res, next){
+    var sql = "select id,nik from sakit where tgl_sakit = '" + req.body.tgl_izin+"' order by nik "
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -277,7 +272,21 @@ router.get('/nikKaryawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            res.send({sql: que_result})
+            res.send({sql: que_result, empty: que_result.length == 0})
     })
 });
+
+// router.post('/idSakit', upload.none(), function(req, res, next){
+//     console.log(req,body)
+//     var sql = "select id sakit where tgl_sakit = '" + req.body.tgl_izin+"' order by nik "
+//     // connection.query(sql, (err, rows, fields)=>{
+//     //     if (err) {
+//     //         throw err
+//     //     }
+//     //     else{
+//     //         que_result = rows;
+//     //     }
+//             res.send({sql: 'yes', empty: 0})
+//     // })
+// });
 module.exports = router;

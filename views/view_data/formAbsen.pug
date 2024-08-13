@@ -4,32 +4,39 @@ block formAbsenBtn
 block info
     .block
         .container1
-            h2 Form input izin karyawan
-            form#form
-                case role
-                    when 2: div 
-                                .form-group 
-                                    label(for="suratDktr") Upload Surat dari Dokter
-                                    input#suratDktr(type="file" name="suratDktr")
-                                .form-group 
-                                    label(for="alasan") Alasan izin
-                                    input#alasan(type="text" name="alasan")
-                                .form-group 
-                                    label(for="durasiDalamJam") Berapa lama izin dalam Jam
-                                    input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
-                                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                    input#izin(type="checkbox" name="toggle" value="cuti")
-                                    label(for="toggle" style="margin-bottom: 0px") Cuti
-                                .form-group 
-                                    label(for="tgl_izin") Tanggal akan izin
-                                    input#tgl_izin(type="date" name="tgl_izin")
-                                button#button(type='submit') Submit
-                    when 1: .form-group 
-                                label(for="getSuratDktr") Ambil Surat Dokter
-                                div(class="form-group autocomplete" autocomplete="off")
-                                    label(for="nik") NIK Karyawan
-                                    input#nik(type="text" name="nik" autocomplete="off")
-                                button#getSuratDktr(type="button" name="getSuratDktr") Ambil Surat
+            
+                //- case role
+                //-     when 2: div 
+                //-                 h2 Form input izin karyawan
+                //-                 form#form
+                //-                     .form-group 
+                //-                         label(for="suratDktr") Upload Surat dari Dokter
+                //-                         input#suratDktr(type="file" name="suratDktr")
+                //-                     .form-group 
+                //-                         label(for="alasan") Alasan izin
+                //-                         input#alasan(type="text" name="alasan")
+                //-                     .form-group 
+                //-                         label(for="durasiDalamJam") Berapa lama izin dalam Jam
+                //-                         input#durasiDalamJam(type="number" name="durasiDalamJam" min="1" max="24")
+                //-                     div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                //-                         input#izin(type="checkbox" name="toggle" value="cuti")
+                //-                         label(for="toggle" style="margin-bottom: 0px") Cuti
+                //-                     .form-group 
+                //-                         label(for="tgl_izin") Tanggal akan izin
+                //-                         input#tgl_izin2(type="date" name="tgl_izin")
+                //-                     button#button(type='submit') Submit
+                //-     when 1: div 
+                h2 Form input izin karyawan
+                form#form
+                    .form-group 
+                        label(for="tgl_izin") Tanggal akan izin
+                        input#tgl_izin1(type="date" name="tgl_izin")
+                    div(class="form-group autocomplete" autocomplete="off")
+                        label(for="nik") NIK Karyawan
+                        input#nik(type="text" name="nik" autocomplete="off" disabled)                        
+                    .form-group 
+                        label(for="getSuratDktr") Ambil Surat Dokter
+                        button#getSuratDktr(type="button" name="getSuratDktr") Ambil Surat
     button#buttonDownload(type="button") Download
 block append script 
     script(src="/javascripts/formAbsen.js") 

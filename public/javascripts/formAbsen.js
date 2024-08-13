@@ -3,26 +3,31 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('submit', submitFormAbsen)
     form.addEventListener('keypress',stopEnterSubmit)
     form.addEventListener('keyup',stopEnterSubmit)
-    getListNik()
     const downloadBtn = document.getElementById('buttonDownload')
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
-    const getSuratDktr = document.getElementById('getSuratDktr')
-    if(getSuratDktr !== null){
-      getSuratDktr.addEventListener('click',(e)=>{
-        var karyawansakit = document.getElementById('nik')
-        var pathSuratDokter = '/downloadSuratDokter/' + karyawansakit.value
-        window.location.href = pathSuratDokter
+
+    var karyawansakit = document.getElementById('nik')
+
+    const datePicker = document.getElementById('tgl_izin1')
+    if(datePicker !== null){
+      datePicker.addEventListener('change',(e)=>{
+        if(karyawansakit.disabled){
+          karyawansakit.disabled = false
+        }
+        karyawansakit.value = ""
+        getListNik()
       })
     }
+
+    const getSuratDktr = document.getElementById('getSuratDktr')
     const file = document.getElementById('suratDktr')
     if(file !== null){
       file.addEventListener('change',(e)=>{
         const durasi = document.getElementById('durasiDalamJam')
         const alasan = document.getElementById('alasan')
         const cuti = document.getElementById('izin')
-        console.log(e.target.value)
         alasan.value = 'sakit'
         durasi.value = 24
         alasan.disabled = true
@@ -41,22 +46,27 @@ function stopEnterSubmit(event){
 function getListNik(){
   const xhr = new XMLHttpRequest
   const data = new FormData(form);
-  xhr.open('GET', 'nikKaryawan',true)
+  xhr.open('POST', 'nikKaryawan',true)
   xhr.onreadystatechange = function () {
       if(xhr.readyState === XMLHttpRequest.DONE){
           if (xhr.status === 200) {
               var listNama = JSON.parse(xhr.response)
               var inp = document.getElementById('nik')
+              if(listNama.empty){
+                alert('File(s) Not Found')
+              } else alert('Found Files')
               if(inp !== null){
-                autocomplete(inp,listNama.sql.map(labels=>{
-                  return labels.nik
+                autocomplete(inp, listNama.sql.map(labels=>{
+                  return {nik: labels.nik,id: labels.id}
                 }))}
           } else{
               console.error('Error:', xhr.status)
           }
       }
   };
-  xhr.send()
+
+
+  xhr.send(data)
 }
 
 function submitFormAbsen(event){
@@ -104,31 +114,37 @@ function autocomplete(inp, arr) {
         /*for each item in the array...*/
         for (i = 0; i < arr.length; i++) {
           /*check if the item starts with the same letters as the text field value:*/
-          if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          if (arr[i].nik.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
             /*create a DIV element for each matching element:*/
             b = document.createElement("DIV");
             /*make the matching letters bold:*/
-            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-            b.innerHTML += arr[i].substr(val.length);
+            b.innerHTML = "<strong>" + arr[i].nik.substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].nik.substr(val.length);
             /*insert a input field that will hold the current array item's value:*/
-            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+            b.innerHTML += "<input id='"+ arr[i].id +"' type='hidden' value='" + arr[i].nik + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
+                  if(getSuratDktr !== null){
+                    getSuratDktr.addEventListener('click',(e)=>{
+                      var pathSuratDokter = '/downloadSuratDokter/' + this.getElementsByTagName("input")[0].id
+                      window.location.href = pathSuratDokter
+                    })
+                  }
+                  // const xhr = new XMLHttpRequest
+                  // const data = new FormData(form)
+                  // xhr.open('POST', 'idSakit', true)
+                  // xhr.onreadystatechange((e)=>{
+                  //   if(xhr.readyState === XMLHttpRequest.DONE){
+                  //     if (xhr.status === 200) {
+                  //         var response = JSON.parse(xhr.response)
+                  //         onSuccess(response.result)
+                  //     } else{
+                  //         console.error('Error:', xhr.status)
+                  //     }
+                  // }})
+                  // xhr.send(data)
                 /*insert the value for the autocomplete text field:*/
                 inp.value = this.getElementsByTagName("input")[0].value;
-                const xhr = new XMLHttpRequest
-                var data = new FormData()
-                var karyawan ;
-                // console.log(divisi.value)
-                data.append("nama", inp.value)
-                // console.log(inp.value)
-                // data.append('divisi', divisi.value)
-                window.addEventListener('beforeprint', () => {
-                    myChart.resize(600, 600);
-                  });
-                  window.addEventListener('afterprint', () => {
-                    myChart.resize();
-                  });  
                 /*close the list of autocompleted values,
                 (or any other open lists of autocompleted values:*/
                 closeAllLists();
