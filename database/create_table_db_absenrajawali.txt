@@ -249,5 +249,39 @@ mysqldump -u root -p absenrajawali > C:\Users\Operation\Desktop\Auddly\nodeApp\d
 
 create table statusIzin(
    id int primary key auto_increment,
-   
+
 )
+
+delimiter //
+create event cutiPerBulan
+on schedule at current_timestamp 
+every 1 month
+do 
+   begin
+      update cuti
+      set jumlah_cuti += 1;
+   end;//
+delimiter ;
+
+delimiter //
+create event cutiPerTahun
+on schedule at current_timestamp 
+every 1 year
+do 
+   begin
+      update cuti
+      set jumlah_cuti = 0;
+   end;//
+delimiter ;
+
+delimiter //
+create trigger updateCuti
+before update
+on cuti
+for each row 
+begin 
+   if(month(current_timestamp) = 1) then
+   update cuti 
+   set jumlah_cuti = old.jumlah_cuti 
+end;//
+delimiter ;
