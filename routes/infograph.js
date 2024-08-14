@@ -199,72 +199,83 @@ router.get('/formAbsen', (req,res)=>{
 })
 
 router.post('/submitformAbsen', upload.single("suratDktr"),
-check('alasan').trim().notEmpty().escape(),
+check('nik').trim().notEmpty().escape(),
+check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
-check('durasiDalamJam').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
+check('menit').trim().notEmpty().isInt({min: 0}).escape(),
+check('jam').trim().notEmpty().isInt({min: 0}).escape(),
+check('hari').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
-    if(req.file !== undefined) {
-        sql = 'insert into sakit( tgl_sakit, surat_dokter ,nik ) values( ?, ?, ? )'
-        values.push(req.file.path)
-    } else{
-        var sql = 'insert into izinKaryawan(alasan, tgl_izin, durasi_dalam_jam, nik) values(?,?,?,?)'
-    }
-    values.push(req.session.user)
-    const emptyInputs = result.errors > 0
+    var sql = 'insert into izinKaryawan(nik, alasan, tgl_izin, menit, jam, hari) values(?,?,?,?,?,?)'
+    const emptyInputs = result.errors.length > 0
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
             if (err) {
-                throw err;
+                que_result = err;
+                // console.log(que_result)
+                next(que_result)
             }
             else{
-                que_result = rows
+                next()
             }
         })
-    }
-    next()
+    } else res.send({result: 'fail'})
 }, (req, res)=>{
     var sql = 'SELECT * FROM izinKaryawan'
-    connection.query(sql,(err,rows)=>{
-        const worksheet = XLSX.utils.json_to_sheet(rows);
-        const workbook = XLSX.utils.book_new();
-        var C = XLSX.utils.decode_col("G"); 
-        var fmt = 'dd/mm/yyyy hh:mm:ss'; // or '"$"#,##0.00_);[Red]\\("$"#,##0.00\\)' or any Excel number format
+    // connection.query(sql,(err,rows)=>{
+    //     const worksheet = XLSX.utils.json_to_sheet(rows);
+    //     const workbook = XLSX.utils.book_new();
+    //     var C = XLSX.utils.decode_col("G"); 
+    //     var fmt = 'dd/mm/yyyy hh:mm:ss'; // or '"$"#,##0.00_);[Red]\\("$"#,##0.00\\)' or any Excel number format
 
-        /* get worksheet range */
-        var range = XLSX.utils.decode_range(worksheet['!ref']);
-        for(var i = range.s.r + 1; i <= range.e.r; ++i) {
-            /* find the data cell (range.s.r + 1 skips the header row of the worksheet) */
-            var ref = XLSX.utils.encode_cell({r:i, c:C});
-            /* if the particular row did not contain data for the column, the cell will not be generated */
-            if(!worksheet[ref]) continue;
-            /* assign the `.z` number format */
-            worksheet[ref].z = fmt;
-        }
+    //     /* get worksheet range */
+    //     var range = XLSX.utils.decode_range(worksheet['!ref']);
+    //     for(var i = range.s.r + 1; i <= range.e.r; ++i) {
+    //         /* find the data cell (range.s.r + 1 skips the header row of the worksheet) */
+    //         var ref = XLSX.utils.encode_cell({r:i, c:C});
+    //         /* if the particular row did not contain data for the column, the cell will not be generated */
+    //         if(!worksheet[ref]) continue;
+    //         /* assign the `.z` number format */
+    //         worksheet[ref].z = fmt;
+    //     }
 
-        const COL_WIDTH = 50;
+    //     const COL_WIDTH = 50;
 
-        /* Excel column "C" -> SheetJS column index 2 == XLSX.utils.decode_col("C") */
-        var COL_INDEX = 2;
+    //     /* Excel column "C" -> SheetJS column index 2 == XLSX.utils.decode_col("C") */
+    //     var COL_INDEX = 2;
         
-        /* create !cols array if it does not exist */
-        if(!worksheet["!cols"]) worksheet["!cols"] = [];
+    //     /* create !cols array if it does not exist */
+    //     if(!worksheet["!cols"]) worksheet["!cols"] = [];
         
-        /* create column metadata object if it does not exist */
-        if(!worksheet["!cols"][COL_INDEX]) worksheet["!cols"][COL_INDEX] = {wch: 8};
+    //     /* create column metadata object if it does not exist */
+    //     if(!worksheet["!cols"][COL_INDEX]) worksheet["!cols"][COL_INDEX] = {wch: 8};
         
-        /* set column width */
-        // Cant work for some reason
-        worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
-        XLSX.writeFile(workbook, path.join(__dirname, '..', 'files','izin_karyawan.xlsx'), { cellStyles: true});
-    })
-    res.send({result: 'Success'})
+    //     /* set column width */
+    //     // Cant work for some reason
+    //     worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
+    //     XLSX.utils.book_append_sheet(workbook, worksheet, "Izin Karyawan");
+    //     XLSX.writeFile(workbook, path.join(__dirname, '..', 'files','izin_karyawan.xlsx'), { cellStyles: true});
+    // })
+    res.send({result: 'success'})
 })
 
-router.post('/nikKaryawan', upload.none(), function(req, res, next){
-    var sql = "select id,nik from sakit where tgl_sakit = '" + req.body.tgl_izin+"' order by nik "
+router.get('/nikKaryawan', upload.none(), function(req, res, next){
+    var sql = "select nik from karyawan"
+    connection.query(sql, (err, rows, fields)=>{
+        if (err) {
+            throw err
+        }
+        else{
+            que_result = rows;
+        }
+            res.send({sql: que_result, empty: que_result.length == 0})
+    })
+});
+
+router.post('/nikKaryawanSurat', upload.none(), function(req, res, next){
+    var sql = "select id,nik from izinkaryawan order by nik "
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err

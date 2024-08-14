@@ -203,22 +203,8 @@ from kehadirantotal group by idDivisi, month
 order by  idDivisi, month; 
 
 delimiter //
-create trigger cuti
-before insert 
-on izinkaryawan
-for each row 
-begin 
-   if new.isCuti = true then
-   update cuti 
-   set jumlah_cuti = jumlah_cuti - 1
-   where new.nik = nik && jumlah_cuti > 0;
-   end if;
-end;//
-delimiter ;
-
-delimiter //
-create trigger insertSakit
-after insert 
+create trigger allowCuti
+after update
 on sakit
 for each row 
 begin 
@@ -275,13 +261,31 @@ do
 delimiter ;
 
 delimiter //
+create trigger ambilCuti
+after insert 
+on izinkaryawan
+for each row 
+begin 
+   if new.alasan = 3 then
+   update cuti 
+   set jumlah_cuti = jumlah_cuti + 1
+   where new.nik = nik;
+   end if;
+end;//
+delimiter ;
+
+delimiter //
+
 create trigger updateCuti
 before update
 on cuti
 for each row 
 begin 
-   if(month(current_timestamp) = 1) then
-   update cuti 
-   set jumlah_cuti = old.jumlah_cuti 
+   if(new.jumlah_cuti > month(current_timestamp)) then
+   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'anda mencoba ambil cuti lebih dari yang sudah akumulasi';
+   end if;
 end;//
 delimiter ;
+
+insert into izinkaryawan(nik,alasan,tgl_izin, jam)
+values(12345, 3, '2024-05-01', 3);

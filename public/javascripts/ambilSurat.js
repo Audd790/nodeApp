@@ -1,72 +1,49 @@
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded',(e)=>{
     const form = document.getElementById('form')
     form.addEventListener('submit', submitFormAbsen)
     form.addEventListener('keypress',stopEnterSubmit)
     form.addEventListener('keyup',stopEnterSubmit)
     const downloadBtn = document.getElementById('buttonDownload')
-    getListNik()
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
+    var karyawansakit = document.getElementById('nik')
+    const datePicker = document.getElementById('tgl_izin1')
+    if(datePicker !== null){
+      datePicker.addEventListener('change',(e)=>{
+        if(karyawansakit.disabled){
+          karyawansakit.disabled = false
+        }
+        karyawansakit.value = ""
+        getListNikSurat()
+      })
+    }
 })
 
-function stopEnterSubmit(event){
-  if(event.key === 'Enter'){
-    event.preventDefault()
-  }
-}
-
-function getListNik(){
-  const xhr = new XMLHttpRequest
-  const data = new FormData(form);
-  xhr.open('GET', 'nikKaryawan',true)
-  xhr.onreadystatechange = function () {
-      if(xhr.readyState === XMLHttpRequest.DONE){
-          if (xhr.status === 200) {
-              var listNama = JSON.parse(xhr.response)
-              var inp = document.getElementById('nik')
-              if(inp !== null){
-                const getSuratDktr = document.getElementById('getSuratDktr')
-                autocomplete(inp, listNama.sql.map(labels=>{
-                  return labels.nik
-                }))}
-          } else{
-              console.error('Error:', xhr.status)
-          }
-      }
-  };
-
-
-  xhr.send()
-}
-
-
-function submitFormAbsen(event){
-    event.preventDefault();
+function getListNikSurat(){
     const xhr = new XMLHttpRequest
     const data = new FormData(form);
-    xhr.open('POST', 'submitFormAbsen',true)
+    xhr.open('POST', 'nikKaryawanSurat',true)
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if (xhr.status === 200) {
-                var response = JSON.parse(xhr.response)
-                onSuccess(response.result)
-                console.log(response)
+                var listNama = JSON.parse(xhr.response)
+                var inp = document.getElementById('nik')
+                if(inp !== null){
+                  autocomplete(inp, listNama.sql.map(labels=>{
+                    return labels.nik
+                  }))}
             } else{
                 console.error('Error:', xhr.status)
             }
         }
     };
-    
-    xhr.send(data)
-}
+  
+  
+    xhr.send()
+  }
 
-function onSuccess(result){
-  alert("Result: "+ result)
-  // form.reset()
-}
-
-function autocomplete(inp, arr) {
+  function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
     var currentFocus;
@@ -96,6 +73,15 @@ function autocomplete(inp, arr) {
             b.innerHTML += "<input id='"+ arr[i] +"' type='hidden' value='" + arr[i] + "'>";
             /*execute a function when someone clicks on the item value (DIV element):*/
                 b.addEventListener("click", function(e) {
+                    if(getSuratDktr !== undefined){
+                      if(getSuratDktr !== null){
+                        if(getSuratDktr.disabled) getSuratDktr.disabled = false
+                        getSuratDktr.addEventListener('click',(e)=>{
+                          var pathSuratDokter = '/downloadSuratDokter/' + this.getElementsByTagName("input")[0].id
+                          window.location.href = pathSuratDokter
+                          if(!getSuratDktr.disabled) e.target.disabled = true;
+                        })}
+                    }
                 /*insert the value for the autocomplete text field:*/
                 inp.value = this.getElementsByTagName("input")[0].value;
                 /*close the list of autocompleted values,
@@ -162,4 +148,3 @@ function autocomplete(inp, arr) {
       closeAllLists(e.target);
   });
   }
-

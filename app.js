@@ -49,12 +49,21 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  var status
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  if(err.sqlState !== undefined){
+    if(err.sqlState == 23000){
+      res.send({result: 'Tidak ada karyawan tersebut'})
+    } else res.send({result: err.sqlMessage})
+    
+  } else {
+    res.status( err.status || 500);
+    res.render('error');
+  }
+
   // render the error page
-  res.status(err.status || 500);
-  res.render('error');
 });
 module.exports = app;
