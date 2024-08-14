@@ -289,3 +289,12 @@ delimiter ;
 
 insert into izinkaryawan(nama,alasan,tgl_izin, jam)
 values('BAYU AJI PRABOWO', 3, '2024-05-01', 3);
+
+create table user(
+   nama varchar(255),
+   pass varchar(255),
+   role int
+);
+
+insert into user(nama, pass, role)
+values ('APPROVE', 'pass', 3);
