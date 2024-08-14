@@ -204,11 +204,12 @@ check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
 check('menit').trim().notEmpty().isInt({min: 0}).escape(),
 check('jam').trim().notEmpty().isInt({min: 0}).escape(),
-check('hari').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
+check('hari').trim().notEmpty().isInt({min: 0}).escape(),
+check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
-    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari) values(?,?,?,?,?,?)'
+    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari, keterangan) values(?,?,?,?,?,?,?)'
     const emptyInputs = result.errors.length > 0
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
@@ -287,17 +288,15 @@ router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
     })
 });
 
-// router.post('/idSakit', upload.none(), function(req, res, next){
-//     console.log(req,body)
-//     var sql = "select id sakit where tgl_sakit = '" + req.body.tgl_izin+"' order by nik "
-//     // connection.query(sql, (err, rows, fields)=>{
-//     //     if (err) {
-//     //         throw err
-//     //     }
-//     //     else{
-//     //         que_result = rows;
-//     //     }
-//             res.send({sql: 'yes', empty: 0})
-//     // })
-// });
+router.get('/reportIzinKaryawan',(req, res,next)=>{
+    var sql = 'select * from izinkaryawan where nama = "'+ req.session.user +'"'
+    connection.query(sql, (err, rows, fields)=>{
+        if(err){
+            next(err)
+        } else {
+            que_result = rows
+            res.render('view_data/reportIzinKaryawan', {sql: que_result})
+        }
+    })
+})
 module.exports = router;

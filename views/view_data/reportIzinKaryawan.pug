@@ -1,0 +1,23 @@
+extends infographic
+block reportKaryawanBtn
+    button#reportIzinKaryawan.button(value="reportIzinKaryawan" disabled) Report
+block info
+    if sql.length > 0
+        h2= 'Report Izin Kayawan ' + sql[0].nama
+        .block
+            .container2
+                table#report
+                    tr 
+                        th Tanggal 
+                        th Alasan 
+                        th Keterangan
+                    for item in sql
+                        tr 
+                            td=item.tgl_izin.getDate() + " " + item.tgl_izin.toLocaleString('default',{month: 'long'})+', '+ item.tgl_izin.getFullYear()
+                            case item.alasan
+                                when 1: td='Izin'
+                                when 2: td='Sakit' 
+                                when 3: td='Cuti' 
+                            td=item.keterangan
+    else 
+        h2 Belum ada izin

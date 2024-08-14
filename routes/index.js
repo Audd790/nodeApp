@@ -33,7 +33,7 @@ function(req,res,next)  {
   var karyawan = req.body;
 
   //queri SQL yang akan digunakan
-  var sql = 'SELECT nik,role_id FROM karyawan WHERE nik = ? AND pass = ?;'
+  var sql = 'SELECT nama,role_id FROM karyawan WHERE ucase(replace(replace(nama," ",""),".","")) = ucase(replace(?," ","")) AND pass = ?;'
   // var sql = 'SELECT 1+1 AS Solution'
   const match = matchedData(req)
   const result = validationResult(req)
@@ -52,7 +52,7 @@ function(req,res,next)  {
     if(!sqlEmpty) {
       req.session.regenerate((err) => {
         if (err) next(err)
-        req.session.user = que_result.nik
+        req.session.user = que_result.nama
         req.session.role_id = que_result.role_id
         req.session.save()
         var data = {empty: result.errors.length>0, sql: sqlEmpty}

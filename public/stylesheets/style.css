@@ -94,6 +94,16 @@ label{
 body {
   font: 16px Arial;
 }
+
+#report, td, th{
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 15px;
+}
+
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
