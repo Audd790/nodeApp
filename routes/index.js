@@ -33,7 +33,7 @@ function(req,res,next)  {
   var karyawan = req.body;
 
   //queri SQL yang akan digunakan
-  var sql = 'SELECT nama,role_id FROM karyawan WHERE ucase(replace(replace(nama," ",""),".","")) = ucase(replace(?," ","")) AND pass = ?;'
+  var sql = 'SELECT nama,role_id FROM user WHERE ucase(replace(replace(nama," ",""),".","")) = ucase(replace(?," ","")) AND pass = ?;'
   // var sql = 'SELECT 1+1 AS Solution'
   const match = matchedData(req)
   const result = validationResult(req)
