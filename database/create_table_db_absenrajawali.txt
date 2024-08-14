@@ -269,7 +269,7 @@ begin
    if new.alasan = 3 then
    update cuti 
    set jumlah_cuti = jumlah_cuti + 1
-   where new.nik = nik;
+   where new.nama = nama;
    end if;
 end;//
 delimiter ;
@@ -287,5 +287,5 @@ begin
 end;//
 delimiter ;
 
-insert into izinkaryawan(nik,alasan,tgl_izin, jam)
-values(12345, 3, '2024-05-01', 3);
+insert into izinkaryawan(nama,alasan,tgl_izin, jam)
+values('BAYU AJI PRABOWO', 3, '2024-05-01', 3);

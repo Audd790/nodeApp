@@ -9,8 +9,8 @@ block info
                         h2 Form input izin karyawan
                         form#form
                             div(class="form-group autocomplete" autocomplete="off")
-                                label(for="nik") NIK Karyawan
-                                input#nik(type="text" name="nik" autocomplete="off")                        
+                                label(for="nama") Nama Karyawan
+                                input#nama(type="text" name="nama" autocomplete="off")                        
                             div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                 input#izin(type="radio" name="toggle" value="1")
                                 label(for="toggle" style="margin-bottom: 0px") Izin
@@ -23,13 +23,13 @@ block info
                                 input#surat(type="file" name="surat")
                             
                             .form-group
-                                label(for="durasiDalamJam") Menit 
+                                label(for="menit") Menit 
                                 input#durasiDalamJam(type="number" name="menit" min="0" max="30" value="0")
                             .form-group
-                                label(for="durasiDalamJam") Jam 
+                                label(for="jam") Jam 
                                 input#durasiDalamJam(type="number" name="jam" min="0" max="24" value="0")
                             .form-group
-                                label(for="durasiDalamJam") Hari
+                                label(for="hari") Hari
                                 input#durasiDalamJam(type="number" name="hari" min="0" max="30" value="0")
                             .form-group 
                                 label(for="tgl_izin") Tanggal akan izin
@@ -42,8 +42,8 @@ block info
                                 label(for="tgl_izin") Tanggal akan izin
                                 input#tgl_izin1(type="date" name="tgl_izin")
                             div(class="form-group autocomplete" autocomplete="off")
-                                label(for="nik") NIK Karyawan
-                                input#nik(type="text" name="nik" autocomplete="off" disabled)                        
+                                label(for="nama") nama Karyawan
+                                input#nama(type="text" name="nama" autocomplete="off" disabled)                        
                             .form-group 
                                 label(for="getsurat") Ambil Surat Dokter
                                 button#getsurat(type="button" name="getsurat" disabled) Ambil Surat

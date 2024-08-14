@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('keypress',stopEnterSubmit)
     form.addEventListener('keyup',stopEnterSubmit)
     const downloadBtn = document.getElementById('buttonDownload')
-    getListNik()
+    getListNama()
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
@@ -16,19 +16,19 @@ function stopEnterSubmit(event){
   }
 }
 
-function getListNik(){
+function getListNama(){
   const xhr = new XMLHttpRequest
   const data = new FormData(form);
-  xhr.open('GET', 'nikKaryawan',true)
+  xhr.open('GET', 'namaKaryawan',true)
   xhr.onreadystatechange = function () {
       if(xhr.readyState === XMLHttpRequest.DONE){
           if (xhr.status === 200) {
               var listNama = JSON.parse(xhr.response)
-              var inp = document.getElementById('nik')
+              var inp = document.getElementById('nama')
+              console.log(listNama)
               if(inp !== null){
-                const getSuratDktr = document.getElementById('getSuratDktr')
                 autocomplete(inp, listNama.sql.map(labels=>{
-                  return labels.nik
+                  return labels.nama
                 }))}
           } else{
               console.error('Error:', xhr.status)

@@ -199,7 +199,7 @@ router.get('/formAbsen', (req,res)=>{
 })
 
 router.post('/submitformAbsen', upload.single("suratDktr"),
-check('nik').trim().notEmpty().escape(),
+check('nama').trim().notEmpty().escape(),
 check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
 check('menit').trim().notEmpty().isInt({min: 0}).escape(),
@@ -208,7 +208,7 @@ check('hari').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
-    var sql = 'insert into izinKaryawan(nik, alasan, tgl_izin, menit, jam, hari) values(?,?,?,?,?,?)'
+    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari) values(?,?,?,?,?,?)'
     const emptyInputs = result.errors.length > 0
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
@@ -261,8 +261,8 @@ check('hari').trim().notEmpty().isInt({min: 0}).escape(),(req,res,next)=>{
     res.send({result: 'success'})
 })
 
-router.get('/nikKaryawan', upload.none(), function(req, res, next){
-    var sql = "select nik from karyawan"
+router.get('/namaKaryawan', upload.none(), function(req, res, next){
+    var sql = "select nama from karyawan"
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -274,8 +274,8 @@ router.get('/nikKaryawan', upload.none(), function(req, res, next){
     })
 });
 
-router.post('/nikKaryawanSurat', upload.none(), function(req, res, next){
-    var sql = "select id,nik from izinkaryawan order by nik "
+router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
+    var sql = "select id,nama from izinkaryawan order by nama "
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err
