@@ -58,7 +58,7 @@ app.use(function(err, req, res, next) {
     if(err.sqlState == 23000){
       res.send({result: 'Tidak ada karyawan tersebut'})
     } else res.send({result: err.sqlMessage})
-    
+    console.log(err.sqlMessage)
   } else {
     res.status( err.status || 500);
     res.render('error');

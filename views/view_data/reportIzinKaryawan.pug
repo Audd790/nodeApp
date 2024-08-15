@@ -11,7 +11,7 @@ block append info
     if role == 1
         h2= 'Report Izin Semua Karyawan'
     if role == 2
-        h2= 'Report Izin Karyawan ' + sql[0].nama
+        h2= 'Report Izin Karyawan ' + nama
     if sql.length > 0
         .block
             .container2
@@ -23,7 +23,7 @@ block append info
                         th Keterangan
                     for item in sql
                         tr 
-                            td= item.nama
+                            td=item.nama
                             td=item.tgl_izin.getDate() + " " + item.tgl_izin.toLocaleString('default',{month: 'long'})+', '+ item.tgl_izin.getFullYear()
                             case item.alasan
                                 when 1: td='Izin'

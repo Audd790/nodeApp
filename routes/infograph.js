@@ -199,7 +199,7 @@ router.get('/formAbsen', (req,res)=>{
     res.render('view_data/formAbsen',{role: req.session.role_id})
 })
 
-router.post('/submitformAbsen', upload.single("suratDktr"),
+router.post('/submitformAbsen', upload.single("surat"),
 check('nama').trim().notEmpty().escape(),
 check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
@@ -212,6 +212,10 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     var values = Object.values(match)
     var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari, keterangan) values(?,?,?,?,?,?,?)'
     const emptyInputs = result.errors.length > 0
+    if(req.file !== undefined){
+        sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari, keterangan, surat) values(?,?,?,?,?,?,?,?)'
+        values.push(req.file.path)
+    }
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
             if (err) {
@@ -308,7 +312,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             next(err)
         } else {
             que_result = rows
-            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id})
+            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id, nama: req.session.user})
         }
     })
 })
