@@ -1,4 +1,4 @@
-extends infographicBody
+extends ../infographicBody
 block nav 
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
@@ -6,7 +6,8 @@ block nav
                 li
                     a(href="/kehadiran/info") Home
                 li
-                    if role == 2
+                    a(href="/kehadiran/info/reportizinKaryawan") Report Izin
+                li
                     span(aria-current="page") Form Absen
 block append info
     .block

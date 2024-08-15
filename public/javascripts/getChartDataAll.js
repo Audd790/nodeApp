@@ -1,70 +1,7 @@
-document.addEventListener('DOMContentLoaded', function(){
-const ctx = document.getElementById('myChart').getContext('2d');
-var inputKaryawan = document.getElementById("karyawan")
-var listNama
-const currDate = new Date();
-const month = ['Januari', 
-    'Febuari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember']
-const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: month.slice(0, currDate.getMonth()),
-        datasets: [{
-            label: 'Total Menit telat setiap bulan'
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        layout: {
-            padding: 30
-        },
-        plugins: {
-            colors: {
-                forceOverride: true
-            },
-            legend:{
-                labels:{
-                    font:{
-                        size:14
-                        
-                    }
-                }
-            }
-            // customValue: {
-            //   name: 'ROI',
-            // }
-        },
-        scales: {
-            x: {
-                beginAtZero: true,
-            },
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-
-});
-window.addEventListener('beforeprint', () => {
-    myChart.resize(600, 600);
-  });
-  window.addEventListener('afterprint', () => {
-    myChart.resize();
-  });
 const xhr = new XMLHttpRequest
 var data = new FormData()
 data.append("tanggal", 7)
-xhr.open('POST', '/kehadiran/info/by_karyawan', true);
+xhr.open('GET', '/kehadiran/info/namaKaryawan', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){
@@ -122,9 +59,8 @@ function autocomplete(inp, arr) {
                 var karyawan ;
                 // console.log(divisi.value)
                 data.append("nama", inp.value)
-                console.log(inp.value)
                 // data.append('divisi', divisi.value)
-                xhr.open('POST', '/kehadiran/info/chart', true);
+                xhr.open('POST', '/kehadiran/info/chartKaryawan', true);
                 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE){
@@ -206,4 +142,3 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   })}
-})

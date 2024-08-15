@@ -44,13 +44,20 @@ li{
   /* box-shadow: 0 0 10px rgb(0, 0, 0, 1); */
 }
 
+caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+
 
 .infoGraph{
   
   clear: both;
 }
 .container2{
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 3% auto;
   background-color: #fff;
   padding: 30px 40px;

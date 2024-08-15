@@ -21,6 +21,7 @@ const { check, matchedData, validationResult, body } = require('express-validato
 //membuat instansi database
 const mysql = require('mysql2')
 var path = require('path');
+const { match } = require('assert');
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'auddii',
@@ -43,15 +44,47 @@ router.all('/*', function(req, res, next){
 })
 
 router.get('/', function(req, res, next){
+    console.log(req.session.role_id)
     res.render('view_data/infographic', {role: req.session.role_id, nama: req.session.user})
 });
 
-router.get('/by_karyawan', function(req, res, next){
-    res.render('view_data/Karyawanchart')
+router.get('/telatKaryawan', function(req, res, next){
+    res.render('view_data/telat/karyawanchart',{role: req.session.role_id})
 });
 
-router.post('/by_karyawan', function(req, res, next){
-    var sql = "select nama from karyawan order by nama"
+router.post('/chartKaryawan', upload.none(), check('nama').trim().notEmpty().escape(), function(req, res, next) {
+    const result = validationResult(req)
+    var nama
+    var data
+    if(result.errors.length == 0){
+        data = matchedData(req)
+        nama = data.nama
+    } else {
+        nama = req.session.user
+    }
+    var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
+        'from kehadiranTotal '+
+        'where trim(lower(nama)) = trim(lower("'+ nama +'"))'
+        var que_result;
+        connection.query(sql, (err,rows,fields)=>{
+            if (err) {
+                throw err;
+            }
+            else{
+            que_result = rows
+            }
+            res.send(que_result)
+        })
+    // res.send({sql: 'yes'})
+})
+
+
+router.get('/telatKaryawanAll', function(req, res, next){
+    res.render('view_data/telat/karyawanchartAll')
+});
+
+router.get('/namaKaryawan', upload.none(), function(req, res, next){
+    var sql = "select nama from karyawan"
     connection.query(sql, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -59,7 +92,7 @@ router.post('/by_karyawan', function(req, res, next){
         else{
             que_result = rows;
         }
-            res.send({sql: que_result})
+            res.send({sql: que_result, empty: que_result.length == 0})
     })
 });
 
@@ -134,26 +167,6 @@ router.get('/chart/getChartData', function (req, res) {
         res.send({sql: que_result})
     })
 })
-
-router.get('/chartKaryawan', function(req, res, next) {
-    const result = validationResult(req)
-    if(result.errors.length == 0){
-        var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
-        'from kehadiranTotal '+
-        'where trim(lower(nama)) = trim(lower("'+ req.session.user +'"))'
-        var que_result;
-        connection.query(sql, (err,rows,fields)=>{
-            if (err) {
-                throw err;
-            }
-            else{
-            que_result = rows
-            }
-            res.send(que_result)
-        })
-    }
-})
-
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
         if(err){
@@ -196,7 +209,7 @@ router.get('/formAbsen', (req,res)=>{
             console.log("Exists")
         }
     })
-    res.render('view_data/formAbsen',{role: req.session.role_id})
+    res.render('view_data/izin/formAbsen',{role: req.session.role_id})
 })
 
 router.post('/submitformAbsen', upload.single("surat"),
@@ -267,18 +280,6 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     res.send({result: 'success'})
 })
 
-router.get('/namaKaryawan', upload.none(), function(req, res, next){
-    var sql = "select nama from karyawan"
-    connection.query(sql, (err, rows, fields)=>{
-        if (err) {
-            throw err
-        }
-        else{
-            que_result = rows;
-        }
-            res.send({sql: que_result, empty: que_result.length == 0})
-    })
-});
 
 router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
     var sql = "select id,nama from izinkaryawan order by nama "
@@ -300,19 +301,29 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
             next(err)
         } else {
             que_result = rows
-            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id})
+            res.render('view_data/izin/reportIzinKaryawan', {sql: que_result, role: req.session.role_id, nama: req.session.user})
         }
     })
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select * from izinkaryawan order by nama'
+    var sql = 'select alasan, nama, tgl_izin, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
         } else {
             que_result = rows
-            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id, nama: req.session.user})
+            var tables = new Array
+            for(i = 0 ; i < 3 ; i++) {
+                var alasan = i+1;
+                tables[i] = []
+                for(k=0;k<que_result.length;k++){
+                    if(que_result[k].alasan == alasan){
+                        tables[i].push(que_result[k])
+                    }
+                }
+            }
+            res.render('view_data/izin/reportIzinKaryawan', {chache: true, sql: tables, role: req.session.role_id, nama: req.session.user})
         }
     })
 })

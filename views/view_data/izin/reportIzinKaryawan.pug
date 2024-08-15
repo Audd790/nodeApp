@@ -1,0 +1,51 @@
+extends ../infographicBody
+block nav 
+    if role == 1
+        h2= 'Report Izin Semua Karyawan'
+    if role == 2
+        h2= 'Report Izin Karyawan ' + nama
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    span(aria-current="page") Report Izin
+block append info
+    if role == 2
+        .btn_group
+            a.button(href="formAbsen") Form Izin
+    if sql.length > 0
+        .block
+            for entry in sql
+                .container2
+                    table#report
+                        case entry[0].alasan
+                            when 1: caption Tabel Izin
+                            when 2: caption Tabel Sakit 
+                            when 3: caption Tabel Cuti
+                        tr 
+                            th Nama
+                            th Tanggal 
+                            th Alasan 
+                            th Keterangan
+                            th Status 
+                            th Surat
+                        for item in entry
+                            tr 
+                                td=item.nama
+                                td=item.tgl_izin.getDate() + " " + item.tgl_izin.toLocaleString('default',{month: 'long'})+', '+ item.tgl_izin.getFullYear()
+                                case item.alasan
+                                    when 1: td='Izin'
+                                    when 2: td='Sakit' 
+                                    when 3: td='Cuti' 
+                                td=item.keterangan
+                                case item.status
+                                    when 1: td='Diproses'
+                                    when 2: td='Approve'
+                                    when 3: td='Reject'
+                                td
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        button#getsurat(type="button" name="getsurat") Download
+    else 
+        h2 Belum ada izin

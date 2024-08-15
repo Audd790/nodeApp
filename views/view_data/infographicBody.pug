@@ -2,6 +2,13 @@ extends ../layout
 block logout    
     button#logout Logout
 block nav
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    span(aria-current="page") Product
 block info
 block script
     script(src='/javascripts/infGraScript.js') 

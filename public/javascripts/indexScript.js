@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded'
         function displayConfirmation(sql, empty) {
             if(!empty && !sql){
                 alert('Success');
-                window.location.replace('/kehadiran/info/')
+                window.location.replace('/kehadiran/info')
             }else{
                 alert('Submit Form Correctly!');
             }

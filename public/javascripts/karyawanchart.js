@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
+
 const ctx = document.getElementById('myChart').getContext('2d');
 var inputKaryawan = document.getElementById("karyawan")
 var listNama
@@ -61,27 +61,8 @@ window.addEventListener('beforeprint', () => {
   window.addEventListener('afterprint', () => {
     myChart.resize();
   });
-const xhr = new XMLHttpRequest
 var data = new FormData()
 data.append("tanggal", 7)
-xhr.open('GET', '/kehadiran/info/chartKaryawan', true);
-// xhr.setRequestHeader("Content-Type", "multipar/form-data")
-xhr.onreadystatechange = function () {
-    if(xhr.readyState === XMLHttpRequest.DONE){
-        if (xhr.status === 200) {
-            karyawan = JSON.parse(xhr.response)
-            console.log(karyawan)
-            myChart.data.datasets[0].data = karyawan.map(labels=>{
-                return labels.menitTelat
-            })
-            myChart.update()
-        } else{
-            console.error('Error:', xhr.status)
-        }
-    }
-};
-// window.location.href = 'http://localhost:3000';
-xhr.send(data);
 
 // function autocomplete(inp, arr) {
 //     /*the autocomplete function takes two arguments,
@@ -205,4 +186,3 @@ xhr.send(data);
 //   document.addEventListener("click", function (e) {
 //       closeAllLists(e.target);
 //   })}
-})
