@@ -1,7 +1,14 @@
-extends infographic
-block formAbsenBtn
-    button#formAbsen.button(value="formAbsen" disabled) Form Izin
-block info
+extends infographicBody
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    if role == 2
+                    span(aria-current="page") Form Absen
+block append info
     .block
         .container1
                 case role

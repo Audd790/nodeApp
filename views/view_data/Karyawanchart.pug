@@ -1,11 +1,14 @@
-extends infographic
-block karyawanBtn
-    button#byKaryawan.button(value="by_karyawan" disabled) By Karyawan
-block info
+extends infographicBody
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    span(aria-current="page") Jumlah Telat Per bulan
+block append info
     div(style="padding: 0.5em")
-        div(style="display: flex; align-items: center; justify-content: center;")
-            div.autocomplete
-                input#karyawan(type="text", name="karyawan" )
         div(style="position: relative; height: 80vh; width: 80vw;")
             canvas#myChart
 block append script

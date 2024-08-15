@@ -1,20 +1,29 @@
-extends ../layout 
+extends ../layout
 block content
-    block logout  
-      button#logout Logout
-    block title
-        h3 Info Kehadiran
+        button#logout Logout
+        h3 Welcome #{nama}
         .btn_group
             block chartBtn
-                button#Chart.button(value="chart") Chart
+                if role == 1
+                    button#Chart.button(value="chart") Chart
             block karyawanBtn
-                button#byKaryawan.button(value="by_karyawan") By Karyawan
-                //- button#byDate.button(value="by_date") By Date
-            block formAbsenBtn 
-                button#formAbsen.button(value="formAbsen") Form Izin
+                if role == 1
+                    button#byKaryawan.button(value="by_karyawan") By Karyawan
+                    //- button#byDate.button(value="by_date") By Date
+                if role == 2
+                    button#byKaryawan.button(value="by_karyawan") Jumlah Telat per bulan
+            block formAbsenBtn
+                if role == 1
+                    button#formAbsen.button(value="formAbsen") Ambil surat
+                if role == 2
+                    button#formAbsen.button(value="formAbsen") Form Izin 
+                if role == 3
+                    button#formAbsen.button(value="izin") Lihat list izin
             block reportKaryawanBtn
-                button#reportIzinKaryawan.button(value="reportIzinKaryawan") Report
-block info
+                if role == 1
+                    button#reportIzinKaryawan.button(value="reportIzinKaryawanAll") Report
+                if role == 2
+                    button#reportIzinKaryawan.button(value="reportIzinKaryawan") Report
 block script
     script(src='/javascripts/infGraScript.js') 
 //- script(src='/javascripts/absenScript.js')

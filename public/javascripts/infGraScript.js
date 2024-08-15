@@ -33,32 +33,14 @@ document.addEventListener('DOMContentLoaded'
             xhr.send(data);
             });
         }
-        document.getElementById('byKaryawan').addEventListener('click', buttonOnclickEvent)
-
-
-        // document.getElementById('byDate').addEventListener('click', buttonOnclickEvent)
-        document.getElementById('Chart').addEventListener('click', buttonOnclickEvent)
-        document.getElementById('formAbsen').addEventListener('click', buttonOnclickEvent)
-        document.getElementById('reportIzinKaryawan').addEventListener('click', buttonOnclickEvent)
+        const navButtons = document.querySelectorAll('.button')
+        navButtons.forEach(button => {
+            button.addEventListener('click',buttonOnclickEvent)
+        })
+        
         function buttonOnclickEvent(e){
-            const list = document.querySelectorAll('.button')
-            
-            const xhr = new XMLHttpRequest();
             const url = '/kehadiran/info/'+e.target.value
-            console.log(url)
-            xhr.open('GET', url, true);
-            // xhr.setRequestHeader("Content-Type", "multipar/form-data")
-            xhr.onreadystatechange = function () {
-                if(xhr.readyState === XMLHttpRequest.DONE){
-                    if (xhr.status === 200) {
-                            document.location.href = url
-                            // unhide(xhr.response,list)
-                    } else{
-                        console.error('Error:', xhr.status)
-                    }
-                }
-            };
-            xhr.send();
+            window.location.replace(url)
         }
 
         function unhide(res, list){

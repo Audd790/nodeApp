@@ -37,11 +37,13 @@ router.all('/*', function(req, res, next){
         console.log('yes')
         res.redirect('/')
     }
-    else next();
+    else {
+        next();
+    }
 })
 
 router.get('/', function(req, res, next){
-    res.render('view_data/infographic')
+    res.render('view_data/infographic', {role: req.session.role_id, nama: req.session.user})
 });
 
 router.get('/by_karyawan', function(req, res, next){
@@ -133,13 +135,12 @@ router.get('/chart/getChartData', function (req, res) {
     })
 })
 
-router.post('/chart',upload.none(),
-check('nama').trim().escape(), function(req, res, next) {
+router.get('/chartKaryawan', function(req, res, next) {
     const result = validationResult(req)
     if(result.errors.length == 0){
         var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
         'from kehadiranTotal '+
-        'where trim(lower(nama)) = trim(lower("'+ req.body.nama +'"))'
+        'where trim(lower(nama)) = trim(lower("'+ req.session.user +'"))'
         var que_result;
         connection.query(sql, (err,rows,fields)=>{
             if (err) {
@@ -295,7 +296,19 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
             next(err)
         } else {
             que_result = rows
-            res.render('view_data/reportIzinKaryawan', {sql: que_result})
+            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id})
+        }
+    })
+})
+
+router.get('/reportIzinKaryawanAll',(req, res,next)=>{
+    var sql = 'select * from izinkaryawan order by nama'
+    connection.query(sql, (err, rows, fields)=>{
+        if(err){
+            next(err)
+        } else {
+            que_result = rows
+            res.render('view_data/reportIzinKaryawan', {sql: que_result, role: req.session.role_id})
         }
     })
 })
