@@ -29,39 +29,6 @@ $(document).ready(function() {
     filter2.hide()
     table3.hide()
     filter3.hide()
-    // $("#filterMonth").click(function(){
-    //     // $('div[name=table1] > .container2 > table > tbody > tr ').hide()        
-    //     // $('div[name=table1] > .container2 > table > tbody > tr.table_header').show()
-    //     var table1 = $('div[name=table1]')
-    //     table1.find('.container2 > div > table').show()
-    //     // table1.find('.container2').show()
-    //     table1.find('.container2 > div > table').removeClass('show')
-    //     table1.find('table > tbody > :not(tr.table_header)').hide()
-    //     var monthValue = $('#month')[0].value
-    //     var showTable
-    //     var hideTable
-
-    //     var yearValue = $('#year1')[0].value
-
-    //     if(monthValue == '0' && yearValue == '0'){
-    //         table1.find('.container2 > table > tbody > tr').show()
-    //     } else if(monthValue == 0){
-    //         showTable = table1.find('tr[name*="-'+$('#year1')[0].value+'-"]').show()
-    //         hideTable = table1.find('.container2 > table >  tbody > :not(tr[name*="-'+$('#year1')[0].value+'-"])')
-    //         showTable.closest('table').addClass('show')
-    //         console.log(table1.find('.container2 > :not(.show)').closest('.container2').hide())
-    //     } else if(yearValue == 0){
-    //         showTable = table1.find('tr[name*="-'+$('#month')[0].value+'-"]').show()
-    //         hideTable = table1.find('.container2 > table >  tbody > :not(tr[name*="-'+$('#month')[0].value+'-"])')
-    //         showTable.closest('table').addClass('show')
-    //         console.log(table1.find('.container2 > :not(.show)').closest('.container2').hide())
-    //     } 
-            
-    //     var tables = table1.find('tr[name*="-'+$('#year1')[0].value+'-'+$('#month')[0].value+'-"]')
-    //     if(tables.length > 0){
-    //         tables.show()
-    //     } 
-    // })
 
     $("#filterAlasan").click(function(){
         var table1 = $('div[name=table1]')
