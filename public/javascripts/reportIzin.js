@@ -1,23 +1,3 @@
-// document.getElementById('getIzin').addEventListener('click', (e)=>{
-//     const form = document.getElementById('form')
-//     console.log('Clicked')
-//     const data = new FormData(form)
-//     const xhr = new XMLHttpRequest
-//     xhr.open('POST', 'reportIzinKaryawanAll', true)
-//     xhr.onreadystatechange = function () {
-//         if(xhr.readyState === XMLHttpRequest.DONE){
-//             if (xhr.status === 200) {
-//                 var izin_karyawan = JSON.parse(xhr.response)
-//                 var tables = document.getElementsByTagName('table')
-//                 console.log(tables)
-//             } else{
-//                 console.error('Error:', xhr.status)
-//             }
-//         }
-//     }
-//     xhr.send(data)
-// })
-
 $(document).ready(function() {
     var table1 = $('div[name=table1]')
     var table2 = $('div[name=table2]')
@@ -69,8 +49,45 @@ $(document).ready(function() {
             showTable.find('div > table#-'+alasan+'-').show()
         }
     })
-    $('#year1').change(function(){
-        
+
+    $('#filterMonth').click(function(){
+
+        var table2 = $('div[name=table2]')
+        var bulan = $('#month')[0].value
+        var tahun = $('#year2')[0].value
+        table2.find('.container2 > div > table').show()
+        table2.find('.container2 > div > table').removeClass('show')
+        table2.find('.container2').hide()
+        var showTable
+        var hideTable
+
+        if(bulan == '0' && tahun == '0'){
+            table2.find('.container2').show()
+        } else if(tahun == '0'){
+            showTable = table2.find('table#'+bulan)
+            showTable.addClass('show')
+            hideTable = table2.find('.container2 > div > table:not(.show)')
+            if(showTable.length>0){
+                console.log(showTable.closest('.container2'))
+                showTable.closest('.container2').show()
+                hideTable.hide()
+                showTable.show()
+            }
+        }else if(bulan = '0'){
+            showTable = table2.find("div#"+tahun)
+            if(showTable.length>0){
+                showTable.show()
+            }
+        }
+
+        showTable = table2.find('div#'+tahun)
+        hideTable = showTable.find('div > table:not(#'+bulan+')')
+        console.log(bulan)
+        if(showTable.find('div > table#'+bulan).length > 0){
+            showTable.show()
+            hideTable.hide()
+            showTable.find('div > table#'+bulan).show()
+        }
     })
 
     $(':radio').change(function(){

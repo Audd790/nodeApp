@@ -13,7 +13,6 @@ block nav
                     span(aria-current="page") Report Izin
 block append info
     -var month = ['All', 'Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    -var i=0;
     if role == 1
         .block 
             form#form
@@ -34,13 +33,14 @@ block append info
                         option(value=3) Cuti
                     button#filterAlasan(type="button") Filter
                 div.form-group(name="filter2")
-                    select#year(name="year")
+                    select#year2(name="year2")
                         option(value=0) All
                         for y in thn
                             option(value=y)=y
                     select#month(name="month") 
+                        -var i=0;
                         for m in month
-                            option(value=i++)=m
+                            option(value=i+1)=m
                     button#filterMonth(type="button") Filter
         //- .block
             
@@ -118,7 +118,7 @@ block append info
                         h3=year[0][0].tahun
                         for entry in year 
                             div(style="margin-bottom: 1em;")
-                                table(id="report2" + i++)
+                                table(id=entry[0].bulan)
                                     caption='Tabel '+entry[0].bulanNama
                                     tr.table_header 
                                         th Nama
