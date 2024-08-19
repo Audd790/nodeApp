@@ -329,23 +329,28 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
                     
                 }
             }
-            var tablesMonthsWithHoles = new Array
-            for(i=0;i<month.length;i++){
-                var bulan = i +1;
-                tablesMonthsWithHoles[i] = []
-                for(k=0;k<que_result.length;k++){
-                    if(que_result[k].bulan == bulan){
-                        tablesMonthsWithHoles[i].push(que_result[k])
-                    }
-                    
-                }
-            }
-            var tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter( item => { return item.length > 0 });
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
-            console.log(years)
+            var tablesMonthsWithHoles = new Array
+            for(h=0;h<years.length;h++){
+                tablesMonthsWithHoles[h] = []
+                for(i=0;i<month.length;i++){
+                    var bulan = i +1;
+                    tablesMonthsWithHoles[h][i] = []
+                    for(k=0;k<que_result.length;k++){
+                        if(que_result[k].bulan == bulan && que_result[k].tahun == years[h]){
+                            tablesMonthsWithHoles[h][i].push(que_result[k])
+                        }
+                    }
+                }
+            }
+            var tablesMonthsWithoutHoles = new Array
+            for(i=0;i<years.length;i++){
+                tablesMonthsWithoutHoles[i] = tablesMonthsWithHoles[i].filter(item => { return item.length > 0 })
+            }
+            console.log(tablesMonthsWithoutHoles[0])
             res.render('view_data/izin/reportIzinKaryawan', {chache: true, tahun: years, sqlIzin: tables, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
