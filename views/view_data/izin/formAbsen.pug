@@ -33,13 +33,23 @@ block append info
                                 label(for="surat") Upload Surat
                                 input#surat(type="file" name="surat")
                             .form-group
-                                label(for="menit") Menit 
-                                input#durasiDalamJam(type="number" name="menit" min="0" max="30" value="0")
+                                label(for="start") From
+                                <div class="clock">
+                                    <div class="time">
+                                        input.hours(type="number" name="startJam" min='8' max='17' value=8)
+                                        span.separator :
+                                        input.minutes(type="number" name='startMenit' min='0' max='59' value=30)
+                                    </div>
+                                </div>
                             .form-group
-                                label(for="jam") Jam 
-                                select#durasiDalamJam(type="number" name="jam" min="0" max="24" value="0")
-                                    option(value="50") Setengah Hari 
-                                    option(value="100") Full Day
+                                label(for="end") to
+                                <div class="clock">
+                                    <div class="time">
+                                        input.hours(type="number" name="endJam" min='8' max='17' value=17)
+                                        span.separator :
+                                        input.minutes(type="number" name='endMenit' min='0' max='59' value=30)
+                                    </div>
+                                </div>
                             .form-group
                                 label(for="hari") Hari
                                 input#durasiDalamJam(type="number" name="hari" min="0" max="30" value="0")

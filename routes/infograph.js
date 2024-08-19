@@ -216,19 +216,22 @@ router.post('/submitformAbsen', upload.single("surat"),
 check('nama').trim().notEmpty().escape(),
 check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
-check('menit').trim().notEmpty().isInt({min: 0}).escape(),
-check('jam').trim().notEmpty().isInt({min: 0}).escape(),
+check('startMenit').trim().notEmpty().isInt({min: 30}).escape(),
+check('startJam').trim().notEmpty().isInt({min: 8}).escape(),
+check('endMenit').trim().notEmpty().isInt({min: 30}).escape(),
+check('endJam').trim().notEmpty().isInt({min: 8}).escape(),
 check('hari').trim().notEmpty().isInt({min: 0}).escape(),
 check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
-    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari, keterangan) values(?,?,?,?,?,?,?)'
+    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, startMenit, startJam, endMenit, endJam, hari, keterangan) values(?,?,?,?,?,?,?,?,?)'
     const emptyInputs = result.errors.length > 0
     if(req.file !== undefined){
-        sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, menit, jam, hari, keterangan, surat) values(?,?,?,?,?,?,?,?)'
+        sql = 'insert into izinKaryawan(nama, alasan, tgl_izin,  startMenit, startJam, endMenit, endJam, hari, keterangan, surat) values(?,?,?,?,?,?,?,?,?,?)'
         values.push(req.file.path)
     }
+    console.log(req.body)
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
             if (err) {
@@ -307,13 +310,15 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select alasan, nama, tgl_izin, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
+    var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
+    var sql = 'select alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
         } else {
             que_result = rows
             var tables = new Array
+            var tmp = new Array
             for(i = 0 ; i < 3 ; i++) {
                 var alasan = i+1;
                 tables[i] = []
@@ -321,10 +326,43 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
                     if(que_result[k].alasan == alasan){
                         tables[i].push(que_result[k])
                     }
+                    
                 }
             }
-            res.render('view_data/izin/reportIzinKaryawan', {chache: true, sql: tables, role: req.session.role_id, nama: req.session.user})
+            var tablesMonthsWithHoles = new Array
+            for(i=0;i<month.length;i++){
+                var bulan = i +1;
+                tablesMonthsWithHoles[i] = []
+                for(k=0;k<que_result.length;k++){
+                    if(que_result[k].bulan == bulan){
+                        tablesMonthsWithHoles[i].push(que_result[k])
+                    }
+                    
+                }
+            }
+            var tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter( item => { return item.length > 0 });
+            for(k=0;k<que_result.length;k++){
+                tmp.push(que_result[k].tahun)   
+            }
+            var years = uniq_fast(tmp)
+            console.log(years)
+            res.render('view_data/izin/reportIzinKaryawan', {chache: true, tahun: years, sqlIzin: tables, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
 })
+
+function uniq_fast(a) {
+    var seen = {};
+    var out = [];
+    var len = a.length;
+    var j = 0;
+    for(var i = 0; i < len; i++) {
+         var item = a[i];
+         if(seen[item] !== 1) {
+               seen[item] = 1;
+               out[j++] = item;
+         }
+    }
+    return out;
+}
 module.exports = router;

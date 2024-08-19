@@ -1,4 +1,3 @@
-
 const ctx = document.getElementById('myChart').getContext('2d');
 var inputKaryawan = document.getElementById("karyawan")
 var listNama

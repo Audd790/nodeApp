@@ -12,40 +12,101 @@ block nav
                 li
                     span(aria-current="page") Report Izin
 block append info
+    -var month = ['All', 'Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
+    -var i=0;
+    if role == 1
+        .block 
+            form#form
+                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                    input(type="radio" name='toggle' value="Izin" checked="true")
+                    label(for="toggle" style="margin-bottom: 0px") Izin
+                    input(type="radio" name='toggle' value="Month") 
+                    label(for="toggle" style="margin-bottom: 0px") Tanggal
+                div(name="filter1")
+                        select#year(name="year")
+                            option(value=0) All
+                            for y in tahun
+                                option(value=y)=y
+                        select#month(name="month")
+                            for m in month 
+                                option(value=i++)=m
+                        button#filterMonth(type="button") Filter
+                .hide(name="filter2")
+                        select#alasan(name="alasan")
+                            option(value=0) All
+                                option(value=1) Izin 
+                                option(value=2) Sakit 
+                                option(value=3) Cuti
+        .block
+            
     if role == 2
         .btn_group
             a.button(href="formAbsen") Form Izin
-    if sql.length > 0
+    if role == 1
+        if sqlIzin.length > 0
+            .block
+                div(name='table1')
+                    -var i=1
+                    for entry in sqlIzin
+                        .container2
+                            table(id="report" + i++)
+                                case entry[0].alasan
+                                    when 1: caption Tabel Izin
+                                    when 2: caption Tabel Sakit 
+                                    when 3: caption Tabel Cuti
+                                tr.table_header 
+                                    th Nama
+                                    th Tanggal 
+                                    th Keterangan
+                                    th Status 
+                                    th Dari 
+                                    th Sampai
+                                    th Surat
+                                for item in entry
+                                    tr(name= '-'+item.tahun+"-"+(item.bulan)+'-')
+                                        td=item.nama
+                                        td=item.hari + " " + item.bulanNama+', '+ item.tahun
+                                        td=item.keterangan
+                                        case item.status
+                                            when 1: td='Diproses'
+                                            when 2: td='Approve'
+                                            when 3: td='Reject'
+                                        td=item.startJam+':'+item.startMenit
+                                        td=item.endJam+':'+item.endMenit
+                                        td
+                                            div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                button#getsurat(type="button" name="getsurat") Download
+        else 
+            h2 Belum ada izin
         .block
-            for entry in sql
-                .container2
-                    table#report
-                        case entry[0].alasan
-                            when 1: caption Tabel Izin
-                            when 2: caption Tabel Sakit 
-                            when 3: caption Tabel Cuti
-                        tr 
-                            th Nama
-                            th Tanggal 
-                            th Alasan 
-                            th Keterangan
-                            th Status 
-                            th Surat
-                        for item in entry
-                            tr 
-                                td=item.nama
-                                td=item.tgl_izin.getDate() + " " + item.tgl_izin.toLocaleString('default',{month: 'long'})+', '+ item.tgl_izin.getFullYear()
-                                case item.alasan
-                                    when 1: td='Izin'
-                                    when 2: td='Sakit' 
-                                    when 3: td='Cuti' 
-                                td=item.keterangan
-                                case item.status
-                                    when 1: td='Diproses'
-                                    when 2: td='Approve'
-                                    when 3: td='Reject'
-                                td
-                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                        button#getsurat(type="button" name="getsurat") Download
-    else 
-        h2 Belum ada izin
+            .hide(name='table2')
+                -var i=1
+                for entry in sqlMonths
+                    .container2
+                        table(id="report2" + i++)
+                            caption='Tabel '+entry[0].bulanNama
+                            tr.table_header 
+                                th Nama
+                                th Alasan
+                                th Keterangan
+                                th Status 
+                                th Surat
+                                th Tahun
+                            for item in entry
+                                tr(name=item.alasan+'-'+item.tahun+'-')
+                                    td=item.nama
+                                    case item.alasan
+                                        when 1: td Izin
+                                        when 2: td Sakit 
+                                        when 3: td Cuti
+                                    td=item.keterangan
+                                    case item.status
+                                        when 1: td='Diproses'
+                                        when 2: td='Approve'
+                                        when 3: td='Reject'
+                                    td
+                                        div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                            button#getsurat(type="button" name="getsurat") Download
+                                    td=item.tahun
+block append script 
+    script(src="/javascripts/reportIzin.js") 
