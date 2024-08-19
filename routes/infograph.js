@@ -317,22 +317,29 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             next(err)
         } else {
             que_result = rows
-            var tables = new Array
+            var tablesWithHoles = new Array
             var tmp = new Array
-            for(i = 0 ; i < 3 ; i++) {
-                var alasan = i+1;
-                tables[i] = []
-                for(k=0;k<que_result.length;k++){
-                    if(que_result[k].alasan == alasan){
-                        tables[i].push(que_result[k])
-                    }
-                    
-                }
-            }
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
+            var tablesWithoutHoles = new Array
+            for(h=0;h<years.length;h++){
+                tablesWithHoles[h] = []
+                for(i = 0 ; i < 3 ; i++) {
+                    var alasan = i+1;
+                    tablesWithHoles[h][i] = []
+                    for(k=0;k<que_result.length;k++){
+                        if(que_result[k].alasan == alasan && que_result[k].tahun == years[h]){
+                            tablesWithHoles[h][i].push(que_result[k])
+                        }
+                        
+                    }
+                }
+            }
+            for(i=0;i<years.length;i++){
+                tablesWithoutHoles[i] = tablesWithHoles[i].filter(item => { return item.length > 0 })
+            }
             var tablesMonthsWithHoles = new Array
             for(h=0;h<years.length;h++){
                 tablesMonthsWithHoles[h] = []
@@ -350,8 +357,9 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 tablesMonthsWithoutHoles[i] = tablesMonthsWithHoles[i].filter(item => { return item.length > 0 })
             }
-            console.log(tablesMonthsWithoutHoles[0])
-            res.render('view_data/izin/reportIzinKaryawan', {chache: true, tahun: years, sqlIzin: tables, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
+            console.log(tablesWithoutHoles[0])
+            console.log(tablesWithoutHoles[1])
+            res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
 })

@@ -109,6 +109,18 @@ table, td, th{
 
 th, td {
   padding: 15px;
+  /* min-width: 5em; */
+  overflow-wrap: break-word;
+}
+tr{
+  background-color: #fff;
+}
+tr:first-child{
+  background-color: #1a202c;
+  color: #d4d4d4;
+}
+tr:hover{
+  background-color: #999;
 }
 
 .autocomplete {
