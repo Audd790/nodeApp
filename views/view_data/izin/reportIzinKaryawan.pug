@@ -1,10 +1,10 @@
 extends ../infographicBody
 block nav 
     .header
-        if role == 1
-            h2= 'Report Izin Semua Karyawan'
         if role == 2
             h2= 'Report Izin Karyawan ' + nama
+        else
+            h2= 'Report Izin Semua Karyawan'
         block logout
             button#logout Logout
     .block
@@ -51,8 +51,7 @@ block append info
             a.button(href="formAbsen") Form Izin
         .block
             table 
-                tr
-                    th Nama 
+                tr.table_header
                     th Tanggal 
                     th Alasan 
                     th Dari
@@ -61,7 +60,6 @@ block append info
                     th Status
                 for item in sql 
                     tr 
-                        td=item.nama
                         td=item.tgl_izin.getDate()+' '+item.tgl_izin.toLocaleString('default', { month: 'long' })+', '+item.tgl_izin.getFullYear()
                         case item.alasan 
                             when 1: td Izin 
