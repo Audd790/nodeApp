@@ -3,12 +3,10 @@ $(document).ready(function() {
     var table2 = $('div[name=table2]')
     var filter1 = $('div[name=filter1]')
     var filter2 = $('div[name=filter2]')
-    var table3 = $('div[name=table3]')
-    var filter3 = $('div[name=filter3]')
-    table2.hide()
-    filter2.hide()
-    table3.hide()
-    filter3.hide()
+    var label1 = $('#toggle1')
+    var label2 = $('#toggle2')
+    table1.hide()
+    filter1.hide()
 
     $("#filterAlasan").click(function(){
         var table1 = $('div[name=table1]')
@@ -91,13 +89,13 @@ $(document).ready(function() {
     })
 
     $(':radio').change(function(){
+        label1.toggleClass('checked')
+        label2.toggleClass('checked')
         if($(this)[0].value == 'Month'){
             table1.hide()
             filter1.hide()
             table2.show()
             filter2.show()
-            table3.hide()
-            filter3.hide()
         }
 
         if($(this)[0].value == 'Izin'){
@@ -105,17 +103,6 @@ $(document).ready(function() {
             filter1.show()
             table2.hide()
             filter2.hide()
-            table3.hide()
-            filter3.hide()
-        }
-
-        if($(this)[0].value == 'Year'){
-            table1.hide()
-            filter1.hide()
-            table2.hide()
-            filter2.hide()
-            table3.show()
-            filter3.show()
         }
     })
 });

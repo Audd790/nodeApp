@@ -1,6 +1,9 @@
 extends telatPage
 block nav 
-    .block
+    .header
+        button#logout Logout
+        h2 Chart
+    .block(style="margin-top: 1.6em;")
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
                 li
@@ -8,12 +11,11 @@ block nav
                 li
                     span(aria-current="page") Jumlah Telat Per bulan
 block append info
-    div(style="padding: 0.5em")
         if role !== 2
-            div(style="display: flex; align-items: center; justify-content: center;")
+            div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
                 div.autocomplete
-                    input#karyawan(type="text", name="karyawan" )
-        div(style="position: relative; height: 80vh; width: 80vw;")
+                    input#karyawan(type="text", name="karyawan" autocomplete="off")
+        div(style="position: relative; height: 80vh; width: 100vw;")
             canvas#myChart
 block append script
     script(src="/javascripts/karyawanchart.js")

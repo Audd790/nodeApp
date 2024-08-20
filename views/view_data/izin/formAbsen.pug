@@ -1,5 +1,8 @@
 extends ../infographicBody
 block nav 
+    .header
+        button#logout Logout
+        h2 Form input izin karyawan
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
@@ -14,61 +17,61 @@ block append info
         .container1
                 case role
                     when 2: div 
-                        h2 Form input izin karyawan
-                        form#form
-                            div(class="form-group autocomplete" autocomplete="off")
-                                label(for="nama") Nama Karyawan
-                                input#nama(type="text" name="nama" autocomplete="off")                        
-                            div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                input#izin(type="radio" name="toggle" value="1")
-                                label(for="toggle" style="margin-bottom: 0px") Izin
-                                input#izin(type="radio" name="toggle" value="2")
-                                label(for="toggle" style="margin-bottom: 0px") Sakit 
-                                input#izin(type="radio" name="toggle" value="3")
-                                label(for="toggle" style="margin-bottom: 0px") Cuti
-                            .form-group 
-                                label(for="ket") Keterangan Izin
-                                input#ket(type="text" name="ket")
-                            .form-group 
-                                label(for="surat") Upload Surat
-                                input#surat(type="file" name="surat")
-                            .form-group
-                                label(for="start") From
-                                <div class="clock">
-                                    <div class="time">
-                                        input.hours(type="number" name="startJam" min='8' max='17' value=8)
-                                        span.separator :
-                                        input.minutes(type="number" name='startMenit' min='0' max='59' value=30)
+                        .body
+                            form#form
+                                div(class="form-group autocomplete" autocomplete="off")
+                                    label(for="nama") Nama Karyawan
+                                    input#nama(type="text" name="nama" autocomplete="off")                        
+                                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                    input#izin(type="radio" name="toggle" value="1")
+                                    label(for="toggle" style="margin-bottom: 0px") Izin
+                                    input#izin(type="radio" name="toggle" value="2")
+                                    label(for="toggle" style="margin-bottom: 0px") Sakit 
+                                    input#izin(type="radio" name="toggle" value="3")
+                                    label(for="toggle" style="margin-bottom: 0px") Cuti
+                                .form-group 
+                                    label(for="ket") Keterangan Izin
+                                    input#ket(type="text" name="ket")
+                                .form-group 
+                                    label(for="surat") Upload Surat
+                                    input#surat(type="file" name="surat")
+                                .form-group
+                                    label(for="start") From
+                                    <div class="clock">
+                                        <div class="time">
+                                            input.hours(type="number" name="startJam" min='8' max='17' value=8)
+                                            span.separator :
+                                            input.minutes(type="number" name='startMenit' min='0' max='59' value=30)
+                                        </div>
                                     </div>
-                                </div>
-                            .form-group
-                                label(for="end") to
-                                <div class="clock">
-                                    <div class="time">
-                                        input.hours(type="number" name="endJam" min='8' max='17' value=17)
-                                        span.separator :
-                                        input.minutes(type="number" name='endMenit' min='0' max='59' value=30)
+                                .form-group
+                                    label(for="end") to
+                                    <div class="clock">
+                                        <div class="time">
+                                            input.hours(type="number" name="endJam" min='8' max='17' value=17)
+                                            span.separator :
+                                            input.minutes(type="number" name='endMenit' min='0' max='59' value=30)
+                                        </div>
                                     </div>
-                                </div>
-                            .form-group
-                                label(for="hari") Hari
-                                input#durasiDalamJam(type="number" name="hari" min="0" max="30" value="0")
-                            .form-group 
-                                label(for="tgl_izin") Tanggal akan izin
-                                input#tgl_izin2(type="date" name="tgl_izin")
-                            button#button(type='submit') Submit
-                    when 1: div 
-                        h2 Form input izin karyawan
-                        form#form
-                            .form-group 
-                                label(for="tgl_izin") Tanggal akan izin
-                                input#tgl_izin1(type="date" name="tgl_izin")
-                            div(class="form-group autocomplete" autocomplete="off")
-                                label(for="nama") nama Karyawan
-                                input#nama(type="text" name="nama" autocomplete="off" disabled)                        
-                            .form-group 
-                                label(for="getsurat") Ambil Surat Dokter
-                                button#getsurat(type="button" name="getsurat" disabled) Ambil Surat
+                                .form-group
+                                    label(for="hari") Hari
+                                    input#durasiDalamJam(type="number" name="hari" min="0" max="30" value="0")
+                                .form-group 
+                                    label(for="tgl_izin") Tanggal akan izin
+                                    input#tgl_izin2(type="date" name="tgl_izin")
+                                button#button(type='submit') Submit
+                    //- when 1: div 
+                        .body
+                            form#form
+                                .form-group 
+                                    label(for="tgl_izin") Tanggal akan izin
+                                    input#tgl_izin1(type="date" name="tgl_izin")
+                                div(class="form-group autocomplete" autocomplete="off")
+                                    label(for="nama") nama Karyawan
+                                    input#nama(type="text" name="nama" autocomplete="off" disabled)                        
+                                .form-group 
+                                    label(for="getsurat") Ambil Surat Dokter
+                                    button#getsurat(type="button" name="getsurat" disabled) Ambil Surat
     button#buttonDownload(type="button") Download
 
 block append script 

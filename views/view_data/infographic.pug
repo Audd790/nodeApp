@@ -1,7 +1,8 @@
 extends ../layout
 block content
+    .header
+        h2 Welcome #{nama}
         button#logout Logout
-        h3 Welcome #{nama}
 block nav 
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
@@ -17,39 +18,3 @@ block nav
                 button#Chart.button(value="reportIzinKaryawan") Lihat Izin 
 block script
     script(src='/javascripts/infGraScript.js') 
-//- script(src='/javascripts/absenScript.js')
-
-
-
-
-
-
-
-
-
-
-
-
-
-//- block chartBtn
-//-                 if role == 1
-//-                     button#Chart.button(value="chart") Chart
-//-             block karyawanBtn
-//-                 if role == 1
-//-                     button#byKaryawan.button(value="telatKaryawanAll") By Karyawan
-//-                     //- button#byDate.button(value="by_date") By Date
-//-                 if role == 2
-//-                     button#byKaryawan.button(value="telatKaryawan") Jumlah Telat per bulan
-//-             block formAbsenBtn
-//-                 if role == 1
-//-                     button#formAbsen.button(value="formAbsen") Ambil surat
-//-                 if role == 2
-//-                     button#formAbsen.button(value="formAbsen") Form Izin 
-//-                 if role == 3
-//-                     button#formAbsen.button(value="izin") Lihat list izin
-//-             block reportKaryawanBtn
-//-                 if role == 1
-//-                     button#reportIzinKaryawan.button(value="reportIzinKaryawanAll") Report
-//-                 if role == 2
-//-                     button#reportIzinKaryawan.button(value="reportIzinKaryawan") Report
-

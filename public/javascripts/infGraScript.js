@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded'
         
         function buttonOnclickEvent(e){
             const url = '/kehadiran/info/'+e.target.value
-            window.location.replace(url)
+            window.location.href = url
         }
 
         function unhide(res, list){

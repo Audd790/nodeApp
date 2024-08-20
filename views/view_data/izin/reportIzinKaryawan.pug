@@ -1,9 +1,12 @@
 extends ../infographicBody
 block nav 
-    if role == 1
-        h2= 'Report Izin Semua Karyawan'
-    if role == 2
-        h2= 'Report Izin Karyawan ' + nama
+    .header
+        block logout
+            button#logout Logout
+        if role == 1
+            h2= 'Report Izin Semua Karyawan'
+        if role == 2
+            h2= 'Report Izin Karyawan ' + nama
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
@@ -17,10 +20,10 @@ block append info
         .block 
             form#form
                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                    input(type="radio" name='toggle' value="Izin" checked="true")
-                    label(for="toggle" style="margin-bottom: 0px") Alasan
-                    input(type="radio" name='toggle' value="Month") 
-                    label(for="toggle" style="margin-bottom: 0px") Bulan
+                    input(type="radio" name='toggle' value="Month" checked="true") 
+                    label#toggle1.checked(for="toggle" style="margin-bottom: 0px") Bulan
+                    input(type="radio" name='toggle' value="Izin")
+                    label#toggle2(for="toggle" style="margin-bottom: 0px") Alasan
                 div.form-group(name="filter1" style="display: flex;align-items: center;justify-content: auto;flex-direction: row;")
                     select#year1(name="year1")
                         option(value=0) All
@@ -38,9 +41,8 @@ block append info
                         for y in thn
                             option(value=y)=y
                     select#month(name="month") 
-                        -var i=0;
-                        for m in month
-                            option(value=i+1)=m
+                        for m, i in month
+                            option(value=i)=m
                     button#filterMonth(type="button") Filter
         //- .block
             
@@ -78,9 +80,10 @@ block append info
                 div(name='table1')
                     for year in sqlIzin
                         div.container2(id=year[0][0].tahun)
-                            h3=year[0][0].tahun
-                            for entry in year
-                                div(style="margin-bottom: 1em;")
+                            .header 
+                                h2=year[0][0].tahun
+                            .body
+                                for entry in year
                                     table(id='-'+entry[0].alasan+'-')
                                         case entry[0].alasan
                                             when 1: caption Tabel Izin
@@ -115,9 +118,10 @@ block append info
                 -var i=1
                 for year in sqlMonths
                     div.container2(id=year[0][0].tahun)
-                        h3=year[0][0].tahun
-                        for entry in year 
-                            div(style="margin-bottom: 1em;")
+                        div.header
+                            h2=year[0][0].tahun
+                        div.body
+                            for entry in year 
                                 table(id=entry[0].bulan)
                                     caption='Tabel '+entry[0].bulanNama
                                     tr.table_header 
@@ -129,11 +133,10 @@ block append info
                                         th Dari 
                                         th Sampai
                                         th Surat
-                                        th Tahun
                                     for item in entry
                                         tr(name='-'+item.alasan+'-'+item.tahun+'-')
                                             td=item.nama
-                                            td=item.hari
+                                            td(style="text-align: center;")=item.hari
                                             case item.alasan
                                                 when 1: td Izin
                                                 when 2: td Sakit 
@@ -148,7 +151,6 @@ block append info
                                             td
                                                 div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                     button#getsurat(type="button" name="getsurat") Download
-                                            td=item.tahun
         //- .block
             div(name='table3')
                 -var i=1

@@ -67,7 +67,9 @@ function(req,res,next)  {
   })
 })
 
-
+router.get('/back', (req,res)=>{
+  res.redirect('back')
+})
 
 router.get('/logout', (req,res,next)=>{
   req.session.user = null
