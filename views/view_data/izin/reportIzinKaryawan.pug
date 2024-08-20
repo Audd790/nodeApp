@@ -1,12 +1,17 @@
 extends ../infographicBody
 block nav 
-    .header
-        if role == 2
-            h2= 'Report Izin Karyawan ' + nama
-        else
-            h2= 'Report Izin Semua Karyawan'
-        block logout
-            button#logout Logout
+    .column
+            //- div(style="flex: 0 1 auto")
+            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
+    .row
+        div(style="flex: 0 1 auto;")
+            if role == 2
+                h2= 'Report Izin Karyawan ' + nama
+            else
+                h2= 'Report Izin Semua Karyawan'
+        div(style="flex: 0 1 auto;")
+            block logout
+                button#logout Logout
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
@@ -149,39 +154,49 @@ block append info
                                             td
                                                 div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                     button#getsurat(type="button" name="getsurat") Download
-        //- .block
+    if role == 3
+        .block
             div(name='table3')
                 -var i=1
-                for entry in sqlMonths
+                for izin in sqlIzin
                     .container2
-                        table(id="report2" + i++)
-                            caption='Tabel '+entry[0].bulanNama
-                            tr.table_header 
-                                th Nama
-                                th Alasan
-                                th Keterangan
-                                th Status 
-                                th Dari 
-                                th Sampai
-                                th Surat
-                                th Tahun
-                            for item in entry
-                                tr(name='-'+item.alasan+'-'+item.tahun+'-')
-                                    td=item.nama
-                                    case item.alasan
-                                        when 1: td Izin
-                                        when 2: td Sakit 
-                                        when 3: td Cuti
-                                    td=item.keterangan
-                                    case item.status
-                                        when 1: td='Diproses'
-                                        when 2: td='Approve'
-                                        when 3: td='Reject'
-                                    td=item.startJam+':'+item.startMenit
-                                    td=item.endJam+':'+item.endMenit
-                                    td
-                                        div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                            button#getsurat(type="button" name="getsurat") Download
-                                    td=item.tahun
+                        div.header
+                            h2=izin[0][0].tahun
+                        div.body
+                            for entry in izin
+                                table 
+                                    tr.table_header
+                                        th Nama
+                                        th Tanggal
+                                        th Berapa Lama (Dalam Hari)
+                                        th Alasan
+                                        th Keterangan
+                                        th Dari 
+                                        th Sampai
+                                        th Surat
+                                        th Approve/Reject
+                                    for item in entry
+                                        if item.status == 1
+                                            tr    
+                                                td=item.nama 
+                                                td=item.hari + " " + item.bulanNama+', '+ item.tahun
+                                                td=item.jumlah_hari
+                                                case item.alasan
+                                                    when 1: td Izin
+                                                    when 2: td Sakit 
+                                                    when 3: td Cuti
+                                                td=item.keterangan
+                                                td=item.startJam+':'+item.startMenit
+                                                td=item.endJam+':'+item.endMenit
+                                                td
+                                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                        button#getsurat(type="button" name="getsurat") Download
+                                                td
+                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                        button#approve(type="button" name="approve") Approve
+                                                        button#reject(type="button" name="reject") Reject
+                                        else 
 block append script 
     script(src="/javascripts/reportIzin.js") 
+    if role == 3
+        script(src="/javascripts/approve_reject.js")

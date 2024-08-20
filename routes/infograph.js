@@ -311,7 +311,7 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -362,6 +362,20 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
+})
+
+router.post('/approve', upload.none(), (req,res)=>{
+    // var sql = 'update izinkaryawan set status = 2 where id = ?'
+    // var values = req.body.id
+    // connection.query(sql, values, (err,rows,fields)=>{
+    //     if(err){
+    //         next(err)
+    //     } else{
+    //         que_result = rows
+    //         console.log(que_result)
+    //     }
+    // })
+    res.send({result: 'success'})
 })
 
 function uniq_fast(a) {
