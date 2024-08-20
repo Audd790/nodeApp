@@ -1,12 +1,12 @@
 extends ../infographicBody
 block nav 
     .header
-        block logout
-            button#logout Logout
         if role == 1
             h2= 'Report Izin Semua Karyawan'
         if role == 2
             h2= 'Report Izin Karyawan ' + nama
+        block logout
+            button#logout Logout
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
@@ -22,6 +22,7 @@ block append info
                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Month" checked="true") 
                     label#toggle1.checked(for="toggle" style="margin-bottom: 0px") Bulan
+                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Izin")
                     label#toggle2(for="toggle" style="margin-bottom: 0px") Alasan
                 div.form-group(name="filter1" style="display: flex;align-items: center;justify-content: auto;flex-direction: row;")
@@ -35,7 +36,7 @@ block append info
                         option(value=2) Sakit 
                         option(value=3) Cuti
                     button#filterAlasan(type="button") Filter
-                div.form-group(name="filter2")
+                div.form-group(name="filter2" style="display: flex;align-items: center;justify-content: auto;flex-direction: row;")
                     select#year2(name="year2")
                         option(value=0) All
                         for y in thn
