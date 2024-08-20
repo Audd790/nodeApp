@@ -22,10 +22,9 @@ block append info
                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Month" checked="true") 
                     label#toggle1.checked(for="toggle" style="margin-bottom: 0px") Bulan
-                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Izin")
                     label#toggle2(for="toggle" style="margin-bottom: 0px") Alasan
-                div.form-group(name="filter1" style="display: flex;align-items: center;justify-content: auto;flex-direction: row;")
+                div.form-group(name="filter1")
                     select#year1(name="year1")
                         option(value=0) All
                         for y in thn
@@ -36,7 +35,7 @@ block append info
                         option(value=2) Sakit 
                         option(value=3) Cuti
                     button#filterAlasan(type="button") Filter
-                div.form-group(name="filter2" style="display: flex;align-items: center;justify-content: auto;flex-direction: row;")
+                div.form-group(name="filter2")
                     select#year2(name="year2")
                         option(value=0) All
                         for y in thn

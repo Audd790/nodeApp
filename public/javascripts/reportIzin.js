@@ -58,7 +58,6 @@ $(document).ready(function() {
         table2.find('.container2').hide()
         var showTable
         var hideTable
-
         if(bulan == '0' && tahun == '0'){
             table2.find('.container2').show()
         } else if(tahun == '0'){
@@ -71,7 +70,7 @@ $(document).ready(function() {
                 hideTable.hide()
                 showTable.show()
             }
-        }else if(bulan = '0'){
+        }else if(bulan == '0'){
             showTable = table2.find("div#"+tahun)
             if(showTable.length>0){
                 showTable.show()
@@ -79,8 +78,7 @@ $(document).ready(function() {
         }
 
         showTable = table2.find('div#'+tahun)
-        hideTable = showTable.find('div > table:not(#'+bulan+')')
-        console.log(bulan)
+        hideTable = showTable.find('div > table:not(#'+ bulan +')')
         if(showTable.find('div > table#'+bulan).length > 0){
             showTable.show()
             hideTable.hide()
