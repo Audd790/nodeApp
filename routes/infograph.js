@@ -365,16 +365,30 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
 })
 
 router.post('/approve', upload.none(), (req,res)=>{
-    // var sql = 'update izinkaryawan set status = 2 where id = ?'
-    // var values = req.body.id
-    // connection.query(sql, values, (err,rows,fields)=>{
-    //     if(err){
-    //         next(err)
-    //     } else{
-    //         que_result = rows
-    //         console.log(que_result)
-    //     }
-    // })
+    var sql = 'update izinkaryawan set status = 2 where id = ?'
+    var values = req.body.id
+    connection.query(sql, values, (err,rows,fields)=>{
+        if(err){
+            next(err)
+        } else{
+            que_result = rows
+            console.log(que_result)
+        }
+    })
+    res.send({result: 'success'})
+})
+
+router.post('/reject', upload.none(), (req,res)=>{
+    var sql = 'update izinkaryawan set status = 2 where id = ?'
+    var values = req.body.id
+    connection.query(sql, values, (err,rows,fields)=>{
+        if(err){
+            next(err)
+        } else{
+            que_result = rows
+            console.log(que_result)
+        }
+    })
     res.send({result: 'success'})
 })
 
