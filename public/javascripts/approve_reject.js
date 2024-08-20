@@ -11,18 +11,22 @@ $('[name="approve"]').click(function(){
                 res = JSON.parse(xhr.response)
                 console.log(res)
                 var tr = $('div#'+id).closest('tr')
+                var table = tr.closest('table')
+                var length = table.find('tr:not(:first-child)').length - 1;
+                var yearContainer = table.closest('.container2')
                 tr.remove()
-                console.log(tr)
+                if(length == 0){
+                    table.remove()
+                }
+                if(yearContainer.find('.body').children().length == 0){
+                    yearContainer.remove()   
+                }
             } else{
                 console.error('Error:', xhr.status)
             }
         }
     };
     xhr.send(data)
-    var table = tr.closest('table').children()
-    if(table.length < 2){
-        table.remove()
-    }
 })
 
 $('[name="reject"]').click(function(){
