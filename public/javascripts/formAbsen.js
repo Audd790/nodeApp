@@ -8,27 +8,32 @@ document.addEventListener('DOMContentLoaded', function(){
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
-    // $('[name="toggle"]').change(function(){
-    //   if($(this)[0].value >= 0){
-    //     $('#startJam').prop('disabled', false)
-    //     $('#startMenit').prop('disabled', false)
-    //     $('#endJam').prop('disabled', false)
-    //     $('#endMenit').prop('disabled', false)
-    //   }
-    //   if($(this).attr('id') == 'dtgTrlmbt'){
-    //     $('#startJam').prop('disabled', false)
-    //     $('#startMenit').prop('disabled', false)
-    //     $('#endJam').prop('disabled', true)
-    //     $('#endMenit').prop('disabled', true)
-    //   }
+    var startJam = $('#startJam')
+    var startMenit = $('#startMenit')
+    var endJam = $('#endJam')
+    var endMenit = $('#endMenit')
+    $('[name="toggle"]').change(function(){
+      if($(this)[0].value !== 'A' && $(this)[0].value !== 'B'){
+        startJam.prop('disabled', false)
+        startMenit.prop('disabled', false)
+        endJam.prop('disabled', false)
+        endMenit.prop('disabled', false)
 
-    //   if($(this).attr('id') == 'plngAwl'){
-    //     $('#startJam').prop('disabled', true)
-    //     $('#startMenit').prop('disabled', true)
-    //     $('#endJam').prop('disabled', false)
-    //     $('#endMenit').prop('disabled', false)
-    //   }
-    // })
+      }
+      if($(this).attr('id') == 'dtgTrlmbt'){
+        startJam.prop('disabled', false)
+        startMenit.prop('disabled', false)
+        endJam.prop('disabled', true)
+        endMenit.prop('disabled', true)
+      }
+
+      if($(this).attr('id') == 'plngAwl'){
+        startJam.prop('disabled', true)
+        startMenit.prop('disabled', true)
+        endJam.prop('disabled', false)
+        endMenit.prop('disabled', false)
+      }
+    })
 })
 
 function stopEnterSubmit(event){
@@ -64,6 +69,14 @@ function getListNama(){
 
 function submitFormAbsen(event){
     event.preventDefault();
+    var startJam = $('#startJam')
+    var startMenit = $('#startMenit')
+    var endJam = $('#endJam')
+    var endMenit = $('#endMenit')
+    startJam.siblings('.hours').val(startJam[0].value)
+    startMenit.siblings('.minutes').val(startMenit[0].value)
+    endJam.siblings('.hours').val(endJam[0].value)
+    endMenit.siblings('.minutes').val(endMenit[0].value)
     const xhr = new XMLHttpRequest
     const data = new FormData(form);
     xhr.open('POST', 'submitFormAbsen',true)

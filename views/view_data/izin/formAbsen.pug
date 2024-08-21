@@ -35,13 +35,13 @@ block append info
                                         input#cuti(type="radio" name="toggle" value="3")
                                         label(for="toggle" style="margin-bottom: 0px") Cuti
                                     div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                        input#dtgTrlmbt(type="radio" name="toggle" value="A")
+                                        input#dtgTrlmbt(type="radio" name="toggle" value="4")
                                         label(for="toggle" style="margin-bottom: 0px") Datang Terlambat
                                     div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                        input#plngAwl(type="radio" name="toggle" value="B")
+                                        input#plngAwl(type="radio" name="toggle" value="5")
                                         label(for="toggle" style="margin-bottom: 0px") Pulang Awal
                                     div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                        input#dinTgs(type="radio" name="toggle" value="C")
+                                        input#dinTgs(type="radio" name="toggle" value="6")
                                         label(for="toggle" style="margin-bottom: 0px") Dinas/Tugas
                                 .form-group 
                                     label(for="ket") Keterangan
@@ -53,21 +53,21 @@ block append info
                                     label(for="start") From
                                     <div class="clock">
                                         div#start.time
-                                            input#startJam.hours(type="number" name="startJam" min='8' max='17' value=8)
-                                            input.hours(type="hidden")
+                                            input#startJam.hours(type="number"  min='8' max='17' value=8)
+                                            input.hours(type="hidden" name="startJam")
                                             span.separator :
-                                            input#startMenit.minutes(type="number" name='startMenit' min='0' max='59' value=30)
-                                            input.minutes(type="hidden")
+                                            input#startMenit.minutes(type="number"  min='0' max='59' value=30)
+                                            input.minutes(type="hidden" name='startMenit')
                                     </div>
                                 .form-group
                                     label(for="end") to
                                     <div class="clock">
                                         div#end.time
-                                            input#endJam.hours(type="number" name="endJam" min='8' max='17' value=17)
-                                            input.hours(type="hidden")
+                                            input#endJam.hours(type="number"  min='8' max='17' value=17)
+                                            input.hours(type="hidden" name="endJam")
                                             span.separator :
-                                            input#endMenit.minutes(type="number" name='endMenit' min='0' max='59' value=30)
-                                            input.minutes(type="hidden")
+                                            input#endMenit.minutes(type="number"  min='0' max='59' value=30)
+                                            input.minutes(type="hidden" name='endMenit')
                                     </div>
                                 .form-group
                                     label(for="hari") Hari
