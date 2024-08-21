@@ -17,9 +17,11 @@ block nav
         .btn_group
             if role !== 3
                 button#Chart.button(value="telatKaryawan") Lihat Telat
-            if role !== 2
+            if role == 1
                 button#Chart.button(value="reportIzinKaryawanAll") Lihat Izin 
             if role == 2
                 button#Chart.button(value="reportIzinKaryawan") Lihat Izin 
+            if role == 3
+                button#Chart.button(value="reportIzinKaryawanApprove") Lihat Izin 
 block script
     script(src='/javascripts/infGraScript.js') 

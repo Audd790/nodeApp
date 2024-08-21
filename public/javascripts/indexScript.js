@@ -8,21 +8,20 @@ document.addEventListener('DOMContentLoaded'
                 const formData = new FormData(form)
                 const xhr = new XMLHttpRequest();
                 const input = form.elements;
-                // const data = [input['email'].value, input['password'].value]
-                xhr.open('POST', '/submit', true);
-                // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function () {
-                    if(xhr.readyState === XMLHttpRequest.DONE){
-                        if (xhr.status === 200) {
-                            const obj = JSON.parse(xhr.response);
-                            displayConfirmation(obj.sql, obj.empty);
-                        } else{
-                            console.error('Error:', xhr.status)
-                        }
-                    }
-                };
-                
-                xhr.send(formData);
+                console.log(formData)
+                $.ajax({
+                    url : "/submit",
+                    type: "POST",
+                    data : formData,
+                    processData: false,
+                    contentType: false,
+                    success: (data, textStatus, jqXHR)=>{
+                        console.log(data);
+                        displayConfirmation(data.sql, data.empty);
+                    },
+                    error:(data, textStatus, jqXHR)=>{
+                        console.error('Error:', textStatus)
+                    } })
         });
         function displayConfirmation(sql, empty) {
             if(!empty && !sql){

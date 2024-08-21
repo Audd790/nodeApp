@@ -310,6 +310,10 @@ h3{
   color: #00B7FF;
 }
 
+.breadcrumb span:hover{
+  
+}
+
 .breadcrumb li:not(:last-child)::after {
   display: inline-block;
   margin: 0 .25rem;

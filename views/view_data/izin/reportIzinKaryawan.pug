@@ -139,7 +139,7 @@ block append info
                                     for item in entry
                                         tr(name='-'+item.alasan+'-'+item.tahun+'-')
                                             td=item.nama
-                                            td(style="text-align: center;")=item.hari
+                                            td=item.hari+' '+item.bulanNama+', '+item.tahun
                                             case item.alasan
                                                 when 1: td Izin
                                                 when 2: td Sakit 
@@ -154,49 +154,6 @@ block append info
                                             td
                                                 div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                     button#getsurat(type="button" name="getsurat") Download
-    if role == 3
-        .block
-            div(name='table3')
-                -var i=1
-                for izin in sqlIzin
-                    .container2
-                        div.header
-                            h2=izin[0][0].tahun
-                        div.body
-                            for entry in izin
-                                table 
-                                    tr.table_header
-                                        th Nama
-                                        th Tanggal
-                                        th Berapa Lama (Dalam Hari)
-                                        th Alasan
-                                        th Keterangan
-                                        th Dari 
-                                        th Sampai
-                                        th Surat
-                                        th Approve/Reject
-                                    for item in entry
-                                        if item.status == 1
-                                            tr    
-                                                td=item.nama 
-                                                td=item.hari + " " + item.bulanNama+', '+ item.tahun
-                                                td=item.jumlah_hari
-                                                case item.alasan
-                                                    when 1: td Izin
-                                                    when 2: td Sakit 
-                                                    when 3: td Cuti
-                                                td=item.keterangan
-                                                td=item.startJam+':'+item.startMenit
-                                                td=item.endJam+':'+item.endMenit
-                                                td
-                                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                                        button#getsurat(type="button" name="getsurat") Download
-                                                td
-                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                                        button#approve(type="button" name="approve") Approve
-                                                        button#reject(type="button" name="reject") Reject
-                                        else 
 block append script 
     script(src="/javascripts/reportIzin.js") 
     if role == 3
-        script(src="/javascripts/approve_reject.js")

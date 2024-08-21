@@ -1,0 +1,67 @@
+extends ../infographicBody
+block nav 
+    .column
+            //- div(style="flex: 0 1 auto")
+            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
+    .row
+        div(style="flex: 0 1 auto;")
+            if role == 2
+                h2= 'Report Izin Karyawan ' + nama
+            else
+                h2= 'Report Izin Semua Karyawan'
+        div(style="flex: 0 1 auto;")
+            block logout
+                button#logout Logout
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    span(aria-current="page") Report Izin
+block append info
+    .block
+        div(name='table2')
+            -var i=1
+            for year in sqlMonths
+                div.container2(id=year[0][0].tahun)
+                    div.header
+                        h2=year[0][0].tahun
+                    div.body
+                        for entry in year 
+                            table(id=entry[0].bulan)
+                                caption='Tabel '+entry[0].bulanNama
+                                tr.table_header 
+                                    th Nama
+                                    th Tanggal
+                                    th Alasan
+                                    th Keterangan
+                                    th Status 
+                                    th Dari 
+                                    th Sampai
+                                    th Surat
+                                    th Approve/Reject
+                                for item in entry
+                                    tr(name='-'+item.alasan+'-'+item.tahun+'-')
+                                        td=item.nama
+                                        td=item.hari+' '+item.bulanNama+', '+item.tahun
+                                        case item.alasan
+                                            when 1: td Izin
+                                            when 2: td Sakit 
+                                            when 3: td Cuti
+                                        td=item.keterangan
+                                        case item.status
+                                            when 1: td='Diproses'
+                                            when 2: td='Approve'
+                                            when 3: td='Reject'
+                                        td=item.startJam+':'+item.startMenit
+                                        td=item.endJam+':'+item.endMenit
+                                        td
+                                            div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                button#getsurat(type="button" name="getsurat") Download
+                                        td
+                                            div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                button#approve(type="button" name="approve") Approve
+                                                button#reject(type="button" name="reject") Reject
+block append script 
+    script(src="/javascripts/approve_reject.js")
