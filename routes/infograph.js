@@ -34,6 +34,9 @@ var que_result;
 var arr = [];
 
 router.all('/*', function(req, res, next){
+    connection.query('set lc_time_names="id_ID"',(err,rows)=>{
+        if(err) next(err)
+    })
     if(!req.session.user) {
         console.log('yes')
         res.redirect('/')
@@ -425,6 +428,16 @@ router.post('/reject', upload.none(), (req,res)=>{
         }
     })
     res.send({result: 'success'})
+})
+
+router.get('/getSurat/:id',(req,res,next)=>{
+    connection.query('select surat from izinkaryawan where id = ?', [req.params.id],(err,rows)=>{
+        if(err) {next(err)}
+        else{
+            console.log(rows)
+            res.download(path.join(__dirname, '..',rows[0].surat))
+        }
+    })
 })
 
 function uniq_fast(a) {

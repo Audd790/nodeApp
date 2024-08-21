@@ -298,3 +298,17 @@ create table user(
 
 insert into user(nama, pass, role)
 values ('APPROVE', 'pass', 3);
+
+create table app(
+   id int auto_increment primary key,
+   nama varchar(255),
+   divisi varchar(255)
+)
+
+select a.id, b.divisi, a.hari as jumlah_hari, a.alasan, a.nama, a.startMenit,
+a.startJam, a.endMenit, a.endJam, day(a.tgl_izin) as hari, month(a.tgl_izin) as bulan,
+monthname(a.tgl_izin) as bulanNama, year(a.tgl_izin) as tahun, a.surat, a.status, a.keterangan 
+from izinkaryawan a
+join karyawan b on a.nama = b.nama
+where status not in (2,3) 
+order by tahun, bulan;

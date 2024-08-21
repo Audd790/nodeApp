@@ -57,7 +57,7 @@ block append info
                                         td=item.startJam+':'+item.startMenit
                                         td=item.endJam+':'+item.endMenit
                                         td
-                                            div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                            div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                 button#getsurat(type="button" name="getsurat") Download
                                         td
                                             div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
@@ -65,3 +65,4 @@ block append info
                                                 button#reject(type="button" name="reject") Reject
 block append script 
     script(src="/javascripts/approve_reject.js")
+    script(src="/javascripts/getSurat.js")

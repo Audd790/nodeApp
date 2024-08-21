@@ -152,8 +152,9 @@ block append info
                                             td=item.startJam+':'+item.startMenit
                                             td=item.endJam+':'+item.endMenit
                                             td
-                                                div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                     button#getsurat(type="button" name="getsurat") Download
 block append script 
-    script(src="/javascripts/reportIzin.js") 
-    if role == 3
+    script(src="/javascripts/reportIzin.js")
+    if role !== 2
+        script(src="/javascripts/getSurat.js")
