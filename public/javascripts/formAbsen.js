@@ -8,6 +8,27 @@ document.addEventListener('DOMContentLoaded', function(){
     downloadBtn.addEventListener('click',(e)=>{
       window.location.href = '/downloadExcel'
     })
+    // $('[name="toggle"]').change(function(){
+    //   if($(this)[0].value >= 0){
+    //     $('#startJam').prop('disabled', false)
+    //     $('#startMenit').prop('disabled', false)
+    //     $('#endJam').prop('disabled', false)
+    //     $('#endMenit').prop('disabled', false)
+    //   }
+    //   if($(this).attr('id') == 'dtgTrlmbt'){
+    //     $('#startJam').prop('disabled', false)
+    //     $('#startMenit').prop('disabled', false)
+    //     $('#endJam').prop('disabled', true)
+    //     $('#endMenit').prop('disabled', true)
+    //   }
+
+    //   if($(this).attr('id') == 'plngAwl'){
+    //     $('#startJam').prop('disabled', true)
+    //     $('#startMenit').prop('disabled', true)
+    //     $('#endJam').prop('disabled', false)
+    //     $('#endMenit').prop('disabled', false)
+    //   }
+    // })
 })
 
 function stopEnterSubmit(event){

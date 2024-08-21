@@ -37,7 +37,7 @@ li{
   margin-top: 1em;
 }
 .container1{
-  max-width: 300px;
+  max-width: 600px;
   background-color: #fff;
   border-radius: 8px;
   border: 0.123em solid #999;
@@ -225,6 +225,14 @@ textarea{
   box-sizing: border-box;
 }
 
+.toggle{
+  flex: 1 1 auto;
+}
+
+label[for="toggle"]{
+  margin-left: 0px;
+}
+
 button[type="submit"]{
   background-color: #4caf50;
   color: white;
@@ -308,10 +316,6 @@ h3{
 .breadcrumb a:hover{
   text-decoration: underline;
   color: #00B7FF;
-}
-
-.breadcrumb span:hover{
-  
 }
 
 .breadcrumb li:not(:last-child)::after {

@@ -1,6 +1,8 @@
 extends ../infographicBody
 block nav 
-    .header
+    .column
+        img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
+    .row
         h2 Form input izin karyawan
         button#logout Logout
     .block
@@ -19,16 +21,28 @@ block append info
                     when 2: div 
                         .body
                             form#form
-                                div(class="form-group autocomplete" autocomplete="off")
+                                div(class="form-group autocomplete")
                                     label(for="nama") Nama Karyawan
                                     input#nama(type="text" name="nama" autocomplete="off")                        
-                                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                    input#izin(type="radio" name="toggle" value="1")
-                                    label(for="toggle" style="margin-bottom: 0px") Izin
-                                    input#izin(type="radio" name="toggle" value="2")
-                                    label(for="toggle" style="margin-bottom: 0px") Sakit 
-                                    input#izin(type="radio" name="toggle" value="3")
-                                    label(for="toggle" style="margin-bottom: 0px") Cuti
+                                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: column;")
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#izin(type="radio" name="toggle" value="1")
+                                        label(for="toggle" style="margin-bottom: 0px") Izin
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#sakit(type="radio" name="toggle" value="2")
+                                        label(for="toggle" style="margin-bottom: 0px") Sakit 
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#cuti(type="radio" name="toggle" value="3")
+                                        label(for="toggle" style="margin-bottom: 0px") Cuti
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#dtgTrlmbt(type="radio" name="toggle" value="A")
+                                        label(for="toggle" style="margin-bottom: 0px") Datang Terlambat
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#plngAwl(type="radio" name="toggle" value="B")
+                                        label(for="toggle" style="margin-bottom: 0px") Pulang Awal
+                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                        input#dinTgs(type="radio" name="toggle" value="C")
+                                        label(for="toggle" style="margin-bottom: 0px") Dinas/Tugas
                                 .form-group 
                                     label(for="ket") Keterangan
                                     input#ket(type="text" name="ket")
@@ -38,20 +52,22 @@ block append info
                                 .form-group
                                     label(for="start") From
                                     <div class="clock">
-                                        <div class="time">
-                                            input.hours(type="number" name="startJam" min='8' max='17' value=8)
+                                        div#start.time
+                                            input#startJam.hours(type="number" name="startJam" min='8' max='17' value=8)
+                                            input.hours(type="hidden")
                                             span.separator :
-                                            input.minutes(type="number" name='startMenit' min='0' max='59' value=30)
-                                        </div>
+                                            input#startMenit.minutes(type="number" name='startMenit' min='0' max='59' value=30)
+                                            input.minutes(type="hidden")
                                     </div>
                                 .form-group
                                     label(for="end") to
                                     <div class="clock">
-                                        <div class="time">
-                                            input.hours(type="number" name="endJam" min='8' max='17' value=17)
+                                        div#end.time
+                                            input#endJam.hours(type="number" name="endJam" min='8' max='17' value=17)
+                                            input.hours(type="hidden")
                                             span.separator :
-                                            input.minutes(type="number" name='endMenit' min='0' max='59' value=30)
-                                        </div>
+                                            input#endMenit.minutes(type="number" name='endMenit' min='0' max='59' value=30)
+                                            input.minutes(type="hidden")
                                     </div>
                                 .form-group
                                     label(for="hari") Hari

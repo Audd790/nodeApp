@@ -46,9 +46,12 @@ block append info
                                         td=item.nama
                                         td=item.hari+' '+item.bulanNama+', '+item.tahun
                                         case item.alasan
-                                            when 1: td Izin
-                                            when 2: td Sakit 
-                                            when 3: td Cuti
+                                            when '1': td Izin
+                                            when '2': td Sakit 
+                                            when '3': td Cuti
+                                            when 'A': td Datang Terlambat 
+                                            when 'B': td Pulang Awal 
+                                            when 'C': td Dinas/Tugas
                                         td=item.keterangan
                                         case item.status
                                             when 1: td='Diproses'

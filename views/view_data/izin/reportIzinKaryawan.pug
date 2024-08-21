@@ -89,9 +89,9 @@ block append info
                                 for entry in year
                                     table(id='-'+entry[0].alasan+'-')
                                         case entry[0].alasan
-                                            when 1: caption Tabel Izin
-                                            when 2: caption Tabel Sakit 
-                                            when 3: caption Tabel Cuti
+                                            when '1': caption Tabel Izin
+                                            when '2': caption Tabel Sakit 
+                                            when '3': caption Tabel Cuti
                                         tr.table_header 
                                             th Nama
                                             th Tanggal 
@@ -141,9 +141,12 @@ block append info
                                             td=item.nama
                                             td=item.hari+' '+item.bulanNama+', '+item.tahun
                                             case item.alasan
-                                                when 1: td Izin
-                                                when 2: td Sakit 
-                                                when 3: td Cuti
+                                                when '1': td Izin
+                                                when '2': td Sakit 
+                                                when '3': td Cuti
+                                                when 'A': td Datang Terlambat 
+                                                when 'B': td Pulang Awal 
+                                                when 'C': td Dinas/Tugas
                                             td=item.keterangan
                                             case item.status
                                                 when 1: td='Diproses'

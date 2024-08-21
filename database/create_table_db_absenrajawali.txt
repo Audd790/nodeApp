@@ -312,3 +312,5 @@ from izinkaryawan a
 join karyawan b on a.nama = b.nama
 where status not in (2,3) 
 order by tahun, bulan;
+
+(APPR_JO, APPR_SW, APPR_NR, APPR_BO, APPR_SI, APPR_YU, APPR_NA)

@@ -369,8 +369,8 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
 
 router.get('/reportIzinKaryawanApprove', (req,res)=>{
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan where status not in (2,3) order by tahun, bulan;'
-    connection.query(sql,(err,rows)=>{
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan a join karyawan b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    connection.query(sql, [req.session.divisi],(err,rows)=>{
         if(err){
             next(err)
         } else{
