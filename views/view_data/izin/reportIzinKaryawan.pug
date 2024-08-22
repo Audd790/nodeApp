@@ -26,9 +26,11 @@ block append info
             form#form
                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Month" checked="true") 
-                    label#toggle1.checked(for="toggle" style="margin-bottom: 0px") Bulan
+                    label#toggle1(for="toggle" style="margin-bottom: 0px") Bulan
                     input(type="radio" name='toggle' value="Izin")
-                    label#toggle2(for="toggle" style="margin-bottom: 0px") Alasan
+                    label#toggle2.checked(for="toggle" style="margin-bottom: 0px") Alasan
+                    input(type="radio" name='toggle' value="Status")
+                    label#toggle3.checked(for="toggle" style="margin-bottom: 0px") Status
                 div.form-group(name="filter1")
                     select#year1(name="year1")
                         option(value=0) All
@@ -49,6 +51,7 @@ block append info
                         for m, i in month
                             option(value=i)=m
                     button#filterMonth(type="button") Filter
+                div.form-group(name="filter3")
         //- .block
             
     if role == 2
@@ -105,7 +108,7 @@ block append info
                                             th Status 
                                             th Dari 
                                             th Sampai
-                                            th Surat
+                                            th File
                                         for item in entry
                                             tr(name= '-'+item.tahun+"-")
                                                 td=item.nama
@@ -117,9 +120,12 @@ block append info
                                                     when 3: td='Reject'
                                                 td=item.startJam+':'+item.startMenit
                                                 td=item.endJam+':'+item.endMenit
-                                                td
-                                                    div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                                        button#getsurat(type="button" name="getsurat") Download
+                                                if item.surat == ''
+                                                    td tidak ada file
+                                                else 
+                                                    td
+                                                        div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                            button#getsurat(type="button" name="getsurat") Download
         else 
             h2 Belum ada izin
         .block
@@ -141,7 +147,7 @@ block append info
                                         th Status 
                                         th Dari 
                                         th Sampai
-                                        th Surat
+                                        th File
                                     for item in entry
                                         tr(name='-'+item.alasan+'-'+item.tahun+'-')
                                             td=item.nama
@@ -160,9 +166,58 @@ block append info
                                                 when 3: td='Reject'
                                             td=item.startJam+':'+item.startMenit
                                             td=item.endJam+':'+item.endMenit
-                                            td
-                                                div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                                    button#getsurat(type="button" name="getsurat") Download
+                                            if item.surat == ''
+                                                td tidak ada file
+                                            else 
+                                                td
+                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                        button#getsurat(type="button" name="getsurat") Download
+            div(name='table3')
+                -var i=1
+                for year in sqlStatus
+                    div.container2(id=year[0][0].tahun)
+                        div.header
+                            h2=year[0][0].tahun
+                        div.body
+                            for entry in year 
+                                table(id=entry[0].status)
+                                    case entry[0].status
+                                        when 1: caption='Tabel Diproses'
+                                        when 2: caption='Tabel Approve'
+                                        when 3: caption='Tabel Reject'
+                                    tr.table_header 
+                                        th Nama
+                                        th Tanggal
+                                        th Alasan
+                                        th Keterangan
+                                        th Status 
+                                        th Dari 
+                                        th Sampai
+                                        th File
+                                    for item in entry
+                                        tr(name='-'+item.alasan+'-'+item.tahun+'-')
+                                            td=item.nama
+                                            td=item.hari+' '+item.bulanNama+', '+item.tahun
+                                            case item.alasan
+                                                when 1: td Izin
+                                                when 2: td Sakit 
+                                                when 3: td Cuti
+                                                when 4: td Datang Terlambat 
+                                                when 5: td Pulang Awal 
+                                                when 6: td Dinas/Tugas
+                                            td=item.keterangan
+                                            case item.status
+                                                when 1: td='Diproses'
+                                                when 2: td='Approve'
+                                                when 3: td='Reject'
+                                            td=item.startJam+':'+item.startMenit
+                                            td=item.endJam+':'+item.endMenit
+                                            if item.surat == ''
+                                                td tidak ada file
+                                            else 
+                                                td
+                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                        button#getsurat(type="button" name="getsurat") Download
 block append script 
     script(src="/javascripts/reportIzin.js")
     if role !== 2

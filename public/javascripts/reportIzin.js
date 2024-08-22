@@ -1,11 +1,16 @@
 var table1 = $('div[name=table1]')
 var table2 = $('div[name=table2]')
+var table3 = $('div[name=table3]')
 var filter1 = $('div[name=filter1]')
 var filter2 = $('div[name=filter2]')
+var filter3 = $('div[name=filter3]')
 var label1 = $('#toggle1')
 var label2 = $('#toggle2')
+var label3 = $('#toggle3')
 table1.hide()
 filter1.hide()
+table3.hide()
+filter3.hide()
 
 $("#filterAlasan").click(function(){
     var table1 = $('div[name=table1]')
@@ -86,19 +91,60 @@ $('#filterMonth').click(function(){
 })
 
 $(':radio').change(function(){
-    label1.toggleClass('checked')
-    label2.toggleClass('checked')
     if($(this)[0].value == 'Month'){
+        if(label1.hasClass('checked')){
+            label1.toggleClass('checked')
+        }
+        if(!label2.hasClass('checked')){
+            label2.toggleClass('checked')
+        }
+        
+        if(!label3.hasClass('checked')){
+            label3.toggleClass('checked')
+        }
         table1.hide()
         filter1.hide()
         table2.show()
         filter2.show()
+        table3.hide()
+        filter3.hide()
     }
 
     if($(this)[0].value == 'Izin'){
+        if(label2.hasClass('checked')){
+            label2.toggleClass('checked')
+        }
+        if(!label1.hasClass('checked')){
+            label1.toggleClass('checked')
+        }
+
+        if(!label3.hasClass('checked')){
+            label3.toggleClass('checked')
+        }
         table1.show()
         filter1.show()
         table2.hide()
         filter2.hide()
+        table3.hide()
+        filter3.hide()
+    }
+
+    if($(this)[0].value == 'Status'){
+        if(label3.hasClass('checked')){
+            label3.toggleClass('checked')
+        }
+        if(!label1.hasClass('checked')){
+            label1.toggleClass('checked')
+        }
+
+        if(!label2.hasClass('checked')){
+            label2.toggleClass('checked')
+        }
+        table1.hide()
+        filter1.hide()
+        table2.hide()
+        filter2.hide()
+        table3.show()
+        filter3.show()
     }
 })

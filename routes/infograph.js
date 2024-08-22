@@ -341,14 +341,37 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by status desc, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
         } else {
             que_result = rows
-            var tablesWithHoles = new Array
+            var alasanTable = new Array
             var tmp = new Array
+            for(k=0;k<que_result.length;k++){
+                tmp.push(que_result[k].tahun)   
+            }
+            var years = uniq_fast(tmp)
+            var alasanWithoutHoles = new Array
+            for(h=0;h<years.length;h++){
+                alasanTable[h] = []
+                for(i = 0 ; i < 3 ; i++) {
+                    var status = i+1;
+                    alasanTable[h][i] = []
+                    for(k=0;k<que_result.length;k++){
+                        if(que_result[k].status == status && que_result[k].tahun == years[h]){
+                            alasanTable[h][i].push(que_result[k])
+                        }
+                        
+                    }
+                }
+            }
+            for(i=0;i<years.length;i++){
+                alasanWithoutHoles[i] = alasanTable[i].filter(item => { return item.length > 0 })
+            }
+            console.log(alasanTable)
+            var tablesWithHoles = new Array
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
             }
@@ -387,9 +410,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 tablesMonthsWithoutHoles[i] = tablesMonthsWithHoles[i].filter(item => { return item.length > 0 })
             }
-            console.log(tablesWithoutHoles[0])
-            console.log(tablesWithoutHoles[1])
-            res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
+            res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlStatus: alasanWithoutHoles, sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
 })
