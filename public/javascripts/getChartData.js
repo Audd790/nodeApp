@@ -10,6 +10,7 @@ xhr.onreadystatechange = function () {
                 return labels.menitTelat
             })
             myChart.update()
+            console.log(currDate.getMonth())
         } else{
             console.error('Error:', xhr.status)
         }

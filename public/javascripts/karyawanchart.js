@@ -17,7 +17,7 @@ const month = ['Januari',
 const myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: month.slice(0, currDate.getMonth()),
+        labels: month.slice(0, currDate.getMonth()+1),
         datasets: [{
             label: 'Total Menit telat setiap bulan'
         }]

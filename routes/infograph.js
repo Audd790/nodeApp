@@ -52,7 +52,19 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/telatKaryawan', function(req, res, next){
-    res.render('view_data/telat/karyawanchart',{role: req.session.role_id})
+    var sql = "select * from kehadiran "
+    connection.query(sql, (err, rows, fields)=>{
+        if (err) {
+            next(err)
+        }
+        else{
+        que_result = rows;
+        }
+        date = dateObj.getFullYear() + '-'
+        + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
+        +  ('0' + dateObj.getDate()).slice(-2);
+        res.render('view_data/telat/telat_per_hari',{absenkaryawan: que_result, tanggal: date, role: req.session.role_id})
+    })
 });
 
 router.post('/chartKaryawan', upload.none(), check('nama').trim().notEmpty().escape(), function(req, res, next) {
@@ -65,9 +77,10 @@ router.post('/chartKaryawan', upload.none(), check('nama').trim().notEmpty().esc
     } else {
         nama = req.session.user
     }
-    var sql = 'select nama, jumlahMenitTerlambat as menitTelat '+
+    var sql = 'select distinct nama, month, jumlahMenitTerlambat as menitTelat '+
         'from kehadiranTotal '+
-        'where trim(lower(nama)) = trim(lower("'+ nama +'"))'
+        'where trim(lower(nama)) = trim(lower("'+ nama +'")) '+
+        'order by month'
         var que_result;
         connection.query(sql, (err,rows,fields)=>{
             if (err) {
@@ -219,11 +232,11 @@ router.post('/submitformAbsen', upload.single("surat"),
 check('nama').trim().notEmpty().escape(),
 check('toggle').trim().notEmpty().escape(),
 check('tgl_izin').trim().notEmpty().escape(),
-check('startMenit').trim().notEmpty().isInt({min: 30}).escape(),
-check('startJam').trim().notEmpty().isInt({min: 8}).escape(),
-check('endMenit').trim().notEmpty().isInt({min: 30}).escape(),
-check('endJam').trim().notEmpty().isInt({min: 8}).escape(),
-check('hari').trim().notEmpty().isInt({min: 0}).escape(),
+check('startMenit').trim().notEmpty().isInt().escape(),
+check('startJam').trim().notEmpty().isInt().escape(),
+check('endMenit').trim().notEmpty().isInt().escape(),
+check('endJam').trim().notEmpty().isInt().escape(),
+check('hari').trim().notEmpty().isInt().escape(),
 check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
@@ -234,7 +247,7 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
         sql = 'insert into izinKaryawan(nama, alasan, tgl_izin,  startMenit, startJam, endMenit, endJam, hari, keterangan, surat) values(?,?,?,?,?,?,?,?,?,?)'
         values.push(req.file.path)
     }
-    console.log(req.body)
+    console.log(result.errors)
     if(!emptyInputs){
         connection.query(sql,values,(err,rows)=>{
             if (err) {
