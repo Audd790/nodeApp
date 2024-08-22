@@ -247,3 +247,103 @@ UNLOCK TABLES;
 --
 
 DROP TABLE IF EXISTS `telat_per_divisi`;
+/*!50001 DROP VIEW IF EXISTS `telat_per_divisi`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `telat_per_divisi` AS SELECT 
+ 1 AS `divisi`,
+ 1 AS `bulan`,
+ 1 AS `tahun`,
+ 1 AS `telat_per_bulan`,
+ 1 AS `total_menit_per_bulan`,
+ 1 AS `total_jam_per_bulan`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary view structure for view `telat_per_karyawan`
+--
+
+DROP TABLE IF EXISTS `telat_per_karyawan`;
+/*!50001 DROP VIEW IF EXISTS `telat_per_karyawan`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `telat_per_karyawan` AS SELECT 
+ 1 AS `nama`,
+ 1 AS `bulan`,
+ 1 AS `tahun`,
+ 1 AS `telat_per_bulan`,
+ 1 AS `total_menit_per_bulan`,
+ 1 AS `total_jam_per_bulan`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `nama` varchar(255) DEFAULT NULL,
+  `pass` varchar(255) DEFAULT NULL,
+  `role_id` int DEFAULT NULL,
+  `divisi` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('sujilan','pass',2,'D08'),('nartin rasboenga','pass',2,'D04'),('WINA DAMAYANI','pass',2,'D04'),('SULAIN','pass',2,'D16'),('RONALD YANSEN KOMANSILAN','pass',2,'D13'),('INDAH LESTARI','pass',2,'D01'),('PARTO','pass',2,'D08'),('FEBRIANSYAH','pass',2,'D06'),('PUTRI RISTI INDRIYANI','pass',2,'D07'),('YESSE PUTRI DEBITHA','pass',2,'D11'),('DEDE JUBAEDAH','pass',2,'D08'),('INDRA CHRIST DESWIRA SARAGIH','pass',2,'D11'),('SRI ULINA SARAGIH','pass',2,'D04'),('STEPHEN DERMAWAN','pass',2,'D04'),('HANA NURAINI SOFYAN','pass',2,'D01'),('CRYSTAL NOVEL LIGAR LESTARI','pass',2,'D01'),('SANAH SEDUBUN','pass',2,'D04'),('DEWI MARIENTA SIAHAAN','pass',2,'D03'),('KALTIKA FITRI','pass',2,'D08'),('NIKI MUNANDAR','pass',2,'D01'),('WINSTON WIHARTO SUMA','pass',2,'D13'),('NIRWAN EPENDI','pass',2,'D01'),('MICHAEL SURYA WIJAYA','pass',2,'D03'),('ANDIKA SUYITNO','pass',2,'D03'),('SLAMET WIDODO','pass',2,'D01'),('DEWI PUSPITASARI','pass',2,'D13'),('ASEP MAULANA','pass',2,'D10'),('ADELINE GENIE NATAN','pass',2,NULL),('JONI','pass',2,'D08'),('MUTYA SILVIA','pass',2,'D07'),('MARTA MULJADI','pass',2,'D08'),('RESTU CHAIRIL FAHMI','pass',2,'D06'),('LIDYA JEFRI','pass',2,'D07'),('ANDREAS THIO MICHAEL','pass',2,'D03'),('CATUR CAHYONO','pass',2,'D07'),('SAHAB MARAJIBAL','pass',2,'D13'),('MESRAWATI HIA','pass',2,'D11'),('RANDI SEPTIANA','pass',2,'D08'),('MEIDHITA SUSANDI','pass',2,'D13'),('MUHAMMAD RUSLAN NASRULLAH','pass',2,'D06'),('IKA RESTIANA','pass',2,'D08'),('APRIYANTO','pass',2,'D07'),('ARIES PURNOMO','pass',2,'D11'),('GAZALI','pass',2,'D07'),('ARIF NURACHMAN','pass',2,'D06'),('NURCHOLIS MASJID','pass',2,'D04'),('VERA HARTATY NAINGGOLAN','pass',2,'D04'),('ANTHONY SALIM','pass',2,'D02'),('M EKO AL BADRUN','pass',2,'D08'),('LISDA NURCAHYANI','pass',2,'D15'),('NUR AFIFAH ASIATUL','pass',2,'D04'),('NONI KOMARIAH SARI','pass',2,'D10'),('WENDI JOHAN','pass',2,'D02'),('Lulu Awaliyah','pass',2,'D08'),('INTAN DWI FATWA','pass',2,'D14'),('WAHYUNI','pass',2,'D11'),('AMIN NUR ROHMAN','pass',2,'D01'),('PALMEIDA DESRENNY HARAHAP','pass',2,'D07'),('TEDDY SETIAWAN ZUNAEDI','pass',2,'D08'),('OKTAVIANUS AMBULENGO','pass',2,'D07'),('DIMAS WILDANI AL IRHAS','pass',2,'D08'),('SELAMET SUSILO','pass',2,'D07'),('EMMANUEL HAMONANGAN SIBARANI','pass',2,'D14'),('DWI IRYANTI','pass',2,'D06'),('ALLANDA','pass',2,'D08'),('SYAVIRA SUCI RAMADHITA','pass',2,'D01'),('TARSUN ARAFAN MULYA','pass',2,'D07'),('FAUZIAH FITRI','pass',2,'D13'),('MOHHAMMAD SYAHRUL KURNIA','pass',2,'D07'),('HENDRI','pass',2,'D07'),('Eulis Kusmiati','pass',2,'D08'),('TEGUH KODARMAN','pass',2,'D07'),('DIAN ARYANI','pass',2,'D07'),('Rendi Mardiansah','pass',2,'D08'),('YUNANDI YASMIN','pass',2,'D08'),('ACHMAD YUSUF SAPUTRA','pass',2,'D08'),('MONICA SINAGA','pass',2,'D04'),('DESY FRANSISCA','pass',2,'D08'),('DON SEBASTIAN IGNATIUS SIAGIAN','pass',2,'D08'),('LIANG MUNANDAR','pass',2,'D07'),('PUTRI AISYATI INRUM','pass',2,'D09'),('TIAS STEVANI','pass',2,'D01'),('VERA NOVERA','pass',2,'D07'),('MOCHAMMAD SALEH','pass',2,'D07'),('Dendy Rozano Widiyanto','pass',2,'D08'),('SULAIMAN','pass',2,'D07'),('MARSIDI','pass',2,'D07'),('DONNY DWIYANTO','pass',2,'D07'),('NURIL AYU ANIWINDIRA','pass',2,'D07'),('MU\'MIN','pass',2,NULL),('SRI SUNARTO','pass',2,'D07'),('HANIF NUR PRATAMA','pass',2,'D14'),('AGUS DJULIANTO RAHAJU','pass',2,'D07'),('YAMAN','pass',2,'D07'),('ABDUL KHAIR JABAR','pass',2,'D07'),('HARYO PERDANA SENO AJI','pass',2,'D04'),('HARDIANSYAH SAPUTRA','pass',2,'D07'),('MUHAMMAD RANDIKA RAHMANDA','pass',2,'D07'),('WIDI SITRIAN TELAUMBANUA','pass',2,'D01'),('NOUVAL HIDAYAT MUCHTAR','pass',2,'D13'),('ESSY ADELINA','pass',2,NULL),('NANDA NABILA AULIA FAJRI','pass',2,NULL),('Bimo Purnomo','pass',2,'D08'),('M Auddly Fauzan','pass',2,'D08'),('BAYU AJI PRABOWO','pass',2,'D13'),('SUYITNO','pass',2,'D16'),('Y RUDI RUMAKSONO','pass',2,'D12'),('AGUSTINUS DWIANTORO','pass',2,'D16'),('HERU DWI JATMIKO','pass',2,'D15'),('PUJI MULATO','pass',2,'D12'),('DEKA PRABOWO','pass',2,'D16'),('M SYAIFUL BAHRI','pass',2,'D14'),('NIKEN WAHYUNING CANDRA','pass',2,'D12'),('ASHMIEZAR ADHAM','pass',2,'D12'),('ABU DZAR AL GHIFARI','pass',2,'D12'),('ABDUL ROHMAN','pass',2,'D12'),('AKHMAD PRIYANTO','pass',2,'D16'),('ICVAN FAJAR SETIAWAN','pass',2,'D14'),('MARCELINA INDARWATI','pass',2,'D04'),('IAN LESMANA','pass',2,'D12'),('admin','pass',2,NULL),('ANANDA YOGA PRASETYO','pass',2,'D05'),('SUPRIYANTO','pass',2,'D06'),('YEN YEN','pass',2,'D05'),('ADI KURNIAWAN','pass',2,'D06'),('HERI','pass',2,'D05'),('WANTONO','pass',2,'D08'),('LIM RAH SALIM','pass',2,'D02'),('IKHSAN FAZAR HENDIANSYAH','pass',2,'D05'),('GOMGOM SIAGIAN','pass',2,'D13'),('WINDA NATALISA','pass',2,'D11'),('NUR WIWID ADHI LAXMANA','pass',2,'D10'),('URIP BUDIYANTO','pass',2,'D10'),('ROBI AJID','pass',2,'D10'),('RIBKA NOVIANA ANGELINE','pass',2,'D10'),('SIGIT','pass',2,'D10'),('YAYA KUSWAYA','pass',2,'D10'),('MADI','pass',2,'D10'),('HARYADI','pass',2,'D10'),('AGUS SETIAWAN','pass',2,'D10'),('YOSEFIN MEYLISTA CHRISTIANTI BRIA','pass',2,'D04'),('YANA OKTAFIANA','pass',2,NULL),('ANISA NANDA REZEQI','pass',2,'D04'),('ANISA CHELSEA ISLAMI','pass',2,'D10'),('WIJANARKO','pass',2,NULL),('MOCHTAR JAPAR','pass',2,'D13'),('HRD_LA','pass',1,'D08'),('APPR_JO','pass',3,'D08'),('HRD_EK','pass',1,'D08'),('APPR_SW','pass',3,NULL),('APPR_NR','pass',3,NULL),('APPR_BO','pass',3,NULL),('APPR_SI','pass',3,NULL),('APPR_YU','pass',3,NULL),('APPR_NA','pass',3,NULL);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Final view structure for view `telat_per_divisi`
+--
+
+/*!50001 DROP VIEW IF EXISTS `telat_per_divisi`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `telat_per_divisi` AS select `b`.`divisi` AS `divisi`,monthname(`a`.`tgl_absen`) AS `bulan`,year(`a`.`tgl_absen`) AS `tahun`,count(`a`.`telat`) AS `telat_per_bulan`,round((sum(`a`.`telat`) / count(`b`.`divisi`)),2) AS `total_menit_per_bulan`,round(((sum(`a`.`telat`) / count(`b`.`divisi`)) / 60),2) AS `total_jam_per_bulan` from (`kehadiran` `a` join `user` `b` on((`b`.`nama` = `a`.`nama`))) where ((`a`.`telat` > 0) and (year(`a`.`tgl_absen`) = '2024')) group by `b`.`divisi`,`bulan`,`tahun` order by `b`.`divisi` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `telat_per_karyawan`
+--
+
+/*!50001 DROP VIEW IF EXISTS `telat_per_karyawan`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `telat_per_karyawan` AS select `kehadiran`.`nama` AS `nama`,monthname(`kehadiran`.`tgl_absen`) AS `bulan`,year(`kehadiran`.`tgl_absen`) AS `tahun`,count(`kehadiran`.`telat`) AS `telat_per_bulan`,sum(`kehadiran`.`telat`) AS `total_menit_per_bulan`,(sum(`kehadiran`.`telat`) / 60) AS `total_jam_per_bulan` from `kehadiran` where (`kehadiran`.`telat` > 0) group by `kehadiran`.`nama`,`bulan`,`tahun` order by `kehadiran`.`nama` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-08-22 14:50:08
