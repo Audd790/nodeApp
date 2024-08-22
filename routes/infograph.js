@@ -53,7 +53,7 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/telatKaryawan', function(req, res, next){
-    var sql = "select * from kehadiran where nama = ? and hadir = 1"
+    var sql = "select * from kehadiran where nama = ?"
     connection.query(sql, req.session.user, (err, rows, fields)=>{
         if (err) {
             next(err)
@@ -356,7 +356,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             var tablesWithoutHoles = new Array
             for(h=0;h<years.length;h++){
                 tablesWithHoles[h] = []
-                for(i = 0 ; i < 3 ; i++) {
+                for(i = 0 ; i < 6 ; i++) {
                     var alasan = i+1;
                     tablesWithHoles[h][i] = []
                     for(k=0;k<que_result.length;k++){
@@ -394,9 +394,9 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
     })
 })
 
-router.get('/reportIzinKaryawanApprove', (req,res)=>{
+router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan a join karyawan b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan a join user b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
     connection.query(sql, [req.session.divisi],(err,rows)=>{
         if(err){
             next(err)

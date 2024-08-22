@@ -57,7 +57,7 @@ caption {
   clear: both;
 }
 .container2{
-  /* max-width: 600px; */
+  /* min-width: 70em; */
   margin: 0% auto 3% auto;
   background-color: #fff;
   border-radius: 8px;
