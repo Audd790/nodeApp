@@ -44,12 +44,14 @@ document.addEventListener('DOMContentLoaded'
         }
 
         function unhide(res, list){
-            list = document.getElementsByName(res[0].tgl_absen);
-            console.log(list)
-            for (let i = 0; i < list.length; i++) {
-                list[i].style.display = 'block';
-                list[i].classList = 'show container2';
-            }
+            if(res[0] !== undefined){
+                list = document.getElementsByName(res[0].tgl_absen);
+                console.log(list)
+                for (let i = 0; i < list.length; i++) {
+                    list[i].style.display = 'block';
+                    list[i].classList = 'show container2';
+                }
+            } else alert('Data tidak ditemukan')
         }
 
         function getContent(res, list, absen){

@@ -3,10 +3,19 @@ block append info
     h3 Telat per hari
     .form-group#byDate
         input#tanggal(type='date' name='tanggal' value=tanggal max= tanggal)
-    for entry in absenkaryawan
-        ul(id= entry.nik name=entry.tgl_absen style='display: none' class="hide container2")
-        for detail in entry 
-            if(detail !== '') 
-                li= detail
-            else 
-                li= "nothing to see here"
+    .block
+        for table in absenkaryawan
+                div(class="container2")
+                    .body 
+                        table(id= table[0].id name=table[0].tgl_absen.getMonth())
+                                tr 
+                                    th Nama 
+                                    th Menit telat 
+                                    th tanggal 
+                                    th total menit kerja
+                                for entry in table 
+                                    tr 
+                                        td=entry.nama
+                                        td=entry.telat 
+                                        td=entry.tgl_absen.getDate()+' '+entry.tgl_absen.toLocaleString('default', { month: 'long' })+', '+entry.tgl_absen.getFullYear()
+                                        td=entry.jam_kerja

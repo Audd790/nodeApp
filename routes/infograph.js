@@ -11,6 +11,7 @@ const storage = multer.diskStorage({
       cb(null, Date.now() + path.extname(file.originalname))
     }
   })
+const month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
 const upload = multer({storage: storage })
 const filePath = "files/izin_karyawan.xlsx";
 const fs = require('node:fs')
@@ -52,18 +53,32 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/telatKaryawan', function(req, res, next){
-    var sql = "select * from kehadiran "
-    connection.query(sql, (err, rows, fields)=>{
+    var sql = "select * from kehadiran where nama = ? and hadir = 1"
+    connection.query(sql, req.session.user, (err, rows, fields)=>{
         if (err) {
             next(err)
         }
         else{
-        que_result = rows;
+            que_result = rows;
+            var tablesMonthsWithHoles = new Array
+            for(i=0;i<month.length;i++){
+                var bulan = i;
+                tablesMonthsWithHoles[i] = []
+                for(k=0;k<que_result.length;k++){
+                    if(que_result[k].tgl_absen.getMonth() == bulan){
+                        tablesMonthsWithHoles[i].push(que_result[k])
+                    }
+                }
+            }
+            
+            var tablesMonthsWithoutHoles = new Array
+            tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter(item => { return item.length > 0 })
+            console.log(tablesMonthsWithoutHoles)   
+            date = dateObj.getFullYear() + '-'
+            + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
+            +  ('0' + dateObj.getDate()).slice(-2);
+            res.render('view_data/telat/telat_per_hari',{absenkaryawan: tablesMonthsWithoutHoles, tanggal: date, role: req.session.role_id})
         }
-        date = dateObj.getFullYear() + '-'
-        + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
-        +  ('0' + dateObj.getDate()).slice(-2);
-        res.render('view_data/telat/telat_per_hari',{absenkaryawan: que_result, tanggal: date, role: req.session.role_id})
     })
 });
 
@@ -135,7 +150,7 @@ router.post('/by_Date', function(req, res, next){
 
 
 router.post('/by_Date/dates', upload.none(), function(req, res, next){
-    var sql = "select tgl_absen, nik from kehadiran where tgl_absen = ? order by tgl_absen;"
+    var sql = "select tgl_absen, nama from kehadiran where tgl_absen = ? order by tgl_absen;"
     connection.query(sql, req.body.tanggal, (err, rows, fields)=>{
         if (err) {
             throw err
@@ -326,7 +341,6 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
     var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by alasan, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
