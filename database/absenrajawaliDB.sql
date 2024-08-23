@@ -94,17 +94,18 @@ CREATE TABLE `izinkaryawan` (
   `alasan` int DEFAULT NULL,
   `tgl_izin` date DEFAULT NULL,
   `myTimestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `startJam` int DEFAULT NULL,
-  `startMenit` int DEFAULT NULL,
+  `startJam` int DEFAULT '8',
+  `startMenit` int DEFAULT '30',
   `hari` int DEFAULT '0',
   `surat` varchar(255) DEFAULT '',
-  `keterangan` varchar(255) DEFAULT '',
+  `ket_izin` varchar(255) DEFAULT '',
   `status` int DEFAULT '1',
-  `endJam` int DEFAULT NULL,
-  `endMenit` int DEFAULT NULL,
+  `endJam` int DEFAULT '17',
+  `endMenit` int DEFAULT '30',
   `nama` varchar(255) DEFAULT NULL,
+  `ket_status` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=238 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=239 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +114,7 @@ CREATE TABLE `izinkaryawan` (
 
 LOCK TABLES `izinkaryawan` WRITE;
 /*!40000 ALTER TABLE `izinkaryawan` DISABLE KEYS */;
-INSERT INTO `izinkaryawan` VALUES (199,3,'2024-05-01','2024-08-14 01:01:42',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO'),(200,3,'2024-05-01','2024-08-14 01:01:46',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO'),(201,3,'2024-05-01','2024-08-14 01:01:51',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO'),(203,2,'2024-08-22','2024-08-14 01:52:06',8,0,0,'','aku sakit',1,15,30,'JONI'),(204,1,'2024-08-22','2024-08-14 02:09:05',12,30,0,'','not feeling it',2,15,30,'M EKO AL BADRUN'),(207,3,'2024-08-15','2024-08-14 02:37:46',12,30,1,'','jalan jalan',1,15,30,'JONI'),(208,2,'2024-08-16','2024-08-14 21:19:43',12,30,0,'public\\uploads\\1723695583263.txt','tidak enak',1,15,30,'BAYU AJI PRABOWO'),(212,1,'2024-08-21','2024-08-15 02:35:46',12,30,0,'','keperluan keluarga',2,15,30,'EULIS KUSMIATI'),(214,1,'2025-10-15','2024-08-15 02:42:53',12,30,0,'','jalan jalan',1,15,30,'EULIS KUSMIATI'),(217,1,'2024-08-20','2024-08-19 01:52:34',8,30,1,'','keperluan keluarga',2,17,30,'EULIS KUSMIATI'),(218,2,'2024-08-21','2024-08-19 21:31:44',8,30,0,'','nggak enak',1,17,30,'M AUDDLY FAUZAN'),(219,3,'2024-08-22','2024-08-20 00:52:08',8,30,2,'','pergi ke bali',1,17,30,'M AUDDLY FAUZAN'),(237,5,'2024-08-22','2024-08-22 02:33:14',0,0,0,'','tidak enak',1,15,30,'M AUDDLY FAUZAN');
+INSERT INTO `izinkaryawan` VALUES (199,3,'2024-05-01','2024-08-14 01:01:42',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO',''),(200,3,'2024-05-01','2024-08-14 01:01:46',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO',''),(201,3,'2024-05-01','2024-08-14 01:01:51',12,30,0,'','lorem ipsum',1,15,30,'BAYU AJI PRABOWO',''),(203,2,'2024-08-22','2024-08-14 01:52:06',8,0,0,'','aku sakit',1,15,30,'JONI',''),(204,1,'2024-08-22','2024-08-14 02:09:05',12,30,0,'','not feeling it',2,15,30,'M EKO AL BADRUN','sudah di approve'),(207,3,'2024-08-15','2024-08-14 02:37:46',12,30,1,'','jalan jalan',2,15,30,'JONI','sudah di approve'),(208,2,'2024-08-16','2024-08-14 21:19:43',12,30,0,'public\\uploads\\1723695583263.txt','tidak enak',1,15,30,'BAYU AJI PRABOWO',''),(212,1,'2024-08-21','2024-08-15 02:35:46',12,30,0,'','keperluan keluarga',2,15,30,'EULIS KUSMIATI','sudah di approve'),(214,1,'2025-10-15','2024-08-15 02:42:53',12,30,0,'','jalan jalan',1,15,30,'EULIS KUSMIATI',''),(217,1,'2024-08-20','2024-08-19 01:52:34',8,30,1,'','keperluan keluarga',2,17,30,'EULIS KUSMIATI','sudah di approve'),(218,2,'2024-08-21','2024-08-19 21:31:44',8,30,0,'','nggak enak',3,17,30,'M AUDDLY FAUZAN','gak bisa'),(219,3,'2024-08-22','2024-08-20 00:52:08',8,30,2,'','pergi ke bali',3,17,30,'M AUDDLY FAUZAN','gak bisa'),(237,5,'2024-08-22','2024-08-22 02:33:14',0,0,0,'','tidak enak',2,15,30,'M AUDDLY FAUZAN','sudah di approve'),(238,6,'2024-08-14','2024-08-22 08:39:12',14,30,0,'','meeting',2,17,30,'JONI','sudah di approve');
 /*!40000 ALTER TABLE `izinkaryawan` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -346,4 +347,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-22 14:50:08
+-- Dump completed on 2024-08-23 10:47:30
