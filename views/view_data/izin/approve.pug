@@ -60,7 +60,7 @@ block append info
                                             when 4: td Datang Terlambat 
                                             when 5: td Pulang Awal 
                                             when 6: td Dinas/Tugas
-                                        td=item.ket_status
+                                        td=item.ket_izin
                                         case item.status
                                             when 1: td='Diproses'
                                             when 2: td='Approve'
@@ -68,10 +68,10 @@ block append info
                                         td=item.startJam+':'+item.startMenit
                                         td=item.endJam+':'+item.endMenit
                                         td
-                                            div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                            div(value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                 button#getsurat(type="button" name="getsurat") Download
                                         td
-                                            div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                            div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id )
                                                 button#approve(type="button" name="approve") Approve
                                                 button#reject(type="button" name="approve") Reject
 block append script 
