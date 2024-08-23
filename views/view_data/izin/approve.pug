@@ -68,10 +68,10 @@ block append info
                                         td=item.startJam+':'+item.startMenit
                                         td=item.endJam+':'+item.endMenit
                                         td
-                                            div(value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                            div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                 button#getsurat(type="button" name="getsurat") Download
                                         td
-                                            div(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id )
+                                            div(id='approve_'+item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id )
                                                 button#approve(type="button" name="approve") Approve
                                                 button#reject(type="button" name="approve") Reject
 block append script 
