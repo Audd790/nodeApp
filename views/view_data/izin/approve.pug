@@ -1,4 +1,12 @@
 extends ../infographicBody
+block modal
+    div(id="myModal" class="modal")
+        div(class="modal-content")
+            span.close &times;
+            form#form.form
+                input(type="text" name='keterangan' placeholder="keterangan untuk approve/reject")
+                button(type="submit" value='test') Submit
+
 block nav 
     .column
             //- div(style="flex: 0 1 auto")
@@ -52,7 +60,7 @@ block append info
                                             when 4: td Datang Terlambat 
                                             when 5: td Pulang Awal 
                                             when 6: td Dinas/Tugas
-                                        td=item.keterangan
+                                        td=item.ket_status
                                         case item.status
                                             when 1: td='Diproses'
                                             when 2: td='Approve'
@@ -65,7 +73,7 @@ block append info
                                         td
                                             div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                 button#approve(type="button" name="approve") Approve
-                                                button#reject(type="button" name="reject") Reject
+                                                button#reject(type="button" name="approve") Reject
 block append script 
     script(src="/javascripts/approve_reject.js")
     script(src="/javascripts/getSurat.js")

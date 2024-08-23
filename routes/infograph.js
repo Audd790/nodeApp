@@ -256,10 +256,10 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     const result = validationResult(req);
     const match = matchedData(req)
     var values = Object.values(match)
-    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, startMenit, startJam, endMenit, endJam, hari, keterangan) values(?,?,?,?,?,?,?,?,?)'
+    var sql = 'insert into izinKaryawan(nama, alasan, tgl_izin, startMenit, startJam, endMenit, endJam, hari, ket_izin) values(?,?,?,?,?,?,?,?,?)'
     const emptyInputs = result.errors.length > 0
     if(req.file !== undefined){
-        sql = 'insert into izinKaryawan(nama, alasan, tgl_izin,  startMenit, startJam, endMenit, endJam, hari, keterangan, surat) values(?,?,?,?,?,?,?,?,?,?)'
+        sql = 'insert into izinKaryawan(nama, alasan, tgl_izin,  startMenit, startJam, endMenit, endJam, hari, ket_izin, surat) values(?,?,?,?,?,?,?,?,?,?)'
         values.push(req.file.path)
     }
     console.log(result.errors)
@@ -341,7 +341,7 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan order by status desc, nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status from izinkaryawan order by status desc, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -417,7 +417,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
 
 router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, keterangan from izinkaryawan a join user b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin from izinkaryawan a join user b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
     connection.query(sql, [req.session.divisi],(err,rows)=>{
         if(err){
             next(err)
@@ -450,32 +450,32 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
     })
 })
 
-router.post('/approve', upload.none(), (req,res)=>{
-    var sql = 'update izinkaryawan set status = 2 where id = ?'
-    var values = req.body.id
+router.post('/approve', upload.none(), (req,res,next)=>{
+    var sql = 'update izinkaryawan set status = 2, ket_status = ? where id = ?'
+    var values = [req.body.keterangan, req.body.id,]
     connection.query(sql, values, (err,rows,fields)=>{
         if(err){
             next(err)
         } else{
             que_result = rows
             console.log(que_result)
+            res.send({result: 'success'})
         }
     })
-    res.send({result: 'success'})
 })
 
-router.post('/reject', upload.none(), (req,res)=>{
-    var sql = 'update izinkaryawan set status = 3 where id = ?'
-    var values = req.body.id
+router.post('/reject', upload.none(), (req,res,next)=>{
+    var sql = 'update izinkaryawan set status = 3, ket_status = ? where id = ?'
+    var values = [req.body.keterangan, req.body.id,]
     connection.query(sql, values, (err,rows,fields)=>{
         if(err){
             next(err)
         } else{
             que_result = rows
             console.log(que_result)
+            res.send({result: 'success'})
         }
     })
-    res.send({result: 'success'})
 })
 
 router.get('/getSurat/:id',(req,res,next)=>{

@@ -64,8 +64,8 @@ block append info
                     th Alasan 
                     th Dari
                     th Sampai
-                    th Keterangan
                     th Status
+                    th Keterangan
                 for item in sql 
                     tr 
                         td=item.tgl_izin.getDate()+' '+item.tgl_izin.toLocaleString('default', { month: 'long' })+', '+item.tgl_izin.getFullYear()
@@ -78,11 +78,11 @@ block append info
                             when 6: td Dinas/Tugas
                         td=item.startJam+':'+item.startMenit
                         td=item.endJam+':'+item.endMenit
-                        td=item.keterangan
                         case item.status
                             when 1: td Diproses
                             when 2: td Approve
                             when 3: td Reject
+                        td=item.ket_status
     if role == 1
         if sqlIzin.length > 0
             .block
@@ -104,8 +104,8 @@ block append info
                                         tr.table_header 
                                             th Nama
                                             th Tanggal 
-                                            th Keterangan
                                             th Status 
+                                            th Keterangan
                                             th Dari 
                                             th Sampai
                                             th File
@@ -113,11 +113,11 @@ block append info
                                             tr(name= '-'+item.tahun+"-")
                                                 td=item.nama
                                                 td=item.hari + " " + item.bulanNama+', '+ item.tahun
-                                                td=item.keterangan
                                                 case item.status
-                                                    when 1: td='Diproses'
-                                                    when 2: td='Approve'
-                                                    when 3: td='Reject'
+                                                    when 1: td Diproses
+                                                    when 2: td Approve
+                                                    when 3: td Reject
+                                                td=item.ket_status
                                                 td=item.startJam+':'+item.startMenit
                                                 td=item.endJam+':'+item.endMenit
                                                 if item.surat == ''
@@ -143,8 +143,8 @@ block append info
                                         th Nama
                                         th Tanggal
                                         th Alasan
+                                        th Status
                                         th Keterangan
-                                        th Status 
                                         th Dari 
                                         th Sampai
                                         th File
@@ -159,11 +159,11 @@ block append info
                                                 when 4: td Datang Terlambat 
                                                 when 5: td Pulang Awal 
                                                 when 6: td Dinas/Tugas
-                                            td=item.keterangan
                                             case item.status
                                                 when 1: td='Diproses'
                                                 when 2: td='Approve'
                                                 when 3: td='Reject'
+                                            td=item.ket_status
                                             td=item.startJam+':'+item.startMenit
                                             td=item.endJam+':'+item.endMenit
                                             if item.surat == ''
@@ -189,8 +189,8 @@ block append info
                                         th Nama
                                         th Tanggal
                                         th Alasan
-                                        th Keterangan
                                         th Status 
+                                        th Keterangan
                                         th Dari 
                                         th Sampai
                                         th File
@@ -205,11 +205,11 @@ block append info
                                                 when 4: td Datang Terlambat 
                                                 when 5: td Pulang Awal 
                                                 when 6: td Dinas/Tugas
-                                            td=item.keterangan
                                             case item.status
                                                 when 1: td='Diproses'
                                                 when 2: td='Approve'
                                                 when 3: td='Reject'
+                                            td=item.ket_status
                                             td=item.startJam+':'+item.startMenit
                                             td=item.endJam+':'+item.endMenit
                                             if item.surat == ''

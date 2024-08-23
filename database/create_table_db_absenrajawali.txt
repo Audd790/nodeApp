@@ -314,3 +314,7 @@ order by tahun, bulan;
 (APPR_JO, APPR_SW, APPR_NR, APPR_BO, APPR_SI, APPR_YU, APPR_NA)
 
 //Create view for jumlah_cuti and 
+
+create table status_izin{
+   
+}
