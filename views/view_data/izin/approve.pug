@@ -67,9 +67,12 @@ block append info
                                             when 3: td='Reject'
                                         td=item.startJam+':'+item.startMenit
                                         td=item.endJam+':'+item.endMenit
-                                        td
-                                            div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
-                                                button#getsurat(type="button" name="getsurat") Download
+                                        if item.surat == ''
+                                            td tidak ada file
+                                        else 
+                                            td
+                                                div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                    button#getsurat(type="button" name="getsurat") Download
                                         td
                                             div(id='approve_'+item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id )
                                                 button#approve(type="button" name="approve") Approve
