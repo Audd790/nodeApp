@@ -1,115 +1,886 @@
 extends layout 
 block content
-    form
-            label 1
-            .grid-container-column
-                input(type='radio' name='most1')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least1')
-                input(type='radio' name='most1')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least1')
-                input(type='radio' name='most1')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least1')
-                input(type='radio' name='most1')
-                p Toleran, Menghormati
-                input(type='radio' name='least1')
-            label 2
-            .grid-container-column
-                input(type='radio' name='most2')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least2')
-                input(type='radio' name='most2')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least2')
-                input(type='radio' name='most2')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least2')
-                input(type='radio' name='most2')
-                p Toleran, Menghormati
-                input(type='radio' name='least2')
-            label 3
-            .grid-container-column
-                input(type='radio' name='most3')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least3')
-                input(type='radio' name='most3')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least3')
-                input(type='radio' name='most3')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least3')
-                input(type='radio' name='most3')
-                p Toleran, Menghormati
-                input(type='radio' name='least3')
-            label 4
-            .grid-container-column
-                input(type='radio' name='most4')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least4')
-                input(type='radio' name='most4')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least4')
-                input(type='radio' name='most4')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least4')
-                input(type='radio' name='most4')
-                p Toleran, Menghormati
-                input(type='radio' name='least4')
-            label 5
-            .grid-container-column
-                input(type='radio' name='most5')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least5')
-                input(type='radio' name='most5')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least5')
-                input(type='radio' name='most5')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least5')
-                input(type='radio' name='most5')
-                p Toleran, Menghormati
-                input(type='radio' name='least5')
-            label 6
-            .grid-container-column
-                input(type='radio' name='most6')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least6')
-                input(type='radio' name='most6')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least6')
-                input(type='radio' name='most6')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least6')
-                input(type='radio' name='most6')
-                p Toleran, Menghormati
-                input(type='radio' name='least6')
-            label 7
-            .grid-container-column
-                input(type='radio' name='most7')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least7')
-                input(type='radio' name='most7')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least7')
-                input(type='radio' name='most7')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least7')
-                input(type='radio' name='most7')
-                p Toleran, Menghormati
-                input(type='radio' name='least7')
-            label 8
-            .grid-container-column
-                input(type='radio' name='most8')
-                p Gampangan, Mudah setuju
-                input(type='radio' name='least8')
-                input(type='radio' name='most8')
-                p Percaya, Mudah percaya pada orang 
-                input(type='radio' name='least8')
-                input(type='radio' name='most8')
-                p Petualang, Mengambil resiko 
-                input(type='radio' name='least8')
-                input(type='radio' name='most8')
-                p Toleran, Menghormati
-                input(type='radio' name='least8')
+    .block
+        .container2
+            .header 
+                h2 DISC TEST
+            .body 
+                form(action='' target='_self' method='post' enctype='multipart/form-data' )
+                    table 
+                        tr 
+                            td 
+                                div
+                                    label 1
+                                        table.psikotes
+                                            tr  
+                                                th M 
+                                                th 
+                                                th L
+                                            tr
+                                                td
+                                                    label(for='m11')
+                                                    input#m11(type='radio' name='most1' value='1')
+                                                td
+                                                    p Gampangan, Mudah setuju
+                                                td
+                                                    input#l11(type='radio' name='least1' value='1')
+                                                    label(for='l11')
+                                            tr 
+                                                td  
+                                                    label(for="m12") 
+                                                    input#m12(type='radio' name='most1' value='2')
+                                                td
+                                                    p Percaya, Mudah percaya pada orang 
+                                                td
+                                                    label(for="m12") 
+                                                    input#l12(type='radio' name='least1' value='2')
+                                            tr 
+                                                td(for="m13")
+                                                    input#m13(type='radio' name='most1' value='3')
+                                                td 
+                                                    p Petualang, Mengambil resiko 
+                                                td(for='l13')
+                                                    input#l13(type='radio' name='least1' value='3')
+                                            tr 
+                                                td(for='m14')
+                                                    input#m14(type='radio' name='most1' value='4')
+                                                td 
+                                                    p Toleran, Menghormati
+                                                td(for='l14')
+                                                    input#l14(type='radio' name='least1' value='4')
+                            td
+                                div
+                                    label 2
+                                        table.psikotes
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most2' value='1')
+                                                td 
+                                                    p Lembut suara, Pendiam
+                                                td 
+                                                    input(type='radio' name='least2' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most2' value='2')
+                                                td 
+                                                    p Optimistik, Visioner
+                                                td 
+                                                    input(type='radio' name='least2' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most2' value='3')
+                                                td 
+                                                    p Pusat perhatian, Suka gaul 
+                                                td 
+                                                    input(type='radio' name='least2' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most2' value='4')
+                                                td 
+                                                    p Pendamai, Memebawa Harmoni 
+                                                td 
+                                                    input(type='radio' name='least2' value='4')
+                            td
+                                div
+                                    label 3
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most3' value='1')
+                                                td 
+                                                    p Menyemangati orang
+                                                td 
+                                                    input(type='radio' name='least3' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most3' value='2')
+                                                td 
+                                                    p Berusaha sempurna
+                                                td 
+                                                    input(type='radio' name='least3' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most3' value='3')
+                                                td 
+                                                    p Bagian dari kelompok
+                                                td 
+                                                    input(type='radio' name='least3' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most3' value='4')
+                                                td 
+                                                    p Ingin membuat tujuan
+                                                td 
+                                                    input(type='radio' name='least3' value='4')
+                        tr   
+                            td
+                                div
+                                    label 4
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most4' value='1')
+                                                td 
+                                                    p Menjadi frustasi 
+                                                td 
+                                                    input(type='radio' name='least4' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most4' value='2')
+                                                td 
+                                                    p Menyimpan perasaan saya 
+                                                td 
+                                                    input(type='radio' name='least4' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most4' value='3')
+                                                td 
+                                                    p Menceritakan sisi saya  
+                                                td
+                                                    input(type='radio' name='least4' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most4' value='4')
+                                                td 
+                                                    p Siap beroposisi 
+                                                td 
+                                                    input(type='radio' name='least4' value='4')
+                            td
+                                div
+                                    label 5
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most5' value='1')
+                                                td 
+                                                    p Hidup, Suka bicara
+                                                td 
+                                                    input(type='radio' name='least5' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most5' value='2')
+                                                td 
+                                                    p Gerak cepat, Tekun 
+                                                td 
+                                                    input(type='radio' name='least5' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most5' value='3')
+                                                td 
+                                                    p Usaha menjaga keseimbangan 
+                                                td 
+                                                    input(type='radio' name='least5' value='3')
+                                            tr
+                                                td 
+                                                    input(type='radio' name='most5' value='4')
+                                                td 
+                                                    p Usaha mengikuti aturan 
+                                                td 
+                                                    input(type='radio' name='least5' value='4')
+                            td
+                                div
+                                    label 6
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most6' value='1')
+                                                td 
+                                                    p Kelola waktu secara efisien
+                                                td 
+                                                    input(type='radio' name='least6' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most6' value='2')
+                                                td 
+                                                    p Sering terburu buru, Merasa tertekan
+                                                td 
+                                                    input(type='radio' name='least6' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most6' value='3')
+                                                td
+                                                    p Masalah sosial itu penting
+                                                td 
+                                                    input(type='radio' name='least6' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most6' value='4')
+                                                td 
+                                                    p Suka selesaikan apa yang saya mulai
+                                                td 
+                                                    input(type='radio' name='least6' value='4')
+                        tr
+                            td
+                                div
+                                    label 7
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most7' value='1')
+                                                td 
+                                                    p Tolak perubahan mendadak
+                                                td 
+                                                    input(type='radio' name='least7' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most7' value='2')
+                                                td 
+                                                    p Cenderung janji berlebihan
+                                                td 
+                                                    input(type='radio' name='least7' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most7' value='3')
+                                                td 
+                                                    p Tarik diri di tengah tekanan 
+                                                td 
+                                                    input(type='radio' name='least7' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most7' value='4')
+                                                td 
+                                                    p Tidak takut bertempur 
+                                                td 
+                                                    input(type='radio' name='least7' value='4')
+                            td
+                                div
+                                    label 8
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most8' value='1')
+                                                td 
+                                                    p Penyemangat yang baik
+                                                td 
+                                                    input(type='radio' name='least8' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most8' value='2')
+                                                td 
+                                                    p Penderngar yang baik
+                                                td 
+                                                    input(type='radio' name='least8' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most8' value='3')
+                                                td 
+                                                    p Penganalisa yang baik 
+                                                td 
+                                                    input(type='radio' name='least8' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most8' value='4')
+                                                td 
+                                                    p Delegator yang baik 
+                                                td 
+                                                    input(type='radio' name='least8' value='4')
+                            td
+                                div
+                                    label 9
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most9' value='1')
+                                                td 
+                                                    p Hasil adalah penting
+                                                td 
+                                                    input(type='radio' name='least9' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most9' value='2')
+                                                td 
+                                                    p Lakukan dengan benar, Akurasi penting 
+                                                td 
+                                                    input(type='radio' name='least9' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most9' value='3')
+                                                td 
+                                                    p Dibuat menyenangkan 
+                                                td 
+                                                    input(type='radio' name='least9' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most9' value='4')
+                                                td 
+                                                    p Mari kerjakan bersama
+                                                td 
+                                                    input(type='radio' name='least9' value='4')
+                        tr    
+                            td
+                                div
+                                    label 10
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most10' value='1')
+                                                td 
+                                                    p Akan berjalan terus tanpa kontrol diri
+                                                td 
+                                                    input(type='radio' name='least10' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most10' value='2')
+                                                td 
+                                                    p Akan membeli sesuai dorongan hati 
+                                                td 
+                                                    input(type='radio' name='least10' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most10' value='3')
+                                                td 
+                                                    p Akan menunggu, Tanpa tekanan 
+                                                td 
+                                                    input(type='radio' name='least10' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most10' value='4')
+                                                td 
+                                                    p Akan mengusahakan yang kuinginkan 
+                                                td 
+                                                    input(type='radio' name='least10' value='4')
+                            td
+                                div
+                                    label 11
+                                       table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most11' value='1')
+                                                td 
+                                                    p Ramah, Mudah bergabung
+                                                td 
+                                                    input(type='radio' name='least11' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most11' value='2')
+                                                td 
+                                                    p Unik, Bosan rutinitas
+                                                td 
+                                                    input(type='radio' name='least11' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most11' value='3')
+                                                td 
+                                                    p Aktif mengubah sesuatu
+                                                td 
+                                                    input(type='radio' name='least11' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most11' value='4')
+                                                td 
+                                                    p Ingin hal-hal yang pasti 
+                                                td 
+                                                    input(type='radio' name='least11' value='4')
+                            td
+                                div
+                                    label 12
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most12' value='1')
+                                                td 
+                                                    p Non-konfrontasi, menyerah
+                                                td 
+                                                    input(type='radio' name='least12' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most12' value='2')
+                                                td 
+                                                    p Dipenuhi hal detail
+                                                td 
+                                                    input(type='radio' name='least12' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most12' value='3')
+                                                td 
+                                                    p Perubahan pada menit terakhir
+                                                td 
+                                                    input(type='radio' name='least12' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most12' value='4')
+                                                td 
+                                                    p Menuntut, kasar
+                                                td 
+                                                    input(type='radio' name='least12' value='4')
+                        tr    
+                            td
+                                div
+                                    label 13
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most13' value='1')
+                                                td 
+                                                    p Ingin kemajuan 
+                                                td 
+                                                    input(type='radio' name='least13' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most13' value='2')
+                                                td 
+                                                    p Puas dengan segalanya
+                                                td 
+                                                    input(type='radio' name='least13' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most13' value='3')
+                                                td 
+                                                    p Terbuka memperlihatkan perasaan 
+                                                td 
+                                                    input(type='radio' name='least13' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most13' value='4')
+                                                td 
+                                                    p Rendah hati, Sederhana
+                                                td 
+                                                    input(type='radio' name='least13' value='4')
+                            td
+                                div
+                                    label 14
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most14' value='1')
+                                                td 
+                                                    p Tenang, Pendiam
+                                                td 
+                                                    input(type='radio' name='least14' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most14' value='2')
+                                                td 
+                                                    p Bahagia, Tanpa beban 
+                                                td 
+                                                    input(type='radio' name='least14' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most14' value='3')
+                                                td 
+                                                    p Menyenangkan, Baik hati
+                                                td 
+                                                    input(type='radio' name='least14' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most14' value='4')
+                                                td 
+                                                    p Tak gentar, Berani
+                                                td 
+                                                    input(type='radio' name='least14' value='4')
+                            td
+                                div
+                                    label 15
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most15' value='1')
+                                                td 
+                                                    p Menggunakan waktu berkualitas dengan teman
+                                                td 
+                                                    input(type='radio' name='least15' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most15' value='2')
+                                                td 
+                                                    p Rencanankan masa depan, bersiap
+                                                td 
+                                                    input(type='radio' name='least15' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most15' value='3')
+                                                td 
+                                                    p Bepergian demi petualangan baru
+                                                td 
+                                                    input(type='radio' name='least15' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most15' value='4')
+                                                td 
+                                                    p Menerima ganjaran atas tujuan yg dicapai
+                                                td 
+                                                    input(type='radio' name='least15' value='4')
+                        tr 
+                            td    
+                                div
+                                    label 16
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most16' value='1')
+                                                td 
+                                                    p Aturan perlu dipertanyakan
+                                                td 
+                                                    input(type='radio' name='least16' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most16' value='2')
+                                                td 
+                                                    p Aturan membuat adil
+                                                td 
+                                                    input(type='radio' name='least16' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most16' value='3')
+                                                td 
+                                                    p Aturan membuat bosan
+                                                td 
+                                                    input(type='radio' name='least16' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most16' value='4')
+                                                td 
+                                                    p Aturan membuat aman
+                                                td 
+                                                    input(type='radio' name='least16' value='4')
+                            td
+                                div
+                                    label 17
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most17' value='1')
+                                                td 
+                                                    p Pendidikan, kebudayaan
+                                                td 
+                                                    input(type='radio' name='least17' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most17' value='2')
+                                                td 
+                                                    p Prestasi, Ganjaran
+                                                td 
+                                                    input(type='radio' name='least17' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most17' value='3')
+                                                td 
+                                                    p Keselamatan, Keamanan 
+                                                td 
+                                                    input(type='radio' name='least17' value='3')
+                                            tr 
+                                                td  
+                                                    input(type='radio' name='most17' value='4')
+                                                td 
+                                                    p Sosial, Perkumpulan kelompok 
+                                                td 
+                                                    input(type='radio' name='least17' value='4')
+                            td
+                                div
+                                    label 18
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most18' value='1')
+                                                td 
+                                                    p Memimpin, Pendekatan langsung
+                                                td 
+                                                    input(type='radio' name='least18' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most18' value='2')
+                                                td 
+                                                    p Suka bergaul, Antusias
+                                                td 
+                                                    input(type='radio' name='least18' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most18' value='3')
+                                                td 
+                                                    p Dapat diramal, Konsisten
+                                                td 
+                                                    input(type='radio' name='least18' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most18' value='4')
+                                                td 
+                                                    p Waspada, Hati-hati
+                                                td 
+                                                    input(type='radio' name='least18' value='4')
+                        tr    
+                            td
+                                div
+                                    label 19
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most19' value='1')
+                                                td 
+                                                    p Tidak mudah dikalahkan 
+                                                td 
+                                                    input(type='radio' name='least19' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most19' value='2')
+                                                td 
+                                                    p Kerjakan sesuai perintah, Ikut pimpinan 
+                                                td 
+                                                    input(type='radio' name='least19' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most19' value='3')
+                                                td 
+                                                    p Mudah terangsang, Riang 
+                                                td 
+                                                    input(type='radio' name='least19' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most19' value='4')
+                                                td 
+                                                    p Ingin segalanya teratur, Rapi 
+                                                td 
+                                                    input(type='radio' name='least19' value='4')
+                            td
+                                div
+                                    label 20
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most20' value='1')
+                                                td 
+                                                    p Saya akan pimpin mereka
+                                                td 
+                                                    input(type='radio' name='least20' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most20' value='2')
+                                                td 
+                                                    p Saya akan melaksanakan
+                                                td 
+                                                    input(type='radio' name='least20' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most20' value='3')
+                                                td 
+                                                    p Saya akan meyakinkan mereka
+                                                td 
+                                                    input(type='radio' name='least20' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most20' value='4')
+                                                td 
+                                                    p Saya dapatkan fakta 
+                                                td 
+                                                    input(type='radio' name='least20' value='4')
+                            td
+                                div
+                                    label 21
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most21' value='1')
+                                                td 
+                                                    p Memikirkan orang dahulu
+                                                td 
+                                                    input(type='radio' name='least21' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most21' value='2')
+                                                td 
+                                                    p Kompetitif, Suka tantangan 
+                                                td 
+                                                    input(type='radio' name='least21' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most21' value='3')
+                                                td 
+                                                    p Optimis, Positif
+                                                td 
+                                                    input(type='radio' name='least21' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most21' value='4')
+                                                td 
+                                                    p Pemikir logis, Sistematik
+                                                td 
+                                                    input(type='radio' name='least21' value='4')
+                        tr 
+                            td
+                                div
+                                    label 22
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most22' value='1')
+                                                td 
+                                                    p Menyenangkan orang, Mudah setuju
+                                                td 
+                                                    input(type='radio' name='least22' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most22' value='2')
+                                                td 
+                                                    p Tertawa lepas, Hidup
+                                                td 
+                                                    input(type='radio' name='least22' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most22' value='3')
+                                                td 
+                                                    p Berani, Tak gentar 
+                                                td 
+                                                    input(type='radio' name='least22' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most22' value='4')
+                                                td 
+                                                    p Tenang, Pendiam
+                                                td 
+                                                    input(type='radio' name='least22' value='4')
+                            td
+                                div
+                                    label 23
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most23' value='1')
+                                                td 
+                                                    p Ingin otoritas lebih
+                                                td 
+                                                    input(type='radio' name='least23' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most23' value='2')
+                                                td 
+                                                    p Ingin kesempatan baru
+                                                td 
+                                                    input(type='radio' name='least23' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most23' value='3')
+                                                td 
+                                                    p Menghindari konflik
+                                                td 
+                                                    input(type='radio' name='least23' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most23' value='4')
+                                                td 
+                                                    p Ingin petunjuk yang jelas
+                                                td 
+                                                    input(type='radio' name='least23' value='4') 
+                            td
+                                div
+                                    label 24
+                                        table.psikotes 
+                                            tr 
+                                                th M 
+                                                th 
+                                                th L 
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most24' value='1')
+                                                td 
+                                                    p Dapat diandalkan, Dapat dipercaya
+                                                td 
+                                                    input(type='radio' name='least24' value='1')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most24' value='2')
+                                                td 
+                                                    p Kreatif, Unik 
+                                                td 
+                                                    input(type='radio' name='least24' value='2')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most24' value='3')
+                                                td 
+                                                    p Garis dasar, Orientasi hasil 
+                                                td 
+                                                    input(type='radio' name='least24' value='3')
+                                            tr 
+                                                td 
+                                                    input(type='radio' name='most24' value='4')
+                                                td 
+                                                    p Jalankan standar yang tinggi, Akurat
+                                                td 
+                                                    input(type='radio' name='least24' value='4')
+                    button(type='submit') Submit

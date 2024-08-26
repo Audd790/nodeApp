@@ -7,9 +7,16 @@ body{
 
 .grid-container-column{
   display: grid;
-  grid-template-columns: 2em 15em 2em; 
-  grid-template-rows: auto auto auto auto auto auto auto auto;
+  grid-template-columns: 2em 14em 2em; 
   justify-content: start;
+  row-gap: 2em;
+}
+
+.grid-container-row{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  column-gap: 2em;
 }
 
  /* The Modal (background) */
@@ -193,6 +200,11 @@ table{
   margin-bottom: 20px;
 }
 
+table.psikotes{
+  width: 20em;
+  height: 21.5em;
+}
+
 th, td {
   padding: 15px;
   /* min-width: 5em; */
@@ -201,12 +213,12 @@ th, td {
 tr{
   background-color: #fff;
 }
-tr:first-child{
+table.report > tr:first-child{
   background-color: #0A0C45;
   color: #f7fafc;
 }
 
-tr:not(:first-child):hover{
+table.report > tr:not(:first-child):hover{
   background-color: #999;
 }
 

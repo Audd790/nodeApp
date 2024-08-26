@@ -64,7 +64,7 @@ block append info
         .btn_group
             a.button(href="formAbsen") Form Izin
         .block
-            table 
+            table.report
                 tr.table_header
                     th Tanggal 
                     th Alasan 
@@ -99,7 +99,7 @@ block append info
                                 h2=year[0][0].tahun
                             .body
                                 for entry in year
-                                    table(id=entry[0].alasan name="alasan")
+                                    table.report(id=entry[0].alasan name="alasan")
                                         case entry[0].alasan
                                             when 1: caption Izin
                                             when 2: caption Sakit 
@@ -143,7 +143,7 @@ block append info
                             h2=year[0][0].tahun
                         div.body
                             for entry in year 
-                                table(id=entry[0].bulan name="month")
+                                table.report(id=entry[0].bulan name="month")
                                     caption='Tabel '+entry[0].bulanNama
                                     tr.table_header 
                                         th Nama
@@ -186,7 +186,7 @@ block append info
                             h2=year[0][0].tahun
                         div.body
                             for entry in year 
-                                table(id=entry[0].status name='status')
+                                table.report(id=entry[0].status name='status')
                                     case entry[0].status
                                         when 1: caption='Tabel Diproses'
                                         when 2: caption='Tabel Approve'
