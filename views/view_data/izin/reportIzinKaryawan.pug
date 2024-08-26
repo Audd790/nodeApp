@@ -31,29 +31,35 @@ block append info
                     label#toggle2.checked(for="toggle" style="margin-bottom: 0px") Alasan
                     input(type="radio" name='toggle' value="Status")
                     label#toggle3.checked(for="toggle" style="margin-bottom: 0px") Status
-                div.form-group(name="filter1")
-                    select#year1(name="year1")
-                        option(value=0) All
-                        for y in thn
-                            option(value=y)=y
-                    select#alasan(name="alasan")
-                        option(value=0) All
-                        option(value=1) Izin 
-                        option(value=2) Sakit 
-                        option(value=3) Cuti
-                    button#filterAlasan(type="button") Filter
-                div.form-group(name="filter2")
-                    select#year2(name="year2")
-                        option(value=0) All
-                        for y in thn
-                            option(value=y)=y
-                    select#month(name="month") 
-                        for m, i in month
-                            option(value=i)=m
-                    button#filterMonth(type="button") Filter
-                div.form-group(name="filter3")
+                div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                    div.form-group
+                        select#year(name="year")
+                            option(value=0) All
+                            for y in thn
+                                option(value=y)=y
+                    div.form-group(name="filter1")
+                        select#alasan(name="alasan")
+                            option(value=0) All
+                            option(value=1) Izin 
+                            option(value=2) Sakit 
+                            option(value=3) Cuti
+                            option(value=4) Datang Terlambat 
+                            option(value=5) Pulang Awal 
+                            option(value=6) Dinas/Tugas
+                    div.form-group(name="filter2")
+                        select#month(name="month") 
+                            for m, i in month
+                                option(value=i)=m
+                    div.form-group(name="filter3")
+                        select#status(name="status") 
+                            option(value=0) All
+                            option(value=1) Diproses
+                            option(value=2) Approve 
+                            option(value=3) Reject
         //- .block
-            
+    div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
+        div.autocomplete
+            input#karyawan(type="text", name="karyawan" autocomplete="off")
     if role == 2
         .btn_group
             a.button(href="formAbsen") Form Izin
@@ -88,12 +94,12 @@ block append info
             .block
                 div(name='table1')
                     for year in sqlIzin
-                        div.container2(id=year[0][0].tahun)
+                        div.container2(name=year[0][0].tahun)
                             .header 
                                 h2=year[0][0].tahun
                             .body
                                 for entry in year
-                                    table(id='-'+entry[0].alasan+'-')
+                                    table(id=entry[0].alasan name="alasan")
                                         case entry[0].alasan
                                             when 1: caption Izin
                                             when 2: caption Sakit 
@@ -111,7 +117,7 @@ block append info
                                             th File
                                         for item in entry
                                             tr(name= '-'+item.tahun+"-")
-                                                td=item.nama
+                                                td(value=item.nama name='nama')=item.nama
                                                 td=item.hari + " " + item.bulanNama+', '+ item.tahun
                                                 case item.status
                                                     when 1: td Diproses
@@ -124,7 +130,7 @@ block append info
                                                     td tidak ada file
                                                 else 
                                                     td
-                                                        div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                        div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                             button#getsurat(type="button" name="getsurat") Download
         else 
             h2 Belum ada izin
@@ -132,12 +138,12 @@ block append info
             div(name='table2')
                 -var i=1
                 for year in sqlMonths
-                    div.container2(id=year[0][0].tahun)
+                    div.container2(name=year[0][0].tahun)
                         div.header
                             h2=year[0][0].tahun
                         div.body
                             for entry in year 
-                                table(id=entry[0].bulan)
+                                table(id=entry[0].bulan name="month")
                                     caption='Tabel '+entry[0].bulanNama
                                     tr.table_header 
                                         th Nama
@@ -150,7 +156,7 @@ block append info
                                         th File
                                     for item in entry
                                         tr(name='-'+item.alasan+'-'+item.tahun+'-')
-                                            td=item.nama
+                                            td(value=item.nama name='nama')=item.nama
                                             td=item.hari+' '+item.bulanNama+', '+item.tahun
                                             case item.alasan
                                                 when 1: td Izin
@@ -170,17 +176,17 @@ block append info
                                                 td tidak ada file
                                             else 
                                                 td
-                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                    div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                         button#getsurat(type="button" name="getsurat") Download
             div(name='table3')
                 -var i=1
                 for year in sqlStatus
-                    div.container2(id=year[0][0].tahun)
+                    div.container2(name=year[0][0].tahun)
                         div.header
                             h2=year[0][0].tahun
                         div.body
                             for entry in year 
-                                table(id=entry[0].status)
+                                table(id=entry[0].status name='status')
                                     case entry[0].status
                                         when 1: caption='Tabel Diproses'
                                         when 2: caption='Tabel Approve'
@@ -196,7 +202,7 @@ block append info
                                         th File
                                     for item in entry
                                         tr(name='-'+item.alasan+'-'+item.tahun+'-')
-                                            td=item.nama
+                                            td(value=item.nama name='nama')=item.nama
                                             td=item.hari+' '+item.bulanNama+', '+item.tahun
                                             case item.alasan
                                                 when 1: td Izin
@@ -216,7 +222,7 @@ block append info
                                                 td tidak ada file
                                             else 
                                                 td
-                                                    div(id=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
+                                                    div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                         button#getsurat(type="button" name="getsurat") Download
 block append script 
     script(src="/javascripts/reportIzin.js")

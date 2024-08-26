@@ -341,7 +341,7 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status from izinkaryawan order by status desc, nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status from izinkaryawan order by status, nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -353,6 +353,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
+            console.log(years)
             var alasanWithoutHoles = new Array
             for(h=0;h<years.length;h++){
                 alasanTable[h] = []
@@ -370,7 +371,6 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 alasanWithoutHoles[i] = alasanTable[i].filter(item => { return item.length > 0 })
             }
-            console.log(alasanTable)
             var tablesWithHoles = new Array
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
@@ -428,6 +428,7 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
+            console.log(year)
             var tablesMonthsWithHoles = new Array
             for(h=0;h<years.length;h++){
                 tablesMonthsWithHoles[h] = []
@@ -482,7 +483,7 @@ router.get('/getSurat/:id',(req,res,next)=>{
     connection.query('select surat from izinkaryawan where id = ?', [req.params.id],(err,rows)=>{
         if(err) {next(err)}
         else{
-            console.log(rows)
+            console.log(req.params.id)
             res.download(path.join(__dirname, '..',rows[0].surat))
         }
     })
