@@ -143,46 +143,7 @@ function autocomplete(inp, arr) {
   document.addEventListener("click", function (e) {
       closeAllLists(e.target);
   })}
-$("#filterAlasan").click(function(){
-    var table1 = $('div[name=table1]')
-    var alasan = $('#alasan')[0].value
-    var tahun = $('#year1')[0].value
-    table1.find('.container2 > div > table').show()
-    table1.find('.container2 > div > table').removeClass('show')
-    table1.find('.container2').hide()
-    var showTable
-    var hideTable
-    if(alasan == '0' && tahun == '0'){
-        table1.find('.container2').show()
-    } else if(tahun == '0'){
-        showTable = table1.find('table[id*=-'+alasan+'-]')
-        showTable.addClass('show')
-        hideTable = table1.find('.container2 > div > table:not(.show)')
-        if(showTable.length>0){
-            console.log(showTable.closest('.container2'))
-            showTable.closest('.container2').show()
-            console.log(hideTable)
-            hideTable.hide()
-            showTable.show()
-        } else alert('Empty Table')
-    }else if(alasan == '0'){
-        showTable = table1.find("div#"+tahun)
-        console.log(showTable)
-        if(showTable.length>0){
-            showTable.show()
-        } else alert('Empty Table')
-    } else{
-        showTable = table1.find('div#'+tahun)
-        hideTable = showTable.find('div > table:not(table#-'+alasan+'-)')
-        if(showTable.find('div > table#-'+alasan+'-').length > 0){
-            console.log(showTable)
-            showTable.show()
-            hideTable.hide()
-            showTable.find('div > table#-'+alasan+'-').show()
-        } else alert('Empty Table')
-    }
-})
-
+  
 $('#year').on('change', function(){
     var tahun = $(this)[0].value
     $('div.container2').show()
