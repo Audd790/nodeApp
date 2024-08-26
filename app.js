@@ -10,6 +10,7 @@ const nocache = require("nocache");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var iGraphRouter = require('./routes/infograph');
+var psikotesRouter = require('./routes/psikotes');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(session({
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/kehadiran/info', iGraphRouter);
+app.use('/psikotes', psikotesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

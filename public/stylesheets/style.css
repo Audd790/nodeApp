@@ -5,6 +5,13 @@ body{
   padding: 0;
 }
 
+.grid-container-column{
+  display: grid;
+  grid-template-columns: 2em 15em 2em; 
+  grid-template-rows: auto auto auto auto auto auto auto auto;
+  justify-content: start;
+}
+
  /* The Modal (background) */
  .modal {
   display: none; /* Hidden by default */

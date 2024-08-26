@@ -20,42 +20,6 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log('Enter')
       }
     })
-    $('[name="toggle"]').change(function(){
-      if($(this).attr('id') == 'dtgTrlmbt' && $(this).attr('id') == 'plngAwl'){
-        startJam.prop('disabled', false)
-        startMenit.prop('disabled', false)
-        endJam.prop('disabled', false)
-        endMenit.prop('disabled', false)
-
-      }
-      if($(this).attr('id') == 'dtgTrlmbt'){
-        //masukin nilai nol untuk waktu awal
-        startJam[0].value = 8
-        startMenit[0].value = 30
-        endJam[0].value = 0
-        endMenit[0].value = 0
-
-        startJam.prop('disabled', false)
-        startMenit.prop('disabled', false)
-        endJam.prop('disabled', true)
-        endMenit.prop('disabled', true)
-      }
-
-      if($(this).attr('id') == 'plngAwl'){
-        //masukin nilai nol untuk waktu akhir
-        startJam[0].value = 0
-        startMenit[0].value = 0
-        endJam[0].value = 17
-        endMenit[0].value = 30
-
-        startJam.prop('disabled', true)
-        startMenit.prop('disabled', true)
-        endJam.prop('disabled', false)
-        endMenit.prop('disabled', false)
-      }
-    })
-
-
 })
 
 function stopEnterSubmit(event){
