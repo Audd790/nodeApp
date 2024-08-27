@@ -10,12 +10,38 @@ block append info
                     table(id= table[0].id name=table[0].tgl_absen.getMonth())
                             tr 
                                 th Nama 
-                                th Menit telat 
+                                th Jam Masuk
+                                th Jam Pulang
                                 th tanggal 
-                                th total menit kerja
+                                th Jam Kerja 
+                                th Total Jam Kerja
                             for entry in table 
+                                -var jam_masuk=0; var menit_masuk;
+                                    if entry.telat > 60
+                                        -jam_masuk=(8+Math.round(entry.telat/60))
+                                        -menit_masuk=((entry.telat%60)-30)
+                                    else if entry.telat > 30
+                                        -jam_masuk=(8+Math.round(entry.telat/60))
+                                        -menit_masuk=(0+entry.telat)
+                                    else 
+                                        -jam_masuk=8
+                                        -menit_masuk=(30+entry.telat)
+                                -var jam_pulang=0;
+                                    - jam_pulang=jam_masuk
                                 tr 
                                     td=entry.nama
-                                    td=entry.telat 
+                                    if menit_masuk.toString().length < 2
+                                        td=jam_masuk+':'+menit_masuk.toString().padStart(2, '0')
+                                    else 
+                                        td=jam_masuk+':'+menit_masuk
+                                    if (menit_masuk+(entry.telat%60)).toString().length < 2
+                                        td=(jam_masuk+Math.round(entry.jam_kerja/60)+Math.round(entry.lembur/60))+':'+(menit_masuk+(entry.telat%60)).toString().padStart(2,'0')
+                                    else 
+                                        td=(jam_masuk+Math.round(entry.jam_kerja/60)+Math.round(entry.lembur/60))+':'+(menit_masuk+(entry.telat%60))
                                     td=entry.tgl_absen.getDate()+' '+entry.tgl_absen.toLocaleString('default', { month: 'long' })+', '+entry.tgl_absen.getFullYear()
-                                    td=entry.jam_kerja
+                                    if (entry.jam_kerja%60).toString().length < 2
+                                        td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60).toString().padStart(2,'0')
+                                        td=(Math.floor(entry.jam_kerja/60) + Math.floor(entry.lembur/60))+':'+(entry.jam_kerja%60).toString().padStart(2,'0')
+                                    else 
+                                        td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60)
+                                        td=(Math.floor(entry.jam_kerja/60) + Math.floor(entry.lembur/60))+':'+(entry.jam_kerja%60)

@@ -1,0 +1,14 @@
+extends ../layout
+block content
+    .block  
+        .container1 
+            .body 
+                form(action="" method='post') 
+                    .form-group 
+                        label(for="nama") Nama 
+                        input#nama(type="text" name='nama')
+                    .form-group 
+                        label(for="pass") Password
+                        input#nama(type="text" name='pass')
+                    button(type='submit') Submit
+block script 
