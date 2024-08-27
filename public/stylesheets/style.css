@@ -200,9 +200,17 @@ table{
   margin-bottom: 20px;
 }
 
+input.contoh:disabled:checked{
+  color: #00B7FF;
+}
+
 table.psikotes{
-  width: 20em;
-  height: 21.5em;
+  width: 18.875em;
+  height: 18.875em;
+}
+
+table.psikotes p{
+  font-size: 0.85em;
 }
 
 th, td {
