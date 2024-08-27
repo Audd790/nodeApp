@@ -1,11 +1,11 @@
-extends layout 
+extends ../layout 
 block content
     .block
         .container2
             .header 
                 h2 DISC TEST
             .body 
-                form(action='' target='_self' method='post' enctype='multipart/form-data' )
+                form(action='disc_test' method='post' enctype='multipart/form-data' )
                     table(style='margin-left:auto; margin-right:auto;')
                         tr  
                             h4='PERINTAH: Pilihlah hanya 1(satu) M(ost) dan hanya 1(satu) L(east) di dalam sekelompok pernyataan yg terdapat di dalam satu kotak di bawah ini.'
@@ -890,3 +890,5 @@ block content
                                             td 
                                                 input(type='radio' name='least24' value='4')
                     button(type='submit') Submit
+block script 
+    script(src="/javascripts/disc_test.js") 

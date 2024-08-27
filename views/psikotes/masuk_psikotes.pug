@@ -1,0 +1,17 @@
+extends ../layout 
+block content
+    .block 
+        .container1 
+            .header 
+                h2 Masuk Psikotes
+            .body 
+                form(action="" method='post') 
+                    .form-group 
+                        label(for="nama") Nama 
+                        input#nama(type="text" name='nama')
+                    .form-group 
+                        label(for="pass") Password
+                        input#nama(type="text" name='pass')
+
+block script 
+    script(src="/javascript/masuk_psikotes.js") 

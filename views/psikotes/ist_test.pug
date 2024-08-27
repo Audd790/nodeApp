@@ -1,0 +1,154 @@
+extends ../layout
+block content
+    .block
+        .container1
+            .header
+                h2 IST TEST
+            .body
+                form(action="ist_test" method='post' enctype='multipart/form-data') 
+                    .form-group 
+                        p='01. Pengaruh seseorang terhadap orang lain seharusnya bergantung pada ...'
+                        .form-group
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s11(type="radio", name="s1" value='1')
+                                label(for="s11") a. kekuasaan
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s12(type="radio", name="s1" value='2')
+                                label(for="s12") b. bujukan
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s13(type="radio", name="s1" value='3')
+                                label(for="s13") c. kekayaan
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s14(type="radio", name="s1" value='4')
+                                label(for="s14") d. keberanian
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s15(type="radio", name="s1" value='5')
+                                label(for="s15") e. kewibawaan
+                    .form-group 
+                        p='02. Lawannya “hemat” ialah .......'
+                        .form-group
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s21(type="radio", name="s2" value='1')
+                                label(for="s21") a. murah
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s22(type="radio", name="s2" value='2')
+                                label(for="s22") b. kikir
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s23(type="radio", name="s2" value='3')
+                                label(for="s23") c. boros
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s24(type="radio", name="s2" value='4')
+                                label(for="s24") d. bernilai
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s25(type="radio", name="s2" value='5')
+                                label(for="s25") e. kaya
+                    .form-group 
+                        p='03. .... tidak termasuk cuaca'
+                        .form-group
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s31(type="radio", name="s3" value='1')
+                                label(for="s31") a. angin puyuh
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s32(type="radio", name="s3" value='2')
+                                label(for="s32") b. halilintar
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s33(type="radio", name="s3" value='3')
+                                label(for="s33") c. salju
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s34(type="radio", name="s3" value='4')
+                                label(for="s34") d. gempa bumi
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s35(type="radio", name="s3" value='5')
+                                label(for="s35") e. kabut
+                    .form-group 
+                        p='04. Lawannya “setia” ialah .....'
+                        .form-group
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s41(type="radio", name="s4" value='1')
+                                label(for="s41") a. cinta
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s42(type="radio", name="s4" value='2')
+                                label(for="s42") b. benci
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s43(type="radio", name="s4" value='3')
+                                label(for="s43") c. persahabatan
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s44(type="radio", name="s4" value='4')
+                                label(for="s44") d. khianat
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s45(type="radio", name="s4" value='5')
+                                label(for="s45") e. permusuhan
+                    //- a) kandang b) ladam c) pelana d) kuku e) surai
+                    .form-group 
+                        p='05. Seekor kuda selalu mempunyai .....'
+                        .form-group
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s51(type="radio", name="s5" value='1')
+                                label(for="s51") a. kandang
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s52(type="radio", name="s5" value='2')
+                                label(for="s52") b. ladam
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s53(type="radio", name="s5" value='3')
+                                label(for="s53") c. pelana
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s54(type="radio", name="s5" value='4')
+                                label(for="s54") d. kuku
+                        .form-group
+                            div(style="display:flex; flex-direction:row;")
+                                input#s55(type="radio", name="s5" value='5')
+                                label(for="s55") e. surai
+                    button(type='submit') Submit
+                        //- 06. Seorang paman …………… lebih tua dari kemenakannya.
+                        //- a) jarang b) biasanya c) selalu d) tidak pernah e) kadang-kadang
+                        //- 07. Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada ……………
+                        //- a) ikan b) daging c) lemak d) tahu e) sayuran
+                        //- 08. Pada suatu pertandingan selalu terdapat ……………
+                        //- a) lawan b) wasit c) penonton d) sorak e) kemenangan
+                        //- 09. Suatu pernyataan yang belum dipastikan dikatakan sebagai pernyataan yang …..
+                        //- a) paradoks b) tergesa-gesa c) mempunyai arti rangkap d) menyesatkan e) hipotesis
+                        //- 10. Pada sepatu selalu terdapat ……………
+                        //- a) kulit b) sol c) tali sepatu d) gesper e) lidah
+                        //- 11. Suatu …………… tidak menyangkut persoalan pencegahan kecelakaan.
+                        //- a) lampu lalu lintas b) kacamata pelindung c) kotak PPPK d) tanda peringatan
+                        //- e) palang kereta api
+                        //- 12. Mata uang logam Rp 50,- tahun 1991, garis tengahnya ialah …………… mm.
+                        //- a) 17 b) 29 c) 25 d) 20 e) 15
+                        //- 13. Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang …..
+                        //- a) demokratis b) radikal c) liberal d) konservatif e) anarkis
+                        //- 14. Lawannya “tidak pernah” ialah ……………
+                        //- a) sering b) kadang-kadang c) jarang d) kerap kali e) selalu
+                        //- 15. Jarak antara Jakarta – Surabaya kira-kira …………… Km
+                        //- a) 650 b) 1000 c) 800 d) 600 e) 950
+                        //- 16. Untuk dapat membuat nada yang rendah dan mendalam, kita memerlukan banyak ….
+                        //- a) kekuatan b) peranan c) ayunan d) berat e) suara
+                        //- 17. Ayah …………… lebih berpengalaman dari pada anaknya
+                        //- a) selalu b) biasanya c) jauh d) jarang e) pada dasarnya
+                        //- 18. Diantara kota-kota berikut ini, maka kota ….. letaknya paling selatan.
+                        //- a) Jakarta b) Bandung c) Cirebon d) Semarang e) Surabaya
+                        //- 19. Jika kita mengetahui jumlah presentase nomor-nomor lotere yang tidak menang, maka kita
+                        //- dapat menghitung …..
+                        //- a) jumlah nomor yang menang b) pajak lotere c) kemungkinan menang
+                        //- d) jumlah pengikut e) tinggi keuntungan
+                        //- 20. Seorang anak yang berumur 10 tahun tingginya rata-rata …………… cm
+                        //- a) 150 b) 130 c) 110 d) 105 e) 115
+block script 
