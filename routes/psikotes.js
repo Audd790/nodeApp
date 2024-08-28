@@ -15,15 +15,18 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
-router.get('',upload.none(), (req,res)=>{
-    res.render('masuk_psikotes',{title: 'welcome to psikotes'})
+router.get('/masuk_test/:test',upload.none(), (req,res)=>{
+    if(req.params.test == 'ist'){
+        res.render('psikotes/masuk_psikotesIST',{title: 'welcome to psikotes', tipeTest:req.params.test})
+    }
+
+    if(req.params.test == 'disc'){
+        res.render('psikotes/masuk_psikotesDisc',{title: 'welcome to psikotes', tipeTest:req.params.test})
+    }
 })
 
-router.post('', upload.none(), 
-check('nama').trim().notEmpty().escape(), 
-check('pass').trim().notEmpty().escape(), (req,res,next)=>{
-    var sql = 'select * from psikotes where nama = ? and pass = ?'
-    connection.query()
+router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
+    // var sql = 'select * from psikotes where nama = ? and pass = ?'
     res.send({result: 'success'})
 })
 
@@ -65,9 +68,9 @@ router.post('/disc_test', upload.none(),
         const match = matchedData(req)
         var values = Object.values(match)
         if(result.errors.length > 0){
-            console.log(result.errors)
             res.send({result:'tolong isi sampai selesai', err: result.errors})
         } else{
+            console.log(req.body)
             const worksheet = XLSX.utils.json_to_sheet(Object.values(req.body));
             const workbook = XLSX.utils.book_new();
             var C = XLSX.utils.decode_col("G"); 
@@ -102,7 +105,7 @@ router.post('/disc_test', upload.none(),
             XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
             XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
             const file = path.join(__dirname, '..', 'files', filename);
-            res.send({result:'success', err: ''})
+            res.send({result: req.body, err: ''})
         }
 })
 
@@ -143,7 +146,7 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
     XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
     XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
     const file = path.join(__dirname, '..', 'files', filename);
-    res.send({result:'success'})
+    res.send({result: req.body})
 })
 
 module.exports = router

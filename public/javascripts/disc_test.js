@@ -10,11 +10,12 @@ $('form').on('submit',function(e){
         contentType: false,
         success: (data, textStatus, jqXHR)=>{
             console.log(data);
-            alert(data.result);
             for(i=0;i<data.err.length;i++){
                 $('[name="'+ data.err[i].path +'"]').closest('td').addClass('highlight')
+                $('[name="'+ data.err[i].path +'"]').closest('td').removeClass('un-highlight')
             }
-            console.log($('[name="most24"]'))
+            alert(data.result);
+            console.log(data.result)
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)
@@ -24,4 +25,5 @@ $('form').on('submit',function(e){
 $('[type="radio"]').on('change',function(e){
     var name = $(this).attr('name')
     $('[name="'+name+'"]').closest('td').removeClass('highlight')
+    $('[name="'+name+'"]').closest('td').addClass('un-highlight')
 })

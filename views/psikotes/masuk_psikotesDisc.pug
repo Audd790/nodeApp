@@ -1,0 +1,22 @@
+extends ../layout 
+block content
+    .block 
+        .container1 
+            .header 
+                h2="Masuk Psikotes "+tipeTest.toUpperCase()
+            .body 
+                form(action="" method='post') 
+                    .form-group 
+                        label(for="nama") Nama 
+                        input#nama(type="text" name='nama')
+                    .form-group 
+                        label(for="kelamin") Jenis Kelamin
+                        select#kelamin(name='kelamin')
+                            option(value='M') Laki-laki
+                            option(value='F') Perempuan
+                    .form-group 
+                        label(for="umur") Umur
+                        input#umur(type="number" name='umur' min=0)
+                    button(type='submit' value=tipeTest) Masuk
+block script 
+    script(src="/javascripts/masuk_psikotes.js") 

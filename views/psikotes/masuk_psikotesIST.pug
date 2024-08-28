@@ -1,0 +1,35 @@
+extends ../layout 
+block content
+    .block 
+        .container1 
+            .header 
+                h2="Masuk Psikotes "+tipeTest.toUpperCase()
+            .body 
+                form(action="ist" method='post' ) 
+                    .form-group 
+                        label(for="nama") Nama 
+                        input#nama(type="text" name='nama')
+                    .form-group 
+                        label(for="kelamin") Jenis Kelamin
+                        select#kelamin(name='kelamin')
+                            option(value='M') Laki-laki
+                            option(value='F') Perempuan
+                    .form-group 
+                        label(for="tgl_lahir") Tanggal Lahir
+                        input#tgl_lahir(type="date" name='tgl_lahir' min=0)
+                    .form-group 
+                        label(for="pen_terakhir") Pendidikan Terakhir
+                        select#pen_terakhir(name='pen_terakhir')
+                            option(value="SD") SD
+                            option(value="SMP") SMP
+                            option(value="SMA") SMA 
+                            option(value="D1") DI
+                            option(value="D2") DII
+                            option(value="D3") DIII
+                            option(value="D4") DIV
+                            option(value="S1") S1
+                            option(value="S2") S2
+                            option(value="S3") S3
+                    button(type='submit' value=tipeTest) Masuk
+block script 
+    script(src="/javascripts/masuk_psikotes.js") 

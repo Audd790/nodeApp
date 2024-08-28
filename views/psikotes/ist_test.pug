@@ -5,1336 +5,1345 @@ block content
             .header
                 h2 IST TEST
             .body
-                form(action="ist_test" method='post' enctype='multipart/form-data')
-                    div.hide(name='submit')
-                        h1 Tolong Submit
+                form(action="ist_test" method="post" enctype="multipart/form-data")
+                    #entry 
+                        h1 Masuk Test
+                        button#button_mulai(type="button") Mulai
+                    #tutorial1.hide
+                        button#selesaiTutorial1(type="button") Selesai
                     #bagian1.hide
                         h1 bagian1
                         #s1.form-group
-                            p='01. Pengaruh seseorang terhadap orang lain seharusnya bergantung pada ...'
+                            p="01. Pengaruh seseorang terhadap orang lain seharusnya bergantung pada ..."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s1" value='a')
+                                    input#s11(type="radio", name="s1" value="a")
                                     label(for="s11") a. kekuasaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s1" value='b')
+                                    input#s12(type="radio", name="s1" value="b")
                                     label(for="s12") b. bujukan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s1" value='c')
+                                    input#s13(type="radio", name="s1" value="c")
                                     label(for="s13") c. kekayaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s1" value='d')
+                                    input#s14(type="radio", name="s1" value="d")
                                     label(for="s14") d. keberanian
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s1" value='e')
+                                    input#s15(type="radio", name="s1" value="e")
                                     label(for="s15") e. kewibawaan
                         #s2.form-group 
-                            p='02. Lawannya “hemat” ialah .......'
+                            p="02. Lawannya “hemat” ialah ......."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s2" value='a')
+                                    input#s21(type="radio", name="s2" value="a")
                                     label(for="s21") a. murah
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s2" value='b')
+                                    input#s22(type="radio", name="s2" value="b")
                                     label(for="s22") b. kikir
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s2" value='c')
+                                    input#s23(type="radio", name="s2" value="c")
                                     label(for="s23") c. boros
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s2" value='d')
+                                    input#s24(type="radio", name="s2" value="d")
                                     label(for="s24") d. bernilai
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s2" value='e')
+                                    input#s25(type="radio", name="s2" value="e")
                                     label(for="s25") e. kaya
                         #s3.form-group 
-                            p='03. .... tidak termasuk cuaca'
+                            p="03. .... tidak termasuk cuaca"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s3" value='a')
+                                    input#s31(type="radio", name="s3" value="a")
                                     label(for="s31") a. angin puyuh
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s3" value='b')
+                                    input#s32(type="radio", name="s3" value="b")
                                     label(for="s32") b. halilintar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s3" value='c')
+                                    input#s33(type="radio", name="s3" value="c")
                                     label(for="s33") c. salju
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s3" value='d')
+                                    input#s34(type="radio", name="s3" value="d")
                                     label(for="s34") d. gempa bumi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s3" value='e')
+                                    input#s35(type="radio", name="s3" value="e")
                                     label(for="s35") e. kabut
                         #s4.form-group 
-                            p='04. Lawannya “setia” ialah .....'
+                            p="04. Lawannya “setia” ialah ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s4" value='a')
+                                    input#s41(type="radio", name="s4" value="a")
                                     label(for="s41") a. cinta
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s4" value='b')
+                                    input#s42(type="radio", name="s4" value="b")
                                     label(for="s42") b. benci
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s4" value='c')
+                                    input#s43(type="radio", name="s4" value="c")
                                     label(for="s43") c. persahabatan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s4" value='d')
+                                    input#s44(type="radio", name="s4" value="d")
                                     label(for="s44") d. khianat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s4" value='e')
+                                    input#s45(type="radio", name="s4" value="e")
                                     label(for="s45") e. permusuhan
                         #s5.form-group 
-                            p='05. Seekor kuda selalu mempunyai .....'
+                            p="05. Seekor kuda selalu mempunyai ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s5" value='a')
+                                    input#s51(type="radio", name="s5" value="a")
                                     label(for="s51") a. kandang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s5" value='b')
+                                    input#s52(type="radio", name="s5" value="b")
                                     label(for="s52") b. ladam
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s5" value='c')
+                                    input#s53(type="radio", name="s5" value="c")
                                     label(for="s53") c. pelana
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s5" value='d')
+                                    input#s54(type="radio", name="s5" value="d")
                                     label(for="s54") d. kuku
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s5" value='e')
+                                    input#s55(type="radio", name="s5" value="e")
                                     label(for="s55") e. surai
                         #s6.form-group
-                            p='06. Seorang paman ..... lebih tua dari kemenakannya.'
+                            p="06. Seorang paman ..... lebih tua dari kemenakannya."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s61(type="radio", name="s6" value='a')
+                                    input#s61(type="radio", name="s6" value="a")
                                     label(for="s61") a. jarang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s62(type="radio", name="s6" value='b')
+                                    input#s62(type="radio", name="s6" value="b")
                                     label(for="s62") b. biasanya
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s6" value='c')
+                                    input#s13(type="radio", name="s6" value="c")
                                     label(for="s13") c. selalu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s6" value='d')
+                                    input#s14(type="radio", name="s6" value="d")
                                     label(for="s14") d. tidak pernah
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s6" value='e')
+                                    input#s15(type="radio", name="s6" value="e")
                                     label(for="s15") e. kadang-kadang
                         #s7.form-group 
-                            p='07. Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada .....'
+                            p="07. Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s7" value='a')
+                                    input#s21(type="radio", name="s7" value="a")
                                     label(for="s21") a. ikan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s7" value='b')
+                                    input#s22(type="radio", name="s7" value="b")
                                     label(for="s22") b. daging
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s7" value='c')
+                                    input#s23(type="radio", name="s7" value="c")
                                     label(for="s23") c. lemak
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s7" value='d')
+                                    input#s24(type="radio", name="s7" value="d")
                                     label(for="s24") d. tahu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s7" value='e')
+                                    input#s25(type="radio", name="s7" value="e")
                                     label(for="s25") e. sayuran
                         #s8.form-group 
-                            p='08. Pada suatu pertandingan selalu terdapat .....'
+                            p="08. Pada suatu pertandingan selalu terdapat ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s8" value='a')
+                                    input#s31(type="radio", name="s8" value="a")
                                     label(for="s31") a. lawan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s8" value='b')
+                                    input#s32(type="radio", name="s8" value="b")
                                     label(for="s32") b. wasit
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s8" value='c')
+                                    input#s33(type="radio", name="s8" value="c")
                                     label(for="s33") c. penonton
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s8" value='d')
+                                    input#s34(type="radio", name="s8" value="d")
                                     label(for="s34") d. sorak
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s8" value='e')
+                                    input#s35(type="radio", name="s8" value="e")
                                     label(for="s35") e. kemenangan
                         #s9.form-group 
-                            p='09. Suatu pernyataan yang belum dipastikan dikatakan sebagai pernyataan yang ...'
+                            p="09. Suatu pernyataan yang belum dipastikan dikatakan sebagai pernyataan yang ..."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s9" value='a')
+                                    input#s41(type="radio", name="s9" value="a")
                                     label(for="s41") a. paradoks
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s9" value='b')
+                                    input#s42(type="radio", name="s9" value="b")
                                     label(for="s42") b. tergesa-gesa
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s9" value='c')
+                                    input#s43(type="radio", name="s9" value="c")
                                     label(for="s43") c. mempunyai arti rangkap
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s9" value='d')
+                                    input#s44(type="radio", name="s9" value="d")
                                     label(for="s44") d. menyesatkan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s9" value='e')
+                                    input#s45(type="radio", name="s9" value="e")
                                     label(for="s45") e. hipotesis
                         #s10.form-group 
-                            p='10. Pada sepatu selalu terdapat .....'
+                            p="10. Pada sepatu selalu terdapat ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s10" value='a')
+                                    input#s51(type="radio", name="s10" value="a")
                                     label(for="s51") a. kulit
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s10" value='b')
+                                    input#s52(type="radio", name="s10" value="b")
                                     label(for="s52") b. sol
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s10" value='c')
+                                    input#s53(type="radio", name="s10" value="c")
                                     label(for="s53") c. tali sepatu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s10" value='d')
+                                    input#s54(type="radio", name="s10" value="d")
                                     label(for="s54") d. gesper
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s10" value='e')
+                                    input#s55(type="radio", name="s10" value="e")
                                     label(for="s55") e. lidah
                         #s11.form-group
-                            p='11. Suatu ..... tidak menyangkut persoalan pencegahan kecelakaan.'
+                            p="11. Suatu ..... tidak menyangkut persoalan pencegahan kecelakaan."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s11" value='a')
+                                    input#s11(type="radio", name="s11" value="a")
                                     label(for="s11") a. lampu lalu lintas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s11" value='b')
+                                    input#s12(type="radio", name="s11" value="b")
                                     label(for="s12") b. kacamata pelindung
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s11" value='c')
+                                    input#s13(type="radio", name="s11" value="c")
                                     label(for="s13") c. kotak PPPK
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s11" value='d')
+                                    input#s14(type="radio", name="s11" value="d")
                                     label(for="s14") d. tanda peringatan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s11" value='e')
+                                    input#s15(type="radio", name="s11" value="e")
                                     label(for="s15") e. palang kereta api
                         #s12.form-group 
-                            p='12. Mata uang logam Rp 50,- tahun 1991, garis tengahnya ialah ..... mm.'
+                            p="12. Mata uang logam Rp 50,- tahun 1991, garis tengahnya ialah ..... mm."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s2" value='a')
+                                    input#s21(type="radio", name="s2" value="a")
                                     label(for="s21") a. 17
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s2" value='b')
+                                    input#s22(type="radio", name="s2" value="b")
                                     label(for="s22") b. 29
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s2" value='c')
+                                    input#s23(type="radio", name="s2" value="c")
                                     label(for="s23") c. 25
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s2" value='d')
+                                    input#s24(type="radio", name="s2" value="d")
                                     label(for="s24") d. 20
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s2" value='e')
+                                    input#s25(type="radio", name="s2" value="e")
                                     label(for="s25") e. 15
                         #s13.form-group 
-                            p='13. Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang ...'
+                            p="13. Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang ..."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s3" value='a')
+                                    input#s31(type="radio", name="s3" value="a")
                                     label(for="s31") a. demokratis
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s3" value='b')
+                                    input#s32(type="radio", name="s3" value="b")
                                     label(for="s32") b. radikal
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s3" value='c')
+                                    input#s33(type="radio", name="s3" value="c")
                                     label(for="s33") c. liberal
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s3" value='d')
+                                    input#s34(type="radio", name="s3" value="d")
                                     label(for="s34") d. konservatif
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s3" value='e')
+                                    input#s35(type="radio", name="s3" value="e")
                                     label(for="s35") e. anarkis
                         #s14.form-group 
-                            p='14. Lawannya “tidak pernah” ialah .....'
+                            p="14. Lawannya “tidak pernah” ialah ....."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s4" value='a')
+                                    input#s41(type="radio", name="s4" value="a")
                                     label(for="s41") a. sering
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s4" value='b')
+                                    input#s42(type="radio", name="s4" value="b")
                                     label(for="s42") b. kadang-kadang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s4" value='c')
+                                    input#s43(type="radio", name="s4" value="c")
                                     label(for="s43") c. jarang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s4" value='d')
+                                    input#s44(type="radio", name="s4" value="d")
                                     label(for="s44") d. kerap kali
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s4" value='e')
+                                    input#s45(type="radio", name="s4" value="e")
                                     label(for="s45") e. selalu
                         #s15.form-group 
-                            p='//- 15. Jarak antara Jakarta – Surabaya kira-kira ..... Km'
+                            p="//- 15. Jarak antara Jakarta – Surabaya kira-kira ..... Km"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s5" value='a')
+                                    input#s51(type="radio", name="s5" value="a")
                                     label(for="s51") a. 650
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s5" value='b')
+                                    input#s52(type="radio", name="s5" value="b")
                                     label(for="s52") b. 1000
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s5" value='c')
+                                    input#s53(type="radio", name="s5" value="c")
                                     label(for="s53") c. 800
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s5" value='d')
+                                    input#s54(type="radio", name="s5" value="d")
                                     label(for="s54") d. 600
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s5" value='e')
+                                    input#s55(type="radio", name="s5" value="e")
                                     label(for="s55") e. 950
                             //- a)  b)  c)  d)  e) 
                         #s16.form-group
-                            p='16. Untuk dapat membuat nada yang rendah dan mendalam, kita memerlukan banyak ...'
+                            p="16. Untuk dapat membuat nada yang rendah dan mendalam, kita memerlukan banyak ..."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s16" value='a')
+                                    input#s11(type="radio", name="s16" value="a")
                                     label(for="s11") a. kekuatan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s16" value='b')
+                                    input#s12(type="radio", name="s16" value="b")
                                     label(for="s12") b. peranan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s16" value='c')
+                                    input#s13(type="radio", name="s16" value="c")
                                     label(for="s13") c. ayunan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s16" value='d')
+                                    input#s14(type="radio", name="s16" value="d")
                                     label(for="s14") d. berat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s16" value='e')
+                                    input#s15(type="radio", name="s16" value="e")
                                     label(for="s15") e. suara
                         #s17.form-group 
-                            p='17. Ayah ..... lebih berpengalaman dari pada anaknya'
+                            p="17. Ayah ..... lebih berpengalaman dari pada anaknya"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s17" value='a')
+                                    input#s21(type="radio", name="s17" value="a")
                                     label(for="s21") a. selalu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s17" value='b')
+                                    input#s22(type="radio", name="s17" value="b")
                                     label(for="s22") b. biasanya
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s17" value='c')
+                                    input#s23(type="radio", name="s17" value="c")
                                     label(for="s23") c. jauh
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s17" value='d')
+                                    input#s24(type="radio", name="s17" value="d")
                                     label(for="s24") d. jarang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s17" value='e')
+                                    input#s25(type="radio", name="s17" value="e")
                                     label(for="s25") e. pada dasarnya
                         #s18.form-group 
-                            p='18. Diantara kota-kota berikut ini, maka kota ... letaknya paling selatan.'
+                            p="18. Diantara kota-kota berikut ini, maka kota ... letaknya paling selatan."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s18" value='a')
+                                    input#s31(type="radio", name="s18" value="a")
                                     label(for="s31") a. Jakarta
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s18" value='b')
+                                    input#s32(type="radio", name="s18" value="b")
                                     label(for="s32") b. Bandung
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s18" value='c')
+                                    input#s33(type="radio", name="s18" value="c")
                                     label(for="s33") c. Cirebon
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s18" value='d')
+                                    input#s34(type="radio", name="s18" value="d")
                                     label(for="s34") d. Semarang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s18" value='e')
+                                    input#s35(type="radio", name="s18" value="e")
                                     label(for="s35") e. Surabaya
                         #s19.form-group 
-                            p='19. Jika kita mengetahui jumlah presentase nomor-nomor lotere yang tidak menang, maka kita dapat menghitung ...'
+                            p="19. Jika kita mengetahui jumlah presentase nomor-nomor lotere yang tidak menang, maka kita dapat menghitung ..."
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s19" value='a')
+                                    input#s41(type="radio", name="s19" value="a")
                                     label(for="s41") a. jumlah nomor yang menang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s19" value='b')
+                                    input#s42(type="radio", name="s19" value="b")
                                     label(for="s42") b. pajak lotere
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s19" value='c')
+                                    input#s43(type="radio", name="s19" value="c")
                                     label(for="s43") c. kemungkinan menang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s19" value='d')
+                                    input#s44(type="radio", name="s19" value="d")
                                     label(for="s44") d. jumlah pengikut
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s19" value='e')
+                                    input#s45(type="radio", name="s19" value="e")
                                     label(for="s45") e. tinggi keuntungan
                         #s20.form-group 
-                            p='20. Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm'
+                            p="20. Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s20" value='a')
+                                    input#s51(type="radio", name="s20" value="a")
                                     label(for="s51") a. 150
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s20" value='b')
+                                    input#s52(type="radio", name="s20" value="b")
                                     label(for="s52") b. 130
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s20" value='c')
+                                    input#s53(type="radio", name="s20" value="c")
                                     label(for="s53") c. 110
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s20" value='d')
+                                    input#s54(type="radio", name="s20" value="d")
                                     label(for="s54") d. 105
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s20" value='e')
+                                    input#s55(type="radio", name="s20" value="e")
                                     label(for="s55") e. 115
+                    #tutorial2.hide
+                        button#selesaiTutorial2(type="button") Selesai
                     #bagian2.hide
                         h1 bagian2 
                         #s21.form-group
-                            p='21)'
+                            p="21)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s21" value='a')
+                                    input#s11(type="radio", name="s21" value="a")
                                     label(for="s11") a. lingkungan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s21" value='b')
+                                    input#s12(type="radio", name="s21" value="b")
                                     label(for="s12") b. panah
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s21" value='c')
+                                    input#s13(type="radio", name="s21" value="c")
                                     label(for="s13") c. elips
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s21" value='d')
+                                    input#s14(type="radio", name="s21" value="d")
                                     label(for="s14") d. busur
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s21" value='e')
+                                    input#s15(type="radio", name="s21" value="e")
                                     label(for="s15") e. lengkungan
                         #s22.form-group 
-                            p='22)'
+                            p="22)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s22" value='a')
+                                    input#s21(type="radio", name="s22" value="a")
                                     label(for="s21") a. mengetuk
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s22" value='b')
+                                    input#s22(type="radio", name="s22" value="b")
                                     label(for="s22") b. memaki
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s22" value='c')
+                                    input#s23(type="radio", name="s22" value="c")
                                     label(for="s23") c. menjahit
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s22" value='d')
+                                    input#s24(type="radio", name="s22" value="d")
                                     label(for="s24") d. menggergaji
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s22" value='e')
+                                    input#s25(type="radio", name="s22" value="e")
                                     label(for="s25") e. memukul
                         #s23.form-group 
-                            p='23)'
+                            p="23)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s23" value='a')
+                                    input#s31(type="radio", name="s23" value="a")
                                     label(for="s31") a. lebar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s23" value='b')
+                                    input#s32(type="radio", name="s23" value="b")
                                     label(for="s32") b. keliling
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s23" value='c')
+                                    input#s33(type="radio", name="s23" value="c")
                                     label(for="s33") c. luas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s23" value='d')
+                                    input#s34(type="radio", name="s23" value="d")
                                     label(for="s34") d. isi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s23" value='e')
+                                    input#s35(type="radio", name="s23" value="e")
                                     label(for="s35") e. panjang
                         #s24.form-group 
-                            p='24)'
+                            p="24)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s24" value='a')
+                                    input#s41(type="radio", name="s24" value="a")
                                     label(for="s41") a. mengikat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s24" value='b')
+                                    input#s42(type="radio", name="s24" value="b")
                                     label(for="s42") b. menyatukan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s24" value='c')
+                                    input#s43(type="radio", name="s24" value="c")
                                     label(for="s43") c. melepaskan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s24" value='d')
+                                    input#s44(type="radio", name="s24" value="d")
                                     label(for="s44") d. mengaitkan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s24" value='e')
+                                    input#s45(type="radio", name="s24" value="e")
                                     label(for="s45") e. melekatkan
                         #s25.form-group 
-                            p='25)'
+                            p="25)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s25" value='a')
+                                    input#s51(type="radio", name="s25" value="a")
                                     label(for="s51") a. arah
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s25" value='b')
+                                    input#s52(type="radio", name="s25" value="b")
                                     label(for="s52") b. timur
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s25" value='c')
+                                    input#s53(type="radio", name="s25" value="c")
                                     label(for="s53") c. perjalanan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s25" value='d')
+                                    input#s54(type="radio", name="s25" value="d")
                                     label(for="s54") d. tujuan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s25" value='e')
+                                    input#s55(type="radio", name="s25" value="e")
                                     label(for="s55") e. selatan
                         #s26.form-group
-                            p='26)'
+                            p="26)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s26" value='a')
+                                    input#s11(type="radio", name="s26" value="a")
                                     label(for="s11") a. jarak
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s26" value='b')
+                                    input#s12(type="radio", name="s26" value="b")
                                     label(for="s12") b. perpisahan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s26" value='c')
+                                    input#s13(type="radio", name="s26" value="c")
                                     label(for="s13") c. tugas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s26" value='d')
+                                    input#s14(type="radio", name="s26" value="d")
                                     label(for="s14") d. batas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s26" value='e')
+                                    input#s15(type="radio", name="s26" value="e")
                                     label(for="s15") e. perceraian
                         #s27.form-group 
-                            p='27)'
+                            p="27)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s27" value='a')
+                                    input#s21(type="radio", name="s27" value="a")
                                     label(for="s21") a. saringan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s27" value='b')
+                                    input#s22(type="radio", name="s27" value="b")
                                     label(for="s22") b. kelambu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s27" value='c')
+                                    input#s23(type="radio", name="s27" value="c")
                                     label(for="s23") c. payung
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s27" value='d')
+                                    input#s24(type="radio", name="s27" value="d")
                                     label(for="s24") d. tapisan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s27" value='e')
+                                    input#s25(type="radio", name="s27" value="e")
                                     label(for="s25") e. jala
                         #s28.form-group 
-                            p='28)'
+                            p="28)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s28" value='a')
+                                    input#s31(type="radio", name="s28" value="a")
                                     label(for="s31") a. putih
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s28" value='b')
+                                    input#s32(type="radio", name="s28" value="b")
                                     label(for="s32") b. pucat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s28" value='c')
+                                    input#s33(type="radio", name="s28" value="c")
                                     label(for="s33") c. buram
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s28" value='d')
+                                    input#s34(type="radio", name="s28" value="d")
                                     label(for="s34") d. kasar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s28" value='e')
+                                    input#s35(type="radio", name="s28" value="e")
                                     label(for="s35") e. berkilauan
                         #s29.form-group 
-                            p='29)'
+                            p="29)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s29" value='a')
+                                    input#s41(type="radio", name="s29" value="a")
                                     label(for="s41") a. otobis
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s29" value='b')
+                                    input#s42(type="radio", name="s29" value="b")
                                     label(for="s42") b. pesawat terbang 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s29" value='c')
+                                    input#s43(type="radio", name="s29" value="c")
                                     label(for="s43") c. sepeda motor 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s29" value='d')
+                                    input#s44(type="radio", name="s29" value="d")
                                     label(for="s44") d. sepeda
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s29" value='e')
+                                    input#s45(type="radio", name="s29" value="e")
                                     label(for="s45") e. kapal api 
                         #s30.form-group 
-                            p='30)'
+                            p="30)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s30" value='a')
+                                    input#s51(type="radio", name="s30" value="a")
                                     label(for="s51") a. biola
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s30" value='b')
+                                    input#s52(type="radio", name="s30" value="b")
                                     label(for="s52") b. seruling
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s30" value='c')
+                                    input#s53(type="radio", name="s30" value="c")
                                     label(for="s53") c. klarinet
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s30" value='d')
+                                    input#s54(type="radio", name="s30" value="d")
                                     label(for="s54") d. terompet    
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s30" value='e')
+                                    input#s55(type="radio", name="s30" value="e")
                                     label(for="s55") e. saxophon
                         #s31.form-group
-                            p='31)'
+                            p="31)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s31" value='a')
+                                    input#s11(type="radio", name="s31" value="a")
                                     label(for="s11") a. bergelombang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s31" value='b')
+                                    input#s12(type="radio", name="s31" value="b")
                                     label(for="s12") b. kasar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s31" value='c')
+                                    input#s13(type="radio", name="s31" value="c")
                                     label(for="s13") c. berduri
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s31" value='d')
+                                    input#s14(type="radio", name="s31" value="d")
                                     label(for="s14") d. licin
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s31" value='e')
+                                    input#s15(type="radio", name="s31" value="e")
                                     label(for="s15") e. lurus
                         #s32.form-group 
-                            p='32)'
+                            p="32)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s32" value='a')
+                                    input#s21(type="radio", name="s32" value="a")
                                     label(for="s21") a. jam
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s32" value='b')
+                                    input#s22(type="radio", name="s32" value="b")
                                     label(for="s22") b. kompas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s32" value='c')
+                                    input#s23(type="radio", name="s32" value="c")
                                     label(for="s23") c. penunjuk jalan 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s32" value='d')
+                                    input#s24(type="radio", name="s32" value="d")
                                     label(for="s24") d. bintang pari
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s32" value='e')
+                                    input#s25(type="radio", name="s32" value="e")
                                     label(for="s25") e. arah
                         #s33.form-group 
-                            p='33)'
+                            p="33)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s33" value='a')
+                                    input#s31(type="radio", name="s33" value="a")
                                     label(for="s31") a. kebijaksanaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s33" value='b')
+                                    input#s32(type="radio", name="s33" value="b")
                                     label(for="s32") b. pendidikan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s33" value='c')
+                                    input#s33(type="radio", name="s33" value="c")
                                     label(for="s33") c. perencanaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s33" value='d')
+                                    input#s34(type="radio", name="s33" value="d")
                                     label(for="s34") d. penempatan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s33" value='e')
+                                    input#s35(type="radio", name="s33" value="e")
                                     label(for="s35") e. pengerahan
                         #s34.form-group 
-                            p='34)'
+                            p="34)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s34" value='a')
+                                    input#s41(type="radio", name="s34" value="a")
                                     label(for="s41") a. bermotor
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s34" value='b')
+                                    input#s42(type="radio", name="s34" value="b")
                                     label(for="s42") b. berjalan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s34" value='c')
+                                    input#s43(type="radio", name="s34" value="c")
                                     label(for="s43") c. berlayar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s34" value='d')
+                                    input#s44(type="radio", name="s34" value="d")
                                     label(for="s44") d. bersepeda
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s34" value='e')
+                                    input#s45(type="radio", name="s34" value="e")
                                     label(for="s45") e. berkuda
                         #s35.form-group 
-                            p='35)'
+                            p="35)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s35" value='a')
+                                    input#s51(type="radio", name="s35" value="a")
                                     label(for="s51") a. gambar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s35" value='b')
+                                    input#s52(type="radio", name="s35" value="b")
                                     label(for="s52") b. lukisan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s35" value='c')
+                                    input#s53(type="radio", name="s35" value="c")
                                     label(for="s53") c. potret
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s35" value='d')
+                                    input#s54(type="radio", name="s35" value="d")
                                     label(for="s54") d. patung
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s35" value='e')
+                                    input#s55(type="radio", name="s35" value="e")
                                     label(for="s55") e. ukiran
                         #s36.form-group
-                            p='36)'
+                            p="36)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s36" value='a')
+                                    input#s11(type="radio", name="s36" value="a")
                                     label(for="s11") a. panjang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s36" value='b')
+                                    input#s12(type="radio", name="s36" value="b")
                                     label(for="s12") b. lonjong
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s36" value='c')
+                                    input#s13(type="radio", name="s36" value="c")
                                     label(for="s13") c. runcing
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s36" value='d')
+                                    input#s14(type="radio", name="s36" value="d")
                                     label(for="s14") d. bulat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s36" value='e')
+                                    input#s15(type="radio", name="s36" value="e")
                                     label(for="s15") e. bersudut
                         #s37.form-group 
-                            p='37)'
+                            p="37)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s37" value='a')
+                                    input#s21(type="radio", name="s37" value="a")
                                     label(for="s21") a. kunci
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s37" value='b')
+                                    input#s22(type="radio", name="s37" value="b")
                                     label(for="s22") b. palang pintu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s37" value='c')
+                                    input#s23(type="radio", name="s37" value="c")
                                     label(for="s23") c. gerendel
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s37" value='d')
+                                    input#s24(type="radio", name="s37" value="d")
                                     label(for="s24") d. gunting
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s37" value='e')
+                                    input#s25(type="radio", name="s37" value="e")
                                     label(for="s25") e. obeng
                         #s38.form-group 
-                            p='38)'
+                            p="38)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s38" value='a')
+                                    input#s31(type="radio", name="s38" value="a")
                                     label(for="s31") a. jembatan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s38" value='b')
+                                    input#s32(type="radio", name="s38" value="b")
                                     label(for="s32") b. batas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s38" value='c')
+                                    input#s33(type="radio", name="s38" value="c")
                                     label(for="s33") c. perkawinan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s38" value='d')
+                                    input#s34(type="radio", name="s38" value="d")
                                     label(for="s34") d. pagar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s38" value='e')
+                                    input#s35(type="radio", name="s38" value="e")
                                     label(for="s35") e. masyarakat
                         #s39.form-group 
-                            p='39)'
+                            p="39)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s39" value='a')
+                                    input#s41(type="radio", name="s39" value="a")
                                     label(for="s41") a. mengetam
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s39" value='b')
+                                    input#s42(type="radio", name="s39" value="b")
                                     label(for="s42") b. menasehati
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s39" value='c')
+                                    input#s43(type="radio", name="s39" value="c")
                                     label(for="s43") c. mengasah
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s39" value='d')
+                                    input#s44(type="radio", name="s39" value="d")
                                     label(for="s44") d. melicinkan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s39" value='e')
+                                    input#s45(type="radio", name="s39" value="e")
                                     label(for="s45") e. menggosok
                         #s40.form-group 
-                            p='20. Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm'
+                            p="20. Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s40" value='a')
+                                    input#s51(type="radio", name="s40" value="a")
                                     label(for="s51") a. batu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s40" value='b')
+                                    input#s52(type="radio", name="s40" value="b")
                                     label(for="s52") b. baja
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s40" value='c')
+                                    input#s53(type="radio", name="s40" value="c")
                                     label(for="s53") c. bulu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s40" value='d')
+                                    input#s54(type="radio", name="s40" value="d")
                                     label(for="s54") d. karet
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s40" value='e')
+                                    input#s55(type="radio", name="s40" value="e")
                                     label(for="s55") e. kayu
+                    #tutorial3.hide
+                        button#selesaiTutorial3(type="button") Selesai
                     #bagian3.hide
                         h1 bagian3 
                         #s41.form-group
-                            p='Menemukan : menghilangkan = Mengingat : ?'
+                            p="Menemukan : menghilangkan = Mengingat : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s41" value='a')
+                                    input#s11(type="radio", name="s41" value="a")
                                     label(for="s11") a. menghapal
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s41" value='b')
+                                    input#s12(type="radio", name="s41" value="b")
                                     label(for="s12") b. mengenai
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s41" value='c')
+                                    input#s13(type="radio", name="s41" value="c")
                                     label(for="s13") c. melupakan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s41" value='d')
+                                    input#s14(type="radio", name="s41" value="d")
                                     label(for="s14") d. berpikir
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s41" value='e')
+                                    input#s15(type="radio", name="s41" value="e")
                                     label(for="s15") e. memimpikan
                         #s42.form-group 
-                            p='Bunga : jambangan = Burung : ?'
+                            p="Bunga : jambangan = Burung : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s42" value='a')
+                                    input#s21(type="radio", name="s42" value="a")
                                     label(for="s21") a. sarang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s42" value='b')
+                                    input#s22(type="radio", name="s42" value="b")
                                     label(for="s22") b. langit
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s42" value='c')
+                                    input#s23(type="radio", name="s42" value="c")
                                     label(for="s23") c. pagar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s42" value='d')
+                                    input#s24(type="radio", name="s42" value="d")
                                     label(for="s24") d. pohon
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s42" value='e')
+                                    input#s25(type="radio", name="s42" value="e")
                                     label(for="s25") e. sangkar
                         #s43.form-group 
-                            p='Kereta api : rel = Otobis : ?'
+                            p="Kereta api : rel = Otobis : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s43" value='a')
+                                    input#s31(type="radio", name="s43" value="a")
                                     label(for="s31") a. roda
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s43" value='b')
+                                    input#s32(type="radio", name="s43" value="b")
                                     label(for="s32") b. poros
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s43" value='c')
+                                    input#s33(type="radio", name="s43" value="c")
                                     label(for="s33") c. ban
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s43" value='d')
+                                    input#s34(type="radio", name="s43" value="d")
                                     label(for="s34") d. jalan raya 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s43" value='e')
+                                    input#s35(type="radio", name="s43" value="e")
                                     label(for="s35") e. kecepatan
                         #s44.form-group 
-                            p='Perak : emas = Cincin : ?'
+                            p="Perak : emas = Cincin : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s44" value='a')
+                                    input#s41(type="radio", name="s44" value="a")
                                     label(for="s41") a. arloji
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s44" value='b')
+                                    input#s42(type="radio", name="s44" value="b")
                                     label(for="s42") b. berlian
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s44" value='c')
+                                    input#s43(type="radio", name="s44" value="c")
                                     label(for="s43") c. permata
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s44" value='d')
+                                    input#s44(type="radio", name="s44" value="d")
                                     label(for="s44") d. gelang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s44" value='e')
+                                    input#s45(type="radio", name="s44" value="e")
                                     label(for="s45") e. platina
                         #s45.form-group 
-                            p='Lingkaran : bola = Bujur sangkar : ?'
+                            p="Lingkaran : bola = Bujur sangkar : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s45" value='a')
+                                    input#s51(type="radio", name="s45" value="a")
                                     label(for="s51") a. bentuk
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s45" value='b')
+                                    input#s52(type="radio", name="s45" value="b")
                                     label(for="s52") b. gambar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s45" value='c')
+                                    input#s53(type="radio", name="s45" value="c")
                                     label(for="s53") c. segi empat
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s45" value='d')
+                                    input#s54(type="radio", name="s45" value="d")
                                     label(for="s54") d. kubus
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s45" value='e')
+                                    input#s55(type="radio", name="s45" value="e")
                                     label(for="s55") e. piramida
                         #s46.form-group
-                            p='Saran : kepustakaan = Merundingkan : ?'
+                            p="Saran : kepustakaan = Merundingkan : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s46" value='a')
+                                    input#s11(type="radio", name="s46" value="a")
                                     label(for="s11") a. menawarkan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s46" value='b')
+                                    input#s12(type="radio", name="s46" value="b")
                                     label(for="s12") b. menentukan 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s46" value='c')
+                                    input#s13(type="radio", name="s46" value="c")
                                     label(for="s13") c. menilai
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s46" value='d')
+                                    input#s14(type="radio", name="s46" value="d")
                                     label(for="s14") d. menimbang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s46" value='e')
+                                    input#s15(type="radio", name="s46" value="e")
                                     label(for="s15") e. merenungkan
                         #s47.form-group 
-                            p='Lidah : asam = Hidung : ?'
+                            p="Lidah : asam = Hidung : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s47" value='a')
+                                    input#s21(type="radio", name="s47" value="a")
                                     label(for="s21") a. mencium
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s47" value='b')
+                                    input#s22(type="radio", name="s47" value="b")
                                     label(for="s22") b. bernapas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s47" value='c')
+                                    input#s23(type="radio", name="s47" value="c")
                                     label(for="s23") c. mengecap
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s47" value='d')
+                                    input#s24(type="radio", name="s47" value="d")
                                     label(for="s24") d. tengik
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s27" value='e')
+                                    input#s25(type="radio", name="s27" value="e")
                                     label(for="s25") e. asin
                         #s48.form-group 
-                            p='Darah : pembuluh = Air : ?'
+                            p="Darah : pembuluh = Air : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s48" value='a')
+                                    input#s31(type="radio", name="s48" value="a")
                                     label(for="s31") a. pintu air 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s48" value='b')
+                                    input#s32(type="radio", name="s48" value="b")
                                     label(for="s32") b. sungai
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s48" value='c')
+                                    input#s33(type="radio", name="s48" value="c")
                                     label(for="s33") c. talang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s48" value='d')
+                                    input#s34(type="radio", name="s48" value="d")
                                     label(for="s34") d. hujan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s48" value='e')
+                                    input#s35(type="radio", name="s48" value="e")
                                     label(for="s35") e. ember
                         #s49.form-group 
-                            p='Saraf : penyalur = Pupil : ?'
+                            p="Saraf : penyalur = Pupil : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s49" value='a')
+                                    input#s41(type="radio", name="s49" value="a")
                                     label(for="s41") a. penyinaran
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s49" value='b')
+                                    input#s42(type="radio", name="s49" value="b")
                                     label(for="s42") b. mata 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s49" value='c')
+                                    input#s43(type="radio", name="s49" value="c")
                                     label(for="s43") c. melihat 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s49" value='d')
+                                    input#s44(type="radio", name="s49" value="d")
                                     label(for="s44") d. cahaya
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s49" value='e')
+                                    input#s45(type="radio", name="s49" value="e")
                                     label(for="s45") e. pelindung 
                         #s50.form-group 
-                            p='Pengantar surat : pengantar telegram = Pandai besi : ?'
+                            p="Pengantar surat : pengantar telegram = Pandai besi : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s50" value='a')
+                                    input#s51(type="radio", name="s50" value="a")
                                     label(for="s51") a. palu godam
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s50" value='b')
+                                    input#s52(type="radio", name="s50" value="b")
                                     label(for="s52") b. pedagang besi 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s50" value='c')
+                                    input#s53(type="radio", name="s50" value="c")
                                     label(for="s53") c. api
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s50" value='d')
+                                    input#s54(type="radio", name="s50" value="d")
                                     label(for="s54") d. tukang emas     
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s50" value='e')
+                                    input#s55(type="radio", name="s50" value="e")
                                     label(for="s55") e. besi tempa
                         #s51.form-group
-                            p='Buta : warna = Tuli : ?'
+                            p="Buta : warna = Tuli : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s51" value='a')
+                                    input#s11(type="radio", name="s51" value="a")
                                     label(for="s11") a. pendengaran
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s51" value='b')
+                                    input#s12(type="radio", name="s51" value="b")
                                     label(for="s12") b. mendengar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s51" value='c')
+                                    input#s13(type="radio", name="s51" value="c")
                                     label(for="s13") c. nada
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s51" value='d')
+                                    input#s14(type="radio", name="s51" value="d")
                                     label(for="s14") d. kata
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s51" value='e')
+                                    input#s15(type="radio", name="s51" value="e")
                                     label(for="s15") e. telinga
                         #s52.form-group 
-                            p='32)'
+                            p="32)"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s52" value='a')
+                                    input#s21(type="radio", name="s52" value="a")
                                     label(for="s21") a. penghinaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s52" value='b')
+                                    input#s22(type="radio", name="s52" value="b")
                                     label(for="s22") b. pidato
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s52" value='c')
+                                    input#s23(type="radio", name="s52" value="c")
                                     label(for="s23") c. kelakar
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s52" value='d')
+                                    input#s24(type="radio", name="s52" value="d")
                                     label(for="s24") d. kesan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s52" value='e')
+                                    input#s25(type="radio", name="s52" value="e")
                                     label(for="s25") e. ayat
                         #s53.form-group 
-                            p='Marah : emosi = Duka cita : ?'
+                            p="Marah : emosi = Duka cita : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s53" value='a')
+                                    input#s31(type="radio", name="s53" value="a")
                                     label(for="s31") a. suka cita
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s53" value='b')
+                                    input#s32(type="radio", name="s53" value="b")
                                     label(for="s32") b. sakit hati 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s53" value='c')
+                                    input#s33(type="radio", name="s53" value="c")
                                     label(for="s33") c. suasana hati 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s53" value='d')
+                                    input#s34(type="radio", name="s53" value="d")
                                     label(for="s34") d. sedih
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s53" value='e')
+                                    input#s35(type="radio", name="s53" value="e")
                                     label(for="s35") e. rindu
                         #s54.form-group 
-                            p='Mantel : jubah = wool : ?'
+                            p="Mantel : jubah = wool : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s54" value='a')
+                                    input#s41(type="radio", name="s54" value="a")
                                     label(for="s41") a. bahan sandang 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s54" value='b')
+                                    input#s42(type="radio", name="s54" value="b")
                                     label(for="s42") b. domba
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s54" value='c')
+                                    input#s43(type="radio", name="s54" value="c")
                                     label(for="s43") c. sutra
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s54" value='d')
+                                    input#s44(type="radio", name="s54" value="d")
                                     label(for="s44") d. jas
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s54" value='e')
+                                    input#s45(type="radio", name="s54" value="e")
                                     label(for="s45") e. tekstil
                         #s55.form-group 
-                            p='Ketinggian puncak : tekanan udara = ketinggian nada : ?'
+                            p="Ketinggian puncak : tekanan udara = ketinggian nada : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s55" value='a')
+                                    input#s51(type="radio", name="s55" value="a")
                                     label(for="s51") a. garpu tala
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s55" value='b')
+                                    input#s52(type="radio", name="s55" value="b")
                                     label(for="s52") b. sopran
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s55" value='c')
+                                    input#s53(type="radio", name="s55" value="c")
                                     label(for="s53") c. nyanyian
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s55" value='d')
+                                    input#s54(type="radio", name="s55" value="d")
                                     label(for="s54") d. panjang senar 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s55" value='e')
+                                    input#s55(type="radio", name="s55" value="e")
                                     label(for="s55") e. suara
                         #s56.form-group
-                            p='Negara : revolusi = Hidup : ?'
+                            p="Negara : revolusi = Hidup : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s56" value='a')
+                                    input#s11(type="radio", name="s56" value="a")
                                     label(for="s11") a. biologi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s56" value='b')
+                                    input#s12(type="radio", name="s56" value="b")
                                     label(for="s12") b. keturunan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s56" value='c')
+                                    input#s13(type="radio", name="s56" value="c")
                                     label(for="s13") c. mutasi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s56" value='d')
+                                    input#s14(type="radio", name="s56" value="d")
                                     label(for="s14") d. seleksi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s56" value='e')
+                                    input#s15(type="radio", name="s56" value="e")
                                     label(for="s15") e. ilmu hewan
                         #s57.form-group 
-                            p='Kekurangan : penemuan = Panas : ?'
+                            p="Kekurangan : penemuan = Panas : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s57" value='a')
+                                    input#s21(type="radio", name="s57" value="a")
                                     label(for="s21") a. haus
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s57" value='b')
+                                    input#s22(type="radio", name="s57" value="b")
                                     label(for="s22") b. khatulistiwa 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s57" value='c')
+                                    input#s23(type="radio", name="s57" value="c")
                                     label(for="s23") c. es
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s57" value='d')
+                                    input#s24(type="radio", name="s57" value="d")
                                     label(for="s24") d. matahari
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s57" value='e')
+                                    input#s25(type="radio", name="s57" value="e")
                                     label(for="s25") e. dingin
                         #s58.form-group 
-                            p='Kayu : diketam = Besi : ?'
+                            p="Kayu : diketam = Besi : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s58" value='a')
+                                    input#s31(type="radio", name="s58" value="a")
                                     label(for="s31") a. dipalu
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s58" value='b')
+                                    input#s32(type="radio", name="s58" value="b")
                                     label(for="s32") b. digergaji
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s58" value='c')
+                                    input#s33(type="radio", name="s58" value="c")
                                     label(for="s33") c. dituang
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s58" value='d')
+                                    input#s34(type="radio", name="s58" value="d")
                                     label(for="s34") d. dikikir
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s58" value='e')
+                                    input#s35(type="radio", name="s58" value="e")
                                     label(for="s35") e. ditempa
                         #s59.form-group 
-                            p='Olahragawan : lembing = Cendekiawan'
+                            p="Olahragawan : lembing = Cendekiawan"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s59" value='a')
+                                    input#s41(type="radio", name="s59" value="a")
                                     label(for="s41") a. perpustakaan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s59" value='b')
+                                    input#s42(type="radio", name="s59" value="b")
                                     label(for="s42") b. penelitian
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s59" value='c')
+                                    input#s43(type="radio", name="s59" value="c")
                                     label(for="s43") c. karya
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s59" value='d')
+                                    input#s44(type="radio", name="s59" value="d")
                                     label(for="s44") d. studi
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s59" value='e')
+                                    input#s45(type="radio", name="s59" value="e")
                                     label(for="s45") e. mikroskop
                         #s60.form-group 
-                            p='Keledai : kuda pacuan = Pembakaran : ?'
+                            p="Keledai : kuda pacuan = Pembakaran : ?"
                             .form-group
                                 div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s60" value='a')
+                                    input#s51(type="radio", name="s60" value="a")
                                     label(for="s51") a. pemadam api 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s60" value='b')
+                                    input#s52(type="radio", name="s60" value="b")
                                     label(for="s52") b. obor
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s60" value='c')
+                                    input#s53(type="radio", name="s60" value="c")
                                     label(for="s53") c. letupan
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s60" value='d')
+                                    input#s54(type="radio", name="s60" value="d")
                                     label(for="s54") d. korek api 
                             .form-group
                                 div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s60" value='e')
+                                    input#s55(type="radio", name="s60" value="e")
                                     label(for="s55") e. lautan api             
+                    #tutorial4.hide
+                        button#selesaiTutorial4(type="button") Selesai
                     #bagian4.hide 
                         h1 bagian4
                         #s61.form-group
@@ -1385,468 +1394,471 @@ block content
                         #s76.form-group
                                 label(for="s76" style="margin-bottom:5px;") 76. atas – bawah
                                 input#s76(type="text", name="s76")
-                    #bagian5 
+                    #tutorial5.hide
+                        button#selesaiTutorial5(type="button") Selesai
+                    #bagian5.hide
                         #s77 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s78 
-                            p='Berapa km-kah yang dapat ditempuh oleh kereta api dalam waktu 7 jam, jika kecepatannya 40 km/jam?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s781(type="checkbox" name='s78')
+                            p="Berapa km-kah yang dapat ditempuh oleh kereta api dalam waktu 7 jam, jika kecepatannya 40 km/jam?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s781(type="checkbox" name="s78")
                                 label(for="s781") 1
-                                input#s782(type="checkbox" name='s78')
+                                input#s782(type="checkbox" name="s78")
                                 label(for="s782") 2
-                                input#s783(type="checkbox" name='s78')
+                                input#s783(type="checkbox" name="s78")
                                 label(for="s783") 3
-                                input#s784(type="checkbox" name='s78')
+                                input#s784(type="checkbox" name="s78")
                                 label(for="s784") 4
-                                input#s785(type="checkbox" name='s78')
+                                input#s785(type="checkbox" name="s78")
                                 label(for="s785") 5
-                                input#s786(type="checkbox" name='s78')
+                                input#s786(type="checkbox" name="s78")
                                 label(for="s786") 6
-                                input#s787(type="checkbox" name='s78')
+                                input#s787(type="checkbox" name="s78")
                                 label(for="s787") 7
-                                input#s788(type="checkbox" name='s78')
+                                input#s788(type="checkbox" name="s78")
                                 label(for="s788") 8
-                                input#s789(type="checkbox" name='s78')
+                                input#s789(type="checkbox" name="s78")
                                 label(for="s789") 9
-                                input#s780(type="checkbox" name='s78')
+                                input#s780(type="checkbox" name="s78")
                                 label(for="s780") 0
                         #s79 
-                            p='15 peti buah-buahan beratnya 250 kg dan setiap peti kosong beratnya 3 kg, berapakah berat buah-buahan itu?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s791(type="checkbox" name='s79')
+                            p="15 peti buah-buahan beratnya 250 kg dan setiap peti kosong beratnya 3 kg, berapakah berat buah-buahan itu?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s791(type="checkbox" name="s79")
                                 label(for="s791") 1
-                                input#s792(type="checkbox" name='s79')
+                                input#s792(type="checkbox" name="s79")
                                 label(for="s792") 2
-                                input#s793(type="checkbox" name='s79')
+                                input#s793(type="checkbox" name="s79")
                                 label(for="s793") 3
-                                input#s794(type="checkbox" name='s79')
+                                input#s794(type="checkbox" name="s79")
                                 label(for="s794") 4
-                                input#s795(type="checkbox" name='s79')
+                                input#s795(type="checkbox" name="s79")
                                 label(for="s795") 5
-                                input#s796(type="checkbox" name='s79')
+                                input#s796(type="checkbox" name="s79")
                                 label(for="s796") 6
-                                input#s797(type="checkbox" name='s79')
+                                input#s797(type="checkbox" name="s79")
                                 label(for="s797") 7
-                                input#s798(type="checkbox" name='s79')
+                                input#s798(type="checkbox" name="s79")
                                 label(for="s798") 8
-                                input#s799(type="checkbox" name='s79')
+                                input#s799(type="checkbox" name="s79")
                                 label(for="s799") 9
-                                input#s790(type="checkbox" name='s79')
+                                input#s790(type="checkbox" name="s79")
                                 label(for="s790") 0
                         #s80 
-                            p='Seseorang mempunyai persediaan rumput yang cukup untuk 7 ekor kuda selama 78 hari. Berapa harikah persediaan itu cukup untuk 21 ekor kuda?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s80')
+                            p="Seseorang mempunyai persediaan rumput yang cukup untuk 7 ekor kuda selama 78 hari. Berapa harikah persediaan itu cukup untuk 21 ekor kuda?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s80")
                                 label(for="s801") 1
-                                input#s802(type="checkbox" name='s80')
+                                input#s802(type="checkbox" name="s80")
                                 label(for="s802") 2
-                                input#s803(type="checkbox" name='s80')
+                                input#s803(type="checkbox" name="s80")
                                 label(for="s803") 3
-                                input#s804(type="checkbox" name='s80')
+                                input#s804(type="checkbox" name="s80")
                                 label(for="s804") 4
-                                input#s805(type="checkbox" name='s80')
+                                input#s805(type="checkbox" name="s80")
                                 label(for="s805") 5
-                                input#s806(type="checkbox" name='s80')
+                                input#s806(type="checkbox" name="s80")
                                 label(for="s806") 6
-                                input#s807(type="checkbox" name='s80')
+                                input#s807(type="checkbox" name="s80")
                                 label(for="s807") 7
-                                input#s808(type="checkbox" name='s80')
+                                input#s808(type="checkbox" name="s80")
                                 label(for="s808") 8
-                                input#s809(type="checkbox" name='s80')
+                                input#s809(type="checkbox" name="s80")
                                 label(for="s809") 9
-                                input#s800(type="checkbox" name='s80')
+                                input#s800(type="checkbox" name="s80")
                                 label(for="s800") 0
                         #s81 
-                            p='3 batang coklat harganya Rp 5,- Berapa batangkah yang dapat kita beli dengan Rp 50,-?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s811(type="checkbox" name='s81')
+                            p="3 batang coklat harganya Rp 5,- Berapa batangkah yang dapat kita beli dengan Rp 50,-?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s811(type="checkbox" name="s81")
                                 label(for="s811") 1
-                                input#s812(type="checkbox" name='s81')
+                                input#s812(type="checkbox" name="s81")
                                 label(for="s812") 2
-                                input#s813(type="checkbox" name='s81')
+                                input#s813(type="checkbox" name="s81")
                                 label(for="s813") 3
-                                input#s814(type="checkbox" name='s81')
+                                input#s814(type="checkbox" name="s81")
                                 label(for="s814") 4
-                                input#s815(type="checkbox" name='s81')
+                                input#s815(type="checkbox" name="s81")
                                 label(for="s815") 5
-                                input#s816(type="checkbox" name='s81')
+                                input#s816(type="checkbox" name="s81")
                                 label(for="s816") 6
-                                input#s817(type="checkbox" name='s81')
+                                input#s817(type="checkbox" name="s81")
                                 label(for="s817") 7
-                                input#s818(type="checkbox" name='s81')
+                                input#s818(type="checkbox" name="s81")
                                 label(for="s818") 8
-                                input#s819(type="checkbox" name='s81')
+                                input#s819(type="checkbox" name="s81")
                                 label(for="s819") 9
-                                input#s810(type="checkbox" name='s81')
+                                input#s810(type="checkbox" name="s81")
                                 label(for="s810") 0
                         #s82 
-                            p='Seseorang dapat berjalan 1,75 m dalam waktu ¼ detik. Berapakah meterkah yang dapat ia tempuh dalam waktu 10 detik?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s821(type="checkbox" name='s82')
+                            p="Seseorang dapat berjalan 1,75 m dalam waktu ¼ detik. Berapakah meterkah yang dapat ia tempuh dalam waktu 10 detik?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s821(type="checkbox" name="s82")
                                 label(for="s821") 1
-                                input#s822(type="checkbox" name='s82')
+                                input#s822(type="checkbox" name="s82")
                                 label(for="s822") 2
-                                input#s823(type="checkbox" name='s82')
+                                input#s823(type="checkbox" name="s82")
                                 label(for="s823") 3
-                                input#s824(type="checkbox" name='s82')
+                                input#s824(type="checkbox" name="s82")
                                 label(for="s824") 4
-                                input#s825(type="checkbox" name='s82')
+                                input#s825(type="checkbox" name="s82")
                                 label(for="s825") 5
-                                input#s826(type="checkbox" name='s82')
+                                input#s826(type="checkbox" name="s82")
                                 label(for="s826") 6
-                                input#s827(type="checkbox" name='s82')
+                                input#s827(type="checkbox" name="s82")
                                 label(for="s827") 7
-                                input#s828(type="checkbox" name='s82')
+                                input#s828(type="checkbox" name="s82")
                                 label(for="s828") 8
-                                input#s829(type="checkbox" name='s82')
+                                input#s829(type="checkbox" name="s82")
                                 label(for="s829") 9
-                                input#s820(type="checkbox" name='s82')
+                                input#s820(type="checkbox" name="s82")
                                 label(for="s820") 0
                         #s83 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s831(type="checkbox" name='s83')
+                            p="Jika sebuah batu terletak 15 m di sebelah selatan dari sebatang pohon dan pohon itu berada 30 m di sebelah selatan dari sebuah rumah, berapa meterkah jarak antara batu dan rumah itu?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s831(type="checkbox" name="s83")
                                 label(for="s831") 1
-                                input#s832(type="checkbox" name='s83')
+                                input#s832(type="checkbox" name="s83")
                                 label(for="s832") 2
-                                input#s833(type="checkbox" name='s83')
+                                input#s833(type="checkbox" name="s83")
                                 label(for="s833") 3
-                                input#s834(type="checkbox" name='s83')
+                                input#s834(type="checkbox" name="s83")
                                 label(for="s834") 4
-                                input#s835(type="checkbox" name='s83')
+                                input#s835(type="checkbox" name="s83")
                                 label(for="s835") 5
-                                input#s836(type="checkbox" name='s83')
+                                input#s836(type="checkbox" name="s83")
                                 label(for="s836") 6
-                                input#s837(type="checkbox" name='s83')
+                                input#s837(type="checkbox" name="s83")
                                 label(for="s837") 7
-                                input#s838(type="checkbox" name='s83')
+                                input#s838(type="checkbox" name="s83")
                                 label(for="s838") 8
-                                input#s839(type="checkbox" name='s83')
+                                input#s839(type="checkbox" name="s83")
                                 label(for="s839") 9
-                                input#s830(type="checkbox" name='s83')
+                                input#s830(type="checkbox" name="s83")
                                 label(for="s830") 0
                         #s84 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s841(type="checkbox" name='s77')
+                            p="Jika 4 ½ m bahan sandang harganya Rp 90,- berapakah rupiahkah harganya 2 ½ m?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s841(type="checkbox" name="s84")
                                 label(for="s841") 1
-                                input#s842(type="checkbox" name='s77')
+                                input#s842(type="checkbox" name="s84")
                                 label(for="s842") 2
-                                input#s843(type="checkbox" name='s77')
+                                input#s843(type="checkbox" name="s84")
                                 label(for="s843") 3
-                                input#s844(type="checkbox" name='s77')
+                                input#s844(type="checkbox" name="s84")
                                 label(for="s844") 4
-                                input#s845(type="checkbox" name='s77')
+                                input#s845(type="checkbox" name="s84")
                                 label(for="s845") 5
-                                input#s846(type="checkbox" name='s77')
+                                input#s846(type="checkbox" name="s84")
                                 label(for="s846") 6
-                                input#s847(type="checkbox" name='s77')
+                                input#s847(type="checkbox" name="s84")
                                 label(for="s847") 7
-                                input#s848(type="checkbox" name='s77')
+                                input#s848(type="checkbox" name="s84")
                                 label(for="s848") 8
-                                input#s849(type="checkbox" name='s77')
+                                input#s849(type="checkbox" name="s84")
                                 label(for="s849") 9
-                                input#s840(type="checkbox" name='s77')
+                                input#s840(type="checkbox" name="s84")
                                 label(for="s840") 0
                         #s85 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
-                                label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
-                                label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
-                                label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
-                                label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
-                                label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
-                                label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
-                                label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
-                                label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
-                                label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
-                                label(for="s770") 0
+                            p="7 orang dapat menyelesaikan sesuatu pekerjaan dalam 6 hari. Berapa orangkah yang diperlukan untuk menyelesaikan pekerjaan itu dalam setengah hari?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s851(type="checkbox" name="s85")
+                                label(for="s851") 1
+                                input#s852(type="checkbox" name="s85")
+                                label(for="s852") 2
+                                input#s853(type="checkbox" name="s85")
+                                label(for="s853") 3
+                                input#s854(type="checkbox" name="s85")
+                                label(for="s854") 4
+                                input#s855(type="checkbox" name="s85")
+                                label(for="s855") 5
+                                input#s856(type="checkbox" name="s85")
+                                label(for="s856") 6
+                                input#s857(type="checkbox" name="s85")
+                                label(for="s857") 7
+                                input#s858(type="checkbox" name="s85")
+                                label(for="s858") 8
+                                input#s859(type="checkbox" name="s85")
+                                label(for="s859") 9
+                                input#s850(type="checkbox" name="s85")
+                                label(for="s850") 0
                         #s86 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Karena dipanaskan, kawat yang panjangnya 48 cm akan mengembang menjadi 52 cm. setelah pemanasan, berapakah panjangnya kawat yang berukuran 72 cm?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s86")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s86")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s86")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s86")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s86")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s86")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s86")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s86")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s86")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s86")
                                 label(for="s770") 0
                         #s87 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s88
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s89 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s90 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s91
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s92 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s93 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s94 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s95 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
                         #s96 
-                            p='Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?'
-                            div(style='display:flex; align-items: center; flex-direction:row;')
-                                input#s771(type="checkbox" name='s77')
+                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                input#s771(type="checkbox" name="s77")
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name='s77')
+                                input#s772(type="checkbox" name="s77")
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name='s77')
+                                input#s773(type="checkbox" name="s77")
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name='s77')
+                                input#s774(type="checkbox" name="s77")
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name='s77')
+                                input#s775(type="checkbox" name="s77")
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name='s77')
+                                input#s776(type="checkbox" name="s77")
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name='s77')
+                                input#s777(type="checkbox" name="s77")
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name='s77')
+                                input#s778(type="checkbox" name="s77")
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name='s77')
+                                input#s779(type="checkbox" name="s77")
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name='s77')
+                                input#s770(type="checkbox" name="s77")
                                 label(for="s770") 0
-
-                    button#submit.hide(type='submit' name='submit') Submit
+                    div#submit.hide()
+                        h1 Tolong Submit
+                        button#btnSubmit(type="submit") Submit
 block script 
-    script(src='/javascripts/ist_test.js')
+    script(src="/javascripts/ist_test.js")
