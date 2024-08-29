@@ -165,8 +165,10 @@ caption {
 .header{
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   /* height: 5em; */
   /* flex-direction: row; */
   background-color: #0A0C45;

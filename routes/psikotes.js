@@ -45,6 +45,7 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
                 next(err)
             } else{
                 console.log(rows)
+                req.session.user = masuk_psikotesIST.nama
                 res.send({result: 'success'})
             }
         })
@@ -59,6 +60,7 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
                 next(err)
             }else{
                 console.log(rows)
+                req.session.user = req.body.nama
                 res.send({result: 'success'})
             }
         })
@@ -66,10 +68,16 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
 })
 
 router.get('/disc_test',  (req,res)=>{
+    if(!req.session.user){
+        res.redirect('/psikotes/masuk_test/disc')
+    }
     res.render('psikotes/disc_test',{title:'welcome to disctest'})
 })
 
 router.get('/ist_test', (req,res)=>{
+    // if(!req.session.user){
+        // res.redirect('/psikotes/masuk_test/ist')
+    // }
         res.render('psikotes/ist_test',{title: 'welcome to ist test'})
 })
 
@@ -98,6 +106,9 @@ router.post('/disc_test', upload.none(),
     check('most22').notEmpty().escape(),check('least22').notEmpty().escape(), 
     check('most23').notEmpty().escape(),check('least23').notEmpty().escape(), 
     check('most24').notEmpty().escape(),check('least24').notEmpty().escape(),(req, res, next)=>{
+        if(!req.session.user){
+            res.redirect('/masuk_test/disc')
+        }
         const date = new Date
         const result = validationResult(req);
         const match = matchedData(req)
@@ -135,16 +146,28 @@ router.post('/disc_test', upload.none(),
             
             /* set column width */
             // Cant work for some reason
-            var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds()+ '-' +'disc_test'+'.xlsx'
+            var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user+'.xlsx'
             worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
             XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
             XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
             const file = path.join(__dirname, '..', 'files', filename);
-            res.send({result: req.body, err: ''})
+            var sql = 'update psikotes set disc_result = ? where nama = ?'
+            var values = [filename, req.session.user]
+            connection.query(sql, values, (err,rows)=>{
+                if(err){
+                    next(err)
+                } else{
+                    console.log(rows)
+                }
+            })
+            res.send({result: 'success', err: ''})
         }
 })
 
 router.post('/ist_test', upload.none(), (req, res, next)=>{
+    if(!req.session.user){
+        res.redirect('/masuk_test/ist')
+    }
     console.log(req.body)
     const date = new Date
     const worksheet = XLSX.utils.json_to_sheet(Object.values(req.body));
@@ -176,12 +199,21 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
     
     /* set column width */
     // Cant work for some reason
-    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds()+ '-' +'ist_test'+'.xlsx'
+    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds()+ '-' +'ist_test'+req.session.user+'.xlsx'
     worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
     XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
     XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
     const file = path.join(__dirname, '..', 'files', filename);
-    res.send({result: req.body})
+    var sql = 'update psikotes set ist_result = ? where nama = ?'
+    var values = [filename, req.session.user]
+    connection.query(sql, values, (err,rows)=>{
+        if(err){
+            next(err)
+        } else{
+            console.log(rows)
+        }
+    })
+    res.send({result: 'success'})
 })
 
 module.exports = router

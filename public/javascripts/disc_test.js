@@ -15,7 +15,7 @@ $('form').on('submit',function(e){
                 $('[name="'+ data.err[i].path +'"]').closest('td').removeClass('un-highlight')
             }
             alert(data.result);
-            console.log(data.result)
+            window.location.replace('/psikotes/masuk_test/disc')
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)

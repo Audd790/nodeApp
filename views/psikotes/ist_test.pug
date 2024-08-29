@@ -3,13 +3,18 @@ block content
     .block
         .container1
             .header
-                h2 IST TEST
+                .soal_column
+                    h2 IST TEST
+                    h2#time.hide
             .body
                 form(action="ist_test" method="post" enctype="multipart/form-data")
-                    #entry 
+                    #entry
                         h1 Masuk Test
                         button#button_mulai(type="button") Mulai
                     #tutorial1.hide
+                        .soal_column
+                            img.contoh_soal(style="width: auto; height: 20em;" src="/images/contoh_soal1_1.jpg", alt="contoh soal")
+                            img.contoh_soal(style="width: 30em; height: auto;" src="/images/contoh_soal1_2.jpg", alt="contoh soal")
                         button#selesaiTutorial1(type="button") Selesai
                     #bagian1.hide
                         h1 bagian1
@@ -455,6 +460,9 @@ block content
                                     input#s55(type="radio", name="s20" value="e")
                                     label(for="s55") e. 115
                     #tutorial2.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal2_1.jpg", alt="")
+                            img(style="width: 44em; height: auto;" src="/images/contoh_soal2_2.jpg", alt="")
                         button#selesaiTutorial2(type="button") Selesai
                     #bagian2.hide
                         h1 bagian2 
@@ -899,450 +907,517 @@ block content
                                     input#s55(type="radio", name="s40" value="e")
                                     label(for="s55") e. kayu
                     #tutorial3.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal3_1.jpg", alt="")
+                            img(style="width: 30em; height: auto;" src="/images/contoh_soal3_2.jpg", alt="")
                         button#selesaiTutorial3(type="button") Selesai
                     #bagian3.hide
-                        h1 bagian3 
-                        #s41.form-group
-                            p="Menemukan : menghilangkan = Mengingat : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s41" value="a")
-                                    label(for="s11") a. menghapal
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s41" value="b")
-                                    label(for="s12") b. mengenai
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s41" value="c")
-                                    label(for="s13") c. melupakan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s41" value="d")
-                                    label(for="s14") d. berpikir
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s41" value="e")
-                                    label(for="s15") e. memimpikan
-                        #s42.form-group 
-                            p="Bunga : jambangan = Burung : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s42" value="a")
-                                    label(for="s21") a. sarang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s42" value="b")
-                                    label(for="s22") b. langit
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s42" value="c")
-                                    label(for="s23") c. pagar
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s42" value="d")
-                                    label(for="s24") d. pohon
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s42" value="e")
-                                    label(for="s25") e. sangkar
-                        #s43.form-group 
-                            p="Kereta api : rel = Otobis : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s43" value="a")
-                                    label(for="s31") a. roda
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s43" value="b")
-                                    label(for="s32") b. poros
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s43" value="c")
-                                    label(for="s33") c. ban
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s43" value="d")
-                                    label(for="s34") d. jalan raya 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s43" value="e")
-                                    label(for="s35") e. kecepatan
-                        #s44.form-group 
-                            p="Perak : emas = Cincin : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s44" value="a")
-                                    label(for="s41") a. arloji
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s44" value="b")
-                                    label(for="s42") b. berlian
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s44" value="c")
-                                    label(for="s43") c. permata
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s44" value="d")
-                                    label(for="s44") d. gelang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s44" value="e")
-                                    label(for="s45") e. platina
-                        #s45.form-group 
-                            p="Lingkaran : bola = Bujur sangkar : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s45" value="a")
-                                    label(for="s51") a. bentuk
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s45" value="b")
-                                    label(for="s52") b. gambar
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s45" value="c")
-                                    label(for="s53") c. segi empat
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s45" value="d")
-                                    label(for="s54") d. kubus
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s45" value="e")
-                                    label(for="s55") e. piramida
-                        #s46.form-group
-                            p="Saran : kepustakaan = Merundingkan : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s46" value="a")
-                                    label(for="s11") a. menawarkan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s46" value="b")
-                                    label(for="s12") b. menentukan 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s46" value="c")
-                                    label(for="s13") c. menilai
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s46" value="d")
-                                    label(for="s14") d. menimbang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s46" value="e")
-                                    label(for="s15") e. merenungkan
-                        #s47.form-group 
-                            p="Lidah : asam = Hidung : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s47" value="a")
-                                    label(for="s21") a. mencium
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s47" value="b")
-                                    label(for="s22") b. bernapas
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s47" value="c")
-                                    label(for="s23") c. mengecap
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s47" value="d")
-                                    label(for="s24") d. tengik
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s27" value="e")
-                                    label(for="s25") e. asin
-                        #s48.form-group 
-                            p="Darah : pembuluh = Air : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s48" value="a")
-                                    label(for="s31") a. pintu air 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s48" value="b")
-                                    label(for="s32") b. sungai
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s48" value="c")
-                                    label(for="s33") c. talang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s48" value="d")
-                                    label(for="s34") d. hujan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s48" value="e")
-                                    label(for="s35") e. ember
-                        #s49.form-group 
-                            p="Saraf : penyalur = Pupil : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s49" value="a")
-                                    label(for="s41") a. penyinaran
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s49" value="b")
-                                    label(for="s42") b. mata 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s49" value="c")
-                                    label(for="s43") c. melihat 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s49" value="d")
-                                    label(for="s44") d. cahaya
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s49" value="e")
-                                    label(for="s45") e. pelindung 
-                        #s50.form-group 
-                            p="Pengantar surat : pengantar telegram = Pandai besi : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s50" value="a")
-                                    label(for="s51") a. palu godam
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s50" value="b")
-                                    label(for="s52") b. pedagang besi 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s50" value="c")
-                                    label(for="s53") c. api
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s50" value="d")
-                                    label(for="s54") d. tukang emas     
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s50" value="e")
-                                    label(for="s55") e. besi tempa
-                        #s51.form-group
-                            p="Buta : warna = Tuli : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s51" value="a")
-                                    label(for="s11") a. pendengaran
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s51" value="b")
-                                    label(for="s12") b. mendengar
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s51" value="c")
-                                    label(for="s13") c. nada
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s51" value="d")
-                                    label(for="s14") d. kata
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s51" value="e")
-                                    label(for="s15") e. telinga
-                        #s52.form-group 
-                            p="Makanan : bumbu = Ceramah : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s52" value="a")
-                                    label(for="s21") a. penghinaan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s52" value="b")
-                                    label(for="s22") b. pidato
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s52" value="c")
-                                    label(for="s23") c. kelakar
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s52" value="d")
-                                    label(for="s24") d. kesan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s52" value="e")
-                                    label(for="s25") e. ayat
-                        #s53.form-group 
-                            p="Marah : emosi = Duka cita : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s53" value="a")
-                                    label(for="s31") a. suka cita
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s53" value="b")
-                                    label(for="s32") b. sakit hati 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s53" value="c")
-                                    label(for="s33") c. suasana hati 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s53" value="d")
-                                    label(for="s34") d. sedih
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s53" value="e")
-                                    label(for="s35") e. rindu
-                        #s54.form-group 
-                            p="Mantel : jubah = wool : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s54" value="a")
-                                    label(for="s41") a. bahan sandang 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s54" value="b")
-                                    label(for="s42") b. domba
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s54" value="c")
-                                    label(for="s43") c. sutra
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s54" value="d")
-                                    label(for="s44") d. jas
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s54" value="e")
-                                    label(for="s45") e. tekstil
-                        #s55.form-group 
-                            p="Ketinggian puncak : tekanan udara = ketinggian nada : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s55" value="a")
-                                    label(for="s51") a. garpu tala
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s55" value="b")
-                                    label(for="s52") b. sopran
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s55" value="c")
-                                    label(for="s53") c. nyanyian
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s55" value="d")
-                                    label(for="s54") d. panjang senar 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s55" value="e")
-                                    label(for="s55") e. suara
-                        #s56.form-group
-                            p="Negara : revolusi = Hidup : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s56" value="a")
-                                    label(for="s11") a. biologi
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s56" value="b")
-                                    label(for="s12") b. keturunan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s56" value="c")
-                                    label(for="s13") c. mutasi
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s56" value="d")
-                                    label(for="s14") d. seleksi
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s56" value="e")
-                                    label(for="s15") e. ilmu hewan
-                        #s57.form-group 
-                            p="Kekurangan : penemuan = Panas : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s57" value="a")
-                                    label(for="s21") a. haus
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s57" value="b")
-                                    label(for="s22") b. khatulistiwa 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s57" value="c")
-                                    label(for="s23") c. es
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s57" value="d")
-                                    label(for="s24") d. matahari
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s57" value="e")
-                                    label(for="s25") e. dingin
-                        #s58.form-group 
-                            p="Kayu : diketam = Besi : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s58" value="a")
-                                    label(for="s31") a. dipalu
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s58" value="b")
-                                    label(for="s32") b. digergaji
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s58" value="c")
-                                    label(for="s33") c. dituang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s58" value="d")
-                                    label(for="s34") d. dikikir
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s58" value="e")
-                                    label(for="s35") e. ditempa
-                        #s59.form-group 
-                            p="Olahragawan : lembing = Cendekiawan"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s59" value="a")
-                                    label(for="s41") a. perpustakaan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s59" value="b")
-                                    label(for="s42") b. penelitian
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s59" value="c")
-                                    label(for="s43") c. karya
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s59" value="d")
-                                    label(for="s44") d. studi
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s59" value="e")
-                                    label(for="s45") e. mikroskop
-                        #s60.form-group 
-                            p="Keledai : kuda pacuan = Pembakaran : ?"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s60" value="a")
-                                    label(for="s51") a. pemadam api 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s60" value="b")
-                                    label(for="s52") b. obor
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s60" value="c")
-                                    label(for="s53") c. letupan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s60" value="d")
-                                    label(for="s54") d. korek api 
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s60" value="e")
-                                    label(for="s55") e. lautan api             
+                        .soal_row 
+                            .soal_column(style='margin-right: 1em')
+                                div(style='width:auto; height:5em')
+                                    p='41'
+                                div(style='width:auto; height:5em')
+                                    p='42'
+                                div(style='width:auto; height:5em')
+                                    p='43'
+                                div(style='width:auto; height:5em')
+                                    p='44'
+                                div(style='width:auto; height:5em')
+                                    p='45'
+                                div(style='width:auto; height:5em')
+                                    p='46'
+                                div(style='width:auto; height:5em')
+                                    p='47'
+                                div(style='width:auto; height:5em')
+                                    p='48'
+                                div(style='width:auto; height:5em')
+                                    p='49'
+                                div(style='width:auto; height:5em')
+                                    p='50'
+                                div(style='width:auto; height:5em')
+                                    p='51'
+                                div(style='width:auto; height:5em')
+                                    p='52'
+                                div(style='width:auto; height:5em')
+                                    p='53'
+                                div(style='width:auto; height:5em')
+                                    p='54'
+                                div(style='width:auto; height:5em')
+                                    p='55'
+                                div(style='width:auto; height:5em')
+                                    p='56'
+                                div(style='width:auto; height:5em')
+                                    p='57'
+                                div(style='width:auto; height:5em')
+                                    p='58'
+                                div(style='width:auto; height:5em')
+                                    p='59'
+                                div(style='width:auto; height:5em')
+                                    p='60'
+                            .soal_column
+                                #s41.soal_column(style='width:auto; height:5em')
+                                    p="Menemukan : menghilangkan = Mengingat : ?"
+                                    .soal_row
+                                        .soal_row 
+                                            input#s11(type="radio", name="s41" value="a")
+                                            label(for="s11") a. menghapal
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s12(type="radio", name="s41" value="b")
+                                                label(for="s12") b. mengenai
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s13(type="radio", name="s41" value="c")
+                                                label(for="s13") c. melupakan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s14(type="radio", name="s41" value="d")
+                                                label(for="s14") d. berpikir
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s15(type="radio", name="s41" value="e")
+                                                label(for="s15") e. memimpikan
+                                #s42.soal_column(style='width:auto; height:5em')
+                                    p="Bunga : jambangan = Burung : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s21(type="radio", name="s42" value="a")
+                                                label(for="s21") a. sarang
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s22(type="radio", name="s42" value="b")
+                                                label(for="s22") b. langit
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s23(type="radio", name="s42" value="c")
+                                                label(for="s23") c. pagar
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s24(type="radio", name="s42" value="d")
+                                                label(for="s24") d. pohon
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s25(type="radio", name="s42" value="e")
+                                                label(for="s25") e. sangkar
+                                #s43.soal_column(style='width:auto; height:5em')
+                                    p="Kereta api : rel = Otobis : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s31(type="radio", name="s43" value="a")
+                                                label(for="s31") a. roda
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s32(type="radio", name="s43" value="b")
+                                                label(for="s32") b. poros
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s33(type="radio", name="s43" value="c")
+                                                label(for="s33") c. ban
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s34(type="radio", name="s43" value="d")
+                                                label(for="s34") d. jalan raya 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s35(type="radio", name="s43" value="e")
+                                                label(for="s35") e. kecepatan
+                                #s44.soal_column(style='width:auto; height:5em')
+                                    p="Perak : emas = Cincin : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s41(type="radio", name="s44" value="a")
+                                                label(for="s41") a. arloji
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s42(type="radio", name="s44" value="b")
+                                                label(for="s42") b. berlian
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s43(type="radio", name="s44" value="c")
+                                                label(for="s43") c. permata
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s44(type="radio", name="s44" value="d")
+                                                label(for="s44") d. gelang
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s45(type="radio", name="s44" value="e")
+                                                label(for="s45") e. platina
+                                #s45.soal_column(style='width:auto; height:5em')
+                                    p="Lingkaran : bola = Bujur sangkar : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s51(type="radio", name="s45" value="a")
+                                                label(for="s51") a. bentuk
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s52(type="radio", name="s45" value="b")
+                                                label(for="s52") b. gambar
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s53(type="radio", name="s45" value="c")
+                                                label(for="s53") c. segi empat
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s54(type="radio", name="s45" value="d")
+                                                label(for="s54") d. kubus
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s55(type="radio", name="s45" value="e")
+                                                label(for="s55") e. piramida
+                                #s46.soal_column(style='width:auto; height:5em')
+                                    p="Saran : kepustakaan = Merundingkan : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s11(type="radio", name="s46" value="a")
+                                                label(for="s11") a. menawarkan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s12(type="radio", name="s46" value="b")
+                                                label(for="s12") b. menentukan 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s13(type="radio", name="s46" value="c")
+                                                label(for="s13") c. menilai
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s14(type="radio", name="s46" value="d")
+                                                label(for="s14") d. menimbang
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s15(type="radio", name="s46" value="e")
+                                                label(for="s15") e. merenungkan
+                                #s47.soal_column(style='width:auto; height:5em')
+                                    p="Lidah : asam = Hidung : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s21(type="radio", name="s47" value="a")
+                                                label(for="s21") a. mencium
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s22(type="radio", name="s47" value="b")
+                                                label(for="s22") b. bernapas
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s23(type="radio", name="s47" value="c")
+                                                label(for="s23") c. mengecap
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s24(type="radio", name="s47" value="d")
+                                                label(for="s24") d. tengik
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s25(type="radio", name="s27" value="e")
+                                                label(for="s25") e. asin
+                                #s48.soal_column(style='width:auto; height:5em')
+                                    p="Darah : pembuluh = Air : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s31(type="radio", name="s48" value="a")
+                                                label(for="s31") a. pintu air 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s32(type="radio", name="s48" value="b")
+                                                label(for="s32") b. sungai
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s33(type="radio", name="s48" value="c")
+                                                label(for="s33") c. talang
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s34(type="radio", name="s48" value="d")
+                                                label(for="s34") d. hujan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s35(type="radio", name="s48" value="e")
+                                                label(for="s35") e. ember
+                                #s49.soal_column(style='width:auto; height:5em')
+                                    p="Saraf : penyalur = Pupil : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s41(type="radio", name="s49" value="a")
+                                                label(for="s41") a. penyinaran
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s42(type="radio", name="s49" value="b")
+                                                label(for="s42") b. mata 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s43(type="radio", name="s49" value="c")
+                                                label(for="s43") c. melihat 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s44(type="radio", name="s49" value="d")
+                                                label(for="s44") d. cahaya
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s45(type="radio", name="s49" value="e")
+                                                label(for="s45") e. pelindung 
+                                #s50.soal_column(style='width:auto; height:5em')
+                                    p="Pengantar surat : pengantar telegram = Pandai besi : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s51(type="radio", name="s50" value="a")
+                                                label(for="s51") a. palu godam
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s52(type="radio", name="s50" value="b")
+                                                label(for="s52") b. pedagang besi 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s53(type="radio", name="s50" value="c")
+                                                label(for="s53") c. api
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s54(type="radio", name="s50" value="d")
+                                                label(for="s54") d. tukang emas     
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s55(type="radio", name="s50" value="e")
+                                                label(for="s55") e. besi tempa
+                                #s51.soal_column(style='width:auto; height:5em')
+                                    p="Buta : warna = Tuli : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s11(type="radio", name="s51" value="a")
+                                                label(for="s11") a. pendengaran
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s12(type="radio", name="s51" value="b")
+                                                label(for="s12") b. mendengar
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s13(type="radio", name="s51" value="c")
+                                                label(for="s13") c. nada
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s14(type="radio", name="s51" value="d")
+                                                label(for="s14") d. kata
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s15(type="radio", name="s51" value="e")
+                                                label(for="s15") e. telinga
+                                #s52.soal_column(style='width:auto; height:5em')
+                                    p="Makanan : bumbu = Ceramah : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s21(type="radio", name="s52" value="a")
+                                                label(for="s21") a. penghinaan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s22(type="radio", name="s52" value="b")
+                                                label(for="s22") b. pidato
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s23(type="radio", name="s52" value="c")
+                                                label(for="s23") c. kelakar
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s24(type="radio", name="s52" value="d")
+                                                label(for="s24") d. kesan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s25(type="radio", name="s52" value="e")
+                                                label(for="s25") e. ayat
+                                #s53.soal_column(style='width:auto; height:5em')
+                                    p="Marah : emosi = Duka cita : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s31(type="radio", name="s53" value="a")
+                                                label(for="s31") a. suka cita
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s32(type="radio", name="s53" value="b")
+                                                label(for="s32") b. sakit hati 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s33(type="radio", name="s53" value="c")
+                                                label(for="s33") c. suasana hati 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s34(type="radio", name="s53" value="d")
+                                                label(for="s34") d. sedih
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s35(type="radio", name="s53" value="e")
+                                                label(for="s35") e. rindu
+                                #s54.soal_column(style='width:auto; height:5em')
+                                    p="Mantel : jubah = wool : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s41(type="radio", name="s54" value="a")
+                                                label(for="s41") a. bahan sandang 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s42(type="radio", name="s54" value="b")
+                                                label(for="s42") b. domba
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s43(type="radio", name="s54" value="c")
+                                                label(for="s43") c. sutra
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s44(type="radio", name="s54" value="d")
+                                                label(for="s44") d. jas
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s45(type="radio", name="s54" value="e")
+                                                label(for="s45") e. tekstil
+                                #s55.soal_column(style='width:auto; height:5em')
+                                    p="Ketinggian puncak : tekanan udara = ketinggian nada : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s51(type="radio", name="s55" value="a")
+                                                label(for="s51") a. garpu tala
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s52(type="radio", name="s55" value="b")
+                                                label(for="s52") b. sopran
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s53(type="radio", name="s55" value="c")
+                                                label(for="s53") c. nyanyian
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s54(type="radio", name="s55" value="d")
+                                                label(for="s54") d. panjang senar 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s55(type="radio", name="s55" value="e")
+                                                label(for="s55") e. suara
+                                #s56.soal_column(style='width:auto; height:5em')
+                                    p="Negara : revolusi = Hidup : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s11(type="radio", name="s56" value="a")
+                                                label(for="s11") a. biologi
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s12(type="radio", name="s56" value="b")
+                                                label(for="s12") b. keturunan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s13(type="radio", name="s56" value="c")
+                                                label(for="s13") c. mutasi
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s14(type="radio", name="s56" value="d")
+                                                label(for="s14") d. seleksi
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s15(type="radio", name="s56" value="e")
+                                                label(for="s15") e. ilmu hewan
+                                #s57.soal_column(style='width:auto; height:5em')
+                                    p="Kekurangan : penemuan = Panas : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s21(type="radio", name="s57" value="a")
+                                                label(for="s21") a. haus
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s22(type="radio", name="s57" value="b")
+                                                label(for="s22") b. khatulistiwa 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s23(type="radio", name="s57" value="c")
+                                                label(for="s23") c. es
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s24(type="radio", name="s57" value="d")
+                                                label(for="s24") d. matahari
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s25(type="radio", name="s57" value="e")
+                                                label(for="s25") e. dingin
+                                #s58.soal_column(style='width:auto; height:5em')
+                                    p="Kayu : diketam = Besi : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s31(type="radio", name="s58" value="a")
+                                                label(for="s31") a. dipalu
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s32(type="radio", name="s58" value="b")
+                                                label(for="s32") b. digergaji
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s33(type="radio", name="s58" value="c")
+                                                label(for="s33") c. dituang
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s34(type="radio", name="s58" value="d")
+                                                label(for="s34") d. dikikir
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s35(type="radio", name="s58" value="e")
+                                                label(for="s35") e. ditempa
+                                #s59.soal_column(style='width:auto; height:5em')
+                                    p="Olahragawan : lembing = Cendekiawan"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s41(type="radio", name="s59" value="a")
+                                                label(for="s41") a. perpustakaan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s42(type="radio", name="s59" value="b")
+                                                label(for="s42") b. penelitian
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s43(type="radio", name="s59" value="c")
+                                                label(for="s43") c. karya
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s44(type="radio", name="s59" value="d")
+                                                label(for="s44") d. studi
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s45(type="radio", name="s59" value="e")
+                                                label(for="s45") e. mikroskop
+                                #s60.soal_column(style='width:auto; height:5em')
+                                    p="Keledai : kuda pacuan = Pembakaran : ?"
+                                    .soal_row
+                                        .soal_row
+                                            div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s51(type="radio", name="s60" value="a")
+                                                label(for="s51") a. pemadam api 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s52(type="radio", name="s60" value="b")
+                                                label(for="s52") b. obor
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s53(type="radio", name="s60" value="c")
+                                                label(for="s53") c. letupan
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s54(type="radio", name="s60" value="d")
+                                                label(for="s54") d. korek api 
+                                        .soal_row
+                                            div(style="display:flex; flex-direction:row;")
+                                                input#s55(type="radio", name="s60" value="e")
+                                                label(for="s55") e. lautan api             
                     #tutorial4.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal4_1.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal4_2.jpg", alt="")
                         button#selesaiTutorial4(type="button") Selesai
                     #bagian4.hide 
                         h1 bagian4
@@ -1395,542 +1470,611 @@ block content
                                 label(for="s76" style="margin-bottom:5px;") 76. atas – bawah
                                 input#s76(type="text", name="s76")
                     #tutorial5.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal5_1.jpg", alt="")
+                            img(style="width: 41em; height: auto;" src="/images/contoh_soal5_2.jpg", alt="")
                         button#selesaiTutorial5(type="button") Selesai
                     #bagian5.hide
-                        #s77 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s77" value='1')
-                                label(for="s771") 1
-                                input#s772(type="checkbox" name="s77" value='2')
-                                label(for="s772") 2
-                                input#s773(type="checkbox" name="s77" value='3')
-                                label(for="s773") 3
-                                input#s774(type="checkbox" name="s77" value='4')
-                                label(for="s774") 4
-                                input#s775(type="checkbox" name="s77" value='5')
-                                label(for="s775") 5
-                                input#s776(type="checkbox" name="s77" value='6')
-                                label(for="s776") 6
-                                input#s777(type="checkbox" name="s77" value='7')
-                                label(for="s777") 7
-                                input#s778(type="checkbox" name="s77" value='8')
-                                label(for="s778") 8
-                                input#s779(type="checkbox" name="s77" value='9')
-                                label(for="s779") 9
-                                input#s770(type="checkbox" name="s77" value='0')
-                                label(for="s770") 0
-                        #s78 
-                            p="Berapa km-kah yang dapat ditempuh oleh kereta api dalam waktu 7 jam, jika kecepatannya 40 km/jam?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s781(type="checkbox" name="s78" value='1')
-                                label(for="s781") 1
-                                input#s782(type="checkbox" name="s78" value='2')
-                                label(for="s782") 2
-                                input#s783(type="checkbox" name="s78" value='3')
-                                label(for="s783") 3
-                                input#s784(type="checkbox" name="s78" value='4')
-                                label(for="s784") 4
-                                input#s785(type="checkbox" name="s78" value='5')
-                                label(for="s785") 5
-                                input#s786(type="checkbox" name="s78" value='6')
-                                label(for="s786") 6
-                                input#s787(type="checkbox" name="s78" value='7')
-                                label(for="s787") 7
-                                input#s788(type="checkbox" name="s78" value='8')
-                                label(for="s788") 8
-                                input#s789(type="checkbox" name="s78" value='9')
-                                label(for="s789") 9
-                                input#s780(type="checkbox" name="s78" value='0')
-                                label(for="s780") 0
-                        #s79 
-                            p="15 peti buah-buahan beratnya 250 kg dan setiap peti kosong beratnya 3 kg, berapakah berat buah-buahan itu?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s791(type="checkbox" name="s79" value='1')
-                                label(for="s791") 1
-                                input#s792(type="checkbox" name="s79" value='2')
-                                label(for="s792") 2
-                                input#s793(type="checkbox" name="s79" value='3')
-                                label(for="s793") 3
-                                input#s794(type="checkbox" name="s79" value='4')
-                                label(for="s794") 4
-                                input#s795(type="checkbox" name="s79" value='5')
-                                label(for="s795") 5
-                                input#s796(type="checkbox" name="s79" value='6')
-                                label(for="s796") 6
-                                input#s797(type="checkbox" name="s79" value='7')
-                                label(for="s797") 7
-                                input#s798(type="checkbox" name="s79" value='8')
-                                label(for="s798") 8
-                                input#s799(type="checkbox" name="s79" value='9')
-                                label(for="s799") 9
-                                input#s790(type="checkbox" name="s79" value='0')
-                                label(for="s790") 0
-                        #s80 
-                            p="Seseorang mempunyai persediaan rumput yang cukup untuk 7 ekor kuda selama 78 hari. Berapa harikah persediaan itu cukup untuk 21 ekor kuda?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s80" value='1')
-                                label(for="s801") 1
-                                input#s802(type="checkbox" name="s80" value='2')
-                                label(for="s802") 2
-                                input#s803(type="checkbox" name="s80" value='3')
-                                label(for="s803") 3
-                                input#s804(type="checkbox" name="s80" value='4')
-                                label(for="s804") 4
-                                input#s805(type="checkbox" name="s80" value='5')
-                                label(for="s805") 5
-                                input#s806(type="checkbox" name="s80" value='6')
-                                label(for="s806") 6
-                                input#s807(type="checkbox" name="s80" value='7')
-                                label(for="s807") 7
-                                input#s808(type="checkbox" name="s80" value='8')
-                                label(for="s808") 8
-                                input#s809(type="checkbox" name="s80" value='9')
-                                label(for="s809") 9
-                                input#s800(type="checkbox" name="s80" value='0')
-                                label(for="s800") 0
-                        #s81 
-                            p="3 batang coklat harganya Rp 5,- Berapa batangkah yang dapat kita beli dengan Rp 50,-?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s811(type="checkbox" name="s81" value='1')
-                                label(for="s811") 1
-                                input#s812(type="checkbox" name="s81" value='2')
-                                label(for="s812") 2
-                                input#s813(type="checkbox" name="s81" value='3')
-                                label(for="s813") 3
-                                input#s814(type="checkbox" name="s81" value='4')
-                                label(for="s814") 4
-                                input#s815(type="checkbox" name="s81" value='5')
-                                label(for="s815") 5
-                                input#s816(type="checkbox" name="s81" value='6')
-                                label(for="s816") 6
-                                input#s817(type="checkbox" name="s81" value='7')
-                                label(for="s817") 7
-                                input#s818(type="checkbox" name="s81" value='8')
-                                label(for="s818") 8
-                                input#s819(type="checkbox" name="s81" value='9')
-                                label(for="s819") 9
-                                input#s810(type="checkbox" name="s81" value='0')
-                                label(for="s810") 0
-                        #s82 
-                            p="Seseorang dapat berjalan 1,75 m dalam waktu ¼ detik. Berapakah meterkah yang dapat ia tempuh dalam waktu 10 detik?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s821(type="checkbox" name="s82" value='1')
-                                label(for="s821") 1
-                                input#s822(type="checkbox" name="s82" value='2')
-                                label(for="s822") 2
-                                input#s823(type="checkbox" name="s82" value='3')
-                                label(for="s823") 3
-                                input#s824(type="checkbox" name="s82" value='4')
-                                label(for="s824") 4
-                                input#s825(type="checkbox" name="s82" value='5')
-                                label(for="s825") 5
-                                input#s826(type="checkbox" name="s82" value='6')
-                                label(for="s826") 6
-                                input#s827(type="checkbox" name="s82" value='7')
-                                label(for="s827") 7
-                                input#s828(type="checkbox" name="s82" value='8')
-                                label(for="s828") 8
-                                input#s829(type="checkbox" name="s82" value='9')
-                                label(for="s829") 9
-                                input#s820(type="checkbox" name="s82" value='0')
-                                label(for="s820") 0
-                        #s83 
-                            p="Jika sebuah batu terletak 15 m di sebelah selatan dari sebatang pohon dan pohon itu berada 30 m di sebelah selatan dari sebuah rumah, berapa meterkah jarak antara batu dan rumah itu?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s831(type="checkbox" name="s83" value='1')
-                                label(for="s831") 1
-                                input#s832(type="checkbox" name="s83" value='2')
-                                label(for="s832") 2
-                                input#s833(type="checkbox" name="s83" value='3')
-                                label(for="s833") 3
-                                input#s834(type="checkbox" name="s83" value='4')
-                                label(for="s834") 4
-                                input#s835(type="checkbox" name="s83" value='5')
-                                label(for="s835") 5
-                                input#s836(type="checkbox" name="s83" value='6')
-                                label(for="s836") 6
-                                input#s837(type="checkbox" name="s83" value='7')
-                                label(for="s837") 7
-                                input#s838(type="checkbox" name="s83" value='8')
-                                label(for="s838") 8
-                                input#s839(type="checkbox" name="s83" value='9')
-                                label(for="s839") 9
-                                input#s830(type="checkbox" name="s83" value='0')
-                                label(for="s830") 0
-                        #s84 
-                            p="Jika 4 ½ m bahan sandang harganya Rp 90,- berapakah rupiahkah harganya 2 ½ m?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s841(type="checkbox" name="s84" value='1')
-                                label(for="s841") 1
-                                input#s842(type="checkbox" name="s84" value='2')
-                                label(for="s842") 2
-                                input#s843(type="checkbox" name="s84" value='3')
-                                label(for="s843") 3
-                                input#s844(type="checkbox" name="s84" value='4')
-                                label(for="s844") 4
-                                input#s845(type="checkbox" name="s84" value='5')
-                                label(for="s845") 5
-                                input#s846(type="checkbox" name="s84" value='6')
-                                label(for="s846") 6
-                                input#s847(type="checkbox" name="s84" value='7')
-                                label(for="s847") 7
-                                input#s848(type="checkbox" name="s84" value='8')
-                                label(for="s848") 8
-                                input#s849(type="checkbox" name="s84" value='9')
-                                label(for="s849") 9
-                                input#s840(type="checkbox" name="s84" value='0')
-                                label(for="s840") 0
-                        #s85 
-                            p="7 orang dapat menyelesaikan sesuatu pekerjaan dalam 6 hari. Berapa orangkah yang diperlukan untuk menyelesaikan pekerjaan itu dalam setengah hari?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s851(type="checkbox" name="s85" value='1')
-                                label(for="s851") 1
-                                input#s852(type="checkbox" name="s85" value='2')
-                                label(for="s852") 2
-                                input#s853(type="checkbox" name="s85" value='3' )
-                                label(for="s853") 3
-                                input#s854(type="checkbox" name="s85" value='4')
-                                label(for="s854") 4
-                                input#s855(type="checkbox" name="s85" value='5')
-                                label(for="s855") 5
-                                input#s856(type="checkbox" name="s85" value='6')
-                                label(for="s856") 6
-                                input#s857(type="checkbox" name="s85" value='7')
-                                label(for="s857") 7
-                                input#s858(type="checkbox" name="s85" value='8')
-                                label(for="s858") 8
-                                input#s859(type="checkbox" name="s85" value='9')
-                                label(for="s859") 9
-                                input#s850(type="checkbox" name="s85" value='')
-                                label(for="s850") 0
-                        #s86 
-                            p="Karena dipanaskan, kawat yang panjangnya 48 cm akan mengembang menjadi 52 cm. setelah pemanasan, berapakah panjangnya kawat yang berukuran 72 cm?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s86" value='1')
-                                label(for="s771") 1
-                                input#s772(type="checkbox" name="s86" value='2')
-                                label(for="s772") 2
-                                input#s773(type="checkbox" name="s86" value='3')
-                                label(for="s773") 3
-                                input#s774(type="checkbox" name="s86" value='4')
-                                label(for="s774") 4
-                                input#s775(type="checkbox" name="s86" value='5')
-                                label(for="s775") 5
-                                input#s776(type="checkbox" name="s86" value='6')
-                                label(for="s776") 6
-                                input#s777(type="checkbox" name="s86" value='7')
-                                label(for="s777") 7
-                                input#s778(type="checkbox" name="s86" value='8')
-                                label(for="s778") 8
-                                input#s779(type="checkbox" name="s86" value='9')
-                                label(for="s779") 9
-                                input#s770(type="checkbox" name="s86" value='0')
-                                label(for="s770") 0
-                        #s87 
-                            p="Suatu pabrik dapat menghasilkan 304 batang pensil dalam waktu 8 jam. Berapa batangkah dihasilkan dalam waktu setengah jam?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s871(type="checkbox" name="s87" value='1')
-                                label(for="s871") 1
-                                input#s872(type="checkbox" name="s87" value='2')
-                                label(for="s872") 2
-                                input#s873(type="checkbox" name="s87" value='3')
-                                label(for="s873") 3
-                                input#s874(type="checkbox" name="s87" value='4')
-                                label(for="s874") 4
-                                input#s875(type="checkbox" name="s87" value='5')
-                                label(for="s875") 5
-                                input#s876(type="checkbox" name="s87" value='6')
-                                label(for="s876") 6
-                                input#s877(type="checkbox" name="s87" value='7')
-                                label(for="s877") 7
-                                input#s878(type="checkbox" name="s87" value='8')
-                                label(for="s878") 8
-                                input#s879(type="checkbox" name="s87" value='9')
-                                label(for="s879") 9
-                                input#s870(type="checkbox" name="s87" value='0')
-                                label(for="s870") 0
-                        #s88 
-                            p="Untuk suatu campuran diperlukan 2 bagian perak dan 3 bagian timah. Berapa gramkah perak yang diperlukan untuk mendapatkan campuran itu yang beratnya 15 gram?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s881(type="checkbox" name="s88" value='1')
-                                label(for="s881") 1
-                                input#s882(type="checkbox" name="s88" value='2')
-                                label(for="s882") 2
-                                input#s883(type="checkbox" name="s88" value='3')
-                                label(for="s883") 3
-                                input#s884(type="checkbox" name="s88" value='4')
-                                label(for="s884") 4
-                                input#s885(type="checkbox" name="s88" value='5')
-                                label(for="s885") 5
-                                input#s886(type="checkbox" name="s88" value='6')
-                                label(for="s886") 6
-                                input#s887(type="checkbox" name="s88" value='7')
-                                label(for="s887") 7
-                                input#s888(type="checkbox" name="s88" value='8')
-                                label(for="s888") 8
-                                input#s889(type="checkbox" name="s88" value='9')
-                                label(for="s889") 9
-                                input#s880(type="checkbox" name="s88" value='0')
-                                label(for="s880") 0
-                        #s89 
-                            p="Untuk setiap Rp 3,- yang dimiliki Sidin, Hamid memiliki Rp 5,- Jika mereka bersama mempunyai Rp 120,- berapa rupiahkah yang dimiliki Hamid?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s891(type="checkbox" name="s89" value='1')
-                                label(for="s891") 1
-                                input#s892(type="checkbox" name="s89" value='2')
-                                label(for="s892") 2
-                                input#s893(type="checkbox" name="s89" value='3')
-                                label(for="s893") 3
-                                input#s894(type="checkbox" name="s89" value='4')
-                                label(for="s894") 4
-                                input#s895(type="checkbox" name="s89" value='5')
-                                label(for="s895") 5
-                                input#s896(type="checkbox" name="s89" value='6')
-                                label(for="s896") 6
-                                input#s897(type="checkbox" name="s89" value='7')
-                                label(for="s897") 7
-                                input#s898(type="checkbox" name="s89" value='8')
-                                label(for="s898") 8
-                                input#s899(type="checkbox" name="s89" value='9')
-                                label(for="s899") 9
-                                input#s890(type="checkbox" name="s89" value='0')
-                                label(for="s890") 0
-                        #s90 
-                            p="Mesin A menenun 60 m kain, sedangkan mesin B menenun 40 m. berapa meterkah yang ditenun mesin A, jika mesin B menenun 60 m?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s901(type="checkbox" name="s90" value='1')
-                                label(for="s901") 1
-                                input#s902(type="checkbox" name="s90" value='2')
-                                label(for="s902") 2
-                                input#s903(type="checkbox" name="s90" value='3')
-                                label(for="s903") 3
-                                input#s904(type="checkbox" name="s90" value='4')
-                                label(for="s904") 4
-                                input#s905(type="checkbox" name="s90" value='5')
-                                label(for="s905") 5
-                                input#s906(type="checkbox" name="s90" value='6')
-                                label(for="s906") 6
-                                input#s907(type="checkbox" name="s90" value='7')
-                                label(for="s907") 7
-                                input#s908(type="checkbox" name="s90" value='8')
-                                label(for="s908") 8
-                                input#s909(type="checkbox" name="s90" value='9')
-                                label(for="s909") 9
-                                input#s900(type="checkbox" name="s90" value='0')
-                                label(for="s900") 0
-                        #s91 
-                            p="Seseorang membelikan 1/10 dari uangnya untuk perangko dan 4 kali jumlah itu untuk alat tulis. Sisa uangnya masih Rp 60,- Berapa rupiahkah uang semula?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s911(type="checkbox" name="s91" value='1')
-                                label(for="s911") 1
-                                input#s912(type="checkbox" name="s91" value='2')
-                                label(for="s912") 2
-                                input#s913(type="checkbox" name="s91" value='3')
-                                label(for="s913") 3
-                                input#s914(type="checkbox" name="s91" value='4')
-                                label(for="s914") 4
-                                input#s915(type="checkbox" name="s91" value='5')
-                                label(for="s915") 5
-                                input#s916(type="checkbox" name="s91" value='6')
-                                label(for="s916") 6
-                                input#s917(type="checkbox" name="s91" value='7')
-                                label(for="s917") 7
-                                input#s918(type="checkbox" name="s91" value='8')
-                                label(for="s918") 8
-                                input#s919(type="checkbox" name="s91" value='9')
-                                label(for="s919") 9
-                                input#s910(type="checkbox" name="s91" value='0')
-                                label(for="s910") 0
-                        #s92 
-                            p="Di dalam dua peti terdapat 43 piring. Di dalam peti yang satu terdapat 9 piring lebih banyak dari pada di dalam peti yang lain. Berapa buah piring terdapat di dalam peti yang lebih kecil?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s921(type="checkbox" name="s92" value='1')
-                                label(for="s921") 1
-                                input#s922(type="checkbox" name="s92" value='2')
-                                label(for="s922") 2
-                                input#s923(type="checkbox" name="s92" value='3')
-                                label(for="s923") 3
-                                input#s924(type="checkbox" name="s92" value='4')
-                                label(for="s924") 4
-                                input#s925(type="checkbox" name="s92" value='5')
-                                label(for="s925") 5
-                                input#s926(type="checkbox" name="s92" value='6')
-                                label(for="s926") 6
-                                input#s927(type="checkbox" name="s92" value='7')
-                                label(for="s927") 7
-                                input#s928(type="checkbox" name="s92" value='8')
-                                label(for="s928") 8
-                                input#s929(type="checkbox" name="s92" value='9')
-                                label(for="s929") 9
-                                input#s920(type="checkbox" name="s92" value='0')
-                                label(for="s920") 0
-                        #s93 
-                            p="Suatu lembaran kain yang panjangnya 60 cm harus dibagikan sedemikian rupa sehingga panjangnya satu bagian ialah 2/3 dari bagian yang lain. Berapa panjangnya bagian yang terpendek."
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s931(type="checkbox" name="s93" value='1')
-                                label(for="s931") 1
-                                input#s932(type="checkbox" name="s93" value='2')
-                                label(for="s932") 2
-                                input#s933(type="checkbox" name="s93" value='3')
-                                label(for="s933") 3
-                                input#s934(type="checkbox" name="s93" value='4')
-                                label(for="s934") 4
-                                input#s935(type="checkbox" name="s93" value='5')
-                                label(for="s935") 5
-                                input#s936(type="checkbox" name="s93" value='6')
-                                label(for="s936") 6
-                                input#s937(type="checkbox" name="s93" value='7')
-                                label(for="s937") 7
-                                input#s938(type="checkbox" name="s93" value='8')
-                                label(for="s938") 8
-                                input#s939(type="checkbox" name="s93" value='9')
-                                label(for="s939") 9
-                                input#s930(type="checkbox" name="s93" value='0')
-                                label(for="s930") 0
-                        #s94 
-                            p="Suatu perusahaan mengekspor ¾ dari hasil produksinya dan menjual 4/5 dari sisa itu dalam negeri. Berapa % kah hasil produksi yang masih tinggal?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s941(type="checkbox" name="s94" value='1')
-                                label(for="s941") 1
-                                input#s942(type="checkbox" name="s94" value='2')
-                                label(for="s942") 2
-                                input#s943(type="checkbox" name="s94" value='3')
-                                label(for="s943") 3
-                                input#s944(type="checkbox" name="s94" value='4')
-                                label(for="s874") 4
-                                input#s875(type="checkbox" name="s94" value='5')
-                                label(for="s875") 5
-                                input#s876(type="checkbox" name="s94" value='6')
-                                label(for="s876") 6
-                                input#s877(type="checkbox" name="s94" value='7')
-                                label(for="s877") 7
-                                input#s878(type="checkbox" name="s94" value='8')
-                                label(for="s878") 8
-                                input#s879(type="checkbox" name="s94" value='9')
-                                label(for="s879") 9
-                                input#s870(type="checkbox" name="s94" value='0')
-                                label(for="s870") 0
-                        #s95 
-                            p="Jika suatu botol berisi anggur hanya 7/8 bagian dan harganya ialah Rp 84,- berapakah harga anggur itu jika botol itu hanya terisi ½ penuh?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s871(type="checkbox" name="s95" value='1')
-                                label(for="s871") 1
-                                input#s872(type="checkbox" name="s95" value='2')
-                                label(for="s872") 2
-                                input#s873(type="checkbox" name="s95" value='3')
-                                label(for="s873") 3
-                                input#s874(type="checkbox" name="s95" value='4')
-                                label(for="s874") 4
-                                input#s875(type="checkbox" name="s95" value='5')
-                                label(for="s875") 5
-                                input#s876(type="checkbox" name="s95" value='6')
-                                label(for="s876") 6
-                                input#s877(type="checkbox" name="s95" value='7')
-                                label(for="s877") 7
-                                input#s878(type="checkbox" name="s95" value='8')
-                                label(for="s878") 8
-                                input#s879(type="checkbox" name="s95" value='9')
-                                label(for="s879") 9
-                                input#s870(type="checkbox" name="s95" value='0')
-                                label(for="s870") 0
-                        #s96 
-                            p="Di dalam suatu keluarga setiap anak perempuan mempunyai jumlah saudara laki-laki yang sama dengan jumlah saudara perempuan dan setiap anak laki-laki mempunyai dua kali lebih banyak saudara perempuan dari pada saudara laki-laki. Berapa anak laki-lakikah yang terdapat di dalam keluarga tersebut?"
-                            div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s871(type="checkbox" name="s96" value='1')
-                                label(for="s871") 1
-                                input#s872(type="checkbox" name="s96" value='2')
-                                label(for="s872") 2
-                                input#s873(type="checkbox" name="s96" value='3')
-                                label(for="s873") 3
-                                input#s874(type="checkbox" name="s96" value='4')
-                                label(for="s874") 4
-                                input#s875(type="checkbox" name="s96" value='5')
-                                label(for="s875") 5
-                                input#s876(type="checkbox" name="s96" value='6')
-                                label(for="s876") 6
-                                input#s877(type="checkbox" name="s96" value='7')
-                                label(for="s877") 7
-                                input#s878(type="checkbox" name="s96" value='8')
-                                label(for="s878") 8
-                                input#s879(type="checkbox" name="s96" value='9')
-                                label(for="s879") 9
-                                input#s870(type="checkbox" name="s96" value='0')
-                                label(for="s870") 0
-                    #tutorial6.hide 
+                        .soal_row
+                            .soal_column(style='margin-right: 1em')
+                                div(style='width:auto; height:5em')
+                                    p='77'
+                                div(style='width:auto; height:5em')
+                                    p='78'
+                                div(style='width:auto; height:5em')
+                                    p='79'
+                                div(style='width:auto; height:5em')
+                                    p='80'
+                                div(style='width:auto; height:5em')
+                                    p='81'
+                                div(style='width:auto; height:5em')
+                                    p='82'
+                                div(style='width:auto; height:5em')
+                                    p='83'
+                                div(style='width:auto; height:5em')
+                                    p='84'
+                                div(style='width:auto; height:5em')
+                                    p='85'
+                                div(style='width:auto; height:5em')
+                                    p='86'
+                                div(style='width:auto; height:5em')
+                                    p='87'
+                                div(style='width:auto; height:5em')
+                                    p='88'
+                                div(style='width:auto; height:5em')
+                                    p='89'
+                                div(style='width:auto; height:5em')
+                                    p='90'
+                                div(style='width:auto; height:5em')
+                                    p='91'
+                                div(style='width:auto; height:5em')
+                                    p='92'
+                                div(style='width:auto; height:5em')
+                                    p='93'
+                                div(style='width:auto; height:5em')
+                                    p='94'
+                                div(style='width:auto; height:5em')
+                                    p='95'
+                                div(style='width:auto; height:5em')
+                                    p='96'
+                            .soal_column
+                                #s77.soal_column
+                                    div(style='width:auto; height:5em')
+                                        p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                                input#s771(type="checkbox" name="s77" value='1')
+                                                label(for="s771") 1
+                                                input#s772(type="checkbox" name="s77" value='2')
+                                                label(for="s772") 2
+                                                input#s773(type="checkbox" name="s77" value='3')
+                                                label(for="s773") 3
+                                                input#s774(type="checkbox" name="s77" value='4')
+                                                label(for="s774") 4
+                                                input#s775(type="checkbox" name="s77" value='5')
+                                                label(for="s775") 5
+                                                input#s776(type="checkbox" name="s77" value='6')
+                                                label(for="s776") 6
+                                                input#s777(type="checkbox" name="s77" value='7')
+                                                label(for="s777") 7
+                                                input#s778(type="checkbox" name="s77" value='8')
+                                                label(for="s778") 8
+                                                input#s779(type="checkbox" name="s77" value='9')
+                                                label(for="s779") 9
+                                                input#s770(type="checkbox" name="s77" value='0')
+                                                label(for="s770") 0
+                                #s78.soal_column
+                                    div(style='width:auto; height:5em')
+                                        p="Berapa km-kah yang dapat ditempuh oleh kereta api dalam waktu 7 jam, jika kecepatannya 40 km/jam?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s781(type="checkbox" name="s78" value='1')
+                                            label(for="s781") 1
+                                            input#s782(type="checkbox" name="s78" value='2')
+                                            label(for="s782") 2
+                                            input#s783(type="checkbox" name="s78" value='3')
+                                            label(for="s783") 3
+                                            input#s784(type="checkbox" name="s78" value='4')
+                                            label(for="s784") 4
+                                            input#s785(type="checkbox" name="s78" value='5')
+                                            label(for="s785") 5
+                                            input#s786(type="checkbox" name="s78" value='6')
+                                            label(for="s786") 6
+                                            input#s787(type="checkbox" name="s78" value='7')
+                                            label(for="s787") 7
+                                            input#s788(type="checkbox" name="s78" value='8')
+                                            label(for="s788") 8
+                                            input#s789(type="checkbox" name="s78" value='9')
+                                            label(for="s789") 9
+                                            input#s780(type="checkbox" name="s78" value='0')
+                                            label(for="s780") 0
+                                #s79.soal_column
+                                    div(style='width:auto; height:5em')
+                                        p="15 peti buah-buahan beratnya 250 kg dan setiap peti kosong beratnya 3 kg, berapakah berat buah-buahan itu?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s791(type="checkbox" name="s79" value='1')
+                                            label(for="s791") 1
+                                            input#s792(type="checkbox" name="s79" value='2')
+                                            label(for="s792") 2
+                                            input#s793(type="checkbox" name="s79" value='3')
+                                            label(for="s793") 3
+                                            input#s794(type="checkbox" name="s79" value='4')
+                                            label(for="s794") 4
+                                            input#s795(type="checkbox" name="s79" value='5')
+                                            label(for="s795") 5
+                                            input#s796(type="checkbox" name="s79" value='6')
+                                            label(for="s796") 6
+                                            input#s797(type="checkbox" name="s79" value='7')
+                                            label(for="s797") 7
+                                            input#s798(type="checkbox" name="s79" value='8')
+                                            label(for="s798") 8
+                                            input#s799(type="checkbox" name="s79" value='9')
+                                            label(for="s799") 9
+                                            input#s790(type="checkbox" name="s79" value='0')
+                                            label(for="s790") 0
+                                #s80.soal_column
+                                    div(style='width:auto; height:5em') 
+                                        p="Seseorang mempunyai persediaan rumput yang cukup untuk 7 ekor kuda selama 78 hari. Berapa harikah persediaan itu cukup untuk 21 ekor kuda?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s771(type="checkbox" name="s80" value='1')
+                                            label(for="s801") 1
+                                            input#s802(type="checkbox" name="s80" value='2')
+                                            label(for="s802") 2
+                                            input#s803(type="checkbox" name="s80" value='3')
+                                            label(for="s803") 3
+                                            input#s804(type="checkbox" name="s80" value='4')
+                                            label(for="s804") 4
+                                            input#s805(type="checkbox" name="s80" value='5')
+                                            label(for="s805") 5
+                                            input#s806(type="checkbox" name="s80" value='6')
+                                            label(for="s806") 6
+                                            input#s807(type="checkbox" name="s80" value='7')
+                                            label(for="s807") 7
+                                            input#s808(type="checkbox" name="s80" value='8')
+                                            label(for="s808") 8
+                                            input#s809(type="checkbox" name="s80" value='9')
+                                            label(for="s809") 9
+                                            input#s800(type="checkbox" name="s80" value='0')
+                                            label(for="s800") 0
+                                #s81.soal_column
+                                    div(style='width:auto; height:5em') 
+                                        p="3 batang coklat harganya Rp 5,- Berapa batangkah yang dapat kita beli dengan Rp 50,-?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s811(type="checkbox" name="s81" value='1')
+                                            label(for="s811") 1
+                                            input#s812(type="checkbox" name="s81" value='2')
+                                            label(for="s812") 2
+                                            input#s813(type="checkbox" name="s81" value='3')
+                                            label(for="s813") 3
+                                            input#s814(type="checkbox" name="s81" value='4')
+                                            label(for="s814") 4
+                                            input#s815(type="checkbox" name="s81" value='5')
+                                            label(for="s815") 5
+                                            input#s816(type="checkbox" name="s81" value='6')
+                                            label(for="s816") 6
+                                            input#s817(type="checkbox" name="s81" value='7')
+                                            label(for="s817") 7
+                                            input#s818(type="checkbox" name="s81" value='8')
+                                            label(for="s818") 8
+                                            input#s819(type="checkbox" name="s81" value='9')
+                                            label(for="s819") 9
+                                            input#s810(type="checkbox" name="s81" value='0')
+                                            label(for="s810") 0
+                                #s82.soal_column
+                                    div(style='width:auto; height:5em') 
+                                        p="Seseorang dapat berjalan 1,75 m dalam waktu ¼ detik. Berapakah meterkah yang dapat ia tempuh dalam waktu 10 detik?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s821(type="checkbox" name="s82" value='1')
+                                            label(for="s821") 1
+                                            input#s822(type="checkbox" name="s82" value='2')
+                                            label(for="s822") 2
+                                            input#s823(type="checkbox" name="s82" value='3')
+                                            label(for="s823") 3
+                                            input#s824(type="checkbox" name="s82" value='4')
+                                            label(for="s824") 4
+                                            input#s825(type="checkbox" name="s82" value='5')
+                                            label(for="s825") 5
+                                            input#s826(type="checkbox" name="s82" value='6')
+                                            label(for="s826") 6
+                                            input#s827(type="checkbox" name="s82" value='7')
+                                            label(for="s827") 7
+                                            input#s828(type="checkbox" name="s82" value='8')
+                                            label(for="s828") 8
+                                            input#s829(type="checkbox" name="s82" value='9')
+                                            label(for="s829") 9
+                                            input#s820(type="checkbox" name="s82" value='0')
+                                            label(for="s820") 0
+                                #s83.soal_column
+                                    div(style='width:auto; height:5em') 
+                                        p="Jika sebuah batu terletak 15 m di sebelah selatan dari sebatang pohon dan pohon itu berada 30 m di sebelah selatan dari sebuah rumah, berapa meterkah jarak antara batu dan rumah itu?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s831(type="checkbox" name="s83" value='1')
+                                            label(for="s831") 1
+                                            input#s832(type="checkbox" name="s83" value='2')
+                                            label(for="s832") 2
+                                            input#s833(type="checkbox" name="s83" value='3')
+                                            label(for="s833") 3
+                                            input#s834(type="checkbox" name="s83" value='4')
+                                            label(for="s834") 4
+                                            input#s835(type="checkbox" name="s83" value='5')
+                                            label(for="s835") 5
+                                            input#s836(type="checkbox" name="s83" value='6')
+                                            label(for="s836") 6
+                                            input#s837(type="checkbox" name="s83" value='7')
+                                            label(for="s837") 7
+                                            input#s838(type="checkbox" name="s83" value='8')
+                                            label(for="s838") 8
+                                            input#s839(type="checkbox" name="s83" value='9')
+                                            label(for="s839") 9
+                                            input#s830(type="checkbox" name="s83" value='0')
+                                            label(for="s830") 0
+                                #s84.soal_column
+                                    div(style='width:auto; height:5em') 
+                                        p="Jika 4 ½ m bahan sandang harganya Rp 90,- berapakah rupiahkah harganya 2 ½ m?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s841(type="checkbox" name="s84" value='1')
+                                            label(for="s841") 1
+                                            input#s842(type="checkbox" name="s84" value='2')
+                                            label(for="s842") 2
+                                            input#s843(type="checkbox" name="s84" value='3')
+                                            label(for="s843") 3
+                                            input#s844(type="checkbox" name="s84" value='4')
+                                            label(for="s844") 4
+                                            input#s845(type="checkbox" name="s84" value='5')
+                                            label(for="s845") 5
+                                            input#s846(type="checkbox" name="s84" value='6')
+                                            label(for="s846") 6
+                                            input#s847(type="checkbox" name="s84" value='7')
+                                            label(for="s847") 7
+                                            input#s848(type="checkbox" name="s84" value='8')
+                                            label(for="s848") 8
+                                            input#s849(type="checkbox" name="s84" value='9')
+                                            label(for="s849") 9
+                                            input#s840(type="checkbox" name="s84" value='0')
+                                            label(for="s840") 0
+                                #s85.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="7 orang dapat menyelesaikan sesuatu pekerjaan dalam 6 hari. Berapa orangkah yang diperlukan untuk menyelesaikan pekerjaan itu dalam setengah hari?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s851(type="checkbox" name="s85" value='1')
+                                            label(for="s851") 1
+                                            input#s852(type="checkbox" name="s85" value='2')
+                                            label(for="s852") 2
+                                            input#s853(type="checkbox" name="s85" value='3' )
+                                            label(for="s853") 3
+                                            input#s854(type="checkbox" name="s85" value='4')
+                                            label(for="s854") 4
+                                            input#s855(type="checkbox" name="s85" value='5')
+                                            label(for="s855") 5
+                                            input#s856(type="checkbox" name="s85" value='6')
+                                            label(for="s856") 6
+                                            input#s857(type="checkbox" name="s85" value='7')
+                                            label(for="s857") 7
+                                            input#s858(type="checkbox" name="s85" value='8')
+                                            label(for="s858") 8
+                                            input#s859(type="checkbox" name="s85" value='9')
+                                            label(for="s859") 9
+                                            input#s850(type="checkbox" name="s85" value='')
+                                            label(for="s850") 0
+                                #s86.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Karena dipanaskan, kawat yang panjangnya 48 cm akan mengembang menjadi 52 cm. setelah pemanasan, berapakah panjangnya kawat yang berukuran 72 cm?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s771(type="checkbox" name="s86" value='1')
+                                            label(for="s771") 1
+                                            input#s772(type="checkbox" name="s86" value='2')
+                                            label(for="s772") 2
+                                            input#s773(type="checkbox" name="s86" value='3')
+                                            label(for="s773") 3
+                                            input#s774(type="checkbox" name="s86" value='4')
+                                            label(for="s774") 4
+                                            input#s775(type="checkbox" name="s86" value='5')
+                                            label(for="s775") 5
+                                            input#s776(type="checkbox" name="s86" value='6')
+                                            label(for="s776") 6
+                                            input#s777(type="checkbox" name="s86" value='7')
+                                            label(for="s777") 7
+                                            input#s778(type="checkbox" name="s86" value='8')
+                                            label(for="s778") 8
+                                            input#s779(type="checkbox" name="s86" value='9')
+                                            label(for="s779") 9
+                                            input#s770(type="checkbox" name="s86" value='0')
+                                            label(for="s770") 0
+                                #s87.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Suatu pabrik dapat menghasilkan 304 batang pensil dalam waktu 8 jam. Berapa batangkah dihasilkan dalam waktu setengah jam?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s871(type="checkbox" name="s87" value='1')
+                                            label(for="s871") 1
+                                            input#s872(type="checkbox" name="s87" value='2')
+                                            label(for="s872") 2
+                                            input#s873(type="checkbox" name="s87" value='3')
+                                            label(for="s873") 3
+                                            input#s874(type="checkbox" name="s87" value='4')
+                                            label(for="s874") 4
+                                            input#s875(type="checkbox" name="s87" value='5')
+                                            label(for="s875") 5
+                                            input#s876(type="checkbox" name="s87" value='6')
+                                            label(for="s876") 6
+                                            input#s877(type="checkbox" name="s87" value='7')
+                                            label(for="s877") 7
+                                            input#s878(type="checkbox" name="s87" value='8')
+                                            label(for="s878") 8
+                                            input#s879(type="checkbox" name="s87" value='9')
+                                            label(for="s879") 9
+                                            input#s870(type="checkbox" name="s87" value='0')
+                                            label(for="s870") 0
+                                #s88.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Untuk suatu campuran diperlukan 2 bagian perak dan 3 bagian timah. Berapa gramkah perak yang diperlukan untuk mendapatkan campuran itu yang beratnya 15 gram?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s881(type="checkbox" name="s88" value='1')
+                                            label(for="s881") 1
+                                            input#s882(type="checkbox" name="s88" value='2')
+                                            label(for="s882") 2
+                                            input#s883(type="checkbox" name="s88" value='3')
+                                            label(for="s883") 3
+                                            input#s884(type="checkbox" name="s88" value='4')
+                                            label(for="s884") 4
+                                            input#s885(type="checkbox" name="s88" value='5')
+                                            label(for="s885") 5
+                                            input#s886(type="checkbox" name="s88" value='6')
+                                            label(for="s886") 6
+                                            input#s887(type="checkbox" name="s88" value='7')
+                                            label(for="s887") 7
+                                            input#s888(type="checkbox" name="s88" value='8')
+                                            label(for="s888") 8
+                                            input#s889(type="checkbox" name="s88" value='9')
+                                            label(for="s889") 9
+                                            input#s880(type="checkbox" name="s88" value='0')
+                                            label(for="s880") 0
+                                #s89.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Untuk setiap Rp 3,- yang dimiliki Sidin, Hamid memiliki Rp 5,- Jika mereka bersama mempunyai Rp 120,- berapa rupiahkah yang dimiliki Hamid?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s891(type="checkbox" name="s89" value='1')
+                                            label(for="s891") 1
+                                            input#s892(type="checkbox" name="s89" value='2')
+                                            label(for="s892") 2
+                                            input#s893(type="checkbox" name="s89" value='3')
+                                            label(for="s893") 3
+                                            input#s894(type="checkbox" name="s89" value='4')
+                                            label(for="s894") 4
+                                            input#s895(type="checkbox" name="s89" value='5')
+                                            label(for="s895") 5
+                                            input#s896(type="checkbox" name="s89" value='6')
+                                            label(for="s896") 6
+                                            input#s897(type="checkbox" name="s89" value='7')
+                                            label(for="s897") 7
+                                            input#s898(type="checkbox" name="s89" value='8')
+                                            label(for="s898") 8
+                                            input#s899(type="checkbox" name="s89" value='9')
+                                            label(for="s899") 9
+                                            input#s890(type="checkbox" name="s89" value='0')
+                                            label(for="s890") 0
+                                #s90.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Mesin A menenun 60 m kain, sedangkan mesin B menenun 40 m. berapa meterkah yang ditenun mesin A, jika mesin B menenun 60 m?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s901(type="checkbox" name="s90" value='1')
+                                            label(for="s901") 1
+                                            input#s902(type="checkbox" name="s90" value='2')
+                                            label(for="s902") 2
+                                            input#s903(type="checkbox" name="s90" value='3')
+                                            label(for="s903") 3
+                                            input#s904(type="checkbox" name="s90" value='4')
+                                            label(for="s904") 4
+                                            input#s905(type="checkbox" name="s90" value='5')
+                                            label(for="s905") 5
+                                            input#s906(type="checkbox" name="s90" value='6')
+                                            label(for="s906") 6
+                                            input#s907(type="checkbox" name="s90" value='7')
+                                            label(for="s907") 7
+                                            input#s908(type="checkbox" name="s90" value='8')
+                                            label(for="s908") 8
+                                            input#s909(type="checkbox" name="s90" value='9')
+                                            label(for="s909") 9
+                                            input#s900(type="checkbox" name="s90" value='0')
+                                            label(for="s900") 0
+                                #s91.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Seseorang membelikan 1/10 dari uangnya untuk perangko dan 4 kali jumlah itu untuk alat tulis. Sisa uangnya masih Rp 60,- Berapa rupiahkah uang semula?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s911(type="checkbox" name="s91" value='1')
+                                            label(for="s911") 1
+                                            input#s912(type="checkbox" name="s91" value='2')
+                                            label(for="s912") 2
+                                            input#s913(type="checkbox" name="s91" value='3')
+                                            label(for="s913") 3
+                                            input#s914(type="checkbox" name="s91" value='4')
+                                            label(for="s914") 4
+                                            input#s915(type="checkbox" name="s91" value='5')
+                                            label(for="s915") 5
+                                            input#s916(type="checkbox" name="s91" value='6')
+                                            label(for="s916") 6
+                                            input#s917(type="checkbox" name="s91" value='7')
+                                            label(for="s917") 7
+                                            input#s918(type="checkbox" name="s91" value='8')
+                                            label(for="s918") 8
+                                            input#s919(type="checkbox" name="s91" value='9')
+                                            label(for="s919") 9
+                                            input#s910(type="checkbox" name="s91" value='0')
+                                            label(for="s910") 0
+                                #s92.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Di dalam dua peti terdapat 43 piring. Di dalam peti yang satu terdapat 9 piring lebih banyak dari pada di dalam peti yang lain. Berapa buah piring terdapat di dalam peti yang lebih kecil?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s921(type="checkbox" name="s92" value='1')
+                                            label(for="s921") 1
+                                            input#s922(type="checkbox" name="s92" value='2')
+                                            label(for="s922") 2
+                                            input#s923(type="checkbox" name="s92" value='3')
+                                            label(for="s923") 3
+                                            input#s924(type="checkbox" name="s92" value='4')
+                                            label(for="s924") 4
+                                            input#s925(type="checkbox" name="s92" value='5')
+                                            label(for="s925") 5
+                                            input#s926(type="checkbox" name="s92" value='6')
+                                            label(for="s926") 6
+                                            input#s927(type="checkbox" name="s92" value='7')
+                                            label(for="s927") 7
+                                            input#s928(type="checkbox" name="s92" value='8')
+                                            label(for="s928") 8
+                                            input#s929(type="checkbox" name="s92" value='9')
+                                            label(for="s929") 9
+                                            input#s920(type="checkbox" name="s92" value='0')
+                                            label(for="s920") 0
+                                #s93.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Suatu lembaran kain yang panjangnya 60 cm harus dibagikan sedemikian rupa sehingga panjangnya satu bagian ialah 2/3 dari bagian yang lain. Berapa panjangnya bagian yang terpendek."
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s931(type="checkbox" name="s93" value='1')
+                                            label(for="s931") 1
+                                            input#s932(type="checkbox" name="s93" value='2')
+                                            label(for="s932") 2
+                                            input#s933(type="checkbox" name="s93" value='3')
+                                            label(for="s933") 3
+                                            input#s934(type="checkbox" name="s93" value='4')
+                                            label(for="s934") 4
+                                            input#s935(type="checkbox" name="s93" value='5')
+                                            label(for="s935") 5
+                                            input#s936(type="checkbox" name="s93" value='6')
+                                            label(for="s936") 6
+                                            input#s937(type="checkbox" name="s93" value='7')
+                                            label(for="s937") 7
+                                            input#s938(type="checkbox" name="s93" value='8')
+                                            label(for="s938") 8
+                                            input#s939(type="checkbox" name="s93" value='9')
+                                            label(for="s939") 9
+                                            input#s930(type="checkbox" name="s93" value='0')
+                                            label(for="s930") 0
+                                #s94.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Suatu perusahaan mengekspor ¾ dari hasil produksinya dan menjual 4/5 dari sisa itu dalam negeri. Berapa % kah hasil produksi yang masih tinggal?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s941(type="checkbox" name="s94" value='1')
+                                            label(for="s941") 1
+                                            input#s942(type="checkbox" name="s94" value='2')
+                                            label(for="s942") 2
+                                            input#s943(type="checkbox" name="s94" value='3')
+                                            label(for="s943") 3
+                                            input#s944(type="checkbox" name="s94" value='4')
+                                            label(for="s874") 4
+                                            input#s875(type="checkbox" name="s94" value='5')
+                                            label(for="s875") 5
+                                            input#s876(type="checkbox" name="s94" value='6')
+                                            label(for="s876") 6
+                                            input#s877(type="checkbox" name="s94" value='7')
+                                            label(for="s877") 7
+                                            input#s878(type="checkbox" name="s94" value='8')
+                                            label(for="s878") 8
+                                            input#s879(type="checkbox" name="s94" value='9')
+                                            label(for="s879") 9
+                                            input#s870(type="checkbox" name="s94" value='0')
+                                            label(for="s870") 0
+                                #s95.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Jika suatu botol berisi anggur hanya 7/8 bagian dan harganya ialah Rp 84,- berapakah harga anggur itu jika botol itu hanya terisi ½ penuh?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s871(type="checkbox" name="s95" value='1')
+                                            label(for="s871") 1
+                                            input#s872(type="checkbox" name="s95" value='2')
+                                            label(for="s872") 2
+                                            input#s873(type="checkbox" name="s95" value='3')
+                                            label(for="s873") 3
+                                            input#s874(type="checkbox" name="s95" value='4')
+                                            label(for="s874") 4
+                                            input#s875(type="checkbox" name="s95" value='5')
+                                            label(for="s875") 5
+                                            input#s876(type="checkbox" name="s95" value='6')
+                                            label(for="s876") 6
+                                            input#s877(type="checkbox" name="s95" value='7')
+                                            label(for="s877") 7
+                                            input#s878(type="checkbox" name="s95" value='8')
+                                            label(for="s878") 8
+                                            input#s879(type="checkbox" name="s95" value='9')
+                                            label(for="s879") 9
+                                            input#s870(type="checkbox" name="s95" value='0')
+                                            label(for="s870") 0
+                                #s96.soal_column
+                                    div(style='width:auto; height:5em')  
+                                        p="Di dalam suatu keluarga setiap anak perempuan mempunyai jumlah saudara laki-laki yang sama dengan jumlah saudara perempuan dan setiap anak laki-laki mempunyai dua kali lebih banyak saudara perempuan dari pada saudara laki-laki. Berapa anak laki-lakikah yang terdapat di dalam keluarga tersebut?"
+                                        div(style="display:flex; align-items: center; flex-direction:row;")
+                                            input#s871(type="checkbox" name="s96" value='1')
+                                            label(for="s871") 1
+                                            input#s872(type="checkbox" name="s96" value='2')
+                                            label(for="s872") 2
+                                            input#s873(type="checkbox" name="s96" value='3')
+                                            label(for="s873") 3
+                                            input#s874(type="checkbox" name="s96" value='4')
+                                            label(for="s874") 4
+                                            input#s875(type="checkbox" name="s96" value='5')
+                                            label(for="s875") 5
+                                            input#s876(type="checkbox" name="s96" value='6')
+                                            label(for="s876") 6
+                                            input#s877(type="checkbox" name="s96" value='7')
+                                            label(for="s877") 7
+                                            input#s878(type="checkbox" name="s96" value='8')
+                                            label(for="s878") 8
+                                            input#s879(type="checkbox" name="s96" value='9')
+                                            label(for="s879") 9
+                                            input#s870(type="checkbox" name="s96" value='0')
+                                            label(for="s870") 0
+                    #tutorial6.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal6_1.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal6_2.jpg", alt="")
                         button#selesaiTutorial6(type="button") Selesai  
                     #bagian6.hide
                         #s97 
-                            p="6 9 12 15 18 21 24 ?"
+                            p="97) 6 9 12 15 18 21 24 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s77" value='1')
+                                input#s771(type="checkbox" name="s97" value='1')
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name="s77" value='2')
+                                input#s772(type="checkbox" name="s97" value='2')
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name="s77" value='3')
+                                input#s773(type="checkbox" name="s97" value='3')
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name="s77" value='4')
+                                input#s774(type="checkbox" name="s97" value='4')
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name="s77" value='5')
+                                input#s775(type="checkbox" name="s97" value='5')
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name="s77" value='6')
+                                input#s776(type="checkbox" name="s97" value='6')
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name="s77" value='7')
+                                input#s777(type="checkbox" name="s97" value='7')
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name="s77" value='8')
+                                input#s778(type="checkbox" name="s97" value='8')
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name="s77" value='9')
+                                input#s779(type="checkbox" name="s97" value='9')
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name="s77" value='0')
+                                input#s770(type="checkbox" name="s97" value='0')
                                 label(for="s770") 0
                         #s98 
-                            p="15 16 18 19 21 22 24 ?"
+                            p="98) 15 16 18 19 21 22 24 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s77" value='1')
+                                input#s771(type="checkbox" name="s98" value='1')
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name="s77" value='2')
+                                input#s772(type="checkbox" name="s98" value='2')
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name="s77" value='3')
+                                input#s773(type="checkbox" name="s98" value='3')
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name="s77" value='4')
+                                input#s774(type="checkbox" name="s98" value='4')
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name="s77" value='5')
+                                input#s775(type="checkbox" name="s98" value='5')
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name="s77" value='6')
+                                input#s776(type="checkbox" name="s98" value='6')
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name="s77" value='7')
+                                input#s777(type="checkbox" name="s98" value='7')
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name="s77" value='8')
+                                input#s778(type="checkbox" name="s98" value='8')
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name="s77" value='9')
+                                input#s779(type="checkbox" name="s98" value='9')
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name="s77" value='0')
+                                input#s770(type="checkbox" name="s98" value='0')
                                 label(for="s770") 0
                         #s99 
-                            p="19 18 22 21 25 24 28 ?"
+                            p="99) 19 18 22 21 25 24 28 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
-                                input#s771(type="checkbox" name="s77" value='1')
+                                input#s771(type="checkbox" name="s99" value='1')
                                 label(for="s771") 1
-                                input#s772(type="checkbox" name="s77" value='2')
+                                input#s772(type="checkbox" name="s99" value='2')
                                 label(for="s772") 2
-                                input#s773(type="checkbox" name="s77" value='3')
+                                input#s773(type="checkbox" name="s99" value='3')
                                 label(for="s773") 3
-                                input#s774(type="checkbox" name="s77" value='4')
+                                input#s774(type="checkbox" name="s99" value='4')
                                 label(for="s774") 4
-                                input#s775(type="checkbox" name="s77" value='5')
+                                input#s775(type="checkbox" name="s99" value='5')
                                 label(for="s775") 5
-                                input#s776(type="checkbox" name="s77" value='6')
+                                input#s776(type="checkbox" name="s99" value='6')
                                 label(for="s776") 6
-                                input#s777(type="checkbox" name="s77" value='7')
+                                input#s777(type="checkbox" name="s99" value='7')
                                 label(for="s777") 7
-                                input#s778(type="checkbox" name="s77" value='8')
+                                input#s778(type="checkbox" name="s99" value='8')
                                 label(for="s778") 8
-                                input#s779(type="checkbox" name="s77" value='9')
+                                input#s779(type="checkbox" name="s99" value='9')
                                 label(for="s779") 9
-                                input#s770(type="checkbox" name="s77" value='0')
+                                input#s770(type="checkbox" name="s99" value='0')
                                 label(for="s770") 0
                         #s100 
-                            p="16 12 17 13 18 14 19 ?"
+                            p="100) 16 12 17 13 18 14 19 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s100" value='1')
                                 label(for="s771") 1
@@ -1953,7 +2097,7 @@ block content
                                 input#s770(type="checkbox" name="s100" value='0')
                                 label(for="s770") 0
                         #s101 
-                            p="2 4 8 10 20 22 44 ?"
+                            p="101) 2 4 8 10 20 22 44 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s101" value='1')
                                 label(for="s771") 1
@@ -1976,7 +2120,7 @@ block content
                                 input#s770(type="checkbox" name="s101" value='0')
                                 label(for="s770") 0
                         #s102 
-                            p="15 13 16 12 17 11 18 ?"
+                            p="102) 15 13 16 12 17 11 18 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s102" value='1')
                                 label(for="s771") 1
@@ -1999,7 +2143,7 @@ block content
                                 input#s770(type="checkbox" name="s102" value='0')
                                 label(for="s770") 0
                         #s103 
-                            p="25 22 11 33 30 15 45 ?"
+                            p="103) 25 22 11 33 30 15 45 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s103" value='1')
                                 label(for="s771") 1
@@ -2022,7 +2166,7 @@ block content
                                 input#s770(type="checkbox" name="s103" value='0')
                                 label(for="s770") 0
                         #s104 
-                            p="49 51 54 27 9 11 14 ?"
+                            p="104) 49 51 54 27 9 11 14 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s104" value='1')
                                 label(for="s771") 1
@@ -2045,7 +2189,7 @@ block content
                                 input#s770(type="checkbox" name="s104" value='0')
                                 label(for="s770") 0
                         #s105 
-                            p="2 3 1 3 4 2 4 ?"
+                            p="105) 2 3 1 3 4 2 4 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s105" value='1')
                                 label(for="s771") 1
@@ -2068,7 +2212,7 @@ block content
                                 input#s770(type="checkbox" name="s105" value='0')
                                 label(for="s770") 0
                         #s106 
-                            p="Karena dipanaskan, kawat yang panjangnya 48 cm akan mengembang menjadi 52 cm. setelah pemanasan, berapakah panjangnya kawat yang berukuran 72 cm?"
+                            p="106) 19 17 20 16 21 15 22 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s106" value='1')
                                 label(for="s771") 1
@@ -2091,7 +2235,7 @@ block content
                                 input#s770(type="checkbox" name="s106" value='0')
                                 label(for="s770") 0
                         #s107 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="107) 94 92 46 44 22 20 10 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s107" value='1')
                                 label(for="s771") 1
@@ -2114,7 +2258,7 @@ block content
                                 input#s770(type="checkbox" name="s107" value='0')
                                 label(for="s770") 0
                         #s108
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="108) 5 8 9 8 11 12 11 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s108" value='1')
                                 label(for="s771") 1
@@ -2137,7 +2281,7 @@ block content
                                 input#s770(type="checkbox" name="s108" value='0')
                                 label(for="s770") 0
                         #s109 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="109) 12 15 19 23 28 33 39 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s109" value='1')
                                 label(for="s771") 1
@@ -2160,7 +2304,7 @@ block content
                                 input#s770(type="checkbox" name="s109" value='0')
                                 label(for="s770") 0
                         #s110 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="110) 7 5 10 7 21 17 68 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s110" value='1')
                                 label(for="s771") 1
@@ -2183,7 +2327,7 @@ block content
                                 input#s770(type="checkbox" name="s110" value='0')
                                 label(for="s770") 0
                         #s111
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="111) 11 15 18 9 13 16 8 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s111" value='1')
                                 label(for="s771") 1
@@ -2206,7 +2350,7 @@ block content
                                 input#s770(type="checkbox" name="s111" value='0')
                                 label(for="s770") 0
                         #s112 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="112) 3 8 15 24 35 48 63 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s112" value='1')
                                 label(for="s771") 1
@@ -2229,7 +2373,7 @@ block content
                                 input#s770(type="checkbox" name="s112" value='0')
                                 label(for="s770") 0
                         #s113 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="113) 4 5 7 4 8 13 7 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s113" value='1')
                                 label(for="s771") 1
@@ -2252,7 +2396,7 @@ block content
                                 input#s770(type="checkbox" name="s113" value='0')
                                 label(for="s770") 0
                         #s114 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="114) 8 5 15 18 6 3 9 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s114" value='1')
                                 label(for="s771") 1
@@ -2275,7 +2419,7 @@ block content
                                 input#s770(type="checkbox" name="s114" value='0')
                                 label(for="s770") 0
                         #s115 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="115) 15 6 18 10 30 23 69 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s115" value='1')
                                 label(for="s771") 1
@@ -2298,7 +2442,7 @@ block content
                                 input#s770(type="checkbox" name="s115" value='0')
                                 label(for="s770") 0
                         #s116 
-                            p="Jika seorang anak memiliki 50 rupiah dan memberikan 15 rupiah kepada orang lain, berapa rupiahkah yang masih tinggal padanya?"
+                            p="116) 5 35 28 4 11 77 70 ?"
                             div(style="display:flex; align-items: center; flex-direction:row;")
                                 input#s771(type="checkbox" name="s116" value='1')
                                 label(for="s771") 1
@@ -2320,7 +2464,11 @@ block content
                                 label(for="s779") 9
                                 input#s770(type="checkbox" name="s116" value='0')
                                 label(for="s770") 0
-                    #tutorial7.hide 
+                    #tutorial7.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal7_1.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal7_2.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal7_3.jpg", alt="")
                         button#selesaiTutorial7(type="button") Selesai  
                     #bagian7.hide
                         div(style='display: flex; flex-direction:row;')
@@ -2379,183 +2527,183 @@ block content
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s119")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s119")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s119")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s119")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s119")
                             #s120.soal
                                 img.soal_ist(src="/images/s120.jpg", alt="Soal 120")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s120")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s120")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s120")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s120")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s120")
                         div(style='display: flex; flex-direction:row;')
                             #s121.soal
                                 img.soal_ist(src="/images/s121.jpg", alt="Soal 121")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s121")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s121")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s121")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s121")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s121")
                             #s122.soal
                                 img.soal_ist(src="/images/s122.jpg", alt="Soal 122")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s122")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s122")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s122")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s122")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s122")
                             #s123.soal
                                 img.soal_ist(src="/images/s123.jpg", alt="Soal 123")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s123")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s123")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s123")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s123")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s123")
                             #s124.soal
                                 img.soal_ist(src="/images/s124.jpg", alt="Soal 124")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s124")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s124")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s124")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s124")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s124")
                         div(style='display: flex; flex-direction:row;')
                             #s125.soal
                                 img.soal_ist(src="/images/s125.jpg", alt="Soal 125")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s125")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s125")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s125")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s125")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s125")
                             #s126.soal
                                 img.soal_ist(src="/images/s126.jpg", alt="Soal 126")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s126")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s126")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s126")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s126")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s126")
                             #s127.soal
                                 img.soal_ist(src="/images/s127.jpg", alt="Soal 127")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s127")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s127")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s127")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s127")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s127")
                             #s128.soal
                                 img.soal_ist(src="/images/s128.jpg", alt="Soal 128")
                                 div(style='display: flex; flex-direction:row;')
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117a") a
-                                                input#r117a(type="radio", name="s118")
+                                                input#r117a(type="radio", name="s128")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117b") b
-                                                input#r117b(type="radio", name="s118")
+                                                input#r117b(type="radio", name="s128")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117c") c
-                                                input#r117c(type="radio", name="s118")
+                                                input#r117c(type="radio", name="s128")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117d") d
-                                                input#r117d(type="radio", name="s118")
+                                                input#r117d(type="radio", name="s128")
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
-                                                input#r117e(type="radio", name="s118")
+                                                input#r117e(type="radio", name="s128")
                         div(style='display: flex; flex-direction:row;')
                             label(for="ja1") 
                                 img.soal_ist(src="/images/ja2.jpg", alt="jawaban a") 
@@ -2716,7 +2864,11 @@ block content
                                         div(style='flex: 1 1 auto; display: flex; flex-direction:row;')
                                                 label(for="r117e") e
                                                 input#r117e(type="radio", name="s136")
-                    #tutorial8.hide 
+                    #tutorial8.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal8_1.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal8_2.jpg", alt="")
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal8_3.jpg", alt="")
                         button#selesaiTutorial8(type="button") Selesai  
                     #bagian8.hide
                         div(style="display: flex; flex-direction:column;")
@@ -3074,9 +3226,13 @@ block content
                                     div(style='display: flex; flex-direction:row;')
                                             label(for="r117e") e
                                             input#r117e(type="radio", name="s156")
-                    #tutorial9.hide
+                    #tutorial9_hafal.hide
                         img(src="/images/hafal.jpg", alt="Hafal")
-                        button#selesaiTutorial9(type="button") Selesai  
+                    #tutorial9.hide
+                        .soal_column
+                            img(style="width: 40em; height: auto;" src="/images/contoh_soal9_1.jpg", alt="")
+                            img(style="width: 30em; height: auto;" src="/images/contoh_soal9_2.jpg", alt="")
+                        button#selesaiTutorial9(type="button") Selesai 
                     #bagian9.hide
                         .soal_row
                             .soal_column(style='margin-right: 1em')
@@ -3581,8 +3737,7 @@ block content
                                             .soal_row
                                                 input(type="radio" name='s176')
                                                 label(for="")='e) binatang'
-
-                    div#submit.hide()
+                    #submit.hide
                         h1 Tolong Submit
                         button#btnSubmit(type="submit") Submit
 block script 
