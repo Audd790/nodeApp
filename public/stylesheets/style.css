@@ -64,6 +64,16 @@ img{
   flex-grow: 0;
 }
 
+.soal{
+  margin-bottom: 5em;
+  margin-right: 2em;
+}
+
+.soal_ist{
+  width: auto;
+  height: 8em;
+}
+
 ul{
   clear: both;
 }
@@ -89,7 +99,7 @@ li{
   margin-top: 1em;
 }
 .container1{
-  max-width: 600px;
+  /* max-width: 600px; */
   background-color: #fff;
   border-radius: 8px;
   border: 0.123em solid #999;

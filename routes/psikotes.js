@@ -26,8 +26,43 @@ router.get('/masuk_test/:test',upload.none(), (req,res)=>{
 })
 
 router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
-    // var sql = 'select * from psikotes where nama = ? and pass = ?'
-    res.send({result: 'success'})
+    var sql
+    var date
+    var values
+    if(req.params.test == 'ist'){
+        const masuk_psikotesIST = req.body
+        sql = 'insert into psikotes(nama, jenis_kelamin, pend_terakhir, hari, bulan, year)'+
+        'values(?,?,?,?,?,?)'
+        date = new Date(req.body.tgl_lahir)
+        values = [masuk_psikotesIST.nama, 
+        masuk_psikotesIST.kelamin, 
+        masuk_psikotesIST.pen_terakhir,
+        date.getDate(),
+        date.getMonth(),
+        date.getFullYear()]
+        connection.query(sql,values, (err,rows)=>{
+            if(err){
+                next(err)
+            } else{
+                console.log(rows)
+                res.send({result: 'success'})
+            }
+        })
+    }
+
+    if(req.params.test == 'disc'){
+        sql = 'insert into psikotes(nama, jenis_kelamin, umur)'+
+        'values(?,?,?)'
+        values = Object.values(req.body)
+        connection.query(sql, values, (err, rows)=>{
+            if(err){
+                next(err)
+            }else{
+                console.log(rows)
+                res.send({result: 'success'})
+            }
+        })
+    }
 })
 
 router.get('/disc_test',  (req,res)=>{
