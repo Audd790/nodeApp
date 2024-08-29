@@ -428,7 +428,6 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
-            console.log(year)
             var tablesMonthsWithHoles = new Array
             for(h=0;h<years.length;h++){
                 tablesMonthsWithHoles[h] = []
