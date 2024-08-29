@@ -158,6 +158,7 @@ router.post('/disc_test', upload.none(),
                     next(err)
                 } else{
                     console.log(rows)
+                    req.session.destroy()
                 }
             })
             res.send({result: 'success', err: ''})
@@ -211,6 +212,7 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
             next(err)
         } else{
             console.log(rows)
+            req.session.destroy()
         }
     })
     res.send({result: 'success'})
