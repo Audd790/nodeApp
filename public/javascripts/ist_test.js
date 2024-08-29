@@ -10,16 +10,13 @@ var timeout6 = 10*menit*miliseconds
 var timeout7 = 8*menit*miliseconds
 var timeout8 = 7*menit*miliseconds
 var timeout9 = 6*menit*miliseconds
+var timeoutTutorial9 = 3*menit*miliseconds
 
-// kelompok 1 : 6 menit
-// kelompok 2: 6 menit
-// kelompok 3 : 7 menit
-// kelompok 4 : 8 menit
-// kelompok 5 : 10 menit
-// kelompok 6 : 10 menit
-// kelompok 7 : 8 menit
-// kelompok 8 : 7 menit
-// kelompok 9 : 6 menit
+var BUNGA = ['SOKA', 'LARAT', 'FLAMBOYAN', 'YASMIN', 'DAHLIA']
+var PERKAKAS = ['WAJAN', 'JARUM', 'KIKIR', 'CANGKUL', 'PALU']
+var BURUNG = ['ITIK', 'ELANG', 'WALET', 'TEKUKUR', 'NURI']
+var KESENIAN = ['QUINTET', 'ARCA', 'OPERA', 'UKIRAN', 'GAMELAN']
+var BINATANG = ['RUSA', 'MUSANG', 'BERUANG', 'HARIMAU', 'ZEBRA']
 
 var button1 = $('#button_bagian1')
 var button2 = $('#button_bagian2')
@@ -83,6 +80,51 @@ $('#selesaiTutorial5').on('click', function(){
     $('#bagian5').toggleClass('hide')
     setTimeout(() => {
         $('#bagian5').toggleClass('hide')
+        $('#tutorial6').toggleClass('hide')
+        $(this).toggleClass('hide')
+    }, testtimeout)
+})
+
+$('#selesaiTutorial6').on('click', function(){
+    $('#tutorial6').toggleClass('hide')
+    $('#bagian6').toggleClass('hide')
+    setTimeout(() => {
+        $('#bagian6').toggleClass('hide')
+        $('#tutorial7').toggleClass('hide')
+        $(this).toggleClass('hide')
+    }, testtimeout)
+})
+
+$('#selesaiTutorial7').on('click', function(){
+    $('#tutorial7').toggleClass('hide')
+    $('#bagian7').toggleClass('hide')
+    setTimeout(() => {
+        $('#bagian7').toggleClass('hide')
+        $('#tutorial8').toggleClass('hide')
+        $(this).toggleClass('hide')
+    }, testtimeout)
+})
+
+$('#selesaiTutorial8').on('click', function(){
+    $('#tutorial8').toggleClass('hide')
+    $('#bagian8').toggleClass('hide')
+    setTimeout(() => {
+        $('#bagian8').toggleClass('hide')
+        $('#tutorial9').toggleClass('hide')
+        $(this).toggleClass('hide')
+        setTimeout(() => {
+            $('#bagian8').toggleClass('hide')
+            $('#tutorial9').toggleClass('hide')
+            $(this).toggleClass('hide')
+        }, timeoutTutorial9)
+    }, testtimeout)
+})
+
+$('#selesaiTutorial9').on('click', function(){
+    $('#tutorial9').toggleClass('hide')
+    $('#bagian9').toggleClass('hide')
+    setTimeout(() => {
+        $('#bagian9').toggleClass('hide')
         $('#submit').toggleClass('hide')
         $(this).toggleClass('hide')
     }, testtimeout)
