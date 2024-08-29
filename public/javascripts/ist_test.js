@@ -1,7 +1,7 @@
 var miliseconds = 1000
 var menit = 60
 var seconds = 0.5*menit;
-var testtimeout = menit*miliseconds
+var testtimeout = menit
 var timeout1 = 6*menit
 var timeout2 = 6*menit
 var timeout3 = 7*menit
@@ -64,18 +64,6 @@ function CountDownTimer(duration, granularity) {
     };
   };
 
-var BUNGA = ['SOKA', 'LARAT', 'FLAMBOYAN', 'YASMIN', 'DAHLIA']
-var PERKAKAS = ['WAJAN', 'JARUM', 'KIKIR', 'CANGKUL', 'PALU']
-var BURUNG = ['ITIK', 'ELANG', 'WALET', 'TEKUKUR', 'NURI']
-var KESENIAN = ['QUINTET', 'ARCA', 'OPERA', 'UKIRAN', 'GAMELAN']
-var BINATANG = ['RUSA', 'MUSANG', 'BERUANG', 'HARIMAU', 'ZEBRA']
-
-var button1 = $('#button_bagian1')
-var button2 = $('#button_bagian2')
-var button3 = $('#button_bagian3')
-var button4 = $('#button_bagian4')
-var button5 = $('#button_bagian5')
-
 window.history.forward(); 
 function noBack() { 
     window.history.forward(); 
@@ -92,105 +80,105 @@ $('#selesaiTutorial1').on('click', function(){
     $('#tutorial1').toggleClass('hide')
     $('#bagian1').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout1);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian1').toggleClass('hide')
         $('#tutorial2').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout1*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial2').on('click', function(){
     $('#tutorial2').toggleClass('hide')
     $('#bagian2').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout2);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian2').toggleClass('hide')
         $('#tutorial3').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout2*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial3').on('click', function(){
     $('#tutorial3').toggleClass('hide')
     $('#bagian3').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout3);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian3').toggleClass('hide')
         $('#tutorial4').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout3*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial4').on('click', function(){
     $('#tutorial4').toggleClass('hide')
     $('#bagian4').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout4);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian4').toggleClass('hide')
         $('#tutorial5').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout4*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial5').on('click', function(){
     $('#tutorial5').toggleClass('hide')
     $('#bagian5').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout5);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian5').toggleClass('hide')
         $('#tutorial6').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout5*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial6').on('click', function(){
     $('#tutorial6').toggleClass('hide')
     $('#bagian6').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout6);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian6').toggleClass('hide')
         $('#tutorial7').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout6*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial7').on('click', function(){
     $('#tutorial7').toggleClass('hide')
     $('#bagian7').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout7);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian7').toggleClass('hide')
         $('#tutorial8').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout7*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial8').on('click', function(){
     $('#tutorial8').toggleClass('hide')
     $('#bagian8').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout8);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian8').toggleClass('hide')
@@ -198,12 +186,12 @@ $('#selesaiTutorial8').on('click', function(){
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
         $('#tutorial9_hafal1').toggleClass('hide')
-    }, timeout8*miliseconds)
+    }, testtimeout*miliseconds)
 })
 $('#mulaiHafal1').on('click',function(){
     $('#tutorial9_hafal1').toggleClass('hide')
     $('#tutorial9_hafal2').toggleClass('hide')
-    var timer = new CountDownTimer(timeoutTutorial9);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     $('#time').toggleClass('hide')
     setTimeout(() => {
@@ -211,7 +199,7 @@ $('#mulaiHafal1').on('click',function(){
         $('#tutorial9').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeoutTutorial9)
+    }, testtimeout*miliseconds)
 })
 
 $('#selesaiTutorial9').on('click', function(){
@@ -225,7 +213,7 @@ $('#selesaiTutorial9').on('click', function(){
         $('#submit').toggleClass('hide')
         $(this).toggleClass('hide')
         $('#time').toggleClass('hide')
-    }, timeout9*miliseconds)
+    }, testtimeout*miliseconds)
 })
 
 $('form').on('submit',function(e){
@@ -252,6 +240,6 @@ $('form').on('submit',function(e){
 function format(minutes, seconds) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
-    $('#time')[0].textContent = '00' + ':' + minutes + ':' + seconds;
-    console.log($('#time'))
+    $('#display_time')[0].textContent = '00' + ':' + minutes + ':' + seconds;
+    console.log($('#display_time'))
 }

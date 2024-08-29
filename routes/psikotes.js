@@ -75,9 +75,9 @@ router.get('/disc_test',  (req,res)=>{
 })
 
 router.get('/ist_test', (req,res)=>{
-    // if(!req.session.user){
-        // res.redirect('/psikotes/masuk_test/ist')
-    // }
+    if(!req.session.user){
+        res.redirect('/psikotes/masuk_test/ist')
+    }
         res.render('psikotes/ist_test',{title: 'welcome to ist test'})
 })
 

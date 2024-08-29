@@ -5,7 +5,9 @@ block content
             .header
                 .soal_column
                     h2 IST TEST
-                    h2#time.hide
+                    #time.hide
+                        h2 Waktu Tinggal
+                        h2#display_time
             .body
                 form(action="ist_test" method="post" enctype="multipart/form-data")
                     #entry
@@ -17,455 +19,416 @@ block content
                             img.contoh_soal(style="width: 30em; height: auto;" src="/images/contoh_soal1_2.jpg", alt="contoh soal")
                         button#selesaiTutorial1(type="button") Selesai
                     #bagian1.hide
-                        h1 bagian1
-                        #s1.form-group
-                            p="01. Pengaruh seseorang terhadap orang lain seharusnya bergantung pada ..."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s1" value="a")
-                                    label(for="s11") a. kekuasaan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s1" value="b")
-                                    label(for="s12") b. bujukan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s1" value="c")
-                                    label(for="s13") c. kekayaan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s1" value="d")
-                                    label(for="s14") d. keberanian
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s1" value="e")
-                                    label(for="s15") e. kewibawaan
-                        #s2.form-group 
-                            p="02. Lawannya “hemat” ialah ......."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s2" value="a")
-                                    label(for="s21") a. murah
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s2" value="b")
-                                    label(for="s22") b. kikir
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s2" value="c")
-                                    label(for="s23") c. boros
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s2" value="d")
-                                    label(for="s24") d. bernilai
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s2" value="e")
-                                    label(for="s25") e. kaya
-                        #s3.form-group 
-                            p="03. .... tidak termasuk cuaca"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s3" value="a")
-                                    label(for="s31") a. angin puyuh
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s3" value="b")
-                                    label(for="s32") b. halilintar
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s3" value="c")
-                                    label(for="s33") c. salju
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s3" value="d")
-                                    label(for="s34") d. gempa bumi
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s3" value="e")
-                                    label(for="s35") e. kabut
-                        #s4.form-group 
-                            p="04. Lawannya “setia” ialah ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s4" value="a")
-                                    label(for="s41") a. cinta
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s4" value="b")
-                                    label(for="s42") b. benci
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s4" value="c")
-                                    label(for="s43") c. persahabatan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s4" value="d")
-                                    label(for="s44") d. khianat
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s4" value="e")
-                                    label(for="s45") e. permusuhan
-                        #s5.form-group 
-                            p="05. Seekor kuda selalu mempunyai ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s5" value="a")
-                                    label(for="s51") a. kandang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s5" value="b")
-                                    label(for="s52") b. ladam
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s5" value="c")
-                                    label(for="s53") c. pelana
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s5" value="d")
-                                    label(for="s54") d. kuku
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s5" value="e")
-                                    label(for="s55") e. surai
-                        #s6.form-group
-                            p="06. Seorang paman ..... lebih tua dari kemenakannya."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s61(type="radio", name="s6" value="a")
-                                    label(for="s61") a. jarang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s62(type="radio", name="s6" value="b")
-                                    label(for="s62") b. biasanya
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s6" value="c")
-                                    label(for="s13") c. selalu
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s6" value="d")
-                                    label(for="s14") d. tidak pernah
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s6" value="e")
-                                    label(for="s15") e. kadang-kadang
-                        #s7.form-group 
-                            p="07. Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s7" value="a")
-                                    label(for="s21") a. ikan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s7" value="b")
-                                    label(for="s22") b. daging
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s7" value="c")
-                                    label(for="s23") c. lemak
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s7" value="d")
-                                    label(for="s24") d. tahu
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s7" value="e")
-                                    label(for="s25") e. sayuran
-                        #s8.form-group 
-                            p="08. Pada suatu pertandingan selalu terdapat ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s8" value="a")
-                                    label(for="s31") a. lawan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s8" value="b")
-                                    label(for="s32") b. wasit
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s8" value="c")
-                                    label(for="s33") c. penonton
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s8" value="d")
-                                    label(for="s34") d. sorak
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s8" value="e")
-                                    label(for="s35") e. kemenangan
-                        #s9.form-group 
-                            p="09. Suatu pernyataan yang belum dipastikan dikatakan sebagai pernyataan yang ..."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s9" value="a")
-                                    label(for="s41") a. paradoks
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s9" value="b")
-                                    label(for="s42") b. tergesa-gesa
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s9" value="c")
-                                    label(for="s43") c. mempunyai arti rangkap
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s9" value="d")
-                                    label(for="s44") d. menyesatkan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s9" value="e")
-                                    label(for="s45") e. hipotesis
-                        #s10.form-group 
-                            p="10. Pada sepatu selalu terdapat ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s10" value="a")
-                                    label(for="s51") a. kulit
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s10" value="b")
-                                    label(for="s52") b. sol
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s10" value="c")
-                                    label(for="s53") c. tali sepatu
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s10" value="d")
-                                    label(for="s54") d. gesper
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s10" value="e")
-                                    label(for="s55") e. lidah
-                        #s11.form-group
-                            p="11. Suatu ..... tidak menyangkut persoalan pencegahan kecelakaan."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s11" value="a")
-                                    label(for="s11") a. lampu lalu lintas
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s11" value="b")
-                                    label(for="s12") b. kacamata pelindung
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s11" value="c")
-                                    label(for="s13") c. kotak PPPK
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s11" value="d")
-                                    label(for="s14") d. tanda peringatan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s11" value="e")
-                                    label(for="s15") e. palang kereta api
-                        #s12.form-group 
-                            p="12. Mata uang logam Rp 50,- tahun 1991, garis tengahnya ialah ..... mm."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s2" value="a")
-                                    label(for="s21") a. 17
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s2" value="b")
-                                    label(for="s22") b. 29
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s2" value="c")
-                                    label(for="s23") c. 25
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s2" value="d")
-                                    label(for="s24") d. 20
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s2" value="e")
-                                    label(for="s25") e. 15
-                        #s13.form-group 
-                            p="13. Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang ..."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s3" value="a")
-                                    label(for="s31") a. demokratis
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s3" value="b")
-                                    label(for="s32") b. radikal
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s3" value="c")
-                                    label(for="s33") c. liberal
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s3" value="d")
-                                    label(for="s34") d. konservatif
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s3" value="e")
-                                    label(for="s35") e. anarkis
-                        #s14.form-group 
-                            p="14. Lawannya “tidak pernah” ialah ....."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s4" value="a")
-                                    label(for="s41") a. sering
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s4" value="b")
-                                    label(for="s42") b. kadang-kadang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s4" value="c")
-                                    label(for="s43") c. jarang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s4" value="d")
-                                    label(for="s44") d. kerap kali
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s4" value="e")
-                                    label(for="s45") e. selalu
-                        #s15.form-group 
-                            p="15. Jarak antara Jakarta – Surabaya kira-kira ..... Km"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s5" value="a")
-                                    label(for="s51") a. 650
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s5" value="b")
-                                    label(for="s52") b. 1000
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s5" value="c")
-                                    label(for="s53") c. 800
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s5" value="d")
-                                    label(for="s54") d. 600
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s5" value="e")
-                                    label(for="s55") e. 950
-                            //- a)  b)  c)  d)  e) 
-                        #s16.form-group
-                            p="16. Untuk dapat membuat nada yang rendah dan mendalam, kita memerlukan banyak ..."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s11(type="radio", name="s16" value="a")
-                                    label(for="s11") a. kekuatan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s12(type="radio", name="s16" value="b")
-                                    label(for="s12") b. peranan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s13(type="radio", name="s16" value="c")
-                                    label(for="s13") c. ayunan
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s14(type="radio", name="s16" value="d")
-                                    label(for="s14") d. berat
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s15(type="radio", name="s16" value="e")
-                                    label(for="s15") e. suara
-                        #s17.form-group 
-                            p="17. Ayah ..... lebih berpengalaman dari pada anaknya"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s21(type="radio", name="s17" value="a")
-                                    label(for="s21") a. selalu
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s22(type="radio", name="s17" value="b")
-                                    label(for="s22") b. biasanya
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s23(type="radio", name="s17" value="c")
-                                    label(for="s23") c. jauh
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s24(type="radio", name="s17" value="d")
-                                    label(for="s24") d. jarang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s25(type="radio", name="s17" value="e")
-                                    label(for="s25") e. pada dasarnya
-                        #s18.form-group 
-                            p="18. Diantara kota-kota berikut ini, maka kota ... letaknya paling selatan."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s31(type="radio", name="s18" value="a")
-                                    label(for="s31") a. Jakarta
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s32(type="radio", name="s18" value="b")
-                                    label(for="s32") b. Bandung
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s33(type="radio", name="s18" value="c")
-                                    label(for="s33") c. Cirebon
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s34(type="radio", name="s18" value="d")
-                                    label(for="s34") d. Semarang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s35(type="radio", name="s18" value="e")
-                                    label(for="s35") e. Surabaya
-                        #s19.form-group 
-                            p="19. Jika kita mengetahui jumlah presentase nomor-nomor lotere yang tidak menang, maka kita dapat menghitung ..."
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s41(type="radio", name="s19" value="a")
-                                    label(for="s41") a. jumlah nomor yang menang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s42(type="radio", name="s19" value="b")
-                                    label(for="s42") b. pajak lotere
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s43(type="radio", name="s19" value="c")
-                                    label(for="s43") c. kemungkinan menang
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s44(type="radio", name="s19" value="d")
-                                    label(for="s44") d. jumlah pengikut
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s45(type="radio", name="s19" value="e")
-                                    label(for="s45") e. tinggi keuntungan
-                        #s20.form-group 
-                            p="20. Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm"
-                            .form-group
-                                div(style="display:flex; align-items: center; flex-direction:row;")
-                                    input#s51(type="radio", name="s20" value="a")
-                                    label(for="s51") a. 150
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s52(type="radio", name="s20" value="b")
-                                    label(for="s52") b. 130
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s53(type="radio", name="s20" value="c")
-                                    label(for="s53") c. 110
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s54(type="radio", name="s20" value="d")
-                                    label(for="s54") d. 105
-                            .form-group
-                                div(style="display:flex; flex-direction:row;")
-                                    input#s55(type="radio", name="s20" value="e")
-                                    label(for="s55") e. 115
+                        .soal_row
+                            .soal_column(style='margin-right: 1em')
+                                div(style='width:auto; height:5em')
+                                    p='01'
+                                div(style='width:auto; height:5em')
+                                    p='02'
+                                div(style='width:auto; height:5em')
+                                    p='03'
+                                div(style='width:auto; height:5em')
+                                    p='04'
+                                div(style='width:auto; height:5em')
+                                    p='05'
+                                div(style='width:auto; height:5em')
+                                    p='06'
+                                div(style='width:auto; height:5em')
+                                    p='07'
+                                div(style='width:auto; height:5em')
+                                    p='08'
+                                div(style='width:auto; height:5em')
+                                    p='09'
+                                div(style='width:auto; height:5em')
+                                    p='10'
+                                div(style='width:auto; height:5em')
+                                    p='11'
+                                div(style='width:auto; height:5em')
+                                    p='12'
+                                div(style='width:auto; height:5em')
+                                    p='13'
+                                div(style='width:auto; height:5em')
+                                    p='14'
+                                div(style='width:auto; height:5em')
+                                    p='15'
+                                div(style='width:auto; height:5em')
+                                    p='16'
+                                div(style='width:auto; height:5em')
+                                    p='17'
+                                div(style='width:auto; height:5em')
+                                    p='18'
+                                div(style='width:auto; height:5em')
+                                    p='19'
+                                div(style='width:auto; height:5em')
+                                    p='20'
+                            .soal_column
+                                .soal_column(style='width:auto; height:5em')
+                                    p="Pengaruh seseorang terhadap orang lain seharusnya bergantung pada ..."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s11(type="radio", name="s1" value="a")
+                                            label(for="s11") a. kekuasaan
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s12(type="radio", name="s1" value="b")
+                                            label(for="s12") b. bujukan
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s13(type="radio", name="s1" value="c")
+                                            label(for="s13") c. kekayaan
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s14(type="radio", name="s1" value="d")
+                                            label(for="s14") d. keberanian
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s15(type="radio", name="s1" value="e")
+                                            label(for="s15") e. kewibawaan
+                                #s2.soal_column(style='width:auto; height:5em')
+                                    p="Lawannya “hemat” ialah ......."
+                                    .soal_row 
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s21(type="radio", name="s2" value="a")
+                                            label(for="s21") a. murah
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s22(type="radio", name="s2" value="b")
+                                            label(for="s22") b. kikir
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s23(type="radio", name="s2" value="c")
+                                            label(for="s23") c. boros
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s24(type="radio", name="s2" value="d")
+                                            label(for="s24") d. bernilai
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s25(type="radio", name="s2" value="e")
+                                            label(for="s25") e. kaya
+                                #s3.soal_column(style='width:auto; height:5em')
+                                    p=" .... tidak termasuk cuaca"
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s31(type="radio", name="s3" value="a")
+                                            label(for="s31") a. angin puyuh
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s32(type="radio", name="s3" value="b")
+                                            label(for="s32") b. halilintar
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s33(type="radio", name="s3" value="c")
+                                            label(for="s33") c. salju
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s34(type="radio", name="s3" value="d")
+                                            label(for="s34") d. gempa bumi
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s35(type="radio", name="s3" value="e")
+                                            label(for="s35") e. kabut
+                                #s4.soal_column(style='width:auto; height:5em') 
+                                    p="Lawannya “setia” ialah ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s41(type="radio", name="s4" value="a")
+                                            label(for="s41") a. cinta
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s42(type="radio", name="s4" value="b")
+                                            label(for="s42") b. benci
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s43(type="radio", name="s4" value="c")
+                                            label(for="s43") c. persahabatan
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s44(type="radio", name="s4" value="d")
+                                            label(for="s44") d. khianat
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s45(type="radio", name="s4" value="e")
+                                            label(for="s45") e. permusuhan
+                                #s5.soal_column(style='width:auto; height:5em')
+                                    p="Seekor kuda selalu mempunyai ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s51(type="radio", name="s5" value="a")
+                                            label(for="s51") a. kandang
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s52(type="radio", name="s5" value="b")
+                                            label(for="s52") b. ladam
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s53(type="radio", name="s5" value="c")
+                                            label(for="s53") c. pelana
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s54(type="radio", name="s5" value="d")
+                                            label(for="s54") d. kuku
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s55(type="radio", name="s5" value="e")
+                                            label(for="s55") e. surai
+                                #s6.soal_column(style='width:auto; height:5em')
+                                    p="Seorang paman ..... lebih tua dari kemenakannya."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s61(type="radio", name="s6" value="a")
+                                            label(for="s61") a. jarang
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s62(type="radio", name="s6" value="b")
+                                            label(for="s62") b. biasanya
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s13(type="radio", name="s6" value="c")
+                                            label(for="s13") c. selalu
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s14(type="radio", name="s6" value="d")
+                                            label(for="s14") d. tidak pernah
+                                        .soal_row(style="margin-right:10px;")
+                                            input#s15(type="radio", name="s6" value="e")
+                                            label(for="s15") e. kadang-kadang
+                                #s7.soal_column(style='width:auto; height:5em')
+                                    p="Pada jumlah yang sama, nilai kalori yang tertinggi terdapat pada ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s21(type="radio", name="s7" value="a")
+                                                label(for="s21") a. ikan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s22(type="radio", name="s7" value="b")
+                                                label(for="s22") b. daging
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s23(type="radio", name="s7" value="c")
+                                                label(for="s23") c. lemak
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s24(type="radio", name="s7" value="d")
+                                                label(for="s24") d. tahu
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s25(type="radio", name="s7" value="e")
+                                                label(for="s25") e. sayuran
+                                #s8.soal_column(style='width:auto; height:5em')
+                                    p="Pada suatu pertandingan selalu terdapat ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s31(type="radio", name="s8" value="a")
+                                                label(for="s31") a. lawan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s32(type="radio", name="s8" value="b")
+                                                label(for="s32") b. wasit
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s33(type="radio", name="s8" value="c")
+                                                label(for="s33") c. penonton
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s34(type="radio", name="s8" value="d")
+                                                label(for="s34") d. sorak
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s35(type="radio", name="s8" value="e")
+                                                label(for="s35") e. kemenangan
+                                #s9.soal_column(style='width:auto; height:5em')
+                                    p="Suatu pernyataan yang belum dipastikan dikatakan sebagai pernyataan yang ..."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s41(type="radio", name="s9" value="a")
+                                                label(for="s41") a. paradoks
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s42(type="radio", name="s9" value="b")
+                                                label(for="s42") b. tergesa-gesa
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s43(type="radio", name="s9" value="c")
+                                                label(for="s43") c. mempunyai arti rangkap
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s44(type="radio", name="s9" value="d")
+                                                label(for="s44") d. menyesatkan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s45(type="radio", name="s9" value="e")
+                                                label(for="s45") e. hipotesis
+                                #s10.soal_column(style='width:auto; height:5em')
+                                    p="Pada sepatu selalu terdapat ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s51(type="radio", name="s10" value="a")
+                                                label(for="s51") a. kulit
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s52(type="radio", name="s10" value="b")
+                                                label(for="s52") b. sol
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s53(type="radio", name="s10" value="c")
+                                                label(for="s53") c. tali sepatu
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s54(type="radio", name="s10" value="d")
+                                                label(for="s54") d. gesper
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s55(type="radio", name="s10" value="e")
+                                                label(for="s55") e. lidah
+                                #s11.soal_column(style='width:auto; height:5em')
+                                    p="Suatu ..... tidak menyangkut persoalan pencegahan kecelakaan."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s11(type="radio", name="s11" value="a")
+                                                label(for="s11") a. lampu lalu lintas
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s12(type="radio", name="s11" value="b")
+                                                label(for="s12") b. kacamata pelindung
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s13(type="radio", name="s11" value="c")
+                                                label(for="s13") c. kotak PPPK
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s14(type="radio", name="s11" value="d")
+                                                label(for="s14") d. tanda peringatan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s15(type="radio", name="s11" value="e")
+                                                label(for="s15") e. palang kereta api
+                                #s12.soal_column(style='width:auto; height:5em')
+                                    p="Mata uang logam Rp 50,- tahun 1991, garis tengahnya ialah ..... mm."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s21(type="radio", name="s2" value="a")
+                                                label(for="s21") a. 17
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s22(type="radio", name="s2" value="b")
+                                                label(for="s22") b. 29
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s23(type="radio", name="s2" value="c")
+                                                label(for="s23") c. 25
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s24(type="radio", name="s2" value="d")
+                                                label(for="s24") d. 20
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s25(type="radio", name="s2" value="e")
+                                                label(for="s25") e. 15
+                                #s13.soal_column(style='width:auto; height:5em')
+                                    p="Seseorang yang bersikap menyangsikan setiap kemajuan ialah seorang yang ..."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s31(type="radio", name="s3" value="a")
+                                                label(for="s31") a. demokratis
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s32(type="radio", name="s3" value="b")
+                                                label(for="s32") b. radikal
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s33(type="radio", name="s3" value="c")
+                                                label(for="s33") c. liberal
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s34(type="radio", name="s3" value="d")
+                                                label(for="s34") d. konservatif
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s35(type="radio", name="s3" value="e")
+                                                label(for="s35") e. anarkis
+                                #s14.soal_column(style='width:auto; height:5em')
+                                    p="Lawannya “tidak pernah” ialah ....."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s41(type="radio", name="s4" value="a")
+                                                label(for="s41") a. sering
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s42(type="radio", name="s4" value="b")
+                                                label(for="s42") b. kadang-kadang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s43(type="radio", name="s4" value="c")
+                                                label(for="s43") c. jarang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s44(type="radio", name="s4" value="d")
+                                                label(for="s44") d. kerap kali
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s45(type="radio", name="s4" value="e")
+                                                label(for="s45") e. selalu
+                                #s15.soal_column(style='width:auto; height:5em')
+                                    p="Jarak antara Jakarta – Surabaya kira-kira ..... Km"
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s51(type="radio", name="s5" value="a")
+                                                label(for="s51") a. 650
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s52(type="radio", name="s5" value="b")
+                                                label(for="s52") b. 1000
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s53(type="radio", name="s5" value="c")
+                                                label(for="s53") c. 800
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s54(type="radio", name="s5" value="d")
+                                                label(for="s54") d. 600
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s55(type="radio", name="s5" value="e")
+                                                label(for="s55") e. 950
+                                    //- a)  b)  c)  d)  e) 
+                                #s16.soal_column(style='width:auto; height:5em')
+                                    p="Untuk dapat membuat nada yang rendah dan mendalam, kita memerlukan banyak ..."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s11(type="radio", name="s16" value="a")
+                                                label(for="s11") a. kekuatan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s12(type="radio", name="s16" value="b")
+                                                label(for="s12") b. peranan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s13(type="radio", name="s16" value="c")
+                                                label(for="s13") c. ayunan
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s14(type="radio", name="s16" value="d")
+                                                label(for="s14") d. berat
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s15(type="radio", name="s16" value="e")
+                                                label(for="s15") e. suara
+                                #s17.soal_column(style='width:auto; height:5em')
+                                    p="Ayah ..... lebih berpengalaman dari pada anaknya"
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s21(type="radio", name="s17" value="a")
+                                                label(for="s21") a. selalu
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s22(type="radio", name="s17" value="b")
+                                                label(for="s22") b. biasanya
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s23(type="radio", name="s17" value="c")
+                                                label(for="s23") c. jauh
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s24(type="radio", name="s17" value="d")
+                                                label(for="s24") d. jarang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s25(type="radio", name="s17" value="e")
+                                                label(for="s25") e. pada dasarnya
+                                #s18.soal_column(style='width:auto; height:5em')
+                                    p="Diantara kota-kota berikut ini, maka kota ... letaknya paling selatan."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s31(type="radio", name="s18" value="a")
+                                                label(for="s31") a. Jakarta
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s32(type="radio", name="s18" value="b")
+                                                label(for="s32") b. Bandung
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s33(type="radio", name="s18" value="c")
+                                                label(for="s33") c. Cirebon
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s34(type="radio", name="s18" value="d")
+                                                label(for="s34") d. Semarang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s35(type="radio", name="s18" value="e")
+                                                label(for="s35") e. Surabaya
+                                #s19.soal_column(style='width:auto; height:5em')
+                                    p="Jika kita mengetahui jumlah presentase nomor-nomor lotere yang tidak menang, maka kita dapat menghitung ..."
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s41(type="radio", name="s19" value="a")
+                                                label(for="s41") a. jumlah nomor yang menang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s42(type="radio", name="s19" value="b")
+                                                label(for="s42") b. pajak lotere
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s43(type="radio", name="s19" value="c")
+                                                label(for="s43") c. kemungkinan menang
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s44(type="radio", name="s19" value="d")
+                                                label(for="s44") d. jumlah pengikut
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s45(type="radio", name="s19" value="e")
+                                                label(for="s45") e. tinggi keuntungan
+                                #s20.soal_column(style='width:auto; height:5em')
+                                    p="Seorang anak yang berumur 10 tahun tingginya rata-rata ..... cm"
+                                    .soal_row
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s51(type="radio", name="s20" value="a")
+                                                label(for="s51") a. 150
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s52(type="radio", name="s20" value="b")
+                                                label(for="s52") b. 130
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s53(type="radio", name="s20" value="c")
+                                                label(for="s53") c. 110
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s54(type="radio", name="s20" value="d")
+                                                label(for="s54") d. 105
+                                        .soal_row(style="margin-right:10px;")
+                                                input#s55(type="radio", name="s20" value="e")
+                                                label(for="s55") e. 115
                     #tutorial2.hide
                         .soal_column
                             img(style="width: 40em; height: auto;" src="/images/contoh_soal2_1.jpg", alt="")
                             img(style="width: 44em; height: auto;" src="/images/contoh_soal2_2.jpg", alt="")
                         button#selesaiTutorial2(type="button") Selesai
-                    #bagian2.hide
-                        h1 bagian2 
+                    #bagian2
                         #s21.form-group
                             p="21)"
                             .form-group
@@ -1420,7 +1383,6 @@ block content
                             img(style="width: 40em; height: auto;" src="/images/contoh_soal4_2.jpg", alt="")
                         button#selesaiTutorial4(type="button") Selesai
                     #bagian4.hide 
-                        h1 bagian4
                         #s61.form-group
                                 label(for="s61" style="margin-bottom:5px;") 61. mawar – melati
                                 input#s61(type="text", name="s61")
