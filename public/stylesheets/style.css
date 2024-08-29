@@ -245,6 +245,10 @@ table.psikotes{
   height: 18.875em;
 }
 
+table.psikotes tr{
+  height: 65px;
+}
+
 table.psikotes p{
   font-size: 0.85em;
 }
