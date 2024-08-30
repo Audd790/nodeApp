@@ -19,6 +19,7 @@ const connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  req.setHeader('ngrok-skip-browser-warning','any')
   if(!req.session.user) res.render('index');
   else res.redirect('/kehadiran/info')
 });
