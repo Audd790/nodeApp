@@ -34,18 +34,18 @@ var date = "";
 var que_result;
 var arr = [];
 
-router.all('/*', function(req, res, next){
-    connection.query('set lc_time_names="id_ID"',(err,rows)=>{
-        if(err) next(err)
-    })
-    if(!req.session.user) {
-        console.log('yes')
-        res.redirect('/')
-    }
-    else {
-        next();
-    }
-})
+// router.all('/*', function(req, res, next){
+//     connection.query('set lc_time_names="id_ID"',(err,rows)=>{
+//         if(err) next(err)
+//     })
+//     if(!req.session.user) {
+//         console.log('yes')
+//         res.redirect('/')
+//     }
+//     else {
+//         next();
+//     }
+// })
 
 router.get('/', function(req, res, next){
     console.log(req.session.role_id)
@@ -527,6 +527,29 @@ router.get('/getSurat/:id',(req,res,next)=>{
         else{
             console.log(req.params.id)
             res.download(path.join(__dirname, '..',rows[0].surat))
+        }
+    })
+})
+router.get('/psikotes',(req,res)=>{
+    res.render('psikotes/lihat_user_psikotes')
+})
+router.get('/getIST',(req,res,next)=>{
+    var sql = 'select * from ist'
+    connection.query(sql,(err,rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send(rows)
+        }
+    })
+})
+router.get('/getDISC',(req,res,next)=>{
+    var sql = 'select * from disc'
+    connection.query(sql,(err,rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send(rows)
         }
     })
 })

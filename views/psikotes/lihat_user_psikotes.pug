@@ -1,0 +1,19 @@
+extends ../layout
+block append content 
+    table#table_ist
+        tr 
+            th Nama
+            th Jenis Kelamin 
+            th Tanggal Lahir 
+            th Pendidikan Terakhir 
+            th Result 
+
+    table#table_disc
+        tr 
+            th Nama
+            th Jenis Kelamin 
+            th Umur 
+            th Result
+block append script 
+    script(src='/javascripts/getIST.js')
+    script(src='/javascripts/getDISC.js')
