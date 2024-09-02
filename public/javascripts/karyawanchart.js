@@ -62,7 +62,16 @@ window.addEventListener('beforeprint', () => {
   });
 var data = new FormData()
 data.append("tanggal", 7)
-
+$.ajax({
+    url : "palingTelat",
+    type: "GET",
+    success: (data, textStatus, jqXHR)=>{
+        console.log(data.sql);
+        $('#palingTelat').append(data.sql[0].nama)
+    },
+    error:(data, textStatus, jqXHR)=>{
+        console.error('Error:', textStatus)
+} })
 // function autocomplete(inp, arr) {
 //     /*the autocomplete function takes two arguments,
 //     the text field element and an array of possible autocompleted values:*/

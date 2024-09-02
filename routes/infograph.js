@@ -52,34 +52,77 @@ router.get('/', function(req, res, next){
     res.render('view_data/infographic', {role: req.session.role_id, nama: req.session.user})
 });
 
-router.get('/telatKaryawan', function(req, res, next){
-    var sql = "select * from kehadiran where nama = ?"
-    connection.query(sql, req.session.user, (err, rows, fields)=>{
-        if (err) {
+router.get('/palingTelat',(req,res,next)=>{
+    var sql = 'select nama, sum(telat/60) as telat from kehadiran group by nama order by telat desc limit 1;'
+    connection.query(sql,(err,rows)=>{
+        if(err){
             next(err)
-        }
-        else{
-            que_result = rows;
-            var tablesMonthsWithHoles = new Array
-            for(i=0;i<month.length;i++){
-                var bulan = i;
-                tablesMonthsWithHoles[i] = []
-                for(k=0;k<que_result.length;k++){
-                    if(que_result[k].tgl_absen.getMonth() == bulan){
-                        tablesMonthsWithHoles[i].push(que_result[k])
-                    }
-                }
-            }
-            
-            var tablesMonthsWithoutHoles = new Array
-            tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter(item => { return item.length > 0 })
-            console.log(tablesMonthsWithoutHoles)   
-            date = dateObj.getFullYear() + '-'
-            + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
-            +  ('0' + dateObj.getDate()).slice(-2);
-            res.render('view_data/telat/telat_per_hari',{absenkaryawan: tablesMonthsWithoutHoles, tanggal: date, role: req.session.role_id})
+        } else{
+            res.send({sql: rows})
         }
     })
+})
+
+router.get('/telatKaryawan', function(req, res, next){
+    if(!req.session.role_id == 2){
+        var sql = "select * from kehadiran where nama = ?"
+        connection.query(sql, req.session.user, (err, rows, fields)=>{
+            if (err) {
+                next(err)
+            }
+            else{
+                que_result = rows;
+                var tablesMonthsWithHoles = new Array
+                for(i=0;i<month.length;i++){
+                    var bulan = i;
+                    tablesMonthsWithHoles[i] = []
+                    for(k=0;k<que_result.length;k++){
+                        if(que_result[k].tgl_absen.getMonth() == bulan){
+                            tablesMonthsWithHoles[i].push(que_result[k])
+                        }
+                    }
+                }
+                
+                var tablesMonthsWithoutHoles = new Array
+                tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter(item => { return item.length > 0 })
+                console.log(tablesMonthsWithHoles)  
+                console.log(tablesMonthsWithoutHoles)
+                date = dateObj.getFullYear() + '-'
+                + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
+                +  ('0' + dateObj.getDate()).slice(-2);
+                res.render('view_data/telat/karyawanchart',{absenkaryawan: tablesMonthsWithoutHoles, tanggal: date, role: req.session.role_id})
+            }
+        })
+    } else {
+        var sql = "select * from kehadiran"
+        connection.query(sql, (err, rows, fields)=>{
+            if (err) {
+                next(err)
+            }
+            else{
+                que_result = rows;
+                var tablesMonthsWithHoles = new Array
+                for(i=0;i<month.length;i++){
+                    var bulan = i;
+                    tablesMonthsWithHoles[i] = []
+                    for(k=0;k<que_result.length;k++){
+                        if(que_result[k].tgl_absen.getMonth() == bulan){
+                            tablesMonthsWithHoles[i].push(que_result[k])
+                        }
+                    }
+                }
+                
+                var tablesMonthsWithoutHoles = new Array
+                tablesMonthsWithoutHoles = tablesMonthsWithHoles.filter(item => { return item.length > 0 })
+                console.log(tablesMonthsWithHoles)  
+                console.log(tablesMonthsWithoutHoles)
+                date = dateObj.getFullYear() + '-'
+                + ('0' + (dateObj.getMonth()+1)).slice(-2) + '-'
+                +  ('0' + dateObj.getDate()).slice(-2);
+                res.render('view_data/telat/karyawanchart',{absenkaryawan: tablesMonthsWithoutHoles, tanggal: date, role: req.session.role_id})
+            }
+        })
+    }
 });
 
 router.post('/chartKaryawan', upload.none(), check('nama').trim().notEmpty().escape(), function(req, res, next) {

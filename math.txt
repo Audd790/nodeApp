@@ -1,0 +1,22 @@
+var telat = 388
+var lembur = 0
+var jam_kerja = 151
+var jam_masuk
+var menit_masuk
+const mulai_kerja_jam = 8
+const mulai_kerja_menit = 30
+console.log('data: '+jam_kerja)
+console.log('/: '+Math.floor(jam_kerja/60))
+console.log('%: ' +(jam_kerja%60))
+
+if((telat%60) >= mulai_kerja_menit){
+    jam_masuk = (mulai_kerja_jam+Math.round((telat+30)/60))
+    menit_masuk = (((telat+30)%60)-mulai_kerja_menit)
+    console.log(jam_masuk+':'+menit_masuk)
+} else{
+    jam_masuk = (mulai_kerja_jam+Math.floor(telat/60))
+    menit_masuk = (mulai_kerja_menit+(telat%60))
+    console.log(jam_masuk+ ':' +menit_masuk)
+}
+console.log((menit_masuk+jam_kerja+lembur)%60)
+console.log((jam_masuk+Math.floor((lembur+jam_kerja+30)/60))+':'+((menit_masuk+jam_kerja+lembur)%60))

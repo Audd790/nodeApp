@@ -173,6 +173,7 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
     const date = new Date
     const worksheet = XLSX.utils.json_to_sheet(Object.values(req.body));
     const workbook = XLSX.utils.book_new();
+    XLSX.utils.sheet_add_aoa(worksheet, [["Name", "Birthday"]], { origin: "A1" });
     var C = XLSX.utils.decode_col("G"); 
     var fmt = 'dd/mm/yyyy hh:mm:ss'; // or '"$"#,##0.00_);[Red]\\("$"#,##0.00\\)' or any Excel number format
 
