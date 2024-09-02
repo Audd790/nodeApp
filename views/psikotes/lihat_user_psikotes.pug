@@ -1,5 +1,18 @@
 extends ../layout
-block append content
+block nav 
+    .column
+        img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
+    .row
+        h2 Form input izin karyawan
+        button#logout Logout
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/kehadiran/info") Home
+                li
+                    span(aria-current="page") Psikotes
+block info
     .block 
         .container2
             .header 
