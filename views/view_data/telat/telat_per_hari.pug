@@ -38,11 +38,11 @@ block append info
                                     //- jam masuk
                                     td=jam_masuk+':'+menit_masuk
                                     //- jam pulang
-                                    if (entry.lembur+entry.jam_kerja)%60 >= mulai_kerja_menit
-                                        td=(jam_masuk+Math.round((entry.lembur+entry.jam_kerja+30)/60))+':'+((menit_masuk+entry.jam_kerja+entry.lembur)%60)
-                                    else
-                                        td=(jam_masuk+Math.floor((entry.lembur+entry.jam_kerja+30)/60))+':'+((menit_masuk+entry.jam_kerja+entry.lembur)%60)
-                                    
+                                    //- if entry.lembur%60 >= mulai_kerja_menit
+                                    //-     td= (jam_masuk+Math.floor(entry.jam_kerja/60)+Math.round(entry.lembur/60))+':'+(menit_masuk + (entry.jam_kerja%60)+(entry.lembur%60) -  60 )
+                                    //- else
+                                    //-     td= (jam_masuk+Math.round(entry.jam_kerja/60)+Math.floor(entry.lembur/60))+':'+(60-menit_masuk+ (entry.jam_kerja%60)+(entry.lembur%60))
+                                    td=(jam_masuk+Math.round((entry.lembur)/60))+Math.round(entry.jam_kerja/60)+':'+((menit_masuk+entry.jam_kerja+entry.lembur)%60)
                                     //- tanggal
                                     td=entry.tgl_absen.getDate()+' '+entry.tgl_absen.toLocaleString('default', { month: 'long' })+', '+entry.tgl_absen.getFullYear()
                                     //- jam kerja dan jam kerja+lembur
