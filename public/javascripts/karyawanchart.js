@@ -1,4 +1,4 @@
-const ctx = document.getElementById('myChart').getContext('2d');
+const ctx = document.getElementById('karyawanChart').getContext('2d');
 var inputKaryawan = document.getElementById("karyawan")
 var listNama
 const currDate = new Date();
@@ -14,7 +14,7 @@ const month = ['Januari',
     'Oktober',
     'November',
     'Desember']
-const myChart = new Chart(ctx, {
+const karyawanChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: month.slice(0, currDate.getMonth()+1),
@@ -55,10 +55,10 @@ const myChart = new Chart(ctx, {
 
 });
 window.addEventListener('beforeprint', () => {
-    myChart.resize(600, 600);
+    karyawanChart.resize(600, 600);
   });
   window.addEventListener('afterprint', () => {
-    myChart.resize();
+    karyawanChart.resize();
   });
 var data = new FormData()
 data.append("tanggal", 7)
@@ -118,11 +118,11 @@ $.ajax({
 //                     if(xhr.readyState === XMLHttpRequest.DONE){
 //                         if (xhr.status === 200) {
 //                             karyawan = JSON.parse(xhr.response)
-//                             console.log(myChart.data.datasets[0])
-//                             myChart.data.datasets[0].data = karyawan.map(labels=>{
+//                             console.log(karyawanChart.data.datasets[0])
+//                             karyawanChart.data.datasets[0].data = karyawan.map(labels=>{
 //                                 return labels.menitTelat
 //                             })
-//                             myChart.update()
+//                             karyawanChart.update()
 //                         } else{
 //                             console.error('Error:', xhr.status)
 //                         }

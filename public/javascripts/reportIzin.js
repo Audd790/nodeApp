@@ -14,7 +14,7 @@ table3.hide()
 filter3.hide()
 var inputKaryawan = document.getElementById("karyawan")
 const xhr = new XMLHttpRequest
-xhr.open('GET', '/kehadiran/info/namaKaryawan', true);
+xhr.open('GET', '/kehadiran/namaKaryawan', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){

@@ -1,13 +1,4 @@
-extends ../layout
-block content
-        .column
-            //- div(style="flex: 0 1 auto")
-            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
-        .row
-            //- div(style="flex: 0 1 auto")
-            h2 Welcome #{nama}
-            //- div(style="flex: 0 1 auto")
-            button#logout Logout
+extends layout
 block nav 
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
@@ -15,8 +6,6 @@ block nav
                 li
                     span(aria-current="page") Home
         .btn_group
-            if role !== 3
-                button#Chart.button(value="telatKaryawan") Lihat Telat
             if role == 1
                 button#Chart.button(value="reportIzinKaryawanAll") Lihat Izin 
                 button#Chart.button(value="psikotes") Lihat Data Psikotes
@@ -25,4 +14,4 @@ block nav
             if role == 3
                 button#Chart.button(value="reportIzinKaryawanApprove") Lihat Izin 
 block script
-    script(src='/javascripts/infGraScript.js') 
+    script(src='/javascripts/izin.js') 

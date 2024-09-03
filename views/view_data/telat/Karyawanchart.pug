@@ -1,11 +1,5 @@
 extends telatPage
 block nav 
-    .column
-            //- div(style="flex: 0 1 auto")
-            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
-    .row
-        h2 Chart
-        button#logout Logout
     .block(style="margin-top: 1.6em;")
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
@@ -20,11 +14,11 @@ block append info
                     input#karyawan(type="text", name="karyawan" autocomplete="off")
         h3 Telat per hari
         div(style="position: relative; height: 80vh; width: 100vw;")
-            canvas#myChart
+            canvas#karyawanChart
+        div(style="position: relative; height: 80vh; width: 80vw;")
+            canvas#divisiChart
         include telat_per_hari
 block append script
     script(src="/javascripts/karyawanchart.js")
-    if role == 1
-        script(src="/javascripts/getChartDataAll.js")
-    else 
-        script(src="/javascripts/getChartData.js")
+    script(src="/javascripts/divisichart.js")
+    script(src="/javascripts/getChartDataAll.js")

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
+const ctx = document.getElementById('divisiChart').getContext('2d');
+const divisiChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ['Admin Sales & Engineer', 'ERP', 'Estimator', 'Finance & Accounting', 'GTI', 'Logistik', 'MEP', 'Operation', 'PCS', 'PPJM','Purchasing','RPE','Sales','Teknisi Servis','Teknisi TC','Tim Bali'],
@@ -47,31 +47,32 @@ const myChart = new Chart(ctx, {
     }
 
 });
-const month = ['January', 
-    'February',
-    'March',
+const month = ['Januari', 
+    'Febuary',
+    'Maret',
     'April',
-    'May',
-    'June',
-    'July',
-    'August',
+    'Mei',
+    'Juni',
+    'Juli',
+    'Agustus',
     'September',
-    'October',
+    'Oktober',
     'November',
-    'December']
+    'Desember']
 window.addEventListener('beforeprint', () => {
-    myChart.resize(600, 600);
+    divisiChart.resize(600, 600);
 });
 window.addEventListener('afterprint', () => {
-    myChart.resize();
+    divisiChart.resize();
 });
 const xhr = new XMLHttpRequest
-xhr.open('GET', window.location.href+'/getChartData', true);
+xhr.open('GET', 'chart/getChartData', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){
         if (xhr.status === 200) {
             var res = JSON.parse(xhr.response)
+            console.log(res.sql)
             for(i=0 ; i < month.slice(0,6).length ; i++){
                 var tmp = {
                     label: '',
@@ -84,10 +85,10 @@ xhr.onreadystatechange = function () {
                         tmp.data.push(row.jamTelat)
                     }
                 })
-                myChart.data.datasets.push(tmp)
+                divisiChart.data.datasets.push(tmp)
             }
-            // console.log(myChart.data)
-            myChart.update()
+            // console.log(divisiChart.data)
+            divisiChart.update()
         } else{
             console.error('Error:', xhr.status)
         }

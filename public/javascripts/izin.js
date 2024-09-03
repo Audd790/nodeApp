@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded'
         })
         
         function buttonOnclickEvent(e){
-            const url = '/kehadiran/'+e.target.value
+            const url = '/kehadiran/info/'+e.target.value
             window.location.href = url
         }
 

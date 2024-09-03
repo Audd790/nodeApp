@@ -24,13 +24,13 @@ router.get('/', function(req, res, next) {
   else res.redirect('/kehadiran/info')
 });
 
-router.get('/login/:path',(req,res,next)=>{
+router.get('/login',(req,res,next)=>{
   res.render('index')
 });
 
 
 //terima data yang di-submit dari form
-router.post('/login/:path', upload.none(), 
+router.post('/login/', upload.none(), 
 check('email').trim().notEmpty().escape(), 
 check('password').trim().notEmpty().escape(), 
 function(req,res,next)  {
@@ -48,6 +48,7 @@ function(req,res,next)  {
   //Melakukan queri di atas
   connection.query(sql, values, (err, rows, fields) => {
     var que_result
+    var path
     if (err) {
       que_result = err
     }
@@ -61,8 +62,13 @@ function(req,res,next)  {
         req.session.user = que_result.nama
         req.session.role_id = que_result.role_id
         req.session.divisi = que_result.divisi
+        if(req.session.role_id == 4){
+          path = 'kehadiran'
+        } else{
+          path = 'izin'
+        }
         req.session.save()
-        var data = {empty: result.errors.length>0, sql: sqlEmpty, path: req.params.path}
+        var data = {empty: result.errors.length>0, sql: sqlEmpty, path: path}
         res.send(data)
             // console.log(que_result)
       })
@@ -87,7 +93,7 @@ router.get('/logout', (req,res,next)=>{
         console.log(err)
       }else{
         console.log('logout success')
-        res.redirect('/')
+        res.redirect('/login')
       }
     })
   })

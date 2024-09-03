@@ -1,7 +1,7 @@
 const xhr = new XMLHttpRequest
 var data = new FormData()
 data.append("tanggal", 7)
-xhr.open('GET', '/kehadiran/info/namaKaryawan', true);
+xhr.open('GET', '/kehadiran/namaKaryawan', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){
@@ -60,7 +60,7 @@ function autocomplete(inp, arr) {
                 // console.log(divisi.value)
                 data.append("nama", inp.value)
                 // data.append('divisi', divisi.value)
-                xhr.open('POST', '/kehadiran/info/chartKaryawan', true);
+                xhr.open('POST', '/kehadiran/chartKaryawan', true);
                 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
                 xhr.onreadystatechange = function () {
                     if(xhr.readyState === XMLHttpRequest.DONE){

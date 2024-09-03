@@ -1,5 +1,5 @@
 const xhr = new XMLHttpRequest
-xhr.open('POST', '/kehadiran/info/chartKaryawan', true);
+xhr.open('POST', '/kehadiran/chartKaryawan', true);
 // xhr.setRequestHeader("Content-Type", "multipar/form-data")
 xhr.onreadystatechange = function () {
     if(xhr.readyState === XMLHttpRequest.DONE){

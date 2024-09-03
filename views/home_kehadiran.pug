@@ -1,0 +1,11 @@
+extends layout
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    span(aria-current="page") Home
+        .btn_group
+            button#Chart.button(value="telatKaryawan") Lihat Telat
+block script
+    script(src='/javascripts/kehadiran.js') 
