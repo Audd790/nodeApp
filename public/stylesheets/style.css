@@ -119,6 +119,7 @@ caption {
   clear: both;
 }
 .container2{
+  width: fit-content;
   /* min-width: 70em; */
   margin: 0% auto 3% auto;
   background-color: #fff;

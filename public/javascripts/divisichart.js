@@ -13,8 +13,8 @@ const divisiChart = new Chart(ctx, {
         // },
         plugins: {
             title: {
-                display: true,
-                text: 'Custom Chart Title'
+                // display: true,
+                // text: 'Custom Chart Title'
             },
             colors: {
                 forceOverride: true
