@@ -20,12 +20,17 @@ const connection = mysql.createConnection({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   
-  if(!req.session.user) res.render('index');
+  if(!req.session.user) next();
   else res.redirect('/kehadiran/info')
 });
 
+router.get('/login/:path',(req,res,next)=>{
+  res.render('index')
+});
+
+
 //terima data yang di-submit dari form
-router.post('/submit', upload.none(), 
+router.post('/login/:path', upload.none(), 
 check('email').trim().notEmpty().escape(), 
 check('password').trim().notEmpty().escape(), 
 function(req,res,next)  {
@@ -57,12 +62,13 @@ function(req,res,next)  {
         req.session.role_id = que_result.role_id
         req.session.divisi = que_result.divisi
         req.session.save()
-        var data = {empty: result.errors.length>0, sql: sqlEmpty}
+        var data = {empty: result.errors.length>0, sql: sqlEmpty, path: req.params.path}
         res.send(data)
             // console.log(que_result)
       })
     }
     else{
+        console.log(req.params.path)
         var data = {empty: result.errors.length>0, sql: sqlEmpty}
         res.send(data)
     }

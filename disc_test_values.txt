@@ -7,6 +7,7 @@ M
 6 c,d,i,s 14 c,i,s,d 22 s,*,d,c
 7 s,i,*,* 15 s,c,i,d 23 *,i,s,*
 8 i,s,c,d 16 *,c,i,s 24 *,i,d,c
+
 d: 7 (goes over)
 i: 4 (goes over)
 s: 5 (goes over)
@@ -26,3 +27,31 @@ d: 6
 i: 5
 s: 7(goes over)
 c: 7
+M
+d(N/A)
+i(Mediator)
+s(Mediator)
+c(Mediator)
+
+L
+d(Mediator)
+i(Perfectionist)
+s(Assessor)
+c(Mediator)
+
+MLLL
+===========
+ds
+di
+dc
+dis
+dic
+disc
+===========
+id(Mediator)
+is(Assessor)
+ic(Advisor)
+ids(Assessor)
+idc(Advisor)
+isc(Communicator)
+idsc(Communicator)

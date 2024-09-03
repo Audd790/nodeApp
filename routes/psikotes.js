@@ -68,6 +68,7 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
 })
 
 router.get('/disc_test',  (req,res)=>{
+    console.log(req.session.user)
     if(!req.session.user){
         res.redirect('/psikotes/masuk_test/disc')
     }
@@ -106,6 +107,7 @@ router.post('/disc_test', upload.none(),
     check('most22').notEmpty().escape(),check('least22').notEmpty().escape(), 
     check('most23').notEmpty().escape(),check('least23').notEmpty().escape(), 
     check('most24').notEmpty().escape(),check('least24').notEmpty().escape(),(req, res, next)=>{
+        console.log(req.session.user)
         if(!req.session.user){
             res.redirect('/masuk_test/disc')
         }
@@ -158,7 +160,7 @@ router.post('/disc_test', upload.none(),
                     next(err)
                 } else{
                     console.log(rows)
-                    req.session.destroy()
+                    // req.session.destroy()
                 }
             })
             res.send({result: 'success', err: ''})
