@@ -40,7 +40,7 @@ router.all('/*', function(req, res, next){
     })
     if(!req.session.user) {
         console.log('yes')
-        res.redirect('/login')
+        res.redirect('/')
     }
     else {
         next();

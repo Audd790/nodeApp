@@ -21,32 +21,17 @@ const connection = mysql.createConnection({
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(!req.session.user) next();
-  else res.redirect('/kehadiran/info')
-});
-
-router.get('/download', (req,res,next)=>{
-  var url = 'http://solutioncloud.co.id/download.asp'
-  window.location = url
-})
-
-router.get('/login',(req,res,next)=>{
-  axios({
-    method: 'get',
-    url: 'http://solutioncloud.co.id/sc_pro.asp?sn=UCR6235200067&pass=solution',
-  }).then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
+  else res.redirect('/kehadiran')
+}, (req, res, next)=>{
   res.render('index')
 });
 
+router.get('/php', (req, res, next)=>{
+    
+})
 
 //terima data yang di-submit dari form
-router.post('/login/', upload.none(), 
+router.post('/', upload.none(), 
 check('email').trim().notEmpty().escape(), 
 check('password').trim().notEmpty().escape(), 
 function(req,res,next)  {
@@ -109,7 +94,7 @@ router.get('/logout', (req,res,next)=>{
         console.log(err)
       }else{
         console.log('logout success')
-        res.redirect('/login')
+        res.redirect('/')
       }
     })
   })

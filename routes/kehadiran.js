@@ -40,7 +40,7 @@ router.all('/*', function(req, res, next){
     })
     if(!req.session.user) {
         // console.log('yes')
-        res.redirect('/login')
+        res.redirect('/')
         // next();
     }
     else {
@@ -125,6 +125,10 @@ router.get('/telatKaryawan', function(req, res, next){
         })
     }
 });
+
+router.get('/syncData',(req, res, next)=>{
+    res.send
+})
 
 router.post('/chartKaryawan', upload.none(), check('nama').trim().notEmpty().escape(), function(req, res, next) {
     const result = validationResult(req)

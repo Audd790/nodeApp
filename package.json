@@ -19,6 +19,7 @@
     "mysql2": "^3.10.3",
     "nocache": "^4.0.0",
     "nodeapp": "file:",
+    "php-express": "^0.0.3",
     "pm2": "^5.4.2",
     "pug": "^3.0.3",
     "xlsx": "file:vendor/xlsx-0.20.3.tgz"

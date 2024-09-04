@@ -5,6 +5,9 @@ var logger = require('morgan');
 var session = require('express-session')
 const nocache = require("nocache");
 // const { check, matchedData,  validationResult } = require('express-validator');
+var phpExpress = require('php-express')({
+  binPath: 'php'
+});
 
 
 var indexRouter = require('./routes/index');
@@ -18,7 +21,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-
+app.engine('php', phpExpress.engine);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

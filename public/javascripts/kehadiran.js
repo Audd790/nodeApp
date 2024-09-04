@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded'
     , function() {
         var list=[];
         var tanggal = document.getElementById('tanggal');
-        // var logout = document.getElementById('logout');
-        // logout.addEventListener('click', (e)=>{
-        //     window.location.href= '/logout';
-        // })
+        var logout = document.getElementById('logout');
+        logout.addEventListener('click', (e)=>{
+            window.location.href= '/logout';
+        })
         // if(tanggal!==null) 
         // {    
         //     tanggal.addEventListener('change', (e)=>{
