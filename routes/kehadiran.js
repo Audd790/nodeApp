@@ -25,7 +25,7 @@ var path = require('path');
 const { match } = require('assert');
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'auddii',
+  user: 'root',
   password: 'auddii98', 
   database: 'absenrajawali'
 })
@@ -36,6 +36,9 @@ var arr = [];
 
 router.all('/*', function(req, res, next){
     connection.query('set lc_time_names="id_ID"',(err,rows)=>{
+        if(err) next(err)
+    })
+    connection.query('set global local_infile = 0',(err,rows)=>{
         if(err) next(err)
     })
     if(!req.session.user) {
@@ -52,6 +55,19 @@ router.get('/', function(req, res, next){
     console.log(req.session.role_id)
     res.render('home_kehadiran', {role: req.session.role_id, header_text: 'Welcome '+req.session.user+ '!' })
 });
+
+router.get('/getDataAbsen',(req, res, next)=>{
+    var filePath = "C:\\ProgramData\\MySQL\\MySQL Server 8.0\\Uploads"
+    var sql = "LOAD DATA INFILE \'"+ filePath +"\' "+ 
+              'INTO TABLE absen '
+    connection.query(sql, (err,rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send(rows)
+        }
+    })
+})
 
 router.get('/palingTelat',(req,res,next)=>{
     var sql = 'select nama, sum(telat/60) as telat from kehadiran group by nama order by telat desc limit 1;'

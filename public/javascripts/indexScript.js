@@ -1,4 +1,15 @@
-console.log()
+
+// $.ajax({
+//     url : urlDownload,
+//     type: "GET",
+//     // headers:{
+//     // },
+//     success: (data, textStatus, jqXHR)=>{
+//         console.log(data);
+//     },
+//     error:(data, textStatus, jqXHR)=>{
+//         console.error('Error:', textStatus)
+//     } })
 
 document.addEventListener('DOMContentLoaded'
     , function() 

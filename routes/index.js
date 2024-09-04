@@ -26,10 +26,6 @@ router.get('/', function(req, res, next) {
   res.render('index')
 });
 
-router.get('/php', (req, res, next)=>{
-    
-})
-
 //terima data yang di-submit dari form
 router.post('/', upload.none(), 
 check('email').trim().notEmpty().escape(), 
