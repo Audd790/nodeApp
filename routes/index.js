@@ -4,6 +4,7 @@ const multer  = require('multer')
 var path = require('path');
 const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
+const axios = require('axios');
 
 //Buat parse dan format tanggal lahir dari user
 const date = new Date();
@@ -19,12 +20,27 @@ const connection = mysql.createConnection({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  
   if(!req.session.user) next();
   else res.redirect('/kehadiran/info')
 });
 
+router.get('/download', (req,res,next)=>{
+  var url = 'http://solutioncloud.co.id/download.asp'
+  window.location = url
+})
+
 router.get('/login',(req,res,next)=>{
+  axios({
+    method: 'get',
+    url: 'http://solutioncloud.co.id/sc_pro.asp?sn=UCR6235200067&pass=solution',
+  }).then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
   res.render('index')
 });
 

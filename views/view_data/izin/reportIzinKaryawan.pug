@@ -1,22 +1,10 @@
 extends ../infographicBody
 block nav 
-    .column
-            //- div(style="flex: 0 1 auto")
-            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
-    .row
-        div(style="flex: 0 1 auto;")
-            if role == 2
-                h2= 'Report Izin Karyawan ' + nama
-            else
-                h2= 'Report Izin Semua Karyawan'
-        div(style="flex: 0 1 auto;")
-            block logout
-                button#logout Logout
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
                 li
-                    a(href="/kehadiran/info") Home
+                    a(href="/izin") Home
                 li
                     span(aria-current="page") Report Izin
 block append info
@@ -57,9 +45,9 @@ block append info
                             option(value=2) Approve 
                             option(value=3) Reject
         //- .block
-    div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
-        div.autocomplete
-            input#karyawan(type="text", name="karyawan" autocomplete="off")
+        div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
+            div.autocomplete
+                input#karyawan(type="text", name="karyawan" autocomplete="off")
     if role == 2
         .btn_group
             a.button(href="formAbsen") Form Izin

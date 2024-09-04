@@ -4,26 +4,29 @@ block nav
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
                 li
-                    a(href="/kehadiran/info") Home
+                    a(href="/kehadiran") Home
                 li
                     span(aria-current="page") Jumlah Telat Per bulan
 block append info
         h3 Telat per hari
+        .form-group#byDate
+            input#tanggal(type='date' name='tanggal' value=tanggal max= tanggal)
         .container2
             .body
                 div(style="position: relative; height: 80vh; width: 80vw;")
                     canvas#divisiChart
-        .container2.hide
-            .body
-                div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
-                    div.autocomplete
-                        input#karyawan(type="text", name="karyawan" autocomplete="off")
-                div(style="position: relative; height: 80vh; width: 80vw;")
-                    canvas#karyawanChart
-        .container2
+        //- .container2
+        //-     .body
+        //-         div(style="margin-top: 1.6em;display: flex; align-items: center; justify-content: center;")
+        //-             div.autocomplete
+        //-                 input#karyawan(type="text", name="karyawan" autocomplete="off")
+        //-         div(style="position: relative; height: 80vh; width: 80vw;")
+        //-             canvas#karyawanChart
+        //- .container2
             .body
                 include telat_per_hari
 block append script
-    script(src="/javascripts/karyawanchart.js")
+    //- script(src="/javascripts/karyawanchart.js")
     script(src="/javascripts/divisichart.js")
-    script(src="/javascripts/getChartDataAll.js")
+    //- script(src="/javascripts/getChartData.js")
+    //- script(src="/javascripts/getChartDataAll.js")

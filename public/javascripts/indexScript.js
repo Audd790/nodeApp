@@ -1,3 +1,16 @@
+console.log()
+var url = 'http://solutioncloud.co.id/download.asp'
+window.location = url;
+$.ajax({
+    url : 'download',
+    type: "GET",
+    success: (data, textStatus, jqXHR)=>{
+        console.log(data);
+    },
+    error:(data, textStatus, jqXHR)=>{
+        console.error('Error:', textStatus)
+    } })
+
 document.addEventListener('DOMContentLoaded'
     , function() 
     {

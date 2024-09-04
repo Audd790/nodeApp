@@ -56,3 +56,7 @@ idc(Advisor)
 isc(Communicator)
 idsc(Communicator)
 ===========
+cd
+ci
+cs
+cdis

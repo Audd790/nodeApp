@@ -8,23 +8,11 @@ block modal
                 button(type="submit" value='test') Submit
 
 block nav 
-    .column
-            //- div(style="flex: 0 1 auto")
-            img(src="/images/Logo-Rajawali.png", alt="Logo Rajawali") 
-    .row
-        div(style="flex: 0 1 auto;")
-            if role == 2
-                h2= 'Report Izin Karyawan ' + nama
-            else
-                h2= 'Report Izin Semua Karyawan'
-        div(style="flex: 0 1 auto;")
-            block logout
-                button#logout Logout
     .block
         nav(aria-label="Breadcrumb" class="breadcrumb")
             ul
                 li
-                    a(href="/kehadiran/info") Home
+                    a(href="/izin") Home
                 li
                     span(aria-current="page") Report Izin
 block append info

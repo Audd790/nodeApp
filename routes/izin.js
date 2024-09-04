@@ -40,7 +40,7 @@ router.all('/*', function(req, res, next){
     })
     if(!req.session.user) {
         console.log('yes')
-        res.redirect('/')
+        res.redirect('/login')
     }
     else {
         next();
@@ -48,8 +48,14 @@ router.all('/*', function(req, res, next){
 })
 
 router.get('/', function(req, res, next){
-    console.log(req.session.role_id)
-    res.render('view_data/infographic', {role: req.session.role_id, nama: req.session.user})
+    console.log()
+    var header_text
+    if(req.session.role_id == 2) {
+        header_text = 'Report Izin Karyawan ' + req.session.user
+    } else{
+        header_text = 'Report Izin Semua Karyawan'
+    }
+    res.render('home_izin', {role: req.session.role_id, nama: req.session.user, header_text: header_text})
 });
 
 router.get('/formAbsen', (req,res)=>{
@@ -94,7 +100,7 @@ router.get('/formAbsen', (req,res)=>{
             console.log("Exists")
         }
     })
-    res.render('view_data/izin/formAbsen',{role: req.session.role_id})
+    res.render('view_data/izin/formAbsen',{role: req.session.role_id, header_text: 'Form input izin karyawan'})
 })
 
 router.post('/submitformAbsen', upload.single("surat"),
@@ -168,6 +174,20 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     res.send({result: 'success'})
 })
 
+router.get('/namaKaryawan', upload.none(), function(req, res, next){
+    var sql = "select nama from user"
+    var values = [req.body.date]
+    connection.query(sql, values, (err, rows, fields)=>{
+        if (err) {
+            throw err
+        }
+        else{
+            que_result = rows;
+        }
+            console.log(que_result)
+            res.send({sql: que_result, empty: que_result.length == 0})
+    })
+});
 
 router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
     var sql = "select id,nama from izinkaryawan order by nama "
@@ -270,6 +290,12 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
+    var header_text
+    if (req.session.role_id == 2){
+        header_text= 'Report Izin Karyawan ' + req.session.user
+    } else {
+        header_text= 'Report Izin Semua Karyawan'
+    }
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
     var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin from izinkaryawan a join user b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
     connection.query(sql, [req.session.divisi],(err,rows)=>{
@@ -299,7 +325,7 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
             for(i=0;i<years.length;i++){
                 tablesMonthsWithoutHoles[i] = tablesMonthsWithHoles[i].filter(item => { return item.length > 0 })
             }
-            res.render('view_data/izin/approve', {chache: true, thn: years, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
+            res.render('view_data/izin/approve', {chache: true, thn: years, sqlMonths: tablesMonthsWithoutHoles , header_text:header_text})
         }
     })
 })

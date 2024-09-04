@@ -1,54 +1,51 @@
 block append info 
     h3 Telat per hari
-    .form-group#byDate
-        input#tanggal(type='date' name='tanggal' value=tanggal max= tanggal)
     .block
         h1#palingTelat= 'Karyawan yang paling telat adalah '
         for table in absenkaryawan
-            div(class="container2")
-                .body 
-                    table(id= table[0].id name=table[0].tgl_absen.getMonth())
+            div
+                table(id= table[0].id name=table[0].tgl_absen.getMonth())
+                        tr 
+                            th Nama 
+                            th Jam Masuk
+                            th Jam Pulang
+                            th tanggal 
+                            th Jam Kerja 
+                            th Total Jam Kerja
+                        for entry in table 
+                            -const mulai_kerja_jam = 8
+                            -const mulai_kerja_menit = 30
+                            -var jam_masuk=0; var menit_masuk;
+                                if entry.telat%60 >= mulai_kerja_menit
+                                    -jam_masuk = mulai_kerja_jam+Math.round(entry.telat/60)
+                                    -menit_masuk = (entry.telat%60)-mulai_kerja_menit
+                                else
+                                    -jam_masuk = mulai_kerja_jam+Math.floor(entry.telat/60)
+                                    -menit_masuk = mulai_kerja_menit+(entry.telat%60)
+                            -var jam_pulang=0;
+                            -var menit_pulang=0
+                                //- if entry.lembur%60 > 30
+                                //-     -jam_pulang = jam_masuk + Math.round(item / 60)
+                                //-     -menit_pulang = (item % 60) - 30
+                                //- else 
+                                //-     -jam_pulang = jam_masuk + Math.floor(item / 60)
+                                //-     -menit_pulang = (menit_masuk+item % 60)
                             tr 
-                                th Nama 
-                                th Jam Masuk
-                                th Jam Pulang
-                                th tanggal 
-                                th Jam Kerja 
-                                th Total Jam Kerja
-                            for entry in table 
-                                -const mulai_kerja_jam = 8
-                                -const mulai_kerja_menit = 30
-                                -var jam_masuk=0; var menit_masuk;
-                                    if entry.telat%60 >= mulai_kerja_menit
-                                        -jam_masuk = mulai_kerja_jam+Math.round(entry.telat/60)
-                                        -menit_masuk = (entry.telat%60)-mulai_kerja_menit
-                                    else
-                                        -jam_masuk = mulai_kerja_jam+Math.floor(entry.telat/60)
-                                        -menit_masuk = mulai_kerja_menit+(entry.telat%60)
-                                -var jam_pulang=0;
-                                -var menit_pulang=0
-                                    //- if entry.lembur%60 > 30
-                                    //-     -jam_pulang = jam_masuk + Math.round(item / 60)
-                                    //-     -menit_pulang = (item % 60) - 30
-                                    //- else 
-                                    //-     -jam_pulang = jam_masuk + Math.floor(item / 60)
-                                    //-     -menit_pulang = (menit_masuk+item % 60)
-                                tr 
-                                    td=entry.nama
-                                    //- jam masuk
-                                    td=jam_masuk+':'+menit_masuk
-                                    //- jam pulang
-                                    //- if entry.lembur%60 >= mulai_kerja_menit
-                                    //-     td= (jam_masuk+Math.floor(entry.jam_kerja/60)+Math.round(entry.lembur/60))+':'+(menit_masuk + (entry.jam_kerja%60)+(entry.lembur%60) -  60 )
-                                    //- else
-                                    //-     td= (jam_masuk+Math.round(entry.jam_kerja/60)+Math.floor(entry.lembur/60))+':'+(60-menit_masuk+ (entry.jam_kerja%60)+(entry.lembur%60))
-                                    td=(jam_masuk+Math.round((entry.lembur)/60))+Math.round(entry.jam_kerja/60)+':'+((menit_masuk+entry.jam_kerja+entry.lembur)%60)
-                                    //- tanggal
-                                    td=entry.tgl_absen.getDate()+' '+entry.tgl_absen.toLocaleString('default', { month: 'long' })+', '+entry.tgl_absen.getFullYear()
-                                    //- jam kerja dan jam kerja+lembur
-                                    if (entry.jam_kerja%60).toString().length < 2
-                                        td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60).toString().padStart(2,'0')
-                                        td=(Math.floor(entry.jam_kerja/60) + Math.floor(entry.lembur/60))+':'+(entry.jam_kerja%60 + (entry.lembur%60)).toString().padStart(2,'0')
-                                    else 
-                                        td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60)
-                                        td=(Math.floor((entry.jam_kerja+entry.lembur)/60))+':'+((entry.jam_kerja+entry.lembur)%60)
+                                td=entry.nama
+                                //- jam masuk
+                                td=jam_masuk+':'+menit_masuk
+                                //- jam pulang
+                                //- if entry.lembur%60 >= mulai_kerja_menit
+                                //-     td= (jam_masuk+Math.floor(entry.jam_kerja/60)+Math.round(entry.lembur/60))+':'+(menit_masuk + (entry.jam_kerja%60)+(entry.lembur%60) -  60 )
+                                //- else
+                                //-     td= (jam_masuk+Math.round(entry.jam_kerja/60)+Math.floor(entry.lembur/60))+':'+(60-menit_masuk+ (entry.jam_kerja%60)+(entry.lembur%60))
+                                td=(jam_masuk+Math.round((entry.lembur)/60))+Math.round(entry.jam_kerja/60)+':'+((menit_masuk+entry.jam_kerja+entry.lembur)%60)
+                                //- tanggal
+                                td=entry.tgl_absen.getDate()+' '+entry.tgl_absen.toLocaleString('default', { month: 'long' })+', '+entry.tgl_absen.getFullYear()
+                                //- jam kerja dan jam kerja+lembur
+                                if (entry.jam_kerja%60).toString().length < 2
+                                    td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60).toString().padStart(2,'0')
+                                    td=(Math.floor(entry.jam_kerja/60) + Math.floor(entry.lembur/60))+':'+(entry.jam_kerja%60 + (entry.lembur%60)).toString().padStart(2,'0')
+                                else 
+                                    td=(Math.floor(entry.jam_kerja/60))+':'+(entry.jam_kerja%60)
+                                    td=(Math.floor((entry.jam_kerja+entry.lembur)/60))+':'+((entry.jam_kerja+entry.lembur)%60)

@@ -13,26 +13,28 @@ filter1.hide()
 table3.hide()
 filter3.hide()
 var inputKaryawan = document.getElementById("karyawan")
-const xhr = new XMLHttpRequest
-xhr.open('GET', '/kehadiran/namaKaryawan', true);
-// xhr.setRequestHeader("Content-Type", "multipar/form-data")
-xhr.onreadystatechange = function () {
-    if(xhr.readyState === XMLHttpRequest.DONE){
-        if (xhr.status === 200) {
-            // var res = JSON.parse(xhr.response)
-            listNama = JSON.parse(xhr.response)
-            var tmp = listNama.sql.map(labels=>{
-                return labels.nama
-            })
-            // console.log(tmp) 
-            autocomplete(inputKaryawan, tmp);
-        } else{
-            console.error('Error:', xhr.status)
+if(inputKaryawan !== null){
+    const xhr = new XMLHttpRequest
+    xhr.open('GET', 'namaKaryawan', true);
+    // xhr.setRequestHeader("Content-Type", "multipar/form-data")
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState === XMLHttpRequest.DONE){
+            if (xhr.status === 200) {
+                // var res = JSON.parse(xhr.response)
+                listNama = JSON.parse(xhr.response)
+                var tmp = listNama.sql.map(labels=>{
+                    return labels.nama
+                })
+                // console.log(tmp) 
+                autocomplete(inputKaryawan, tmp);
+            } else{
+                console.error('Error:', xhr.status)
+            }
         }
-    }
-};
-// window.location.href = 'http://localhost:3000';
-xhr.send();
+    };
+    // window.location.href = 'http://localhost:3000';
+    xhr.send();
+}
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

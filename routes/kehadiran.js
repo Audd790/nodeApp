@@ -39,8 +39,9 @@ router.all('/*', function(req, res, next){
         if(err) next(err)
     })
     if(!req.session.user) {
-        console.log('yes')
+        // console.log('yes')
         res.redirect('/login')
+        // next();
     }
     else {
         next();
@@ -94,7 +95,7 @@ router.get('/telatKaryawan', function(req, res, next){
             }
         })
     } else {
-        var sql = "select * from kehadiran"
+        var sql = "select * from kehadiran where telat > 0"
         connection.query(sql, (err, rows, fields)=>{
             if (err) {
                 next(err)
@@ -157,15 +158,17 @@ router.get('/telatKaryawanAll', function(req, res, next){
     res.render('view_data/telat/karyawanchartAll')
 });
 
-router.get('/namaKaryawan', upload.none(), function(req, res, next){
-    var sql = "select nama from karyawan"
-    connection.query(sql, (err, rows, fields)=>{
+router.post('/namaKaryawan', upload.none(), function(req, res, next){
+    var sql = "select distinct nama from kehadiran where tgl_absen = ? and telat > 0"
+    var values = [req.body.date]
+    connection.query(sql, values, (err, rows, fields)=>{
         if (err) {
             throw err
         }
         else{
             que_result = rows;
         }
+            console.log(que_result)
             res.send({sql: que_result, empty: que_result.length == 0})
     })
 });
@@ -226,21 +229,38 @@ router.get('/chart', function(req, res, next) {
     })
 })
 
-router.get('/chart/getChartData', function (req, res) {
-    var sql = 'select monthname(month) as bulan, idDivisi, '+
-    'sum(jumlahMenitTerlambat)/count(idDivisi) as menitTelat, sum(jumlahJamTerlambat)/count(idDivisi) as jamTelat, sum(JumlahHariTerlambat)/count(idDivisi) hariTelat '+
-    'from kehadirantotal group by idDivisi, month '+
-    'order by month, idDivisi;'
-    connection.query(sql, (err,rows,fields)=>{
+router.post('/chart/getChartData', upload.none(),function (req, res) {
+    var sql = 'select nama, sum(telat) as telat from kehadiran where tgl_absen = ? and telat>0 group by nama'
+    var date = new Date()
+    var values = [req.body.date]
+    // console.log(req.body.date)
+    connection.query(sql, values, (err,rows,fields)=>{
         if (err) {
             throw err;
         }
         else{
         que_result = rows;
         }
+        // console.log(que_result)
         res.send({sql: que_result})
     })
 })
+
+// router.get('/chart/getChartData', upload.none(),function (req, res) {
+//     var sql = 'select monthname(month) as bulan, idDivisi, '+
+//     'sum(jumlahMenitTerlambat)/count(idDivisi) as menitTelat, sum(jumlahJamTerlambat)/count(idDivisi) as jamTelat, sum(JumlahHariTerlambat)/count(idDivisi) hariTelat '+
+//     'from kehadirantotal group by idDivisi, month '+
+//     'order by month, idDivisi;'
+//     connection.query(sql, (err,rows,fields)=>{
+//         if (err) {
+//             throw err;
+//         }
+//         else{
+//         que_result = rows;
+//         }
+//         res.send({sql: que_result})
+//     })
+// })
 
 router.get('/psikotes',(req,res)=>{
     res.render('psikotes/lihat_user_psikotes')
