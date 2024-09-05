@@ -257,8 +257,8 @@ do
       set n_2 = n_1
       , n_1 = 
       case 
-         when jumlah_cuti > 6 then 6
-         else jumlah_cuti
+         when (12-jumlah_cuti) > 6 then 6
+         else (12-jumlah_cuti)
       end
       ,jumlah_cuti = 0;
    end;//
@@ -270,9 +270,9 @@ after update
 on izinkaryawan
 for each row 
 begin 
-   if old.alasan = 3 and new.status = 2 then
+   if (old.alasan = 3 and new.status = 2) then
    update cuti 
-   set jumlah_cuti = jumlah_cuti + 1
+   set jumlah_cuti = jumlah_cuti + (1*new.hari)
    where nama = new.nama;
    end if;
 end;//
@@ -297,7 +297,9 @@ before update
 on cuti
 for each row 
 begin 
-   if(new.jumlah_cuti > month(current_timestamp)) then
+   declare 2_tahun_sebelumnya int default old.n_2;
+   declare 1_tahun_sebelumnya int default old.n_1;
+   if(new.jumlah_cuti > (month(current_timestamp)+2_tahun_sebelumnya+1_tahun_sebelumnya)) then
    SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'tidak bisa cuti, batas cuti akan dilewati';
    end if;
 end;//
