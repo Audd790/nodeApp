@@ -249,12 +249,18 @@ delimiter ;
 
 delimiter //
 create event cutiPerTahun
-on schedule at current_timestamp 
+on schedule
 every 1 year
 do 
    begin
       update cuti
-      set jumlah_cuti = 0;
+      set n_2 = n_1
+      , n_1 = 
+      case 
+         when jumlah_cuti > 6 then 6
+         else jumlah_cuti
+      end
+      ,jumlah_cuti = 0;
    end;//
 delimiter ;
 
@@ -268,6 +274,19 @@ begin
    update cuti 
    set jumlah_cuti = jumlah_cuti + 1
    where nama = new.nama;
+   end if;
+end;//
+delimiter ;
+
+delimiter //
+create trigger cuti_max
+before insert
+on izinkaryawan
+for each row 
+begin
+
+   if((select jumlah_cuti from cuti_ where nama = new.nama) > month(current_timestamp) and old.alasan = 3 and new.status = 2) then
+   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'tidak bisa cuti, batas cuti akan dilewati';
    end if;
 end;//
 delimiter ;

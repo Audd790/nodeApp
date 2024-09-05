@@ -198,7 +198,9 @@ h2{
   margin: 1em auto;
   width: 100%;
 }
-
+.form-group label{
+  margin-bottom: 5px;
+}
 #byDate { 
   text-align: center;
 }

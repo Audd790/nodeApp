@@ -1,0 +1,27 @@
+extends ../infographicBody
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href="/izin") Home
+                li
+                    a(href="/izin/reportizinKaryawan") Report Izin
+                li 
+                    span(aria-current="page") Plafon Cuti 
+block info 
+    -var date = new Date
+    .block 
+        .container2 
+            .header
+            .body 
+                //- h3= 'Jata cuti tinggal ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
+                form#formCuti
+                    .form-group 
+                        p='Cuti yang sudah diambil: '+sql[0].jumlah_cuti
+                        p='Sisa cuti tinggal: ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
+                    .form-group 
+                        label(for="cuti") Cuti
+                        input#cuti(type="text", name="cuti") 
+block script 
+    script

@@ -311,6 +311,41 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
     })
 })
 
+router.post('cuti_bersama', upload.none(),
+check('nama').trim().notEmpty().escape(), 
+check('alasan').trim().notEmpty().escape(),
+check('tgl_izin').trim().notEmpty().escape(),
+check('hari').trim().notEmpty().escape(),
+check('ket_izin').trim().notEmpty().escape(),
+check('status').trim().notEmpty().escape(),(req, res)=>{
+    var sql = 'insert into izinkaryawan(nama, alasan, tgl_izin, hari, ket_izin, status) values(?,?,?,?,?,?) '
+    var result = validationResult(req.body)
+    var values = matchedData(req.body)
+    connection.query(sql, values, (err, rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send({sql:rows})
+        }
+    })
+})
+
+router.get('carry_over',(req, res)=>{
+    res.render('carry_over')
+})
+
+router.get('/plafon_cuti', (req,res)=>{
+    var sql = 'select * from cuti where nama = ?';
+    var values = [req.session.user]
+    connection.query(sql, values, (err,rows)=>{
+        if(err){
+            next(err)
+        } else {
+            res.render('view_data/izin/plafon_cuti',{sql:rows})
+        }
+    })
+})
+
 router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
     var header_text
     if (req.session.role_id == 2){
