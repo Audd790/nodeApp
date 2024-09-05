@@ -58,6 +58,28 @@ router.get('/', function(req, res, next){
     res.render('home_izin', {role: req.session.role_id, nama: req.session.user, header_text: header_text})
 });
 
+router.get('/getIzin',(req,res,next)=>{
+    connection.query('select * from izinkaryawan',(err, rows)=>{
+        if(err){
+            next(err)
+        }else{
+            res.send({sql: rows})
+        }
+    })
+})
+
+router.get('/getCuti',(req, res, next)=>{
+    var sql = 'select jumlah_cuti from cuti where nama = ?'
+    var values = req.session.user;
+    connection.query(sql, values, (err,rows)=>{
+        if(err) {
+            next(err)
+        } else {
+            res.send({sql: rows})
+        }
+    })
+})
+
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
         if(err){
@@ -203,7 +225,7 @@ router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
 });
 
 router.get('/reportIzinKaryawan',(req, res,next)=>{
-    var sql = 'select * from izinkaryawan where nama = "'+ req.session.user +'"'
+    var sql = 'select * from izinkaryawan a join cuti b on a.nama=b.nama  where a.nama = "'+ req.session.user +'"'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -215,7 +237,7 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select id, hari as jumlah_hari, alasan, nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status from izinkaryawan order by status, nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status, jumlah_cuti from izinkaryawan a join cuti b on a.nama=b.nama order by status, a.nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -297,7 +319,7 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
         header_text= 'Report Izin Semua Karyawan'
     }
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin from izinkaryawan a join user b on a.nama = b.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin, jumlah_cuti from izinkaryawan a join user b on a.nama = b.nama join cuti c on a.nama = c.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
     connection.query(sql, [req.session.divisi],(err,rows)=>{
         if(err){
             next(err)
@@ -307,6 +329,7 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
             }
+            console.log(que_result)
             var years = uniq_fast(tmp)
             var tablesMonthsWithHoles = new Array
             for(h=0;h<years.length;h++){

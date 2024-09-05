@@ -260,27 +260,26 @@ delimiter ;
 
 delimiter //
 create trigger ambilCuti
-after insert 
+after update
 on izinkaryawan
 for each row 
 begin 
-   if new.alasan = 3 then
+   if old.alasan = 3 and new.status = 2 then
    update cuti 
    set jumlah_cuti = jumlah_cuti + 1
-   where new.nama = nama;
+   where nama = new.nama;
    end if;
 end;//
 delimiter ;
 
 delimiter //
-
 create trigger updateCuti
 before update
 on cuti
 for each row 
 begin 
    if(new.jumlah_cuti > month(current_timestamp)) then
-   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'anda mencoba ambil cuti lebih dari yang sudah akumulasi';
+   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'tidak bisa cuti, batas cuti akan dilewati';
    end if;
 end;//
 delimiter ;

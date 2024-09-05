@@ -1,11 +1,13 @@
 extends ../infographicBody
 block modal
-    div(id="myModal" class="modal")
-        div(class="modal-content")
-            span.close &times;
-            form#form.form
-                input(type="text" name='keterangan' placeholder="keterangan untuk approve/reject")
-                button(type="submit" value='test') Submit
+    .block
+        div(id="myModal" class="modal")
+            div(class="modal-content")
+                span.close &times;
+                form#form.form
+                    label(for="modalInput") 
+                    input#modalInput(type="text" style='margin-bottom:5px' name='keterangan' placeholder="keterangan untuk approve/reject")
+                    button(type="submit" value='test') Submit
 
 block nav 
     .block
@@ -62,7 +64,7 @@ block append info
                                                 div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                     button#getsurat(type="button" name="getsurat") Download
                                         td
-                                            div(id='approve_'+item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id )
+                                            div(id='approve_'+item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;" value=item.id name=item.jumlah_cuti)
                                                 button#approve(type="button" name="approve") Approve
                                                 button#reject(type="button" name="approve") Reject
 block append script 

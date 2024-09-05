@@ -52,7 +52,9 @@ block append info
         .btn_group
             a.button(href="formAbsen") Form Izin
         .block
+            -var date = new Date
             table.report
+                caption= 'Jata cuti tinggal ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
                 tr.table_header
                     th Tanggal 
                     th Alasan 

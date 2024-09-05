@@ -13,13 +13,16 @@ span.onclick = function() {
     modal.style.display = "none";
 }
 $('[name="approve"]').click(function(){
+    var date = new Date
     modal.style.display = "block";
     var id = $(this).closest('div').attr('value')
+    var cuti = $(this).closest('div').attr('name')
     var value = $(this).attr('id')
     console.log('id: '+id)
     console.log('value: '+value)
     $('#form').children('button')[0].value = value
     $('#form').children('button').attr('id',id)
+    $('#form').children('label').text('Jatah cuti untuk bbulan ini tinggal '+((date.getMonth()+1) - cuti))
 })
 
 $('#form').on('submit',function(e){

@@ -18,7 +18,6 @@ const fs = require('node:fs')
 var XLSX = require("xlsx");
 const { check, matchedData, validationResult, body } = require('express-validator');
 
-
 //membuat instansi database
 const mysql = require('mysql2')
 var path = require('path');
@@ -49,6 +48,37 @@ router.all('/*', function(req, res, next){
     else {
         next();
     }
+})
+
+router.get('/getUser',(req,res,next)=>{
+    var nama = req.session.user;
+    connection.query('select * from user where nama = ?', nama,(err, rows)=>{
+        if(err){
+            next(err)
+        }else{
+            res.send({sql: rows})
+        }
+    })
+})
+
+router.get('/getUserAll',(req,res,next)=>{
+    connection.query('select * from user',(err, rows)=>{
+        if(err){
+            next(err)
+        }else{
+            res.send({sql: rows})
+        }
+    })
+})
+
+router.get('/getKehadiran',(req,res,next)=>{
+    connection.query('select * from kehadiran',(err, rows)=>{
+        if(err){
+            next(err)
+        }else{
+            res.send({sql: rows})
+        }
+    })
 })
 
 router.get('/', function(req, res, next){
