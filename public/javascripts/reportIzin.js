@@ -8,6 +8,7 @@ var label1 = $('#toggle1')
 var label2 = $('#toggle2')
 var label3 = $('#toggle3')
 
+
 table1.hide()
 filter1.hide()
 table3.hide()

@@ -97,7 +97,13 @@ router.get('/logout', (req,res,next)=>{
 })
 
 router.get('/downloadExcel', function(req, res){
-  const file = path.join(__dirname, '..', 'files', 'izin_karyawan.xlsx');
+  var XLSX = require("xlsx");
+
+  var workbook = XLSX.readFile("Software DISC.xls");
+  workbook.Sheets['DISC Test'].B8 = { v: 'x', t: 's', w: 'x' }
+  XLSX.writeFile(workbook, 'disc.xlsx')
+  // console.log(workbook.Sheets['Result'])
+  const file = path.join(__dirname, '..', 'disc.xlsx');
   res.download(file); // Set disposition and send it.
   // res.redirect('/kehadiran/info/formAbsen')
 });

@@ -12,7 +12,14 @@ block nav
 block info 
     -var date = new Date
     .block 
-        .container2 
+        .btn_group
+            button#getCuti.button(type='button') Data cuti
+            button#ambilCuti.button(type="button") Ambil cuti
+        .block
+            -var date = new Date
+            #cuti 
+                p#isi
+        //- .container2 
             .header
             .body 
                 //- h3= 'Jata cuti tinggal ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
@@ -27,4 +34,4 @@ block info
                         p=(date.getMonth()+1)
                     button(type='button') Carry Over
 block script 
-    script
+    script(src='/javascripts/plafon_cuti.js')

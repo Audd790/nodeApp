@@ -67,17 +67,51 @@ router.get('/getIzin',(req,res,next)=>{
         }
     })
 })
-
+let cuti
 router.get('/getCuti',(req, res, next)=>{
-    var sql = 'select jumlah_cuti from cuti where nama = ?'
+    var sql = 'select * from cuti where nama = ?'
     var values = req.session.user;
     connection.query(sql, values, (err,rows)=>{
         if(err) {
+            console.log('here')
             next(err)
         } else {
+            console.log('here')
+            cuti = rows[0]
             res.send({sql: rows})
         }
     })
+})
+
+router.get('/ambilCuti',(req, res, next)=>{
+    var jumlah_cuti = 8
+    var diff1 = (cuti.n_2-jumlah_cuti)
+    if(diff1<0){
+        cuti.n_2 = 0
+        cuti.n_1 = cuti.n_1 + diff1
+        jumlah_cuti = 0
+    } else{
+        cuti.n_2 = cuti.n_2 - jumlah_cuti
+    }
+
+    if(cuti.n_1 < 0){
+        jumlah_cuti = 0 - cuti.n_1
+        cuti.n_1 = 0
+    }
+    if(jumlah_cuti>cuti.jumlah_cuti){
+        res.send({sql:[], err: 'Gak bisa ambil cuti'})
+    }else{
+        console.log(cuti)
+        var sql = 'update cuti set jumlah_cuti = ?, sisa_cuti = sisa_cuti-?, n_2 = ?, n_1 = ?, total_cuti = n_1+n_2+sisa_cuti where nama = ?'
+        var values = [jumlah_cuti,jumlah_cuti, cuti.n_2, cuti.n_1, req.session.user];
+        connection.query(sql, values, (err,rows)=>{
+            if(err) {
+                next(err)
+            } else {
+                res.send({sql: rows, err: ''})
+            }
+        })
+    }
 })
 
 router.get('/formAbsen', (req,res)=>{
@@ -225,7 +259,7 @@ router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
 });
 
 router.get('/reportIzinKaryawan',(req, res,next)=>{
-    var sql = 'select * from izinkaryawan  where nama = "'+ req.session.user +'"'
+    var sql = 'select * from izinkaryawan where nama = "'+ req.session.user +'"'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
