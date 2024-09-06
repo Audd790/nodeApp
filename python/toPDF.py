@@ -5,7 +5,7 @@ from spire.xls.common import *
 workbook = Workbook()
 
 # Load an Excel document
-workbook.LoadFromFile("C:\\Users\\Administrator\\Desktop\\Input.xlsx")
+workbook.LoadFromFile("C:\Users\Operation\Desktop\Auddly\\nodeApp\disc.xlsx")
 
 # Get a specific worksheet (index starts at zero)
 sheet = workbook.Worksheets[0]

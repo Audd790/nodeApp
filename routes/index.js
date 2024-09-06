@@ -5,6 +5,7 @@ var path = require('path');
 const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
 const axios = require('axios');
+var GroupDocs = require('groupdocs-conversion-cloud');
 
 //Buat parse dan format tanggal lahir dari user
 const date = new Date();
@@ -18,11 +19,50 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
+var appSid = "e129f385-6c0a-4db0-88a1-32a3eb8bc004";
+var appKey = "4568ada06f01585f8448a5c47eb95bb2";
+
+// construct Api
+var api = GroupDocs.InfoApi.fromKeys(appSid, appKey);
+
+var request = new GroupDocs.GetSupportedConversionTypesRequest();
+
+// retrieve supported conversion types
+// api.getSupportedConversionTypes(request)
+//     .then(function (response) {
+//         console.log("Supported file-formats:")
+//         response.forEach(function (format) {
+//             console.log(format.sourceFormat + ": [" + format.targetFormats.join(", ") + "]");
+//         });
+//     })
+//     .catch(function (error) {
+//         console.log("Error: " + error.message)
+//     });
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(!req.session.user) next();
   else res.redirect('/kehadiran')
 }, (req, res, next)=>{
+  var convertAPi = GroupDocs.ConvertApi.fromKeys(appSid, appKey)
+  var convertRequest = new GroupDocs.ConvertDocumentRequest()
+  convertRequest.convertSettings = {
+    "StorageName": "disc_ist_results",
+    "FilePath": path.join(__dirname, '..','disc.xlsx'),
+    "Format": "pdf",
+    "OutputPath": path.join(__dirname, '..','disc.pdf')
+  }
+  console.log(convertRequest.convertSettings)
+  convertAPi.convertDocument(convertRequest)
+  .then(function(response){
+    console.log(response)
+  }, function(reason){
+    console.log(reason.message)
+  })
+  // convertAPi.convertDocument()
+  // .then(function(response){
+  //   console.log(response)
+  // })
   res.render('index')
 });
 
@@ -31,7 +71,7 @@ router.post('/', upload.none(),
 check('email').trim().notEmpty().escape(), 
 check('password').trim().notEmpty().escape(), 
 function(req,res,next)  {
-
+  
   //menaruh req.body kedalam satu variabel untuk memudahkan pembacaan
   var karyawan = req.body;
 
