@@ -225,12 +225,13 @@ router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
 });
 
 router.get('/reportIzinKaryawan',(req, res,next)=>{
-    var sql = 'select * from izinkaryawan a join cuti b on a.nama=b.nama  where a.nama = "'+ req.session.user +'"'
+    var sql = 'select * from izinkaryawan  where nama = "'+ req.session.user +'"'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
         } else {
             que_result = rows
+            console.log(que_result)
             res.render('view_data/izin/reportIzinKaryawan', {sql: que_result, role: req.session.role_id, nama: req.session.user})
         }
     })
@@ -341,7 +342,8 @@ router.get('/plafon_cuti', (req,res)=>{
         if(err){
             next(err)
         } else {
-            res.render('view_data/izin/plafon_cuti',{sql:rows})
+            console.log(rows);
+            res.render('view_data/izin/plafon_cuti',{sql:rows[0]})
         }
     })
 })

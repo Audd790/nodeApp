@@ -16,12 +16,15 @@ block info
             .header
             .body 
                 //- h3= 'Jata cuti tinggal ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
+                -var date = new Date
+                -var thn_depan = date.getFullYear()+1
                 form#formCuti
+                    p=date.getFullYear()+ '-' +thn_depan
                     .form-group 
-                        p='Cuti yang sudah diambil: '+sql[0].jumlah_cuti
-                        p='Sisa cuti tinggal: ' + ((date.getMonth()+1)-sql[0].jumlah_cuti)
-                    .form-group 
-                        label(for="cuti") Cuti
-                        input#cuti(type="text", name="cuti") 
+                        p='Cuti yang sudah diambil: '+(sql.total_cuti-sql.jumlah_cuti)
+                        p='Sisa cuti tinggal: ' + ((date.getMonth()+1)-sql.total_cuti)
+                        p='Plafon periode ini: ' + sql.total_cuti
+                        p=(date.getMonth()+1)
+                    button(type='button') Carry Over
 block script 
     script

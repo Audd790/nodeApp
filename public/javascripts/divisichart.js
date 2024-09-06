@@ -1,5 +1,6 @@
 var data = new FormData()
 data.append("tanggal", 7)
+
 const month = ['Januari', 
     'Februari',
     'Maret',

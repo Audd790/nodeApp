@@ -236,34 +236,44 @@ create table statusIzin(
 
 )
 
+drop event cutiPerBulan;
+drop event cutiPerTahun;
+
+update cuti set n_1=6, n_2=6, sisa_cuti=-1, total_cuti=12;
+
 delimiter //
 create event cutiPerBulan
-on schedule at current_timestamp 
-every 1 month
+on schedule
+every 5 second starts '2024-09-06 11:41:00' + interval 5 second
 do 
    begin
       update cuti
-      set jumlah_cuti += 1;
+      set sisa_cuti = sisa_cuti + 1,
+      total_cuti = n_1+n_2+sisa_cuti;
    end;//
 delimiter ;
 
 delimiter //
 create event cutiPerTahun
 on schedule
-every 1 year
+every 1 minute starts '2024-09-06 11:41:00' + interval 1 minute + interval 5 second
 do 
    begin
       update cuti
       set n_2 = n_1
       , n_1 = 
       case 
-         when (12-jumlah_cuti) > 6 then 6
-         else (12-jumlah_cuti)
+         when sisa_cuti > 6 then 6
+         else sisa_cuti
       end
-      ,jumlah_cuti = 0;
+      ,jumlah_cuti = 0, sisa_cuti = 0
+      , total_cuti = n_1+n_2+sisa_cuti+1;
    end;//
 delimiter ;
 
+select * from cuti where nama = 'M AUDDLY FAUZAN';
+SET @jumlah_cuti = 8;
+update cuti set jumlah_cuti = @jumlah_cuti, sisa_cuti = sisa_cuti-@jumlah_cuti, total_cuti = n_1+n_2+sisa_cuti;
 delimiter //
 create trigger ambilCuti
 after update
@@ -297,11 +307,7 @@ before update
 on cuti
 for each row 
 begin 
-   declare 2_tahun_sebelumnya int default old.n_2;
-   declare 1_tahun_sebelumnya int default old.n_1;
-   if(new.jumlah_cuti > (month(current_timestamp)+2_tahun_sebelumnya+1_tahun_sebelumnya)) then
-   SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'tidak bisa cuti, batas cuti akan dilewati';
-   end if;
+   
 end;//
 delimiter ;
 
