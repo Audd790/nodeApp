@@ -2,9 +2,12 @@ var express = require('express');
 var router = express.Router();
 const multer  = require('multer')
 var path = require('path');
+const fs = require('node:fs');
 const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
 const axios = require('axios');
+var XLSX = require("xlsx");
+const XlsxPopulate = require('xlsx-populate');
 var GroupDocs = require('groupdocs-conversion-cloud');
 
 //Buat parse dan format tanggal lahir dari user
@@ -19,50 +22,21 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
-var appSid = "e129f385-6c0a-4db0-88a1-32a3eb8bc004";
-var appKey = "4568ada06f01585f8448a5c47eb95bb2";
-
-// construct Api
-var api = GroupDocs.InfoApi.fromKeys(appSid, appKey);
-
-var request = new GroupDocs.GetSupportedConversionTypesRequest();
-
-// retrieve supported conversion types
-// api.getSupportedConversionTypes(request)
-//     .then(function (response) {
-//         console.log("Supported file-formats:")
-//         response.forEach(function (format) {
-//             console.log(format.sourceFormat + ": [" + format.targetFormats.join(", ") + "]");
-//         });
-//     })
-//     .catch(function (error) {
-//         console.log("Error: " + error.message)
-//     });
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if(!req.session.user) next();
   else res.redirect('/kehadiran')
-}, (req, res, next)=>{
-  var convertAPi = GroupDocs.ConvertApi.fromKeys(appSid, appKey)
-  var convertRequest = new GroupDocs.ConvertDocumentRequest()
-  convertRequest.convertSettings = {
-    "StorageName": "disc_ist_results",
-    "FilePath": path.join(__dirname, '..','disc.xlsx'),
-    "Format": "pdf",
-    "OutputPath": path.join(__dirname, '..','disc.pdf')
-  }
-  console.log(convertRequest.convertSettings)
-  convertAPi.convertDocument(convertRequest)
-  .then(function(response){
-    console.log(response)
-  }, function(reason){
-    console.log(reason.message)
+}, async (req, res, next)=>{
+  XlsxPopulate.fromFileAsync('C:\\Users\\Operation\\Desktop\\Auddly\\nodeApp\\IST_Norma_Pendidikan.xls',{ password: "gitpsy0001" })
+  .then(workbook=>{
+    const value = workbook.sheet("Sheet1").cell("A1").value();
+ 
+        // Log the value.
+        console.log(value);
   })
-  // convertAPi.convertDocument()
-  // .then(function(response){
-  //   console.log(response)
-  // })
+  .catch(reason=>{
+    console.log( reason)
+  })
   res.render('index')
 });
 
@@ -137,12 +111,6 @@ router.get('/logout', (req,res,next)=>{
 })
 
 router.get('/downloadExcel', function(req, res){
-  var XLSX = require("xlsx");
-
-  var workbook = XLSX.readFile("Software DISC.xls");
-  workbook.Sheets['DISC Test'].B8 = { v: 'x', t: 's', w: 'x' }
-  XLSX.writeFile(workbook, 'disc.xlsx')
-  // console.log(workbook.Sheets['Result'])
   const file = path.join(__dirname, '..', 'disc.xlsx');
   res.download(file); // Set disposition and send it.
   // res.redirect('/kehadiran/info/formAbsen')

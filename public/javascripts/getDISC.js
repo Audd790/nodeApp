@@ -8,9 +8,19 @@ $.ajax({
                 '<td>'+data[i].nama+'</td>'+
                 '<td>'+data[i].jenis_kelamin+'</td>'+
                 '<td>'+data[i].umur+'</td>'+
-                '<td>'+data[i].disc_result+'</td>'+'</tr>')
+                '<td><button id="'+ data[i].nama +'" name="getFile" type="button">Download</button></td>'+'</tr>')
         }
+
+        $('button[name="getFile"]').click(function(){
+            console.log('click')
+            var id = $(this).attr('id')
+            window.location.href = '/psikotes/getDiscResults/'+id
+        })
     },
     error:(data, textStatus, jqXHR)=>{
         console.error('Error:', textStatus)
     } })
+
+function getDiscResult(){
+    $('')
+}

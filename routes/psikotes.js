@@ -6,6 +6,7 @@ const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
 const fs = require('node:fs')
 var XLSX = require("xlsx");
+var GroupDocs = require('groupdocs-conversion-cloud');
 
 const mysql = require('mysql2')
 const connection = mysql.createConnection({
@@ -71,8 +72,9 @@ router.get('/disc_test',  (req,res)=>{
     console.log(req.session.user)
     if(!req.session.user){
         res.redirect('/psikotes/masuk_test/disc')
+    } else{
+        res.render('psikotes/disc_test',{title:'welcome to disctest'})
     }
-    res.render('psikotes/disc_test',{title:'welcome to disctest'})
 })
 
 router.get('/ist_test', (req,res)=>{
@@ -150,13 +152,16 @@ router.post('/disc_test', upload.none(),
             
             // /* set column width */
             // // Cant work for some reason
-            // var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user+'.xlsx'
-            // worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
-            // XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
-            // XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
-            // const file = path.join(__dirname, '..', 'files', filename);
+            var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
             var sql = 'update psikotes set disc_result = ? where nama = ?'
+            var workbook = XLSX.readFile("Software DISC1.xlsx");
+            for(i=0;i<values.length;i++){
+                workbook.Sheets['DISC Test'][values[i]]= { v: 'x', t: 's', w: 'x' }
+                console.log(values[i]);
+            }
+            XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
             var values = [filename, req.session.user]
+            // console.log(workbook.Sheets['Result'])
             connection.query(sql, values, (err,rows)=>{
                 if(err){
                     next(err)
@@ -169,47 +174,54 @@ router.post('/disc_test', upload.none(),
         }
 })
 
+router.get('/getDiscResults/:nama', async (req,res,next)=>{
+    connection.query('select result from disc where nama = ? and result not in ("")', req.params.nama, 
+        async (err, rows)=>{
+            if(err){
+                next(err)
+            } else {
+                var filename = rows[0].result;
+                // let convertApi = GroupDocs.ConvertApi.fromKeys(appSid, appKey);
+
+                // let file = fs.readFileSync(path.join(__dirname, '..', filename + '.xlsx'));
+
+                // // create convert document direct request
+                // let request = new GroupDocs.ConvertDocumentDirectRequest("pdf", file);
+
+                // // convert document
+                // let result = await convertApi.convertDocumentDirect(request);
+                // // save output file to specified path
+                // console.log('before')
+                // fs.writeFile(path.join(__dirname, '..', filename+'.pdf'), result, "binary", function (err) { });
+                // console.log('after')
+                res.download(path.join(__dirname, '..', 'files',filename+'.xlsx'))
+            }
+        })
+})
+
+router.get('/getIstResults', (req,res,next)=>{
+    connection.query('select result from ist where nama = ? and result not in ("")', req.session.user, 
+        (err, rows)=>{
+            if(err){
+                next(err)
+            } else {
+                res.download(path.join(__dirname, '..', rows[0].result+'.xlsx'))
+            }
+        })
+})
+
 router.post('/ist_test', upload.none(), (req, res, next)=>{
     if(!req.session.user){
         res.redirect('/masuk_test/ist')
     }
     console.log(req.body)
-    const date = new Date
-    const worksheet = XLSX.utils.json_to_sheet(Object.values(req.body));
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.sheet_add_aoa(worksheet, [["Name", "Birthday"]], { origin: "A1" });
-    var C = XLSX.utils.decode_col("G"); 
-    var fmt = 'dd/mm/yyyy hh:mm:ss'; // or '"$"#,##0.00_);[Red]\\("$"#,##0.00\\)' or any Excel number format
-
-    /* get worksheet range */
-    var range = XLSX.utils.decode_range(worksheet['!ref']);
-    for(var i = range.s.r + 1; i <= range.e.r; ++i) {
-        /* find the data cell (range.s.r + 1 skips the header row of the worksheet) */
-        var ref = XLSX.utils.encode_cell({r:i, c:C});
-        /* if the particular row did not contain data for the column, the cell will not be generated */
-        if(!worksheet[ref]) continue;
-        /* assign the `.z` number format */
-        worksheet[ref].z = fmt;
+    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'ist_test_'+req.session.user
+    var workbook = XLSX.readFile("IST_Norma_Pendidikan.xlsx");
+    for(i=0;i<values.length;i++){
+        workbook.Sheets['Input'][values[i]]= { v: 'x', t: 's', w: 'x' }
+        console.log(values[i]);
     }
-
-    const COL_WIDTH = 50;
-
-    /* Excel column "C" -> SheetJS column index 2 == XLSX.utils.decode_col("C") */
-    var COL_INDEX = 2;
-    
-    /* create !cols array if it does not exist */
-    if(!worksheet["!cols"]) worksheet["!cols"] = [];
-    
-    /* create column metadata object if it does not exist */
-    if(!worksheet["!cols"][COL_INDEX]) worksheet["!cols"][COL_INDEX] = {wch: 8};
-    
-    /* set column width */
-    // Cant work for some reason
-    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds()+ '-' +'ist_test'+req.session.user+'.xlsx'
-    worksheet["!cols"][COL_INDEX].wpx = COL_WIDTH;
-    XLSX.utils.book_append_sheet(workbook, worksheet, "Jawaban");
-    XLSX.writeFile(workbook, path.join(__dirname, '..', 'files',filename), { cellStyles: true});
-    const file = path.join(__dirname, '..', 'files', filename);
+    XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
     var sql = 'update psikotes set ist_result = ? where nama = ?'
     var values = [filename, req.session.user]
     connection.query(sql, values, (err,rows)=>{

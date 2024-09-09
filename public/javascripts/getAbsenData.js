@@ -1,14 +1,14 @@
 var urlDownload = 'http://solutioncloud.co.id/download.asp'
 var solutioncloud = 'http://solutioncloud.co.id/sc_pro.asp?sn=UCR6235200067&pass=solution'
-var newWindow = window.open(solutioncloud)
+// var newWindow = window.open(solutioncloud)
 
-setTimeout(() => {
-    newWindow.close()
-}, 500);
+// setTimeout(() => {
+//     newWindow.close()
+// }, 500);
 
-setTimeout(() => {
-    window.location = urlDownload 
-}, 2000);
+// setTimeout(() => {
+//     window.location = urlDownload 
+// }, 2000);
 // const xhr = new XMLHttpRequest
 // xhr.open('GET','http://solutioncloud.co.id/download.asp',true)
 // // xhr.setRequestHeader('ASPSESSIONIDCARCSSQA','DOECKKFDKHDAGLAGLKBPEOHM')

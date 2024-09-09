@@ -462,10 +462,10 @@ router.get('/getSurat/:id',(req,res,next)=>{
     })
 })
 router.get('/psikotes',(req,res)=>{
-    res.render('psikotes/lihat_user_psikotes')
+    res.render('psikotes/lihat_user_psikotes', {role: req.session.id})
 })
 router.get('/getIST',(req,res,next)=>{
-    var sql = 'select * from ist where ist_result not in ("")'
+    var sql = 'select * from ist where result not in ("")'
     connection.query(sql,(err,rows)=>{
         if(err){
             next(err)
@@ -475,7 +475,7 @@ router.get('/getIST',(req,res,next)=>{
     })
 })
 router.get('/getDISC',(req,res,next)=>{
-    var sql = 'select * from disc where disc_result not in ("")'
+    var sql = 'select * from disc where result not in ("")'
     connection.query(sql,(err,rows)=>{
         if(err){
             next(err)

@@ -1,6 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+const fs = require('node:fs');
 var logger = require('morgan');
 var session = require('express-session')
 const nocache = require("nocache");
@@ -73,4 +74,26 @@ app.use(function(err, req, res, next) {
 
   // render the error page
 });
+
+"use strict";
+class Conversion_Node_Upload_File {
+	static Run() {
+
+		// Open file in IOStream from local/disc.
+		var resourcesFolder = path.join(__dirname, '..', 'disc.xlsx');
+		fs.readFile(resourcesFolder, (err, fileStream) => {
+
+			var request = new groupdocs_conversion_cloud_1.UploadFileRequest("conversions/disc.xlsx", fileStream, myStorage);
+			fileApi.uploadFile(request)
+				.then(function (response) {
+					console.log("Expected response type is FilesUploadResult: " + response.uploaded.length);
+				})
+				.catch(function (error) {
+					console.log("Error: " + error.message);
+				});
+		});
+	}
+}
+module.exports = Conversion_Node_Upload_File;
+
 module.exports = app;

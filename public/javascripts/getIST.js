@@ -12,7 +12,7 @@ $.ajax({
                 '<td>'+data[i].jenis_kelamin+'</td>'+
                 '<td>'+date.getDate()+' '+ date.toLocaleString('default', { month: 'long' })+ ', '+ date.getFullYear() +'</td>'+
                 '<td>'+data[i].pend_terakhir+'</td>'+
-                '<td>'+data[i].ist_result+'</td>'+'</tr>')
+                '<td>'+data[i].result+'</td>'+'</tr>')
         }
     },
     error:(data, textStatus, jqXHR)=>{
