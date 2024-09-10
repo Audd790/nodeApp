@@ -25,7 +25,7 @@ router.get('/',(req,res,next)=>{
             } else {
                 req.session.user = 'temp'
                 req.session.role = 0
-                res.render('home_psikotes',{header_text:'Pilih test'})
+                res.render('home_psikotes',{header_text:'Pilih test', role: req.session.role})
             }
     
         })
@@ -204,6 +204,18 @@ router.get('/getDiscResults/:nama', async (req,res,next)=>{
         })
 })
 
+router.get('/getDiscResults/:nama', async (req,res,next)=>{
+    connection.query('select result from disc where nama = ? and result not in ("")', req.params.nama, 
+        async (err, rows)=>{
+            if(err){
+                next(err)
+            } else {
+                var filename = rows[0].result;
+                res.download(path.join(__dirname, '..', 'files',filename+'.xlsx'))
+            }
+        })
+})
+
 router.get('/getIstResults/:nama', (req,res,next)=>{
     connection.query('select result from ist where nama = ? and result not in ("")', req.params.nama, 
         (err, rows)=>{
@@ -257,6 +269,37 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
         console.log( reason)
     })
     
+})
+router.get('/getPsikotesResults',(req,res,next)=>{
+    var sql = 'select * from psikotes'
+    connection.query(sql,(err,rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send(rows)
+        }
+    })
+})
+// router.get('/getDISC',(req,res,next)=>{
+//     var sql = 'select * from disc where result not in ("")'
+//     connection.query(sql,(err,rows)=>{
+//         if(err){
+//             next(err)
+//         } else{
+//             res.send(rows)
+//         }
+//     })
+// })
+router.get('/deletePsikotes/:nama', (req,res,next)=>{
+    var nama = req.params.nama
+    connection.query('delete from psikotes where nama = ?', [nama],(err, rows)=>{
+        if(err){
+          next(err)
+        }else{
+          console.log(rows)
+          res.send({message: 'success'})
+        }
+    })
 })
 
 module.exports = router

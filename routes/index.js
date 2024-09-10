@@ -102,6 +102,13 @@ router.get('/logout', (req,res,next)=>{
       if(err){
         console.log(err)
       }else{
+        connection.query('delete from psikotes where nama = \'temp\'', (err, rows)=>{
+          if(err){
+            next(err)
+          }else{
+            console.log(rows)
+          }
+        })
         console.log('logout success')
         res.redirect('/')
       }
