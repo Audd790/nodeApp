@@ -24,12 +24,13 @@ router.get('/',(req,res,next)=>{
                 next(err)
             } else {
                 req.session.user = 'temp'
+                req.session.role = 0
                 res.render('home_psikotes',{header_text:'Pilih test'})
             }
     
         })
     } else{
-        res.render('home_psikotes',{header_text:'Pilih test'})
+        res.render('home_psikotes',{header_text:'Pilih test', role: req.session.role})
     }
 })
 

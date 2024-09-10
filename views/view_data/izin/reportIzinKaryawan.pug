@@ -217,6 +217,8 @@ block append info
                                                     div(id='surat_'+item.id value=item.id style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                                                         button#getsurat(type="button" name="getsurat") Download
 block append script 
+    script(src='/javascripts/header.js')
+    script(src="/javascripts/kehadiran.js")
     script(src="/javascripts/reportIzin.js")
     if role !== 2
         script(src="/javascripts/getSurat.js")
