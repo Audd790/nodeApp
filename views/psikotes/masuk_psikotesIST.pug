@@ -1,5 +1,13 @@
 extends ../layout 
-block content
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href='/psikotes') Home
+                li
+                    span(aria-current="page") IST Test
+block info
     .block 
         .container1 
             .header 
@@ -30,6 +38,6 @@ block content
                             option(value="S1") S1
                             option(value="S2") S2
                             option(value="S3") S3
-                    button(type='submit' value=tipeTest) Masuk
+                    button(type='submit' name='psikotes' value=tipeTest) Masuk
 block script 
     script(src="/javascripts/masuk_psikotes.js") 

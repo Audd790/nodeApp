@@ -1,7 +1,15 @@
+$('#masuk_disc').on('click', function(){
+    window.location.href = '/psikotes/masuk_test/disc'
+})
+
+$('#masuk_ist').on('click', function(){
+    window.location.href = '/psikotes/masuk_test/ist'
+})
+
 $('form').on('submit',function(e){
     e.preventDefault()
     const formData = new FormData($(this)[0])
-    var tipeTest = $('button').attr('value')
+    var tipeTest = $('button[name="psikotes"]').attr('value')
     $.ajax({
         url : tipeTest,
         type: "POST",

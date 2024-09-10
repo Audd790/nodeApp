@@ -1,0 +1,12 @@
+extends layout
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    span(aria-current="page") Home
+        .btn_group
+            button#masuk_disc.button(type='button') DISC
+            button#masuk_ist.button(type='button') IST
+block script
+    script(src="/javascripts/masuk_psikotes.js") 

@@ -229,7 +229,7 @@ $('form').on('submit',function(e){
         success: (data, textStatus, jqXHR)=>{
             // alert(data.result);
             console.log(data.result)
-            // window.location.replace('/psikotes/masuk_test/ist')
+            window.location.replace('/psikotes/masuk_test/ist')
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)

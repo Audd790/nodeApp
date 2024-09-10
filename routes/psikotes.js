@@ -17,6 +17,22 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
+router.get('/',(req,res,next)=>{
+    if(!req.session.user){
+        connection.query('insert into psikotes(nama)values("temp")',(err,rows)=>{
+            if(err) {
+                next(err)
+            } else {
+                req.session.user = 'temp'
+                res.render('home_psikotes',{header_text:'Pilih test'})
+            }
+    
+        })
+    } else{
+        res.render('home_psikotes',{header_text:'Pilih test'})
+    }
+})
+
 router.get('/masuk_test/:test',upload.none(), (req,res)=>{
     if(req.params.test == 'ist'){
         res.render('psikotes/masuk_psikotesIST',{title: 'welcome to psikotes', tipeTest:req.params.test})
@@ -33,15 +49,16 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
     var values
     if(req.params.test == 'ist'){
         const masuk_psikotesIST = req.body
-        sql = 'insert into psikotes(nama, jenis_kelamin, pend_terakhir, hari, bulan, year)'+
-        'values(?,?,?,?,?,?)'
+        sql = 'update psikotes set nama = ?, jenis_kelamin = ?, pend_terakhir = ?, hari = ?, bulan = ?, year = ? where nama = ?'
         date = new Date(req.body.tgl_lahir)
+        var nama = req.session.user
         values = [masuk_psikotesIST.nama, 
         masuk_psikotesIST.kelamin, 
         masuk_psikotesIST.pen_terakhir,
         date.getDate(),
         date.getMonth(),
-        date.getFullYear()]
+        date.getFullYear(),
+        nama]
         connection.query(sql,values, (err,rows)=>{
             if(err){
                 next(err)
@@ -54,9 +71,9 @@ router.post('/masuk_test/:test', upload.none(), (req,res,next)=>{
     }
 
     if(req.params.test == 'disc'){
-        sql = 'insert into psikotes(nama, jenis_kelamin, umur)'+
-        'values(?,?,?)'
+        sql = 'update psikotes set nama = ?, jenis_kelamin = ?, umur = ? where nama = ?'
         values = Object.values(req.body)
+        values.push(req.session.user)
         connection.query(sql, values, (err, rows)=>{
             if(err){
                 next(err)
@@ -168,7 +185,6 @@ router.post('/disc_test', upload.none(),
                     next(err)
                 } else{
                     console.log(rows)
-                    // req.session.destroy()
                 }
             })
             res.send({result: 'success', err: ''})
@@ -182,31 +198,18 @@ router.get('/getDiscResults/:nama', async (req,res,next)=>{
                 next(err)
             } else {
                 var filename = rows[0].result;
-                // let convertApi = GroupDocs.ConvertApi.fromKeys(appSid, appKey);
-
-                // let file = fs.readFileSync(path.join(__dirname, '..', filename + '.xlsx'));
-
-                // // create convert document direct request
-                // let request = new GroupDocs.ConvertDocumentDirectRequest("pdf", file);
-
-                // // convert document
-                // let result = await convertApi.convertDocumentDirect(request);
-                // // save output file to specified path
-                // console.log('before')
-                // fs.writeFile(path.join(__dirname, '..', filename+'.pdf'), result, "binary", function (err) { });
-                // console.log('after')
                 res.download(path.join(__dirname, '..', 'files',filename+'.xlsx'))
             }
         })
 })
 
-router.get('/getIstResults', (req,res,next)=>{
-    connection.query('select result from ist where nama = ? and result not in ("")', req.session.user, 
+router.get('/getIstResults/:nama', (req,res,next)=>{
+    connection.query('select result from ist where nama = ? and result not in ("")', req.params.nama, 
         (err, rows)=>{
             if(err){
                 next(err)
             } else {
-                res.download(path.join(__dirname, '..', rows[0].result+'.xlsx'))
+                res.download(path.join(__dirname, '..', 'files',rows[0].result+'.xlsx'))
             }
         })
 })
@@ -217,42 +220,42 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
         res.redirect('/masuk_test/ist')
     }
     var values = Object.entries(req.body)
-    console.log(values)
+    // console.log(values)
     var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'ist_test_'+req.session.user
     XlsxPopulate.fromFileAsync(path.join(__dirname, '..', 'IST_Norma_Pendidikan.xlsx'),{ password: "gitpsy0001" })
     .then(workbook=>{
-        var sheet = workbook.sheet("Input")
-        for(i=0;i<75;i++){
-            sheet.cell(values[i][0]).value(values[i][1])
+        for(i=0;i<76;i++){
+            workbook.sheet("Input").cell(values[i][0]).value(values[i][1])
         }
-        var cell
-        for(i=76;i<95;i++){
-            cell = sheet.cell(values[i][0])
-            var cellValue
-            console.log(values[i])
+        for(i=76;i<116;i++){
+            var cellValue = ''
+            for(k=0;k<values[i][1].length;k++){
+                cellValue = cellValue + values[i][1][k]
+            }
+            workbook.sheet("Input").cell(values[i][0]).value(cellValue)
+        }
+
+        for(i=116;i<176;i++){
+            workbook.sheet("Input").cell(values[i][0]).value(values[i][1])
         }
             // Log the value.
-        return workbook.toFileAsync(path.join(__dirname, '..', filename+".xlsx"));
+        return workbook.toFileAsync(path.join(__dirname, '..', 'files', filename+".xlsx"));
+    }).then(response=>{
+        var sql = 'update psikotes set ist_result = ? where nama = ?'
+        var values = [filename, req.session.user]
+        connection.query(sql, values, (err,rows)=>{
+            if(err){
+                next(err)
+            } else{
+                console.log(rows)
+            }
+        })
+        res.send({result: 'success'})
     })
     .catch(reason=>{
         console.log( reason)
     })
-    // for(i=0;i<values.length;i++){
-    //     workbook.Sheets['Input'][values[i]]= { v: 'x', t: 's', w: 'x' }
-    //     console.log(values[i]);
-    // }
-    // XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
-    // var sql = 'update psikotes set ist_result = ? where nama = ?'
-    // var values = [filename, req.session.user]
-    // connection.query(sql, values, (err,rows)=>{
-    //     if(err){
-    //         next(err)
-    //     } else{
-    //         console.log(rows)
-    //         req.session.destroy()
-    //     }
-    // })
-    res.send({result: 'success'})
+    
 })
 
 module.exports = router

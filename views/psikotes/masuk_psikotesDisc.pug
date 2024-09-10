@@ -1,5 +1,13 @@
 extends ../layout 
-block content
+block nav 
+    .block
+        nav(aria-label="Breadcrumb" class="breadcrumb")
+            ul
+                li
+                    a(href='/psikotes') Home
+                li
+                    span(aria-current="page") DISC Test
+block info
     .block 
         .container1 
             .header 
@@ -17,6 +25,6 @@ block content
                     .form-group 
                         label(for="umur") Umur
                         input#umur(type="number" name='umur' min=0)
-                    button(type='submit' value=tipeTest) Masuk
+                    button(type='submit' name='psikotes' value=tipeTest) Masuk
 block script 
     script(src="/javascripts/masuk_psikotes.js") 
