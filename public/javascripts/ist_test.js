@@ -1,7 +1,7 @@
 var miliseconds = 1000
 var menit = 60
 var seconds = 0.5*menit;
-var testtimeout = menit
+var testtimeout = 30
 var timeout1 = 6*menit
 var timeout2 = 6*menit
 var timeout3 = 7*menit
@@ -206,7 +206,7 @@ $('#selesaiTutorial9').on('click', function(){
     $('#tutorial9').toggleClass('hide')
     $('#bagian9').toggleClass('hide')
     $('#time').toggleClass('hide')
-    var timer = new CountDownTimer(timeout9);
+    var timer = new CountDownTimer(testtimeout);
     timer.onTick(format).start();
     setTimeout(() => {
         $('#bagian9').toggleClass('hide')
@@ -229,8 +229,7 @@ $('form').on('submit',function(e){
         success: (data, textStatus, jqXHR)=>{
             // alert(data.result);
             console.log(data.result)
-            $(this)[0].reset
-            window.location.replace('/psikotes/masuk_test/ist_test')
+            // window.location.replace('/psikotes/masuk_test/ist')
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)

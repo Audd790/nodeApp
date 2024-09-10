@@ -6,6 +6,7 @@ const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
 const fs = require('node:fs')
 var XLSX = require("xlsx");
+const XlsxPopulate = require('xlsx-populate');
 var GroupDocs = require('groupdocs-conversion-cloud');
 
 const mysql = require('mysql2')
@@ -211,27 +212,46 @@ router.get('/getIstResults', (req,res,next)=>{
 })
 
 router.post('/ist_test', upload.none(), (req, res, next)=>{
+    const date = new Date
     if(!req.session.user){
         res.redirect('/masuk_test/ist')
     }
-    console.log(req.body)
+    var values = Object.entries(req.body)
+    console.log(values)
     var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'ist_test_'+req.session.user
-    var workbook = XLSX.readFile("IST_Norma_Pendidikan.xlsx");
-    for(i=0;i<values.length;i++){
-        workbook.Sheets['Input'][values[i]]= { v: 'x', t: 's', w: 'x' }
-        console.log(values[i]);
-    }
-    XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
-    var sql = 'update psikotes set ist_result = ? where nama = ?'
-    var values = [filename, req.session.user]
-    connection.query(sql, values, (err,rows)=>{
-        if(err){
-            next(err)
-        } else{
-            console.log(rows)
-            req.session.destroy()
+    XlsxPopulate.fromFileAsync(path.join(__dirname, '..', 'IST_Norma_Pendidikan.xlsx'),{ password: "gitpsy0001" })
+    .then(workbook=>{
+        var sheet = workbook.sheet("Input")
+        for(i=0;i<75;i++){
+            sheet.cell(values[i][0]).value(values[i][1])
         }
+        var cell
+        for(i=76;i<95;i++){
+            cell = sheet.cell(values[i][0])
+            var cellValue
+            console.log(values[i])
+        }
+            // Log the value.
+        return workbook.toFileAsync(path.join(__dirname, '..', filename+".xlsx"));
     })
+    .catch(reason=>{
+        console.log( reason)
+    })
+    // for(i=0;i<values.length;i++){
+    //     workbook.Sheets['Input'][values[i]]= { v: 'x', t: 's', w: 'x' }
+    //     console.log(values[i]);
+    // }
+    // XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
+    // var sql = 'update psikotes set ist_result = ? where nama = ?'
+    // var values = [filename, req.session.user]
+    // connection.query(sql, values, (err,rows)=>{
+    //     if(err){
+    //         next(err)
+    //     } else{
+    //         console.log(rows)
+    //         req.session.destroy()
+    //     }
+    // })
     res.send({result: 'success'})
 })
 
