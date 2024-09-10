@@ -134,11 +134,10 @@ router.post('/disc_test', upload.none(),
         }
         const date = new Date
         const result = validationResult(req);
-        const match = matchedData(req)
-        var values = Object.values(match)
         if(result.errors.length > 0){
             res.send({result:'tolong isi sampai selesai', err: result.errors})
         } else{
+            
             // initialize api
         
             // console.log(req.body)
@@ -172,23 +171,30 @@ router.post('/disc_test', upload.none(),
             // /* set column width */
             // // Cant work for some reason
             var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
-            var sql = 'update psikotes set disc_result = ? where nama = ?'
-            var workbook = XLSX.readFile("Software DISC1.xlsx");
-            for(i=0;i<values.length;i++){
-                workbook.Sheets['DISC Test'][values[i]]= { v: 'x', t: 's', w: 'x' }
-                console.log(values[i]);
-            }
-            XLSX.writeFile(workbook, 'files/'+filename+'.xlsx');
-            var values = [filename, req.session.user]
-            // console.log(workbook.Sheets['Result'])
-            connection.query(sql, values, (err,rows)=>{
-                if(err){
-                    next(err)
-                } else{
-                    console.log(rows)
+            
+            XlsxPopulate.fromFileAsync(path.join(__dirname, '..', "Software DISC1.xlsx"))
+            .then(workbook=>{
+                const match = matchedData(req)
+                var values = Object.values(match)
+                for(i=0;i<values.length;i++){
+                    workbook.sheet('DISC Test').cell(values[i]).value('x')
+                    
                 }
+                workbook.sheet('DISC Test').row(12).hidden(true)
+                workbook.sheet('DISC Test').column('C').hidden(true)
+                return workbook.toFileAsync(path.join(__dirname, '..', 'files', filename+".xlsx"))
+            }).then(response=>{
+                var values = [filename, req.session.user]
+                var sql = 'update psikotes set disc_result = ? where nama = ?'
+                // connection.query(sql, values, (err,rows)=>{
+                //     if(err){
+                //         next(err)
+                //     } else{
+                //         console.log(rows)
+                //     }
+                // })
+                res.send({result: 'success', err: ''})
             })
-            res.send({result: 'success', err: ''})
         }
 })
 
