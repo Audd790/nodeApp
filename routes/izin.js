@@ -68,7 +68,7 @@ router.get('/getIzin',(req,res,next)=>{
     })
 })
 let cuti
-router.get('/getCuti',(req, res, next)=>{
+router.get('/syncCuti',(req, res, next)=>{
     var sql = 'select * from cuti where nama = ?'
     var values = req.session.user;
     connection.query(sql, values, (err,rows)=>{
@@ -83,27 +83,28 @@ router.get('/getCuti',(req, res, next)=>{
     })
 })
 
-router.get('/ambilCuti',(req, res, next)=>{
-    var jumlah_cuti = 8
+router.post('/ambilCuti',(req, res, next)=>{
+    // console.log(req.body.jumlahCuti)
+    var jumlah_cuti = req.body.jumlahCuti
+    var n_0 = jumlah_cuti
     var diff1 = (cuti.n_2-jumlah_cuti)
     if(diff1<0){
         cuti.n_2 = 0
         cuti.n_1 = cuti.n_1 + diff1
-        jumlah_cuti = 0
-    } else{
+        n_0 = 0
+    } else if(diff1>=0){
         cuti.n_2 = cuti.n_2 - jumlah_cuti
+        n_0 = 0
     }
 
     if(cuti.n_1 < 0){
-        jumlah_cuti = 0 - cuti.n_1
+        n_0 = 0 - cuti.n_1
         cuti.n_1 = 0
     }
-    if(jumlah_cuti>cuti.jumlah_cuti){
-        res.send({sql:[], err: 'Gak bisa ambil cuti'})
-    }else{
-        console.log(cuti)
-        var sql = 'update cuti set jumlah_cuti = ?, sisa_cuti = sisa_cuti-?, n_2 = ?, n_1 = ?, total_cuti = n_1+n_2+sisa_cuti where nama = ?'
-        var values = [jumlah_cuti,jumlah_cuti, cuti.n_2, cuti.n_1, req.session.user];
+    console.log(cuti.sisa_cuti+cuti.n_1+cuti.n_2)
+    if((cuti.sisa_cuti+cuti.n_1+cuti.n_2+1) >= n_0 ){
+        var sql = 'update cuti set jumlah_cuti = jumlah_cuti + ?, sisa_cuti = sisa_cuti-?, n_2 = ?, n_1 = ?, total_cuti = n_1+n_2+sisa_cuti+1 where nama = ?'
+        var values = [jumlah_cuti,n_0, cuti.n_2, cuti.n_1, req.session.user];
         connection.query(sql, values, (err,rows)=>{
             if(err) {
                 next(err)
@@ -111,6 +112,9 @@ router.get('/ambilCuti',(req, res, next)=>{
                 res.send({sql: rows, err: ''})
             }
         })
+        
+    }else{
+        res.send({sql:[], err: 'Gak bisa ambil cuti'})
     }
 })
 
@@ -377,7 +381,7 @@ router.get('/plafon_cuti', (req,res)=>{
             next(err)
         } else {
             console.log(rows);
-            res.render('view_data/izin/plafon_cuti',{sql:rows[0]})
+            res.render('view_data/izin/plafon_cuti',{sql:rows[0], role: req.session.role_id})
         }
     })
 })
