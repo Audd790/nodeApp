@@ -11,6 +11,8 @@ block append info
     -var month = ['All', 'Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
     if role == 1
         .block 
+            .btn_group
+                a.button(href="plafon_cuti") Plafon Cuti
             form#form
                 div.form-group(style="display: flex;align-items: auto;justify-content: auto;flex-direction: row;")
                     input(type="radio" name='toggle' value="Month" checked="true") 

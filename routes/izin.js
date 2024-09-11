@@ -118,6 +118,30 @@ router.post('/ambilCuti',(req, res, next)=>{
     }
 })
 
+router.get('/getMaxCarry',(req,res,next)=>{
+    var sql = 'select * from maxCuti'
+    connection.query(sql, (err, rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send({sql: rows[0]})
+        }
+    })
+})
+
+router.post('/setMaxCarry',(req,res,next)=>{
+    var sql = 'update maxCuti set max_cuti = ?'
+    var max = req.body.maxCuti
+    var values = [max]
+    connection.query(sql, values, (err, rows)=>{
+        if(err){
+            next(err)
+        } else{
+            res.send({sql: rows[0]})
+        }
+    })
+})
+
 router.get('/formAbsen', (req,res)=>{
     fs.open(path.join(__dirname, '..', 'files','izin_karyawan.xlsx'),'r', (err,fd)=>{
         if(err){
@@ -381,7 +405,8 @@ router.get('/plafon_cuti', (req,res)=>{
             next(err)
         } else {
             console.log(rows);
-            res.render('view_data/izin/plafon_cuti',{sql:rows[0], role: req.session.role_id})
+            if(req.session.role_id == 2) res.render('view_data/izin/plafon_cuti',{sql:rows[0], header_text:'Plafon Cuti', role: req.session.role_id})
+            if(req.session.role_id == 1) res.render('view_data/izin/plafon_cuti_hrd',{sql:rows[0], header_text:'Plafon Cuti HRD', role: req.session.role_id})
         }
     })
 })

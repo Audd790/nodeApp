@@ -246,7 +246,7 @@ update cuti set n_1=6, n_2=6, sisa_cuti=-1, total_cuti=12;
 delimiter //
 create event cutiPerBulan
 on schedule
-every 5 second starts '2024-09-06 14:22:00' + interval 5 second
+every 5 second starts '2024-09-11 12:04:00' + interval 5 second
 do 
    begin
       update cuti
@@ -258,14 +258,14 @@ delimiter ;
 delimiter //
 create event cutiPerTahun
 on schedule
-every 1 minute starts '2024-09-06 14:22:00' + interval 1 minute + interval 5 second
+every 1 minute starts '2024-09-11 14:22:00' + interval 1 minute + interval 5 second
 do 
    begin
       update cuti
       set n_2 = n_1
       , n_1 = 
       case 
-         when sisa_cuti > 6 then 6
+         when sisa_cuti > (select max_cuti from maxCuti limit 1) then (select max_cuti from maxCuti limit 1)
          else sisa_cuti
       end
       ,jumlah_cuti = 0, sisa_cuti = 0

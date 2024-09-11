@@ -12,9 +12,9 @@ block nav
 block info 
     -var date = new Date
     .block 
+
         .btn_group
-            button#syncCuti.button(type='button') Sync cuti
-            button#ambilCuti.button(type="button") Ambil cuti
+            button#setMaxCarry.button(type='button') Set Max
         .block
             -var date = new Date
         .container2 
@@ -24,12 +24,12 @@ block info
                 -var date = new Date
                 -var thn_depan = date.getFullYear()+1
                 form#formCuti
-                    label(for="jmlhCuti") Jumlah Cuti
-                    input#jmlhCuti(type="text" value = '1')
+                    p#isiMaxCuti
+                    label(for="maxCuti") Ganti max cuti
+                    input#maxCuti(type="text" )
                     #isiCuti.form-group 
                     //- button(type='submit') Submit
                     //- button(type='button') Carry Over
 block script 
     script(src='/javascripts/header.js')
-    script(src='/javascripts/plafon_cuti.js')
-    script(src='/javascripts/ambilCuti.js')
+    script(src='/javascripts/plafon_cuti_hrd.js')
