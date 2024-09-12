@@ -14,7 +14,7 @@ block info
     .block 
         .btn_group
             button#syncCuti.button(type='button') Sync cuti
-            button#ambilCuti.button(type="button") Ambil cuti
+            //- button#ambilCuti.button(type="button") Ambil cuti
         .block
             -var date = new Date
         .container2 
@@ -24,8 +24,8 @@ block info
                 -var date = new Date
                 -var thn_depan = date.getFullYear()+1
                 form#formCuti
-                    label(for="jmlhCuti") Jumlah Cuti
-                    input#jmlhCuti(type="text" value = '1')
+                    //- label(for="jmlhCuti") Jumlah Cuti
+                    //- input#jmlhCuti(type="text" value = '1')
                     #isiCuti.form-group 
                     //- button(type='submit') Submit
                     //- button(type='button') Carry Over

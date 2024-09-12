@@ -19,19 +19,27 @@ const connection = mysql.createConnection({
 
 router.get('/',(req,res,next)=>{
     if(!req.session.user){
-        // connection.query('insert into psikotes(nama)values("temp")',(err,rows)=>{
-        //     if(err) {
-        //         next(err)
-        //     } else {
-        //         req.session.user = 'temp'
+        connection.query('insert into psikotes(nama)values("temp")',(err,rows)=>{
+            if(err) {
+                next(err)
+            } else {
+                req.session.user = 'temp'
                 req.session.role = 0
                 res.render('home_psikotes',{header_text:'Pilih test', role: req.session.role})
-        //     }
+            }
     
-        // })
+        })
     } else{
         req.session.role = 0
         res.render('home_psikotes',{header_text:'Pilih test', role: req.session.role})
+    }
+})
+
+router.get('/*', (req,res,next)=>{
+    if(!req.session.user){
+        res.redirect('/psikotes')
+    } else{
+        next()
     }
 })
 
@@ -139,37 +147,6 @@ router.post('/disc_test', upload.none(),
             res.send({result:'tolong isi sampai selesai', err: result.errors})
         } else{
             
-            // initialize api
-        
-            // console.log(req.body)
-            // const worksheet = XLSX.utils.json_to_sheet(Object.values(req.body));
-            // const workbook = XLSX.utils.book_new();
-            // var C = XLSX.utils.decode_col("G"); 
-            // var fmt = 'dd/mm/yyyy hh:mm:ss'; // or '"$"#,##0.00_);[Red]\\("$"#,##0.00\\)' or any Excel number format
-
-            // /* get worksheet range */
-            // var range = XLSX.utils.decode_range(worksheet['!ref']);
-            // for(var i = range.s.r + 1; i <= range.e.r; ++i) {
-            //     /* find the data cell (range.s.r + 1 skips the header row of the worksheet) */
-            //     var ref = XLSX.utils.encode_cell({r:i, c:C});
-            //     /* if the particular row did not contain data for the column, the cell will not be generated */
-            //     if(!worksheet[ref]) continue;
-            //     /* assign the `.z` number format */
-            //     worksheet[ref].z = fmt;
-            // }
-
-            // const COL_WIDTH = 50;
-
-            // /* Excel column "C" -> SheetJS column index 2 == XLSX.utils.decode_col("C") */
-            // var COL_INDEX = 2;
-            
-            // /* create !cols array if it does not exist */
-            // if(!worksheet["!cols"]) worksheet["!cols"] = [];
-            
-            // /* create column metadata object if it does not exist */
-            // if(!worksheet["!cols"][COL_INDEX]) worksheet["!cols"][COL_INDEX] = {wch: 8};
-            
-            // /* set column width */
             // // Cant work for some reason
             var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
             
@@ -231,28 +208,16 @@ router.post('/disc_test', upload.none(),
             }).then(response=>{
                 var values = [filename, req.session.user]
                 var sql = 'update psikotes set disc_result = ? where nama = ?'
-                // connection.query(sql, values, (err,rows)=>{
-                //     if(err){
-                //         next(err)
-                //     } else{
-                //         console.log(rows)
-                //     }
-                // })
+                connection.query(sql, values, (err,rows)=>{
+                    if(err){
+                        next(err)
+                    } else{
+                        console.log(rows)
+                    }
+                })
                 res.send({result: 'success', err: ''})
             })
         }
-})
-
-router.get('/getDiscResults/:nama', async (req,res,next)=>{
-    connection.query('select result from disc where nama = ? and result not in ("")', req.params.nama, 
-        async (err, rows)=>{
-            if(err){
-                next(err)
-            } else {
-                var filename = rows[0].result;
-                res.download(path.join(__dirname, '..', 'files',filename+'.xlsx'))
-            }
-        })
 })
 
 router.get('/getDiscResults/:nama', async (req,res,next)=>{
