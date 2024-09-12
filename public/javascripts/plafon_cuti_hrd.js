@@ -1,6 +1,7 @@
 $('#setMaxCarry').on('click', setMaxCarry);
 getMaxCarry()
 function setMaxCarry(){
+    $(this).prop('disabled')
     const xhr = new XMLHttpRequest
     xhr.open('POST', 'setMaxCarry', true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
@@ -10,8 +11,12 @@ function setMaxCarry(){
             if (xhr.status === 200) {
                 // var res = JSON.parse(xhr.response)
                 var res = JSON.parse(xhr.response)
-                // $('#isi').text( 'sisa 1 tahun sebelumnya: '+ res.sql[0].n_1+ ', sisa 2 tahun sebelumnya: '+ res.sql[0].n_2 + ', total cuti: ' +res.sql[0].total_cuti +', sisa cuti: '+(res.sql[0].sisa_cuti+1))
+                if(res.sql == ''){
+                    alert('Tolong di isi')
+                }
+                
                 getMaxCarry()
+                $(this).prop('disabled')
                 console.log(res) 
             } else{
                 console.error('Error:', xhr.status)

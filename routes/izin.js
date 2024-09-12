@@ -48,7 +48,6 @@ router.all('/*', function(req, res, next){
 })
 
 router.get('/', function(req, res, next){
-    console.log()
     var header_text
     if(req.session.role_id == 2) {
         header_text = 'Report Izin Karyawan ' + req.session.user
@@ -73,10 +72,8 @@ router.get('/syncCuti',(req, res, next)=>{
     var values = req.session.user;
     connection.query(sql, values, (err,rows)=>{
         if(err) {
-            console.log('here')
             next(err)
         } else {
-            console.log('here')
             cuti = rows[0]
             res.send({sql: rows})
         }
@@ -101,7 +98,6 @@ router.post('/ambilCuti',(req, res, next)=>{
         n_0 = 0 - cuti.n_1
         cuti.n_1 = 0
     }
-    console.log(cuti.sisa_cuti+cuti.n_1+cuti.n_2)
     if((cuti.sisa_cuti+cuti.n_1+cuti.n_2+1) >= n_0 ){
         var sql = 'update cuti set jumlah_cuti = jumlah_cuti + ?, sisa_cuti = sisa_cuti-?, n_2 = ?, n_1 = ?, total_cuti = n_1+n_2+sisa_cuti+1 where nama = ?'
         var values = [jumlah_cuti,n_0, cuti.n_2, cuti.n_1, req.session.user];
@@ -129,17 +125,35 @@ router.get('/getMaxCarry',(req,res,next)=>{
     })
 })
 
-router.post('/setMaxCarry',(req,res,next)=>{
-    var sql = 'update maxCuti set max_cuti = ?'
-    var max = req.body.maxCuti
-    var values = [max]
-    connection.query(sql, values, (err, rows)=>{
-        if(err){
-            next(err)
+router.post('/setMaxCarry', 
+    check('maxCuti').trim().notEmpty().escape()
+    ,(req,res,next)=>{
+        var sql = 'update maxCuti set max_cuti = ?'
+        var result = validationResult(req)
+        // console.log(result.errors)
+        if(result.errors.length > 0){
+            res.send({sql: ''})
         } else{
-            res.send({sql: rows[0]})
+            var max = req.body.maxCuti
+            if(max > 12) max = 12
+            var values = [max]
+            connection.query(sql, values, (err, rows)=>{
+                if(err){
+                    next(err)
+                } else{
+                    res.send({sql: rows[0]}) 
+                }
+            })
         }
-    })
+        // sql = 'update cuti set n_1 = ?, n_2 = ? where n_1 > ? and n_2 > ?'
+        // values = [max,max,max,max]
+        // connection.query(sql, values, (err, rows)=>{
+        //     if(err){
+        //         next(err)
+        //     } else{
+        //         console.log({sql: rows}) 
+        //     }
+        // })
 })
 
 router.get('/formAbsen', (req,res)=>{
@@ -397,7 +411,7 @@ router.get('carry_over',(req, res)=>{
     res.render('carry_over')
 })
 
-router.get('/plafon_cuti', (req,res)=>{
+router.get('/plafon_cuti',(req,res)=>{
     var sql = 'select * from cuti where nama = ?';
     var values = [req.session.user]
     connection.query(sql, values, (err,rows)=>{
