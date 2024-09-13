@@ -28,7 +28,7 @@ Jalan projek untuk development pakai nodemon dan production dengan pm2
 2. Untuk jalan program, pindah ke folder projek dan ketik `nodemon`
 3. Untuk hentikan, pakai command `ctrl+C`
 
-Untuk info lebih lengkap tentang nodemon: https://www.npmjs.com/package/nodemon
+Untuk info lebih lengkap tentang nodemon --> https://www.npmjs.com/package/nodemon
 
 #### Jalan pakai pm2   
 
@@ -36,4 +36,4 @@ Untuk info lebih lengkap tentang nodemon: https://www.npmjs.com/package/nodemon
 2. Untuk jalan program ketik `pm2 start [path to projek]/bin/www`
 3. Untuk hentikan, ketik `pm2 stop [path to projek]/bin/www`
 
-Untuk info lebih lengkap tentang pm2: https://pm2.keymetrics.io/docs/usage/quick-start/
+Untuk info lebih lengkap tentang pm2 --> https://pm2.keymetrics.io/docs/usage/quick-start/
