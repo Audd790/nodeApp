@@ -76,6 +76,146 @@ $('#button_mulai').on('click',function(){
     $('#entry').toggleClass('hide')
 })
 
+// $('#selesaiTutorial1').on('click', function(){
+//     $('#tutorial1').toggleClass('hide')
+//     $('#bagian1').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout1);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian1').toggleClass('hide')
+//         $('#tutorial2').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout1*miliseconds)
+// })
+
+// $('#selesaiTutorial2').on('click', function(){
+//     $('#tutorial2').toggleClass('hide')
+//     $('#bagian2').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout2);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian2').toggleClass('hide')
+//         $('#tutorial3').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout2*miliseconds)
+// })
+
+// $('#selesaiTutorial3').on('click', function(){
+//     $('#tutorial3').toggleClass('hide')
+//     $('#bagian3').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout3);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian3').toggleClass('hide')
+//         $('#tutorial4').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout3*miliseconds)
+// })
+
+// $('#selesaiTutorial4').on('click', function(){
+//     $('#tutorial4').toggleClass('hide')
+//     $('#bagian4').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout4);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian4').toggleClass('hide')
+//         $('#tutorial5').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout4*miliseconds)
+// })
+
+// $('#selesaiTutorial5').on('click', function(){
+//     $('#tutorial5').toggleClass('hide')
+//     $('#bagian5').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout5);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian5').toggleClass('hide')
+//         $('#tutorial6').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout5*miliseconds)
+// })
+
+// $('#selesaiTutorial6').on('click', function(){
+//     $('#tutorial6').toggleClass('hide')
+//     $('#bagian6').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout6);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian6').toggleClass('hide')
+//         $('#tutorial7').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout6*miliseconds)
+// })
+
+// $('#selesaiTutorial7').on('click', function(){
+//     $('#tutorial7').toggleClass('hide')
+//     $('#bagian7').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout7);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian7').toggleClass('hide')
+//         $('#tutorial8').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout7*miliseconds)
+// })
+
+// $('#selesaiTutorial8').on('click', function(){
+//     $('#tutorial8').toggleClass('hide')
+//     $('#bagian8').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout8);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian8').toggleClass('hide')
+//         $('#tutorial9_hafal').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//         $('#tutorial9_hafal1').toggleClass('hide')
+//     }, timeout8*miliseconds)
+// })
+// $('#mulaiHafal1').on('click',function(){
+//     $('#tutorial9_hafal1').toggleClass('hide')
+//     $('#tutorial9_hafal2').toggleClass('hide')
+//     var timer = new CountDownTimer(timeoutTutorial9);
+//     timer.onTick(format).start();
+//     $('#time').toggleClass('hide')
+//     setTimeout(() => {
+//         $('#tutorial9_hafal2').toggleClass('hide')
+//         $('#tutorial9').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeoutTutorial9*miliseconds)
+// })
+
+// $('#selesaiTutorial9').on('click', function(){
+//     $('#tutorial9').toggleClass('hide')
+//     $('#bagian9').toggleClass('hide')
+//     $('#time').toggleClass('hide')
+//     var timer = new CountDownTimer(timeout9);
+//     timer.onTick(format).start();
+//     setTimeout(() => {
+//         $('#bagian9').toggleClass('hide')
+//         $('#submit').toggleClass('hide')
+//         $(this).toggleClass('hide')
+//         $('#time').toggleClass('hide')
+//     }, timeout9*miliseconds)
+// })
+
 $('#selesaiTutorial1').on('click', function(){
     $('#tutorial1').toggleClass('hide')
     $('#bagian1').toggleClass('hide')
@@ -233,6 +373,8 @@ $('form').on('submit',function(e){
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)
+            alert('Ada kendala dengan server, mohon diisi ulang')
+            window.location.replace('/psikotes/masuk_test/ist')
         } })
 })
 

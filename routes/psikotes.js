@@ -37,7 +37,13 @@ router.get('/',(req,res,next)=>{
 
 router.get('/*', (req,res,next)=>{
     if(!req.session.user){
-        res.redirect('/psikotes')
+        // connection.query('delete from psikotes where ist_resul = "" and disc_result = ""',(err,rows)=>{
+        //     if(err){
+        //         next(err)
+        //     } else {
+                res.redirect('/psikotes')
+        //     }
+        // })
     } else{
         next()
     }
@@ -148,7 +154,7 @@ router.post('/disc_test', upload.none(),
         } else{
             
             // // Cant work for some reason
-            var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
+            var filename = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
             
             XlsxPopulate.fromFileAsync(path.join(__dirname, '..', "Software DISC.xlsx"))
             .then(workbook=>{

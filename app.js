@@ -6,6 +6,15 @@ var logger = require('morgan');
 var session = require('express-session')
 const nocache = require("nocache");
 var GroupDocs = require('groupdocs-conversion-cloud');
+const MSSQLStore = require('connect-mssql-v2');
+
+const config = {
+  user: 'auddii',
+  password: 'auddii98',
+  server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
+  port: 3600,
+  database: 'absenrajawali',
+};
 // const { check, matchedData,  validationResult } = require('express-validator');
 var phpExpress = require('php-express')({
   binPath: 'php'
@@ -30,6 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(nocache());
 app.use(session({
+  // store: new MSSQLStore(config), // options are optional
   secret: 'secret-key',
   resave: false,
   saveUninitialized: false,
@@ -37,7 +47,6 @@ app.use(session({
     maxAge: 1000  *     60     *   30 
   }
 }));
-
 // app.use(validationResult)
 // app.use(check)
 // app.use(matchedData)
@@ -74,26 +83,5 @@ app.use(function(err, req, res, next) {
 
   // render the error page
 });
-
-"use strict";
-class Conversion_Node_Upload_File {
-	static Run() {
-
-		// Open file in IOStream from local/disc.
-		var resourcesFolder = path.join(__dirname, '..', 'disc.xlsx');
-		fs.readFile(resourcesFolder, (err, fileStream) => {
-
-			var request = new groupdocs_conversion_cloud_1.UploadFileRequest("conversions/disc.xlsx", fileStream, myStorage);
-			fileApi.uploadFile(request)
-				.then(function (response) {
-					console.log("Expected response type is FilesUploadResult: " + response.uploaded.length);
-				})
-				.catch(function (error) {
-					console.log("Error: " + error.message);
-				});
-		});
-	}
-}
-module.exports = Conversion_Node_Upload_File;
 
 module.exports = app;

@@ -21,6 +21,8 @@ $('form').on('submit',function(e){
         },
         error:(data, textStatus, jqXHR)=>{
             console.error('Error:', textStatus)
+            alert('Ada kendala dengan server, mohon diisi ulang')
+            window.location.replace('/psikotes/masuk_test/disc')
         } })
 })
 
