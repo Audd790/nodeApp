@@ -1,5 +1,11 @@
 # Absen Rajawali dan Psikotes   
 
+### Project Architecture  
+
+Berupa projek node JS menggunakan express framework dan mengikuti struktur file default dari express.  
+
+User dapat input form izin/absen/cuti dan mengikuti psikotes.
+
 ### Requirements  
 - node.js versi 4.x.x  
 - mysql versi 8.x.x  
