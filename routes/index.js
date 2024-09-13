@@ -2,16 +2,8 @@ var express = require('express');
 var router = express.Router();
 const multer  = require('multer')
 var path = require('path');
-const fs = require('node:fs');
 const { check, matchedData, validationResult } = require('express-validator');
 const upload = multer({ dest: 'uploads/' })
-const axios = require('axios');
-var XLSX = require("xlsx");
-const XlsxPopulate = require('xlsx-populate');
-var GroupDocs = require('groupdocs-conversion-cloud');
-
-//Buat parse dan format tanggal lahir dari user
-const date = new Date();
 
 // membuat instansi database
 const mysql = require('mysql2')
