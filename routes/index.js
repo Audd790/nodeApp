@@ -116,12 +116,6 @@ router.get('/logout', (req,res,next)=>{
   })
 })
 
-router.get('/downloadExcel', function(req, res){
-  const file = path.join(__dirname, '..', 'disc.xlsx');
-  res.download(file); // Set disposition and send it.
-  // res.redirect('/kehadiran/info/formAbsen')
-});
-
 router.get('/downloadSuratDokter/:id', check('id').trim().notEmpty().escape(),function(req, res){
   var que_result;
   var sql = 'select surat_dokter from sakit where id = ?'
