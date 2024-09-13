@@ -30,10 +30,9 @@ const connection = mysql.createConnection({
   database: 'absenrajawali'
 })
 
-var date = "";
 var que_result;
-var arr = [];
 
+//Set bahasa nama bulan menjadi bahasa indonesia
 router.all('/*', function(req, res, next){
     connection.query('set lc_time_names="id_ID"',(err,rows)=>{
         if(err) next(err)
@@ -66,7 +65,8 @@ router.get('/getIzin',(req,res,next)=>{
         }
     })
 })
-let cuti
+
+//ambil c
 router.get('/syncCuti',(req, res, next)=>{
     var sql = 'select * from cuti where nama = ?'
     var values = req.session.user;
@@ -80,8 +80,8 @@ router.get('/syncCuti',(req, res, next)=>{
     })
 })
 
+//ambil cuti untuk semua karyawan, buat cuti bersama
 router.post('/ambilCuti',(req, res, next)=>{
-    // console.log(req.body.jumlahCuti)
     var jumlah_cuti = req.body.jumlahCuti
     var n_0 = jumlah_cuti
     var diff1 = (cuti.n_2-jumlah_cuti)
@@ -113,7 +113,7 @@ router.post('/ambilCuti',(req, res, next)=>{
         res.send({sql:[], err: 'Gak bisa ambil cuti'})
     }
 })
-
+//get jumlah cuti yang bisa dibawa ke tahun depan
 router.get('/getMaxCarry',(req,res,next)=>{
     var sql = 'select * from maxCuti'
     connection.query(sql, (err, rows)=>{
@@ -124,7 +124,7 @@ router.get('/getMaxCarry',(req,res,next)=>{
         }
     })
 })
-
+//set jumlah cuti yang bisa dibawa ke tahun depan
 router.post('/setMaxCarry', 
     check('maxCuti').trim().notEmpty().escape()
     ,(req,res,next)=>{
@@ -145,15 +145,6 @@ router.post('/setMaxCarry',
                 }
             })
         }
-        // sql = 'update cuti set n_1 = ?, n_2 = ? where n_1 > ? and n_2 > ?'
-        // values = [max,max,max,max]
-        // connection.query(sql, values, (err, rows)=>{
-        //     if(err){
-        //         next(err)
-        //     } else{
-        //         console.log({sql: rows}) 
-        //     }
-        // })
 })
 
 router.get('/formAbsen', (req,res)=>{
@@ -272,6 +263,7 @@ check('ket').trim().notEmpty().escape(), (req,res,next)=>{
     res.send({result: 'success'})
 })
 
+//untuk popup list nama karyawan.
 router.get('/namaKaryawan', upload.none(), function(req, res, next){
     var sql = "select nama from user"
     var values = [req.body.date]
@@ -286,7 +278,7 @@ router.get('/namaKaryawan', upload.none(), function(req, res, next){
             res.send({sql: que_result, empty: que_result.length == 0})
     })
 });
-
+//ambil file yang diupload ketika mengajukan izin
 router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
     var sql = "select id,nama from izinkaryawan order by nama "
     connection.query(sql, (err, rows, fields)=>{
@@ -407,10 +399,6 @@ check('status').trim().notEmpty().escape(),(req, res)=>{
     })
 })
 
-router.get('carry_over',(req, res)=>{
-    res.render('carry_over')
-})
-
 router.get('/plafon_cuti',(req,res)=>{
     var sql = 'select * from cuti where nama = ?';
     var values = [req.session.user]
@@ -504,6 +492,8 @@ router.get('/getSurat/:id',(req,res,next)=>{
         }
     })
 })
+
+//buat HRD
 router.get('/psikotes',(req,res)=>{
     res.render('psikotes/lihat_user_psikotes', {role: req.session.id})
 })
