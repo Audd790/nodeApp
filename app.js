@@ -21,7 +21,7 @@ var phpExpress = require('php-express')({
 });
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// var usersRouter = require('./routes/users');
 var iGraphRouter = require('./routes/kehadiran');
 var izinRouter = require('./routes/izin');
 var psikotesRouter = require('./routes/psikotes');
@@ -53,7 +53,6 @@ app.use(session({
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/kehadiran', iGraphRouter);
 app.use('/izin', izinRouter);
 app.use('/psikotes', psikotesRouter)
