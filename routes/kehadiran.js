@@ -315,6 +315,7 @@ router.post('/chart/getChartData', upload.none(),function (req, res) {
 router.get('/psikotes',(req,res)=>{
     res.render('psikotes/lihat_user_psikotes')
 })
+
 router.get('/getIST',(req,res,next)=>{
     var sql = 'select * from ist where ist_result not in ("")'
     connection.query(sql,(err,rows)=>{
@@ -325,6 +326,7 @@ router.get('/getIST',(req,res,next)=>{
         }
     })
 })
+
 router.get('/getDISC',(req,res,next)=>{
     var sql = 'select * from disc where disc_result not in ("")'
     connection.query(sql,(err,rows)=>{
