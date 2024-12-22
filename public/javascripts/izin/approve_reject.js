@@ -12,6 +12,7 @@ window.onclick = function(event) {
 span.onclick = function() {
     modal.style.display = "none";
 }
+
 $('[name="approve"]').click(function(){
     var date = new Date
     modal.style.display = "block";
@@ -43,6 +44,7 @@ $('#form').on('submit',function(e){
     if(value !== 'reject' && value !== 'approve'){
         xhr.open('POST','what',true)
     }
+    
     xhr.onreadystatechange = function () {
         if(xhr.readyState === XMLHttpRequest.DONE){
             if (xhr.status === 200) {

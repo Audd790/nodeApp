@@ -14,52 +14,36 @@ const month = ['Januari',
     'Oktober',
     'November',
     'Desember']
+
 const karyawanChart = new Chart(karyawanctx, {
     type: 'bar',
     data: {
         labels: month.slice(0, currDate.getMonth()+1),
-        datasets: [{
-            label: 'Total Menit telat setiap bulan'
-        }]
+        datasets: [{label: 'Total Menit telat setiap bulan'}]
     },
     options: {
         maintainAspectRatio: false,
-        layout: {
-            padding: 30
-        },
+        layout: {padding: 30},
         plugins: {
-            colors: {
-                forceOverride: true
-            },
+            colors: {forceOverride: true },
             legend:{
                 labels:{
-                    font:{
-                        size:14
-                        
-                    }
-                }
-            }
-            // customValue: {
-            //   name: 'ROI',
-            // }
-        },
+                    font:{size:14}} }},
         scales: {
-            x: {
-                beginAtZero: true,
-            },
-            y: {
-                beginAtZero: true
-            }
+            x: {beginAtZero: true,},
+            y: {beginAtZero: true}
         }
     }
 
 });
+
 window.addEventListener('beforeprint', () => {
     karyawanChart.resize(600, 600);
-  });
-  window.addEventListener('afterprint', () => {
+});
+window.addEventListener('afterprint', () => {
     karyawanChart.resize();
-  });
+});
+
 $.ajax({
     url : "palingTelat",
     type: "GET",

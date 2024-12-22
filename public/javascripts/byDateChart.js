@@ -23,9 +23,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     }
                 }
             }
-            // customValue: {
-            //   name: 'ROI',
-            // }
         },
         scales: {
             x: {
@@ -36,6 +33,5 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     }
-
     });
 })

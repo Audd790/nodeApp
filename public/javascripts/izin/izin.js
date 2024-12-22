@@ -30,9 +30,6 @@ document.addEventListener('DOMContentLoaded'
             while (info_content.hasChildNodes) {
                 info_content.removeChild(info_content.firstChild)
             }
-
-            
-
             for (let i = 0; i < list.length; i++) {
                 list[i].style.display = 'block';
                 list[i].classList = 'show container2';

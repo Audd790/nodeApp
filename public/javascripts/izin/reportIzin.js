@@ -13,6 +13,7 @@ table1.hide()
 filter1.hide()
 table3.hide()
 filter3.hide()
+
 var inputKaryawan = document.getElementById("karyawan")
 if(inputKaryawan !== null){
     const xhr = new XMLHttpRequest
@@ -36,6 +37,7 @@ if(inputKaryawan !== null){
     // window.location.href = 'http://localhost:3000';
     xhr.send();
 }
+
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/

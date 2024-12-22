@@ -1,6 +1,7 @@
 $.ajax({
     url : "/psikotes/getPsikotesResults",
     type: "GET",
+
     success: (data, textStatus, jqXHR)=>{
         console.log(data);
         for(i=0;i<data.length;i++){
@@ -26,6 +27,7 @@ $.ajax({
             }
             $('#'+data[i].id).append('<td><button id="'+ data[i].nama +'" name="deletePsikotes" type="button">Delete</button></td>')
         }
+
         $('button[name="deletePsikotes"]').click(function(){
             console.log('click')
             var id = $(this).attr('id')
@@ -52,9 +54,11 @@ $.ajax({
             window.location.href = '/psikotes/getIstResults/'+id
         })
     },
+
     error:(data, textStatus, jqXHR)=>{
         console.error('Error:', textStatus)
-    } })
+    } 
+})
 
 function getDiscResult(){
     $('')

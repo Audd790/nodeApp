@@ -10,7 +10,8 @@ $.ajax({
             $('#table_ist').append('<tr> '+
                 '<td>'+data[i].nama+'</td>'+
                 '<td>'+data[i].jenis_kelamin+'</td>'+
-                '<td>'+date.getDate()+' '+ date.toLocaleString('default', { month: 'long' })+ ', '+ date.getFullYear() +'</td>'+
+                '<td>'+date.getDate()+' '+ date.toLocaleString('default', { month: 'long' })+ ', '+ 
+                date.getFullYear() +'</td>'+
                 '<td>'+data[i].pend_terakhir+'</td>'+
                 '<td><button id="'+ data[i].nama +'" name="getFileIst" type="button">Download</button></td>'+'</tr>')
         }
