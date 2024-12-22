@@ -143,18 +143,17 @@ router.post('/disc_test', upload.none(),
     check('most22').notEmpty().escape(),check('least22').notEmpty().escape(), 
     check('most23').notEmpty().escape(),check('least23').notEmpty().escape(), 
     check('most24').notEmpty().escape(),check('least24').notEmpty().escape(),async (req, res, next)=>{
-        console.log(req.session.user)
+
         if(!req.session.user){
             res.redirect('/masuk_test/disc')
         }
+
         const date = new Date
         const result = validationResult(req);
         if(result.errors.length > 0){
             res.send({result:'tolong isi sampai selesai', err: result.errors})
+
         } else{
-            
-            // // Cant work for some reason
-            var filename = date.getDate()+'-'+(date.getMonth()+1)+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'disc_test_'+req.session.user
             
             XlsxPopulate.fromFileAsync(path.join(__dirname, '..', "Software DISC.xlsx"))
             .then(workbook=>{
@@ -164,52 +163,7 @@ router.post('/disc_test', upload.none(),
                     workbook.sheet('DISC Test').cell(values[i]).value('x')
                     
                 }
-
-                // for(i=12;i<=54;i = i+6){
-                //     console.log(i)
-                //     workbook.sheet('DISC Test').row(i).hidden(true)
-                // }
-                // workbook.sheet('DISC Test').column('C').hidden(true)
-                // workbook.sheet('DISC Test').column('E').hidden(true)
-                // workbook.sheet('DISC Test').column('J').hidden(true)
-                // workbook.sheet('DISC Test').column('L').hidden(true)
-                // workbook.sheet('DISC Test').column('Q').hidden(true)
-                // workbook.sheet('DISC Test').column('S').hidden(true)
-                // // workbook.sheet('DISC Test').range('D2:G6').merged(true)
-                // var pindah = 29
-                // pindahBarisCell('B', 42, pindah, workbook.sheet('Result'))
-                // pindahBarisCell('B', 43, pindah, workbook.sheet('Result'))
-                // pindahBarisCell('L', 43, pindah, workbook.sheet('Result'))
-
-                // workbook.sheet('Result').range('B42:J42').merged(false)
-                // workbook.sheet('Result').range('B43:J43').merged(false)
-                // workbook.sheet('Result').range('L42:T42').merged(false)
-                // workbook.sheet('Result').range('B59:L59').merged(false)
-                // workbook.sheet('Result').range('B77:T83').merged(false)
-                // workbook.sheet('Result').range('B86:T89').merged(false)
-                // for(i=44;i<=56;i++){ 
-                //     workbook.sheet('Result').range('B'+ i +':J'+ i +'').merged(false)
-                //     pindahBarisFormula('B', i, pindah, workbook.sheet('Result'))
-                //     workbook.sheet('Result').range('B'+ (i-pindah) +':J'+ (i-pindah) +'').merged(true)
-
-                //     workbook.sheet('Result').range('L'+ i +':T'+ i +'').merged(false)
-                //     pindahBarisFormula('L', i, pindah, workbook.sheet('Result'))
-                //     workbook.sheet('Result').range('L'+ (i-pindah) +':T'+ (i-pindah) +'').merged(true)
-                // }
-
-                // pindahBarisCell('B', 59, pindah, workbook.sheet('Result'))
-
-                // for(i=60;i<=72;i++){
-                //     workbook.sheet('Result').range('B'+ i +':J'+ i +'').merged(false)
-                //     pindahBarisFormula('B', i, pindah, workbook.sheet('Result'))
-                //     workbook.sheet('Result').range('B'+ (i-pindah) +':J'+ (i-pindah) +'').merged(true)
-                // }
-                // pindahBarisCell('C', 76, pindah, workbook.sheet('Result'))
-                // pindahKolomCell('C', 76-pindah, 1, workbook.sheet('Result'))
-                // pindahBarisFormula('B', 77, pindah, workbook.sheet('Result'))
-                // pindahBarisCell('C', 85, pindah, workbook.sheet('Result'))
-                // pindahKolomCell('C', 85-pindah, 1, workbook.sheet('Result'))
-                // pindahBarisFormula('B', 86, pindah, workbook.sheet('Result'))
+    
                 return workbook.toFileAsync(path.join(__dirname, '..', 'files', filename+".xlsx"))
             }).then(response=>{
                 var values = [filename, req.session.user]
@@ -254,9 +208,12 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
     if(!req.session.user){
         res.redirect('/masuk_test/ist')
     }
+
     var values = Object.entries(req.body)
     // console.log(values)
-    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+'-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'ist_test_'+req.session.user
+    var filename = date.getDate()+'-'+date.getMonth()+'-'+date.getFullYear()+
+    '-'+date.getHours()+'-'+date.getMinutes()+'-'+date.getSeconds() +'-' +'ist_test_'+req.session.user
+
     XlsxPopulate.fromFileAsync(path.join(__dirname, '..', 'IST_Norma_Pendidikan.xlsx'),{ password: "gitpsy0001" })
     .then(workbook=>{
         for(i=0;i<76;i++){
@@ -292,6 +249,7 @@ router.post('/ist_test', upload.none(), (req, res, next)=>{
     })
     
 })
+
 router.get('/getPsikotesResults',(req,res,next)=>{
     var sql = 'select * from psikotes'
     connection.query(sql,(err,rows)=>{
