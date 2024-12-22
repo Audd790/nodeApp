@@ -278,6 +278,7 @@ router.get('/namaKaryawan', upload.none(), function(req, res, next){
             res.send({sql: que_result, empty: que_result.length == 0})
     })
 });
+
 //ambil file yang diupload ketika mengajukan izin
 router.post('/namaKaryawanSurat', upload.none(), function(req, res, next){
     var sql = "select id,nama from izinkaryawan order by nama "
@@ -306,7 +307,10 @@ router.get('/reportIzinKaryawan',(req, res,next)=>{
 })
 
 router.get('/reportIzinKaryawanAll',(req, res,next)=>{
-    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status, jumlah_cuti from izinkaryawan a join cuti b on a.nama=b.nama order by status, a.nama, tgl_izin'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit,'+ 
+    'startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, '+
+    'monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_status, '+
+    'jumlah_cuti from izinkaryawan a join cuti b on a.nama=b.nama order by status, a.nama, tgl_izin'
     connection.query(sql, (err, rows, fields)=>{
         if(err){
             next(err)
@@ -318,7 +322,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
                 tmp.push(que_result[k].tahun)   
             }
             var years = uniq_fast(tmp)
-            console.log(years)
+            
             var alasanWithoutHoles = new Array
             for(h=0;h<years.length;h++){
                 alasanTable[h] = []
@@ -336,6 +340,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 alasanWithoutHoles[i] = alasanTable[i].filter(item => { return item.length > 0 })
             }
+
             var tablesWithHoles = new Array
             for(k=0;k<que_result.length;k++){
                 tmp.push(que_result[k].tahun)   
@@ -358,6 +363,7 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 tablesWithoutHoles[i] = tablesWithHoles[i].filter(item => { return item.length > 0 })
             }
+
             var tablesMonthsWithHoles = new Array
             for(h=0;h<years.length;h++){
                 tablesMonthsWithHoles[h] = []
@@ -375,7 +381,9 @@ router.get('/reportIzinKaryawanAll',(req, res,next)=>{
             for(i=0;i<years.length;i++){
                 tablesMonthsWithoutHoles[i] = tablesMonthsWithHoles[i].filter(item => { return item.length > 0 })
             }
-            res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlStatus: alasanWithoutHoles, sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
+
+            res.render('view_data/izin/reportIzinKaryawan', {chache: true, thn: years, sqlStatus: alasanWithoutHoles, 
+                sqlIzin: tablesWithoutHoles, sqlMonths: tablesMonthsWithoutHoles, role: req.session.role_id, nama: req.session.user})
         }
     })
 })
@@ -421,7 +429,10 @@ router.get('/reportIzinKaryawanApprove', (req,res,next)=>{
         header_text= 'Report Izin Semua Karyawan'
     }
     var month = ['Januari', 'Febuari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember']
-    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin, jumlah_cuti from izinkaryawan a join user b on a.nama = b.nama join cuti c on a.nama = c.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    var sql = 'select id, hari as jumlah_hari, alasan, a.nama, startMenit, startJam, endMenit, endJam, day(tgl_izin) as hari, '+
+    'month(tgl_izin) as bulan, monthname(tgl_izin) as bulanNama, year(tgl_izin) as tahun, surat, status, ket_izin, '+
+    'jumlah_cuti from izinkaryawan a join user b on a.nama = b.nama join cuti c on a.nama = c.nama where status not in (2,3) and b.divisi = ? order by tahun, bulan;'
+    
     connection.query(sql, [req.session.divisi],(err,rows)=>{
         if(err){
             next(err)

@@ -19,15 +19,6 @@ router.get('/', function(req, res, next) {
   if(!req.session.user) next();
   else res.redirect('/kehadiran')
 }, async (req, res, next)=>{
-  // XlsxPopulate.fromFileAsync(path.join(__dirname, '..', 'IST_Norma_Pendidikan.xlsx'),{ password: "gitpsy0001" })
-  //   .then(workbook=>{
-  //       workbook.sheet("Input").cell("C18").value('e');
-  //           // Log the value.
-  //       return workbook.toFileAsync(path.join(__dirname, '..', "out.xlsx"));
-  //   })
-  //   .catch(reason=>{
-  //       console.log( reason)
-  //   })
   res.render('index')
 });
 
